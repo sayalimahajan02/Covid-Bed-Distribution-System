@@ -5,6 +5,8 @@
  */
 package Business.Driver;
 
+import Business.Hospital.Hospital;
+
 /**
  *
  * @author sayalimahajan

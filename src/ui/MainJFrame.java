@@ -11,6 +11,8 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -29,7 +31,13 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        firstpage.setVisible(true);
+        container.setVisible(false);
+        registerDetails.setVisible(false);
+        loginPanel.setVisible(false);
         this.setSize(1680, 1050);
+        getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+
     }
 
     /**
@@ -41,18 +49,124 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
+        firstpage = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        loginBtn = new javax.swing.JButton();
+        registerBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        container = new javax.swing.JPanel();
+        loginPanel = new javax.swing.JPanel();
         loginJButton = new javax.swing.JButton();
         userNameJTextField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         loginJLabel = new javax.swing.JLabel();
         logoutJButton = new javax.swing.JButton();
-        container = new javax.swing.JPanel();
+        backBtn = new javax.swing.JButton();
+        registerDetails = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        patientBtn = new javax.swing.JButton();
+        hospitalBtn = new javax.swing.JButton();
+        ambulanceBtn = new javax.swing.JButton();
+        ngoBtn = new javax.swing.JButton();
+        privateDriverBtn = new javax.swing.JButton();
+        campBtn = new javax.swing.JButton();
+        backBtn2 = new javax.swing.JButton();
+        ngoBtn1 = new javax.swing.JButton();
+        ngoBtn2 = new javax.swing.JButton();
+        ngoBtn3 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        firstpage.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel4.setText("COVID BED DISTRIBUTION SYSTEM");
+
+        loginBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
+
+        registerBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        registerBtn.setText("Register");
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel1.setText("Already registered? Login here");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel2.setText("New User? Please register");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\hospitalbedicon.png")); // NOI18N
+        jLabel3.setText("  ");
+
+        javax.swing.GroupLayout firstpageLayout = new javax.swing.GroupLayout(firstpage);
+        firstpage.setLayout(firstpageLayout);
+        firstpageLayout.setHorizontalGroup(
+            firstpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(firstpageLayout.createSequentialGroup()
+                .addGroup(firstpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(firstpageLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel3)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel4))
+                    .addGroup(firstpageLayout.createSequentialGroup()
+                        .addGap(302, 302, 302)
+                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(firstpageLayout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(jLabel1))
+                    .addGroup(firstpageLayout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(jLabel2))
+                    .addGroup(firstpageLayout.createSequentialGroup()
+                        .addGap(304, 304, 304)
+                        .addComponent(registerBtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        firstpageLayout.setVerticalGroup(
+            firstpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(firstpageLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(firstpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(loginBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(registerBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(firstpage, java.awt.BorderLayout.CENTER);
+
+        container.setBackground(new java.awt.Color(255, 255, 255));
+        container.setForeground(new java.awt.Color(255, 255, 255));
+        container.setPreferredSize(new java.awt.Dimension(1338, 840));
+        container.setLayout(new java.awt.CardLayout());
+        getContentPane().add(container, java.awt.BorderLayout.PAGE_START);
 
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -61,9 +175,9 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("User Name");
+        jLabel5.setText("User Name");
 
-        jLabel2.setText("Password");
+        jLabel6.setText("Password");
 
         logoutJButton.setText("Logout");
         logoutJButton.setEnabled(false);
@@ -73,34 +187,42 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        backBtn.setText("<< Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
+        loginPanel.setLayout(loginPanelLayout);
+        loginPanelLayout.setHorizontalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(userNameJTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginPanelLayout.createSequentialGroup()
                             .addComponent(logoutJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                             .addGap(26, 26, 26)
                             .addComponent(loginJLabel)))
-                    .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backBtn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        loginPanelLayout.setVerticalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel1)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(jLabel2)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -109,18 +231,227 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(logoutJButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginJLabel)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(backBtn)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        getContentPane().add(loginPanel, java.awt.BorderLayout.PAGE_END);
 
-        container.setLayout(new java.awt.CardLayout());
-        jSplitPane1.setRightComponent(container);
+        registerDetails.setBackground(new java.awt.Color(255, 255, 255));
 
-        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 26)); // NOI18N
+        jLabel8.setText("Please Register");
+
+        patientBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        patientBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\patient1.jpg")); // NOI18N
+        patientBtn.setText("Patient");
+        patientBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patientBtnActionPerformed(evt);
+            }
+        });
+
+        hospitalBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        hospitalBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\hospitalicon.png")); // NOI18N
+        hospitalBtn.setText("Hospital Admin");
+        hospitalBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hospitalBtnActionPerformed(evt);
+            }
+        });
+
+        ambulanceBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        ambulanceBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ambulance3.png")); // NOI18N
+        ambulanceBtn.setText("Ambulance Driver");
+        ambulanceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ambulanceBtnActionPerformed(evt);
+            }
+        });
+
+        ngoBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        ngoBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ngo2icon.png")); // NOI18N
+        ngoBtn.setText("Patient Care Staff");
+        ngoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ngoBtnActionPerformed(evt);
+            }
+        });
+
+        privateDriverBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        privateDriverBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\privatedrivericon.png")); // NOI18N
+        privateDriverBtn.setText("Private Driver");
+
+        campBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        campBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\campsiteicon.png")); // NOI18N
+        campBtn.setText("Camp Site Admin");
+
+        backBtn2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        backBtn2.setText("<<Back");
+        backBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtn2ActionPerformed(evt);
+            }
+        });
+
+        ngoBtn1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        ngoBtn1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ngo2icon.png")); // NOI18N
+        ngoBtn1.setText("NGO Admin");
+        ngoBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ngoBtn1ActionPerformed(evt);
+            }
+        });
+
+        ngoBtn2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        ngoBtn2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ngo2icon.png")); // NOI18N
+        ngoBtn2.setText("Driver Authorization Admin");
+        ngoBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ngoBtn2ActionPerformed(evt);
+            }
+        });
+
+        ngoBtn3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        ngoBtn3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ngo2icon.png")); // NOI18N
+        ngoBtn3.setText("Patient Authorization Admin");
+        ngoBtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ngoBtn3ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setText("Hospital");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setText("Voluntary");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel11.setText("Transportation");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("Authorization");
+
+        javax.swing.GroupLayout registerDetailsLayout = new javax.swing.GroupLayout(registerDetails);
+        registerDetails.setLayout(registerDetailsLayout);
+        registerDetailsLayout.setHorizontalGroup(
+            registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registerDetailsLayout.createSequentialGroup()
+                .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(registerDetailsLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(patientBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(hospitalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ngoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(registerDetailsLayout.createSequentialGroup()
+                        .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(registerDetailsLayout.createSequentialGroup()
+                                .addGap(133, 133, 133)
+                                .addComponent(ngoBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ambulanceBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ngoBtn2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(18, 18, 18)
+                        .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(privateDriverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ngoBtn3))))
+                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(registerDetailsLayout.createSequentialGroup()
+                .addGap(323, 323, 323)
+                .addComponent(jLabel10)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
+                        .addComponent(backBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(298, 298, 298))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(257, 257, 257))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(287, 287, 287))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(318, 318, 318))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(292, 292, 292))))
+        );
+        registerDetailsLayout.setVerticalGroup(
+            registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registerDetailsLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel8)
+                .addGap(41, 41, 41)
+                .addComponent(jLabel9)
+                .addGap(28, 28, 28)
+                .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(patientBtn)
+                    .addComponent(hospitalBtn)
+                    .addComponent(ngoBtn))
+                .addGap(15, 15, 15)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campBtn)
+                    .addComponent(ngoBtn1))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(privateDriverBtn)
+                    .addComponent(ambulanceBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(26, 26, 26)
+                .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ngoBtn2)
+                    .addComponent(ngoBtn3))
+                .addGap(75, 75, 75)
+                .addComponent(backBtn2)
+                .addGap(40, 40, 40))
+        );
+
+        getContentPane().add(registerDetails, java.awt.BorderLayout.LINE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        // TODO add your handling code here       
+        LoginJPanel j = new LoginJPanel(this, system, dB4OUtil);
+        firstpage.setVisible(false);
+        container.setVisible(false);
+        registerDetails.setVisible(false);
+        loginPanel.setVisible(true);
+        container.add("workArea", j);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        // TODO add your handling code here:
+        RegisterJPanel j = new RegisterJPanel(this, system, dB4OUtil);
+        firstpage.setVisible(false);
+        container.setVisible(false);
+        registerDetails.setVisible(true);
+        loginPanel.setVisible(false);
+        container.add("workArea", j);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+    }//GEN-LAST:event_registerBtnActionPerformed
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
@@ -128,55 +459,53 @@ public class MainJFrame extends javax.swing.JFrame {
         // Get Password
         char[] passwordCharArray = passwordField.getPassword();
         String password = String.valueOf(passwordCharArray);
-        
+
         //Step1: Check in the system admin user account directory if you have the user
-        UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
-        
-        Enterprise inEnterprise=null;
-        Organization inOrganization=null;
-        
-        if(userAccount==null){
+        UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
+
+        Enterprise inEnterprise = null;
+        Organization inOrganization = null;
+
+        if (userAccount == null) {
             //Step 2: Go inside each network and check each enterprise
-            for(Network network:system.getNetworkList()){
+            for (Network network : system.getNetworkList()) {
                 //Step 2.a: check against each enterprise
-                for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
-                    userAccount=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
-                    if(userAccount==null){
-                       //Step 3:check against each organization for each enterprise
-                       for(Organization organization:enterprise.getOrganizationDirectory().getOrganizationList()){
-                           userAccount=organization.getUserAccountDirectory().authenticateUser(userName, password);
-                           if(userAccount!=null){
-                               inEnterprise=enterprise;
-                               inOrganization=organization;
-                               break;
-                           }
-                       }
-                        
-                    }
-                    else{
-                       inEnterprise=enterprise;
-                       break;
-                    }
-                    if(inOrganization!=null){
+                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    userAccount = enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+                    if (userAccount == null) {
+                        //Step 3:check against each organization for each enterprise
+                        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                            userAccount = organization.getUserAccountDirectory().authenticateUser(userName, password);
+                            if (userAccount != null) {
+                                inEnterprise = enterprise;
+                                inOrganization = organization;
+                                break;
+                            }
+                        }
+
+                    } else {
+                        inEnterprise = enterprise;
                         break;
-                    }  
+                    }
+                    if (inOrganization != null) {
+                        break;
+                    }
                 }
-                if(inEnterprise!=null){
+                if (inEnterprise != null) {
                     break;
                 }
             }
         }
-        
-        if(userAccount==null){
+
+        if (userAccount == null) {
             JOptionPane.showMessageDialog(null, "Invalid credentials");
             return;
+        } else {
+            //CardLayout layout = (CardLayout) container.getLayout();
+            //container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, system));
+            //layout.next(container);
         }
-        else{
-            CardLayout layout=(CardLayout)container.getLayout();
-            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, system));
-            layout.next(container);
-        }
-        
+
         loginJButton.setEnabled(false);
         logoutJButton.setEnabled(true);
         userNameJTextField.setEnabled(false);
@@ -192,13 +521,57 @@ public class MainJFrame extends javax.swing.JFrame {
         userNameJTextField.setText("");
         passwordField.setText("");
 
-        container.removeAll();
+        //  container.removeAll();
         JPanel blankJP = new JPanel();
-        container.add("blank", blankJP);
-        CardLayout crdLyt = (CardLayout) container.getLayout();
-        crdLyt.next(container);
+        //  container.add("blank", blankJP);
+        // CardLayout crdLyt = (CardLayout) container.getLayout();
+        //  crdLyt.next(container);
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_logoutJButtonActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        firstpage.setVisible(true);
+        container.setVisible(false);
+        registerDetails.setVisible(false);
+        loginPanel.setVisible(false);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void patientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_patientBtnActionPerformed
+
+    private void hospitalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hospitalBtnActionPerformed
+
+    private void ambulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ambulanceBtnActionPerformed
+
+    private void ngoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ngoBtnActionPerformed
+
+    private void backBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtn2ActionPerformed
+        // TODO add your handling code here:
+        firstpage.setVisible(true);
+        container.setVisible(false);
+        registerDetails.setVisible(false);
+        loginPanel.setVisible(false);
+    }//GEN-LAST:event_backBtn2ActionPerformed
+
+    private void ngoBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ngoBtn1ActionPerformed
+
+    private void ngoBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ngoBtn2ActionPerformed
+
+    private void ngoBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtn3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ngoBtn3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,15 +608,38 @@ public class MainJFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ambulanceBtn;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JButton backBtn2;
+    private javax.swing.JButton campBtn;
     private javax.swing.JPanel container;
+    private javax.swing.JPanel firstpage;
+    private javax.swing.JButton hospitalBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton loginBtn;
     private javax.swing.JButton loginJButton;
     private javax.swing.JLabel loginJLabel;
+    private javax.swing.JPanel loginPanel;
     private javax.swing.JButton logoutJButton;
+    private javax.swing.JButton ngoBtn;
+    private javax.swing.JButton ngoBtn1;
+    private javax.swing.JButton ngoBtn2;
+    private javax.swing.JButton ngoBtn3;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton patientBtn;
+    private javax.swing.JButton privateDriverBtn;
+    private javax.swing.JButton registerBtn;
+    private javax.swing.JPanel registerDetails;
     private javax.swing.JTextField userNameJTextField;
     // End of variables declaration//GEN-END:variables
 }

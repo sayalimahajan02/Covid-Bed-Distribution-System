@@ -5,11 +5,26 @@
  */
 package ui.PatientRole;
 
+import Business.EcoSystem;
+import Business.Hospital.Patient;
+import Business.UserAccount.UserAccount;
+import Business.ValidationUtility;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import ui.RegisterJPanel;
+
 /**
  *
  * @author aishwarya
  */
 public class PatientRegistrationJPanel extends javax.swing.JPanel {
+    
+    private JPanel userProcessContainer;
+    private Patient patient;
+    private ValidationUtility validation;
+    private EcoSystem ecosystem;
 
     /**
      * Creates new form PatientRegistrationJPanel
@@ -27,19 +42,300 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtfname = new javax.swing.JTextField();
+        txtlname = new javax.swing.JTextField();
+        txtusername = new javax.swing.JTextField();
+        txtpassword = new javax.swing.JTextField();
+        txtphone = new javax.swing.JTextField();
+        txtemailid = new javax.swing.JTextField();
+        txtstreet = new javax.swing.JTextField();
+        txtcity = new javax.swing.JTextField();
+        txtzipcode = new javax.swing.JTextField();
+        btnregister = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+
+        setLayout(null);
+
+        jLabel1.setText("Create Account");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setName(""); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(320, 20, 143, 45);
+
+        jLabel2.setText("First Name:");
+        add(jLabel2);
+        jLabel2.setBounds(140, 100, 89, 23);
+
+        jLabel3.setText("Phone number:");
+        add(jLabel3);
+        jLabel3.setBounds(140, 270, 89, 23);
+
+        jLabel4.setText("Last Name:");
+        add(jLabel4);
+        jLabel4.setBounds(140, 140, 89, 23);
+
+        jLabel5.setText("Street:");
+        add(jLabel5);
+        jLabel5.setBounds(140, 350, 89, 23);
+
+        jLabel6.setText("Zipcode:");
+        add(jLabel6);
+        jLabel6.setBounds(140, 440, 89, 23);
+
+        jLabel8.setText("Email ID:");
+        add(jLabel8);
+        jLabel8.setBounds(140, 310, 89, 23);
+
+        jLabel9.setText("Username:");
+        add(jLabel9);
+        jLabel9.setBounds(140, 190, 89, 23);
+
+        jLabel10.setText("City:");
+        add(jLabel10);
+        jLabel10.setBounds(140, 400, 89, 23);
+
+        jLabel11.setText("Password:");
+        add(jLabel11);
+        jLabel11.setBounds(140, 230, 89, 23);
+
+        txtfname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfnameActionPerformed(evt);
+            }
+        });
+        add(txtfname);
+        txtfname.setBounds(280, 100, 220, 20);
+
+        txtlname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtlnameActionPerformed(evt);
+            }
+        });
+        add(txtlname);
+        txtlname.setBounds(280, 140, 220, 20);
+
+        txtusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtusernameActionPerformed(evt);
+            }
+        });
+        add(txtusername);
+        txtusername.setBounds(280, 190, 220, 20);
+
+        txtpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpasswordActionPerformed(evt);
+            }
+        });
+        add(txtpassword);
+        txtpassword.setBounds(280, 230, 220, 20);
+
+        txtphone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtphoneActionPerformed(evt);
+            }
+        });
+        add(txtphone);
+        txtphone.setBounds(280, 270, 220, 20);
+
+        txtemailid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemailidActionPerformed(evt);
+            }
+        });
+        add(txtemailid);
+        txtemailid.setBounds(280, 310, 220, 20);
+
+        txtstreet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtstreetActionPerformed(evt);
+            }
+        });
+        add(txtstreet);
+        txtstreet.setBounds(280, 350, 220, 20);
+
+        txtcity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcityActionPerformed(evt);
+            }
+        });
+        add(txtcity);
+        txtcity.setBounds(280, 400, 220, 20);
+
+        txtzipcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtzipcodeActionPerformed(evt);
+            }
+        });
+        add(txtzipcode);
+        txtzipcode.setBounds(280, 440, 220, 20);
+
+        btnregister.setText("Register");
+        btnregister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregisterActionPerformed(evt);
+            }
+        });
+        add(btnregister);
+        btnregister.setBounds(250, 510, 130, 30);
+
+        btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack);
+        btnBack.setBounds(60, 30, 80, 23);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfnameActionPerformed
+
+    private void txtlnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtlnameActionPerformed
+
+    private void txtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtusernameActionPerformed
+
+    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpasswordActionPerformed
+
+    private void txtphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtphoneActionPerformed
+
+    private void txtemailidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailidActionPerformed
+
+    private void txtstreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstreetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtstreetActionPerformed
+
+    private void txtcityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcityActionPerformed
+
+    private void txtzipcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtzipcodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtzipcodeActionPerformed
+
+    private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
+        // TODO add your handling code here:
+        
+        
+        if(txtfname.getText().isEmpty() || txtfname.getText().isEmpty() || txtusername.getText().isEmpty() ||
+                txtpassword.getText().isEmpty() || txtemailid.getText().isEmpty() || txtstreet.getText().isEmpty() ||
+                txtzipcode.getText().isEmpty() || txtcity.getText().isEmpty() || txtphone.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
+       
+        boolean flagfname = validation.isNameValid(txtfname.getText());
+        boolean flaglname = validation.isNameValid(txtlname.getText());
+      
+        
+        if(flagfname == false) {
+            JOptionPane.showMessageDialog(null, "First name cannot have integer values!");
+            return;
+        }
+        if(flaglname == false) {
+            JOptionPane.showMessageDialog(null, "Last name cannot have integer values!");
+            return;
+        }
+        
+        boolean flagusername = validation.isUserNameValid(txtusername.getText());
+        
+        if(flagusername == false) {
+            JOptionPane.showMessageDialog(null, "Username must be unique!");
+            return;
+        }
+        
+        boolean flagpassword = validation.isPasswordValid(txtpassword.getText());
+        
+        if(flagpassword == false) {
+            JOptionPane.showMessageDialog(null, "Password must have atleast a digit, a special symbol, uppercase and lowercase!");
+            return;
+        }
+        
+        boolean flagemailid = validation.isEmailAddressValid(txtemailid.getText());
+        
+        if(flagemailid == false) {
+            JOptionPane.showMessageDialog(null, "Check email address format!");
+            return;
+        }
+        
+        boolean flagzipcode = validation.isZipCodeValid(txtzipcode.getText());
+        
+        if(flagzipcode == false) {
+            JOptionPane.showMessageDialog(null, "Zipcode must have 5 digits only!");
+            return;
+        }
+        
+        boolean flagphonenumber = validation.isPhoneNumberValid(txtphone.getText());
+        
+        if(flagphonenumber == false) {
+            JOptionPane.showMessageDialog(null, "Zipcode must have 10 digits! Check the format!");
+            return;
+        }
+        
+        for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+            if(account.getUsername().equals(txtusername.getText())) {
+                JOptionPane.showMessageDialog(null, "Username Already exists!");
+                return;
+            }
+        }
+    }//GEN-LAST:event_btnregisterActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnregister;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtcity;
+    private javax.swing.JTextField txtemailid;
+    private javax.swing.JTextField txtfname;
+    private javax.swing.JTextField txtlname;
+    private javax.swing.JTextField txtpassword;
+    private javax.swing.JTextField txtphone;
+    private javax.swing.JTextField txtstreet;
+    private javax.swing.JTextField txtusername;
+    private javax.swing.JTextField txtzipcode;
     // End of variables declaration//GEN-END:variables
 }

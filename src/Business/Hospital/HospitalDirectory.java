@@ -29,9 +29,8 @@ public class HospitalDirectory {
         this.HospitalDirectory = HospitalDirectory;
     }
     
-    public Hospital addHospital(String name, String email, String phonenumber, String address, String username, int beds){
-        Hospital hospital = new Hospital(name, email, phonenumber, address, username, beds);
-        HospitalDirectory.add(hospital);
+    public Hospital addHospital(Hospital hospital){
+           HospitalDirectory.add(hospital);
         return hospital;
     }
     

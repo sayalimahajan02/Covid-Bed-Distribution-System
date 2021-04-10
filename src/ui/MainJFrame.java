@@ -15,6 +15,9 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import ui.AmbulanceDriverRole.AmbulanceDriverRegistrationJPanel;
+import ui.HospitalAdminRole.HospitalAdminRegistrationJPanel;
+import ui.PrivateDriverRole.PrivateDriverRegistrationJPanel;
 
 /**
  *
@@ -31,6 +34,9 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        
+        EcoSystem.setInstance(system);
+       
         firstpage.setVisible(true);
         container.setVisible(false);
         registerDetails.setVisible(false);
@@ -114,7 +120,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("New User? Please register");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\hospitalbedicon.png")); // NOI18N
         jLabel3.setText("  ");
 
         javax.swing.GroupLayout firstpageLayout = new javax.swing.GroupLayout(firstpage);
@@ -244,7 +249,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel8.setText("Please Register");
 
         patientBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        patientBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\patient1.jpg")); // NOI18N
         patientBtn.setText("Patient");
         patientBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,7 +257,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         hospitalBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        hospitalBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\hospitalicon.png")); // NOI18N
         hospitalBtn.setText("Hospital Admin");
         hospitalBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,7 +265,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         ambulanceBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ambulanceBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ambulance3.png")); // NOI18N
         ambulanceBtn.setText("Ambulance Driver");
         ambulanceBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +273,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         ngoBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ngoBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ngo2icon.png")); // NOI18N
         ngoBtn.setText("Patient Care Staff");
         ngoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,11 +281,14 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         privateDriverBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        privateDriverBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\privatedrivericon.png")); // NOI18N
         privateDriverBtn.setText("Private Driver");
+        privateDriverBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                privateDriverBtnActionPerformed(evt);
+            }
+        });
 
         campBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        campBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\campsiteicon.png")); // NOI18N
         campBtn.setText("Camp Site Admin");
 
         backBtn2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -296,7 +300,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         ngoBtn1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ngoBtn1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ngo2icon.png")); // NOI18N
         ngoBtn1.setText("NGO Admin");
         ngoBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,7 +308,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         ngoBtn2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ngoBtn2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ngo2icon.png")); // NOI18N
         ngoBtn2.setText("Driver Authorization Admin");
         ngoBtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,7 +316,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         ngoBtn3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ngoBtn3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mukun\\OneDrive\\Documents\\Aishwarya NEU Docs\\AED FINAL PROJECT\\INFO5100_finalProject\\icons\\ngo2icon.png")); // NOI18N
         ngoBtn3.setText("Patient Authorization Admin");
         ngoBtn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -543,10 +544,21 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void hospitalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalBtnActionPerformed
         // TODO add your handling code here:
+        HospitalAdminRegistrationJPanel panel=new HospitalAdminRegistrationJPanel(container,system, dB4OUtil);
+        container.add("workArea", panel);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        container.setVisible(true);
     }//GEN-LAST:event_hospitalBtnActionPerformed
 
     private void ambulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceBtnActionPerformed
         // TODO add your handling code here:
+        AmbulanceDriverRegistrationJPanel panel=new AmbulanceDriverRegistrationJPanel(container,system, dB4OUtil);
+        container.add("workArea", panel);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        container.setVisible(true);
+                         
     }//GEN-LAST:event_ambulanceBtnActionPerformed
 
     private void ngoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtnActionPerformed
@@ -572,6 +584,15 @@ public class MainJFrame extends javax.swing.JFrame {
     private void ngoBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtn3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ngoBtn3ActionPerformed
+
+    private void privateDriverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_privateDriverBtnActionPerformed
+        // TODO add your handling code here:
+        PrivateDriverRegistrationJPanel panel=new PrivateDriverRegistrationJPanel(container,system, dB4OUtil);
+        container.add("workArea", panel);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        container.setVisible(true);
+    }//GEN-LAST:event_privateDriverBtnActionPerformed
 
     /**
      * @param args the command line arguments

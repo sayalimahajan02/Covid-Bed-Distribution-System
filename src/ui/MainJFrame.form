@@ -143,9 +143,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\hospitalbedicon.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="  "/>
           </Properties>
         </Component>
@@ -411,9 +408,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\patient1.jpg"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Patient"/>
           </Properties>
           <Events>
@@ -424,9 +418,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\hospitalicon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Hospital Admin"/>
           </Properties>
@@ -439,9 +430,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\ambulance3.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Ambulance Driver"/>
           </Properties>
           <Events>
@@ -452,9 +440,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\ngo2icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Patient Care Staff"/>
           </Properties>
@@ -467,19 +452,16 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\privatedrivericon.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Private Driver"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="privateDriverBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="campBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\campsiteicon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Camp Site Admin"/>
           </Properties>
@@ -500,9 +482,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\ngo2icon.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="NGO Admin"/>
           </Properties>
           <Events>
@@ -514,9 +493,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\ngo2icon.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Driver Authorization Admin"/>
           </Properties>
           <Events>
@@ -527,9 +503,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="16" style="1"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mukun\OneDrive\Documents\Aishwarya NEU Docs\AED FINAL PROJECT\INFO5100_finalProject\icons\ngo2icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Patient Authorization Admin"/>
           </Properties>

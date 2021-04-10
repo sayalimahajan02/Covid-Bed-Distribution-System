@@ -5,6 +5,7 @@
  */
 package ui.HospitalAdminRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Hospital.Patient;
 import Business.UserAccount.UserAccount;
@@ -32,8 +33,10 @@ public class HospitalAdminRegistrationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
-    public HospitalAdminRegistrationJPanel() {
+    public HospitalAdminRegistrationJPanel(JPanel container, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
+          this.ecosystem = system;
+        this.userProcessContainer = container;
     }
 
     /**

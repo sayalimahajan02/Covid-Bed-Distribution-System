@@ -24,13 +24,7 @@ public class Hospital {
     private List<Patient> Patient;
 
  
-    public Hospital(String name, String email, String phonenumber, String address, String username, int bedcount) {
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.username = username;
-        this.phonenumber = phonenumber;
-        this.bedcount = bedcount;
+    public Hospital(){
         this.Patient = new ArrayList<Patient>();
     }
 

@@ -5,6 +5,15 @@
  */
 package ui.DriverAuthorizationAdminRole;
 
+import Business.Authorization.DriverAuthorizationAdmin;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Role.AmbulanceDriverRole;
+import Business.Role.DriverAuthorizationAdminRole;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import ui.CampAdminRole.*;
 import ui.AmbulanceDriverRole.*;
 
@@ -13,12 +22,19 @@ import ui.AmbulanceDriverRole.*;
  * @author aishwarya
  */
 public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
-
+    private EcoSystem system;
+    private JPanel jPanel;
+    private DB4OUtil dB4OUtil;
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
-    public DriverAuthorizationRegistrationJPanel() {
-        initComponents();
+    public DriverAuthorizationRegistrationJPanel(EcoSystem system, JPanel registerDetails, DB4OUtil dB4OUtil) {
+       initComponents();
+       this.system = system;
+        this.jPanel = jPanel;
+        this.dB4OUtil = dB4OUtil;
+        this.setSize(1680, 1050);
+        
     }
 
     /**
@@ -30,19 +46,207 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        registerButton = new javax.swing.JButton();
+        UsernameTxt = new javax.swing.JTextField();
+        firstNameTxt = new javax.swing.JTextField();
+        phoneTxt = new javax.swing.JTextField();
+        lastNameTxt = new javax.swing.JTextField();
+        emailTxt = new javax.swing.JTextField();
+        passwordTxt = new javax.swing.JPasswordField();
+        backBtn = new javax.swing.JButton();
+
+        jLabel1.setText("Register here");
+
+        jLabel2.setText("Username :");
+
+        jLabel3.setText("Password :");
+
+        jLabel4.setText("Phone Number :");
+
+        jLabel5.setText("First Name :");
+
+        jLabel6.setText("Last Name :");
+
+        jLabel7.setText("Email :");
+
+        registerButton.setText("Register");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
+
+        backBtn.setText("<<Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(114, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(UsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(44, 44, 44)
+                                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel5)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel3)
+                                            .addGap(39, 39, 39)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(260, 260, 260))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(203, 203, 203)
+                .addComponent(registerButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(backBtn))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(UsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(registerButton)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        // TODO add your handling code here:
+        
+       char[] passwordCharArray = passwordTxt.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        if(firstNameTxt.getText().isEmpty() || lastNameTxt.getText().isEmpty() || UsernameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || emailTxt.getText().isEmpty() || password.isEmpty())
+        {
+        JOptionPane.showMessageDialog(null, "Please enter all fields..");  
+             return;
+        }
+//        if(!randomCode.equalsIgnoreCase(verificationCodeTxt.getText())){
+//            JOptionPane.showMessageDialog(null, "Verification Code is incorrect please enter correct code or click on verify to resend new code");  
+//            return;
+//        }
+         if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(UsernameTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "User with this username already exist! Please try another UserName");
+                return;
+                } 
+      if (!system.isPasswordValid(passwordTxt.getText())) {
+          JOptionPane.showMessageDialog(null, "Password muct be between 3-20 characters. "
+                  + "Lower case, upper case, digit and a special character should occur once.");  
+            return;
+        }
+      
+    if (!this.system.isEmailAddressValid(emailTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter proper Email");
+            return;
+        }
+        if (!this.system.isPhoneNumberValid(phoneTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide Contact number in format 123-456-7890 OR 123.456.7890 OR 123 456 7890");  
+            return;
+        }
+        DriverAuthorizationAdmin admin =new DriverAuthorizationAdmin();
+        admin.setFirstName(firstNameTxt.getText());
+        admin.setLastName(lastNameTxt.getText());
+        admin.setPhoneNumber(phoneTxt.getText());
+        admin.setEmail(emailTxt.getText());
+         //save to db04
+            Employee employee = system.getEmployeeDirectory().createEmployee(admin.getLastName()+", "+admin.getFirstName());
+            system.getDriverAuthorizationDirectory().getDriverAuthorizationDirectory().add(admin);
+            UserAccount account = system.getUserAccountDirectory().createUserAccount(UsernameTxt.getText(), password, employee, new DriverAuthorizationAdminRole());
+           dB4OUtil.storeSystem(system);
+           
+           JOptionPane.showMessageDialog(null, "Driver Authorization role has been created successfully. Please login");  
+           
+    }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        jPanel.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField UsernameTxt;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JTextField emailTxt;
+    private javax.swing.JTextField firstNameTxt;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField lastNameTxt;
+    private javax.swing.JPasswordField passwordTxt;
+    private javax.swing.JTextField phoneTxt;
+    private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }

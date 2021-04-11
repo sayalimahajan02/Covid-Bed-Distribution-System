@@ -19,6 +19,10 @@ public class CampAdminDirectory {
         return campadminList;
     }
 
+    public CampAdminDirectory() {
+        this.campadminList = new ArrayList<CampAdmin>();
+    }
+
     public void setCampadminList(ArrayList<CampAdmin> campadminList) {
         this.campadminList = campadminList;
     }

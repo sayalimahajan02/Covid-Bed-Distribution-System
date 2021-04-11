@@ -16,8 +16,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ui.AmbulanceDriverRole.AmbulanceDriverRegistrationJPanel;
+import ui.CampAdminRole.CampAdminRegistrationJPanel;
 import ui.HospitalAdminRole.HospitalAdminRegistrationJPanel;
 import ui.NGORole.NGORegistrationJPanel;
+import ui.PatientCareStaffRole.PatientCareStaffRegistrationJPanel;
+import ui.PatientRole.PatientRegistrationJPanel;
 import ui.PrivateDriverRole.PrivateDriverRegistrationJPanel;
 
 /**
@@ -35,9 +38,9 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
-        
+
         EcoSystem.setInstance(system);
-       
+
         firstpage.setVisible(true);
         container.setVisible(false);
         registerDetails.setVisible(false);
@@ -78,13 +81,13 @@ public class MainJFrame extends javax.swing.JFrame {
         patientBtn = new javax.swing.JButton();
         hospitalBtn = new javax.swing.JButton();
         ambulanceBtn = new javax.swing.JButton();
-        ngoBtn = new javax.swing.JButton();
+        patientCareStaffBtn = new javax.swing.JButton();
         privateDriverBtn = new javax.swing.JButton();
         campBtn = new javax.swing.JButton();
         backBtn2 = new javax.swing.JButton();
-        ngoBtn1 = new javax.swing.JButton();
-        ngoBtn2 = new javax.swing.JButton();
-        ngoBtn3 = new javax.swing.JButton();
+        ngoBtn = new javax.swing.JButton();
+        driverAuthBtn = new javax.swing.JButton();
+        patientAuthBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -273,11 +276,11 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        ngoBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ngoBtn.setText("Patient Care Staff");
-        ngoBtn.addActionListener(new java.awt.event.ActionListener() {
+        patientCareStaffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        patientCareStaffBtn.setText("Patient Care Staff");
+        patientCareStaffBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ngoBtnActionPerformed(evt);
+                patientCareStaffBtnActionPerformed(evt);
             }
         });
 
@@ -291,6 +294,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         campBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         campBtn.setText("Camp Site Admin");
+        campBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campBtnActionPerformed(evt);
+            }
+        });
 
         backBtn2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         backBtn2.setText("<<Back");
@@ -300,27 +308,27 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        ngoBtn1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ngoBtn1.setText("NGO Admin");
-        ngoBtn1.addActionListener(new java.awt.event.ActionListener() {
+        ngoBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        ngoBtn.setText("NGO Admin");
+        ngoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ngoBtn1ActionPerformed(evt);
+                ngoBtnActionPerformed(evt);
             }
         });
 
-        ngoBtn2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ngoBtn2.setText("Driver Authorization Admin");
-        ngoBtn2.addActionListener(new java.awt.event.ActionListener() {
+        driverAuthBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        driverAuthBtn.setText("Driver Authorization Admin");
+        driverAuthBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ngoBtn2ActionPerformed(evt);
+                driverAuthBtnActionPerformed(evt);
             }
         });
 
-        ngoBtn3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ngoBtn3.setText("Patient Authorization Admin");
-        ngoBtn3.addActionListener(new java.awt.event.ActionListener() {
+        patientAuthBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        patientAuthBtn.setText("Patient Authorization Admin");
+        patientAuthBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ngoBtn3ActionPerformed(evt);
+                patientAuthBtnActionPerformed(evt);
             }
         });
 
@@ -348,22 +356,22 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(hospitalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ngoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(patientCareStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(registerDetailsLayout.createSequentialGroup()
                         .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(registerDetailsLayout.createSequentialGroup()
                                 .addGap(133, 133, 133)
-                                .addComponent(ngoBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ngoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerDetailsLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ambulanceBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ngoBtn2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(driverAuthBtn, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(18, 18, 18)
                         .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(privateDriverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ngoBtn3))))
+                            .addComponent(patientAuthBtn))))
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(registerDetailsLayout.createSequentialGroup()
                 .addGap(323, 323, 323)
@@ -402,13 +410,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(patientBtn)
                     .addComponent(hospitalBtn)
-                    .addComponent(ngoBtn))
+                    .addComponent(patientCareStaffBtn))
                 .addGap(15, 15, 15)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campBtn)
-                    .addComponent(ngoBtn1))
+                    .addComponent(ngoBtn))
                 .addGap(29, 29, 29)
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
@@ -419,8 +427,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel12)
                 .addGap(26, 26, 26)
                 .addGroup(registerDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ngoBtn2)
-                    .addComponent(ngoBtn3))
+                    .addComponent(driverAuthBtn)
+                    .addComponent(patientAuthBtn))
                 .addGap(75, 75, 75)
                 .addComponent(backBtn2)
                 .addGap(40, 40, 40))
@@ -456,14 +464,14 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_registerBtnActionPerformed
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-       // Get user name
+        // Get user name
         String userName = userNameJTextField.getText();
         // Get Password
         char[] passwordCharArray = passwordField.getPassword();
         String password = String.valueOf(passwordCharArray);
 
         //Step1: Check in the system admin user account directory if you have the user
-        UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);  
+        UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
 
         if (userAccount == null) {
             JOptionPane.showMessageDialog(null, "Invalid credentials");
@@ -481,7 +489,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
-       logoutJButton.setEnabled(false);
+        logoutJButton.setEnabled(false);
         userNameJTextField.setEnabled(true);
         passwordField.setEnabled(true);
         loginJButton.setEnabled(true);
@@ -508,11 +516,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void patientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientBtnActionPerformed
         // TODO add your handling code here:
+
+        PatientRegistrationJPanel panel = new PatientRegistrationJPanel(container, system, dB4OUtil);
+        container.add("workArea", panel);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        container.setVisible(true);
+
+
     }//GEN-LAST:event_patientBtnActionPerformed
 
     private void hospitalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalBtnActionPerformed
         // TODO add your handling code here:
-        HospitalAdminRegistrationJPanel panel=new HospitalAdminRegistrationJPanel(container,system, dB4OUtil);
+        HospitalAdminRegistrationJPanel panel = new HospitalAdminRegistrationJPanel(container, system, dB4OUtil);
         container.add("workArea", panel);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
@@ -521,22 +537,24 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void ambulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceBtnActionPerformed
         // TODO add your handling code here:
-        AmbulanceDriverRegistrationJPanel panel=new AmbulanceDriverRegistrationJPanel(container,system, dB4OUtil);
+        AmbulanceDriverRegistrationJPanel panel = new AmbulanceDriverRegistrationJPanel(container, system, dB4OUtil);
         container.add("workArea", panel);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
         container.setVisible(true);
-                         
+
     }//GEN-LAST:event_ambulanceBtnActionPerformed
 
-    private void ngoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtnActionPerformed
+    private void patientCareStaffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientCareStaffBtnActionPerformed
         // TODO add your handling code here:
-         NGORegistrationJPanel j = new NGORegistrationJPanel(system, registerDetails, dB4OUtil);
+        PatientCareStaffRegistrationJPanel j = new PatientCareStaffRegistrationJPanel(container, system, dB4OUtil);
         container.add("workArea", j);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
         container.setVisible(true);
-    }//GEN-LAST:event_ngoBtnActionPerformed
+
+
+    }//GEN-LAST:event_patientCareStaffBtnActionPerformed
 
     private void backBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtn2ActionPerformed
         // TODO add your handling code here:
@@ -546,31 +564,40 @@ public class MainJFrame extends javax.swing.JFrame {
         loginPanel.setVisible(false);
     }//GEN-LAST:event_backBtn2ActionPerformed
 
-    private void ngoBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtn1ActionPerformed
+    private void ngoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtnActionPerformed
         // TODO add your handling code here:
         NGORegistrationJPanel j = new NGORegistrationJPanel(system, registerDetails, dB4OUtil);
         container.add("workArea", j);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
         container.setVisible(true);
-    }//GEN-LAST:event_ngoBtn1ActionPerformed
+    }//GEN-LAST:event_ngoBtnActionPerformed
 
-    private void ngoBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtn2ActionPerformed
+    private void driverAuthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driverAuthBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ngoBtn2ActionPerformed
+    }//GEN-LAST:event_driverAuthBtnActionPerformed
 
-    private void ngoBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtn3ActionPerformed
+    private void patientAuthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientAuthBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ngoBtn3ActionPerformed
+    }//GEN-LAST:event_patientAuthBtnActionPerformed
 
     private void privateDriverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_privateDriverBtnActionPerformed
         // TODO add your handling code here:
-        PrivateDriverRegistrationJPanel panel=new PrivateDriverRegistrationJPanel(container,system, dB4OUtil);
+        PrivateDriverRegistrationJPanel panel = new PrivateDriverRegistrationJPanel(container, system, dB4OUtil);
         container.add("workArea", panel);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
         container.setVisible(true);
     }//GEN-LAST:event_privateDriverBtnActionPerformed
+
+    private void campBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campBtnActionPerformed
+        // TODO add your handling code here:
+        CampAdminRegistrationJPanel j = new CampAdminRegistrationJPanel(system, registerDetails, dB4OUtil);
+        container.add("workArea", j);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        container.setVisible(true);
+    }//GEN-LAST:event_campBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -612,6 +639,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn2;
     private javax.swing.JButton campBtn;
     private javax.swing.JPanel container;
+    private javax.swing.JButton driverAuthBtn;
     private javax.swing.JPanel firstpage;
     private javax.swing.JButton hospitalBtn;
     private javax.swing.JLabel jLabel1;
@@ -631,11 +659,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel loginPanel;
     private javax.swing.JButton logoutJButton;
     private javax.swing.JButton ngoBtn;
-    private javax.swing.JButton ngoBtn1;
-    private javax.swing.JButton ngoBtn2;
-    private javax.swing.JButton ngoBtn3;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton patientAuthBtn;
     private javax.swing.JButton patientBtn;
+    private javax.swing.JButton patientCareStaffBtn;
     private javax.swing.JButton privateDriverBtn;
     private javax.swing.JButton registerBtn;
     private javax.swing.JPanel registerDetails;

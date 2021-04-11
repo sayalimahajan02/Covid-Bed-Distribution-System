@@ -22,7 +22,7 @@ public class CampAdmin {
     private String zipCode;
     private String emailId;
     private String phoneNumber;
-    private int bedCount;
+    private int capacity;
     private ArrayList<Patient> patientlist;
 
     public CampAdmin() {
@@ -38,7 +38,7 @@ public class CampAdmin {
         this.zipCode = zipCode;
         this.emailId = emailId;
         this.phoneNumber = phoneNumber;
-        this.bedCount = bedCount;
+        this.capacity = bedCount;
         this.patientlist = new ArrayList<Patient>();
     }
 
@@ -51,7 +51,7 @@ public class CampAdmin {
     }
 
     public boolean isBedAvailable() {
-        if (bedCount <= patientlist.size()) {
+        if (capacity <= patientlist.size()) {
             return false;
         } else {
             return true;
@@ -59,7 +59,7 @@ public class CampAdmin {
     }
 
     public int getAvailableBedCount() {
-        return bedCount - patientlist.size();
+        return capacity - patientlist.size();
     }
 
     public String getName() {
@@ -126,12 +126,12 @@ public class CampAdmin {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getBedCount() {
-        return bedCount;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setBedCount(int bedCount) {
-        this.bedCount = bedCount;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public ArrayList<Patient> getPatientlist() {

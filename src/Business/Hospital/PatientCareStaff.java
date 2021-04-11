@@ -19,6 +19,8 @@ public class PatientCareStaff {
     private String username;
     private Hospital hospital;
     private Patient patient;
+    private String password;
+
     
     public PatientCareStaff() {
        
@@ -62,6 +64,14 @@ public class PatientCareStaff {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     public Hospital getHospital() {

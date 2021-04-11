@@ -195,8 +195,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
     private void patientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientBtnActionPerformed
         // TODO add your handling code here:
-        PatientRegistrationJPanel jPanel=new PatientRegistrationJPanel();
-        jPanel.setVisible(true);
+//        PatientRegistrationJPanel jPanel=new PatientRegistrationJPanel();
+//        jPanel.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_patientBtnActionPerformed
 

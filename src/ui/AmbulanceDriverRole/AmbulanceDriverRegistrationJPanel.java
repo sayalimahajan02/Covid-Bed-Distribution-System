@@ -25,7 +25,7 @@ import ui.RegisterJPanel;
  */
 public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
 
-     private static EcoSystem system;
+    private static EcoSystem system;
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
     private String randomCode;

@@ -17,9 +17,12 @@ public class Hospital {
     
     private String name;
     private String phonenumber;
-    private String address;
+    private String streetaddress;
+    private String city;
+    private String zipcode;
     private String email;
     private String username;
+    private String password;
     private int bedcount;
     private List<Patient> Patient;
 
@@ -46,6 +49,14 @@ public class Hospital {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     public String getPhonenumber() {
         return phonenumber;
     }
@@ -54,14 +65,31 @@ public class Hospital {
         this.phonenumber = phonenumber;
     }
 
-    public String getAddress() {
-        return address;
+
+     public String getStreetaddress() {
+        return streetaddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreetaddress(String streetaddress) {
+        this.streetaddress = streetaddress;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+    
     public String getEmail() {
         return email;
     }

@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.NGORole;
+package ui.CampAdminRole;
 
 /**
  *
  * @author aishwarya
  */
-public class NGOJPanel extends javax.swing.JPanel {
+public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form NGOJPanel
+     * Creates new form CampAdminJPanel
      */
-    public NGOJPanel() {
+    public CampAdminWorkAreaJPanel() {
         initComponents();
     }
 

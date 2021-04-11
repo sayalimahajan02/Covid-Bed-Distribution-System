@@ -20,6 +20,7 @@ import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Voluntary.CampAdminDirectory;
+import Business.Voluntary.NGODirectory;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
@@ -41,7 +42,8 @@ public class EcoSystem extends Organization{
     private PatientDirectory patientDirectory;
     private CampAdminDirectory campAdminDirectory;
     private PatientCareStaffDirectory patientCareStaffDirectory;
-            
+    private NGODirectory nGODirectory;
+
     public EnterpriseDirectory getEnterpriseDirectory() {
         return enterpriseDirectory;
     }
@@ -142,6 +144,8 @@ public class EcoSystem extends Organization{
         patientDirectory=new PatientDirectory();
         campAdminDirectory=new CampAdminDirectory();
         patientCareStaffDirectory=new PatientCareStaffDirectory();
+                nGODirectory = new NGODirectory();
+
         
     }
 
@@ -225,4 +229,22 @@ public class EcoSystem extends Organization{
         Pattern regex = Pattern.compile("^(\\d{3}[- .]?){2}\\d{4}$");
         return regex.matcher(text).matches();
     }
+
+    public PatientCareStaffDirectory getPatientCareStaffDirectory() {
+        return patientCareStaffDirectory;
+    }
+
+    public void setPatientCareStaffDirectory(PatientCareStaffDirectory patientCareStaffDirectory) {
+        this.patientCareStaffDirectory = patientCareStaffDirectory;
+    }
+
+    public NGODirectory getnGODirectory() {
+        return nGODirectory;
+    }
+
+    public void setnGODirectory(NGODirectory nGODirectory) {
+        this.nGODirectory = nGODirectory;
+    }
+    
+    
 }

@@ -9,7 +9,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import ui.CampAdminRole.CampAdminJPanel;
+import ui.CampAdminRole.CampAdminWorkAreaJPanel;
 
 /**
  *
@@ -19,7 +19,7 @@ public class CampAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new CampAdminJPanel();
+        return new CampAdminWorkAreaJPanel();
     }
 
     

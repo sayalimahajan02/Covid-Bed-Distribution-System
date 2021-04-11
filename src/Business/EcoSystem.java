@@ -108,6 +108,13 @@ public class EcoSystem extends Organization{
         this.patientDirectory = patientDirectory;
     }
     
+    public PatientCareStaffDirectory getPatientCareStaffDirectory() {
+        return patientCareStaffDirectory;
+    }
+
+    public void setPatientCareStaffDirectory(PatientCareStaffDirectory patientCareStaffDirectory) {
+        this.patientCareStaffDirectory = patientCareStaffDirectory;
+    }
 
     public static EcoSystem getInstance(){
         if(business==null){
@@ -228,14 +235,6 @@ public class EcoSystem extends Organization{
     public static boolean isPhoneNumberValid(String text) {
         Pattern regex = Pattern.compile("^(\\d{3}[- .]?){2}\\d{4}$");
         return regex.matcher(text).matches();
-    }
-
-    public PatientCareStaffDirectory getPatientCareStaffDirectory() {
-        return patientCareStaffDirectory;
-    }
-
-    public void setPatientCareStaffDirectory(PatientCareStaffDirectory patientCareStaffDirectory) {
-        this.patientCareStaffDirectory = patientCareStaffDirectory;
     }
 
     public NGODirectory getnGODirectory() {

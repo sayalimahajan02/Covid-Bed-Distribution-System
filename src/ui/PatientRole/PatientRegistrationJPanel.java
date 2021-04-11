@@ -5,8 +5,13 @@
  */
 package ui.PatientRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Hospital.Hospital;
+import Business.Hospital.HospitalDirectory;
 import Business.Hospital.Patient;
+import Business.Hospital.PatientDirectory;
+import Business.Role.PatientRole;
 import Business.UserAccount.UserAccount;
 import Business.ValidationUtility;
 import java.awt.CardLayout;
@@ -24,13 +29,19 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Patient patient;
     private ValidationUtility validation;
-    private EcoSystem ecosystem;
+    private EcoSystem system;
+    private static DB4OUtil dB4OUtil;
+    private static JPanel userProcessorcontainer;
+    
 
     /**
      * Creates new form PatientRegistrationJPanel
      */
-    public PatientRegistrationJPanel() {
+    public PatientRegistrationJPanel(JPanel container, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
+        this.system = system;
+        this.dB4OUtil = dB4OUtil;
+        this.userProcessorcontainer = container;
     }
 
     /**
@@ -55,7 +66,6 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         txtfname = new javax.swing.JTextField();
         txtlname = new javax.swing.JTextField();
         txtusername = new javax.swing.JTextField();
-        txtpassword = new javax.swing.JTextField();
         txtphone = new javax.swing.JTextField();
         txtemailid = new javax.swing.JTextField();
         txtstreet = new javax.swing.JTextField();
@@ -63,6 +73,7 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         txtzipcode = new javax.swing.JTextField();
         btnregister = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        passwordfield = new javax.swing.JPasswordField();
 
         setLayout(null);
 
@@ -132,14 +143,6 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         add(txtusername);
         txtusername.setBounds(280, 190, 220, 20);
 
-        txtpassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtpasswordActionPerformed(evt);
-            }
-        });
-        add(txtpassword);
-        txtpassword.setBounds(280, 230, 220, 20);
-
         txtphone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtphoneActionPerformed(evt);
@@ -197,6 +200,8 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         });
         add(btnBack);
         btnBack.setBounds(60, 30, 80, 23);
+        add(passwordfield);
+        passwordfield.setBounds(280, 230, 220, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -210,10 +215,6 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     private void txtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtusernameActionPerformed
-
-    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtpasswordActionPerformed
 
     private void txtphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphoneActionPerformed
         // TODO add your handling code here:
@@ -238,9 +239,14 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
         // TODO add your handling code here:
         
+        PatientDirectory dir = system.getPatientDirectory();
+        Patient p = new Patient();
+        char[] passwordCharArray = passwordfield.getPassword();
+        String password = String.valueOf(passwordCharArray);
+
         
         if(txtfname.getText().isEmpty() || txtfname.getText().isEmpty() || txtusername.getText().isEmpty() ||
-                txtpassword.getText().isEmpty() || txtemailid.getText().isEmpty() || txtstreet.getText().isEmpty() ||
+        passwordfield.getText().isEmpty()  || txtemailid.getText().isEmpty() || txtstreet.getText().isEmpty() ||
                 txtzipcode.getText().isEmpty() || txtcity.getText().isEmpty() || txtphone.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
             return;
@@ -254,10 +260,13 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "First name cannot have integer values!");
             return;
         }
+        else{ p.setFirstname(txtfname.getText());}
+        
         if(flaglname == false) {
             JOptionPane.showMessageDialog(null, "Last name cannot have integer values!");
             return;
         }
+        else{ p.setLastname(txtlname.getText());}
         
         boolean flagusername = validation.isUserNameValid(txtusername.getText());
         
@@ -265,19 +274,29 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Username must be unique!");
             return;
         }
+        else{ p.setUsername(txtusername.getText());}
         
-        boolean flagpassword = validation.isPasswordValid(txtpassword.getText());
+        boolean flagpassword = validation.isPasswordValid(passwordfield.getText());
         
         if(flagpassword == false) {
             JOptionPane.showMessageDialog(null, "Password must have atleast a digit, a special symbol, uppercase and lowercase!");
             return;
         }
+        else{ p.setPassword(passwordfield.getText());}
+        
         
         boolean flagemailid = validation.isEmailAddressValid(txtemailid.getText());
         
         if(flagemailid == false) {
             JOptionPane.showMessageDialog(null, "Check email address format!");
             return;
+        }
+        else{ p.setEmail(txtemailid.getText());}
+        
+        if (ValidationUtility.isNameValid(txtcity.getText())) {
+            p.setCity(txtcity.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper City!");
         }
         
         boolean flagzipcode = validation.isZipCodeValid(txtzipcode.getText());
@@ -286,6 +305,8 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Zipcode must have 5 digits only!");
             return;
         }
+        else{ p.setZipcode(txtzipcode.getText());}
+        
         
         boolean flagphonenumber = validation.isPhoneNumberValid(txtphone.getText());
         
@@ -293,13 +314,36 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Zipcode must have 10 digits! Check the format!");
             return;
         }
+        else{ p.setPhonenumber(txtphone.getText());}
         
-        for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+        for(UserAccount account : system.getUserAccountDirectory().getUserAccountList()) {
             if(account.getUsername().equals(txtusername.getText())) {
                 JOptionPane.showMessageDialog(null, "Username Already exists!");
                 return;
             }
         }
+        
+             if (ValidationUtility.isUserNameValid(txtusername.getText())) {
+            if (ValidationUtility.isPasswordValid(password)) {
+                if (system.checkIfUserIsUnique(txtusername.getText())) {
+                    p.setUsername(txtusername.getText());
+                    system.getUserAccountDirectory()
+                            .createUserAccount(txtusername.getText(), password, system.getEmployeeDirectory().createEmployee(txtfname.getText()), new PatientRole());
+                } else {
+                    JOptionPane.showMessageDialog(null, "UserName already in use. Please try something else!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Please provide proper Password!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper User Name!");
+        }
+        p.setStreetaddress(txtstreet.getText());
+        
+         dir.addPatient(p);
+         
+        dB4OUtil.storeSystem(system);
+        JOptionPane.showMessageDialog(null, "Information Saved!");
     }//GEN-LAST:event_btnregisterActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -328,11 +372,11 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPasswordField passwordfield;
     private javax.swing.JTextField txtcity;
     private javax.swing.JTextField txtemailid;
     private javax.swing.JTextField txtfname;
     private javax.swing.JTextField txtlname;
-    private javax.swing.JTextField txtpassword;
     private javax.swing.JTextField txtphone;
     private javax.swing.JTextField txtstreet;
     private javax.swing.JTextField txtusername;

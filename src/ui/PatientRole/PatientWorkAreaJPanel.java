@@ -55,7 +55,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Street", "Zipcode", "City", "Phone Number", "Email ID", "Bed Count"
+                "Hospital Name", "Street", "Zipcode", "City", "Phone Number", "Email ID", "Bed Count"
             }
         ) {
             boolean[] canEdit = new boolean [] {

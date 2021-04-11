@@ -26,41 +26,38 @@
                               <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
-                              <Component id="txtfname" min="-2" pref="220" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
-                              <Component id="txtlname" min="-2" pref="220" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
-                              <Component id="txtusername" min="-2" pref="220" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                              <Component id="jLabel11" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
-                              <Component id="txtpassword" min="-2" pref="220" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
-                              <Component id="txtphone" min="-2" pref="220" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
-                              <Component id="txtemailid" min="-2" pref="220" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel2" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
+                                      <Component id="txtfname" min="-2" pref="220" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel4" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
+                                      <Component id="txtlname" min="-2" pref="220" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel8" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
+                                      <Component id="txtemailid" min="-2" pref="220" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel9" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtphone" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="txtusername" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="passwordfield" min="-2" pref="220" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -100,16 +97,16 @@
                   <Component id="txtusername" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel11" min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="txtpassword" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel11" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="passwordfield" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel3" min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="txtphone" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel8" min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="txtemailid" min="-2" max="-2" attributes="0"/>
@@ -174,11 +171,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtusernameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtpassword">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpasswordActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtphone">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtphoneActionPerformed"/>
@@ -203,6 +195,11 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="passwordfield">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordfieldActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

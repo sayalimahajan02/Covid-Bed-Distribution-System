@@ -5,6 +5,7 @@
  */
 package Business.Voluntary;
 
+import Business.Driver.PrivateDriver;
 import java.util.ArrayList;
 
 /**
@@ -23,9 +24,11 @@ public class NGO {
     private String phoneNumber;
     private int bedCount;
     private ArrayList<CampAdmin> campadminlist;
+    private ArrayList<PrivateDriver> pdriverist;
 
     public NGO() {
         this.campadminlist = new ArrayList<CampAdmin>();
+        this.pdriverist = new ArrayList<PrivateDriver>();
     }
 
     public NGO(String name, String adminName, String userName, String street, String city, String zipCode, String emailId, String phoneNumber, int bedCount) {
@@ -45,8 +48,16 @@ public class NGO {
         campadminlist.add(campAdmin);
     }
 
-    public void REMOVECampAdmin(CampAdmin campAdmin) {
-        campadminlist.add(campAdmin);
+    public void removeCampAdmin(CampAdmin campAdmin) {
+        campadminlist.remove(campAdmin);
+    }
+    
+    public void addPrivateDriver(PrivateDriver pd){
+        pdriverist.add(pd);
+    }
+    
+    public void removePrivateDriver(PrivateDriver pd){
+        pdriverist.remove(pd);
     }
 
     public String getName() {
@@ -128,5 +139,18 @@ public class NGO {
     public void setCampadminlist(ArrayList<CampAdmin> campadminlist) {
         this.campadminlist = campadminlist;
     }
+
+    public ArrayList<PrivateDriver> getPdriverist() {
+        return pdriverist;
+    }
+
+    public void setPdriverist(ArrayList<PrivateDriver> pdriverist) {
+        this.pdriverist = pdriverist;
+    }
+    
+    
+    
+    
+    
 
 }

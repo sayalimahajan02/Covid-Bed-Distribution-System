@@ -5,7 +5,14 @@
  */
 package ui.CampAdminRole;
 
-import ui.AmbulanceDriverRole.*;
+import Business.EcoSystem;
+import Business.Role.CampAdminRole;
+import Business.ValidationUtility;
+import Business.Voluntary.CampAdmin;
+import Business.Voluntary.CampAdminDirectory;
+import java.text.ParseException;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,11 +20,17 @@ import ui.AmbulanceDriverRole.*;
  */
 public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
 
+    private EcoSystem system;
+    private JPanel jpanel;
+
     /**
-     * Creates new form AmbulanceDriverRegistrationJPanel
+     * Creates new form CampAdminRegistrationJPanel
      */
-    public CampAdminRegistrationJPanel() {
+    public CampAdminRegistrationJPanel(EcoSystem system, JPanel jpanel) {
         initComponents();
+        this.system = system;
+        this.jpanel = jpanel;
+        this.setSize(1680, 1050);
     }
 
     /**
@@ -29,19 +42,338 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        campName = new javax.swing.JTextField();
+        managerNameText = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        addressTxt = new javax.swing.JTextArea();
+        cityText = new javax.swing.JTextField();
+        zipCode = new javax.swing.JTextField();
+        phoneNmbr = new javax.swing.JTextField();
+        emailAddrText = new javax.swing.JTextField();
+        submitBtn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        userNameTxt = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        bedCount = new javax.swing.JTextField();
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel2.setText("Please fill the Form");
+
+        jLabel1.setText("Camp Name:");
+
+        jLabel3.setText("Manager Name:");
+
+        jLabel4.setText("Address Line:");
+
+        jLabel5.setText("City:");
+
+        jLabel6.setText("Zip Code:");
+
+        jLabel7.setText("Contact Number:");
+
+        jLabel8.setText("Email Address:");
+
+        addressTxt.setColumns(20);
+        addressTxt.setRows(5);
+        jScrollPane1.setViewportView(addressTxt);
+
+        submitBtn.setText("Submit");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("User Name:");
+
+        jLabel11.setText("Password:");
+
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel12.setText("Only Alphabets; Between 3-30 characters.");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel13.setText("Lower case, upper case, digit and a special character should occur once. Between 3-20 characters. ");
+
+        backBtn.setText("<<Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Bed Availability:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(476, 476, 476)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(406, 406, 406)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))))
+                .addContainerGap(783, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(406, 406, 406)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(phoneNmbr, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(bedCount)
+                                                .addComponent(emailAddrText, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
+                                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel12)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(zipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(campName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(managerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cityText, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(259, 259, 259)
+                        .addComponent(submitBtn)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2)
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(campName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(managerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(zipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(phoneNmbr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(emailAddrText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(bedCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12)))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitBtn)
+                    .addComponent(backBtn))
+                .addGap(44, 44, 44))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1473, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 10, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 10, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        CampAdminDirectory dir = system.getCampAdminDirectory();
+        CampAdmin ca = new CampAdmin();
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        if (ValidationUtility.isNameValid(campName.getText())) {
+            ca.setName(campName.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Name!");
+        }
+        if (ValidationUtility.isNameValid(managerNameText.getText())) {
+            ca.setAdminName(managerNameText.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Name!");
+        }
+
+        if (ValidationUtility.isNameValid(cityText.getText())) {
+            ca.setCity(cityText.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper City!");
+        }
+
+        if (ValidationUtility.isZipCodeValid(zipCode.getText())) {
+            ca.setZipCode(zipCode.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Zipcode!");
+        }
+
+        if (ValidationUtility.isPhoneNumberValid(phoneNmbr.getText())) {
+            ca.setPhoneNumber(phoneNmbr.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Phone Number!");
+        }
+
+        if (ValidationUtility.isEmailAddressValid(emailAddrText.getText())) {
+            ca.setEmailId(emailAddrText.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Email Address!");
+        }
+
+        if (ValidationUtility.isUserNameValid(userNameTxt.getText())) {
+            if (ValidationUtility.isPasswordValid(password)) {
+                if (system.checkIfUserIsUnique(userNameTxt.getText())) {
+                    ca.setUserName(userNameTxt.getText());
+                    system.getUserAccountDirectory()
+                            .createUserAccount(userNameTxt.getText(), password, system.getEmployeeDirectory().createEmployee(campName.getText()), new CampAdminRole());
+                } else {
+                    JOptionPane.showMessageDialog(null, "UserName already in use. Please try something else!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Please provide proper Password!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper User Name!");
+        }
+        ca.setStreet(addressTxt.getText());
+        try {
+            ca.setBedCount(Integer.parseInt(bedCount.getText()));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Please put Integer Value for Bed Availability!");
+        }
+
+        dir.addCampAdmin(ca);
+    }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        jpanel.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea addressTxt;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JTextField bedCount;
+    private javax.swing.JTextField campName;
+    private javax.swing.JTextField cityText;
+    private javax.swing.JTextField emailAddrText;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField managerNameText;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JTextField phoneNmbr;
+    private javax.swing.JButton submitBtn;
+    private javax.swing.JTextField userNameTxt;
+    private javax.swing.JTextField zipCode;
     // End of variables declaration//GEN-END:variables
 }

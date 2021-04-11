@@ -5,10 +5,15 @@
  */
 package ui.NGORole;
 
-import ui.HospitalAdminRole.*;
-import ui.DriverAuthorizationAdminRole.*;
-import ui.CampAdminRole.*;
-import ui.AmbulanceDriverRole.*;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Role.NGORole;
+import Business.ValidationUtility;
+import Business.Voluntary.NGO;
+import Business.Voluntary.NGODirectory;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,11 +21,19 @@ import ui.AmbulanceDriverRole.*;
  */
 public class NGORegistrationJPanel extends javax.swing.JPanel {
 
+    private EcoSystem system;
+    private JPanel jPanel;
+    private DB4OUtil dB4OUtil;
+
     /**
-     * Creates new form AmbulanceDriverRegistrationJPanel
+     * Creates new form NGORegistrationJPanel
      */
-    public NGORegistrationJPanel() {
+    public NGORegistrationJPanel(EcoSystem system, JPanel jPanel, DB4OUtil dB4OUtil) {
         initComponents();
+        this.system = system;
+        this.jPanel = jPanel;
+        this.dB4OUtil = dB4OUtil;
+        this.setSize(1680, 1050);
     }
 
     /**
@@ -32,19 +45,330 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        ngoName = new javax.swing.JTextField();
+        managerNameText = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        addressTxt = new javax.swing.JTextArea();
+        cityText = new javax.swing.JTextField();
+        zipCode = new javax.swing.JTextField();
+        phoneNmbr = new javax.swing.JTextField();
+        emailAddrText = new javax.swing.JTextField();
+        submitBtn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        userNameTxt = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel2.setText("Please fill the Form");
+
+        jLabel1.setText("NGO Name:");
+
+        jLabel3.setText("Manager Name:");
+
+        jLabel4.setText("Address Line:");
+
+        jLabel5.setText("City:");
+
+        jLabel6.setText("Zip Code:");
+
+        jLabel7.setText("Contact Number:");
+
+        jLabel8.setText("Email Address:");
+
+        ngoName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ngoNameActionPerformed(evt);
+            }
+        });
+
+        addressTxt.setColumns(20);
+        addressTxt.setRows(5);
+        jScrollPane1.setViewportView(addressTxt);
+
+        submitBtn.setText("Submit");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("User Name:");
+
+        jLabel11.setText("Password:");
+
+        userNameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameTxtActionPerformed(evt);
+            }
+        });
+
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel12.setText("Only Alphabets; Between 3-30 characters.");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel13.setText("Lower case, upper case, digit and a special character should occur once. Between 3-20 characters. ");
+
+        backBtn.setText("<<Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(submitBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(zipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cityText, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(50, 50, 50)
+                                .addComponent(ngoName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(managerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(466, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel11)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phoneNmbr, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailAddrText, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel13))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(406, 406, 406)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(277, 277, 277)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ngoName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(managerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(submitBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(zipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(phoneNmbr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(emailAddrText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(10, 10, 10)
+                .addComponent(backBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(109, 109, 109))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        NGODirectory dir = system.getnGODirectory();
+        NGO ngo = new NGO();
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        if (ValidationUtility.isNameValid(ngoName.getText())) {
+            ngo.setName(ngoName.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Name!");
+        }
+        if (ValidationUtility.isNameValid(managerNameText.getText())) {
+            ngo.setAdminName(managerNameText.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Name!");
+        }
+
+        if (ValidationUtility.isNameValid(cityText.getText())) {
+            ngo.setCity(cityText.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper City!");
+        }
+
+        if (ValidationUtility.isZipCodeValid(zipCode.getText())) {
+            ngo.setZipCode(zipCode.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Zipcode!");
+        }
+
+        if (ValidationUtility.isPhoneNumberValid(phoneNmbr.getText())) {
+            ngo.setPhoneNumber(phoneNmbr.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Phone Number!");
+        }
+
+        if (ValidationUtility.isEmailAddressValid(emailAddrText.getText())) {
+            ngo.setEmailId(emailAddrText.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper Email Address!");
+        }
+
+        if (ValidationUtility.isUserNameValid(userNameTxt.getText())) {
+            if (ValidationUtility.isPasswordValid(password)) {
+                if (system.checkIfUserIsUnique(userNameTxt.getText())) {
+                    ngo.setUserName(userNameTxt.getText());
+                    system.getUserAccountDirectory()
+                            .createUserAccount(userNameTxt.getText(), password, system.getEmployeeDirectory().createEmployee(ngoName.getText()), new NGORole());
+                } else {
+                    JOptionPane.showMessageDialog(null, "UserName already in use. Please try something else!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Please provide proper Password!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper User Name!");
+        }
+        ngo.setStreet(addressTxt.getText());
+
+        dir.addNGO(ngo);
+        dB4OUtil.storeSystem(system);
+        JOptionPane.showMessageDialog(null, "Information Saved!");
+    }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        jPanel.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void ngoNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ngoNameActionPerformed
+
+    private void userNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameTxtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea addressTxt;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JTextField cityText;
+    private javax.swing.JTextField emailAddrText;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField managerNameText;
+    private javax.swing.JTextField ngoName;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JTextField phoneNmbr;
+    private javax.swing.JButton submitBtn;
+    private javax.swing.JTextField userNameTxt;
+    private javax.swing.JTextField zipCode;
     // End of variables declaration//GEN-END:variables
 }

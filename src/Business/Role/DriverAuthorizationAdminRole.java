@@ -20,7 +20,7 @@ public class DriverAuthorizationAdminRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new DriverAuthorizationAdminWorkAreaJPanel();
+        return new DriverAuthorizationAdminWorkAreaJPanel(userProcessContainer,account,organization,enterprise,business);
     }
     
 }

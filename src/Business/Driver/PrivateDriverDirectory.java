@@ -30,4 +30,16 @@ public class PrivateDriverDirectory {
         privateDriverDirectory.add(privateDriver);
     }
     
+    public PrivateDriver getUserByFullName(String fullName)
+    {
+        PrivateDriver selectedDriver=new PrivateDriver();
+        for(PrivateDriver pd : this.privateDriverDirectory){
+            if((pd.getDriverLastName()+", "+pd.getDriverFirstName()).equalsIgnoreCase(fullName)){
+                selectedDriver=pd;
+                break;
+            }
+        }
+        return selectedDriver;
+    }
+    
 }

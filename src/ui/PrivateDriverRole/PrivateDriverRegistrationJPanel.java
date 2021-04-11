@@ -156,8 +156,6 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
-        campjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -400,9 +398,9 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 
     private void populateHospitalDetails() {
         if(system.getHospitalDirectory()!=null)
-        for(Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()){
+        for(CampAdmin camp : system.getCampAdminDirectory().getCampadminList()){
             {
-                campjComboBox.addItem(hospital.getName());
+                campjComboBox.addItem(camp.getName());
             }
         }
     }

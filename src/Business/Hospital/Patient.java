@@ -21,7 +21,10 @@ public class Patient {
     private String email;
     private String username;
     private String password;
-    
+    private String path;
+    private String patientstatus = "NewPatient";
+    private String emergencycontact;
+
 
     
     public Patient() {
@@ -99,6 +102,31 @@ public class Patient {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+    
+    public String getPatientstatus() {
+        return patientstatus;
+    }
+
+    public void setPatientstatus(String patientstatus) {
+        this.patientstatus = patientstatus;
+    }
+
+    public String getEmergencycontact() {
+        return emergencycontact;
+    }
+
+    public void setEmergencycontact(String emergencycontact) {
+        this.emergencycontact = emergencycontact;
+    }
+
     
 }
     

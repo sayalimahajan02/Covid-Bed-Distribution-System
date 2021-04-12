@@ -11,7 +11,6 @@ import Business.Role.NGORole;
 import Business.ValidationUtility;
 import Business.Voluntary.NGO;
 import Business.Voluntary.NGODirectory;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -269,64 +268,65 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
         NGODirectory dir = system.getnGODirectory();
-        NGO ngo = new NGO();
         char[] passwordCharArray = passwordField.getPassword();
         String password = String.valueOf(passwordCharArray);
-        if (ValidationUtility.isNameValid(ngoName.getText())) {
-            ngo.setName(ngoName.getText());
-        } else {
+        if (!ValidationUtility.isNameValid(ngoName.getText())) {
             JOptionPane.showMessageDialog(null, "Please provide proper Name!");
+            return;
         }
-        if (ValidationUtility.isNameValid(managerNameText.getText())) {
-            ngo.setAdminName(managerNameText.getText());
-        } else {
+        if (!ValidationUtility.isNameValid(managerNameText.getText())) {
             JOptionPane.showMessageDialog(null, "Please provide proper Name!");
+            return;
         }
 
-        if (ValidationUtility.isNameValid(cityText.getText())) {
-            ngo.setCity(cityText.getText());
-        } else {
+        if (!ValidationUtility.isNameValid(cityText.getText())) {
             JOptionPane.showMessageDialog(null, "Please provide proper City!");
+            return;
         }
 
-        if (ValidationUtility.isZipCodeValid(zipCode.getText())) {
-            ngo.setZipCode(zipCode.getText());
-        } else {
+        if (!ValidationUtility.isZipCodeValid(zipCode.getText())) {
             JOptionPane.showMessageDialog(null, "Please provide proper Zipcode!");
+            return;
         }
 
-        if (ValidationUtility.isPhoneNumberValid(phoneNmbr.getText())) {
-            ngo.setPhoneNumber(phoneNmbr.getText());
-        } else {
+        if (!ValidationUtility.isPhoneNumberValid(phoneNmbr.getText())) {
             JOptionPane.showMessageDialog(null, "Please provide proper Phone Number!");
+            return;
         }
 
-        if (ValidationUtility.isEmailAddressValid(emailAddrText.getText())) {
-            ngo.setEmailId(emailAddrText.getText());
-        } else {
+        if (!ValidationUtility.isEmailAddressValid(emailAddrText.getText())) {
             JOptionPane.showMessageDialog(null, "Please provide proper Email Address!");
+            return;
         }
 
-        if (ValidationUtility.isUserNameValid(userNameTxt.getText())) {
-            if (ValidationUtility.isPasswordValid(password)) {
-                if (system.checkIfUserIsUnique(userNameTxt.getText())) {
-                    ngo.setUserName(userNameTxt.getText());
-                    system.getUserAccountDirectory()
-                            .createUserAccount(userNameTxt.getText(), password, system.getEmployeeDirectory().createEmployee(ngoName.getText()), new NGORole());
-                } else {
-                    JOptionPane.showMessageDialog(null, "UserName already in use. Please try something else!");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Please provide proper Password!");
-            }
-        } else {
+        if (!ValidationUtility.isUserNameValid(userNameTxt.getText())) {
             JOptionPane.showMessageDialog(null, "Please provide proper User Name!");
+            return;
         }
-        ngo.setStreet(addressTxt.getText());
+        if (!ValidationUtility.isPasswordValid(password)) {
+            JOptionPane.showMessageDialog(null, "Please provide proper Password!");
+            return;
+        }
+        if (system.checkIfUserIsUnique(userNameTxt.getText())) {
+            system.getUserAccountDirectory()
+                    .createUserAccount(userNameTxt.getText(), password, system.getEmployeeDirectory().createEmployee(ngoName.getText()), new NGORole());
+        } else {
+            JOptionPane.showMessageDialog(null, "UserName already in use. Please try something else!");
+            return;
+        }
 
+        NGO ngo = new NGO();
+        ngo.setName(ngoName.getText());
+        ngo.setAdminName(managerNameText.getText());
+        ngo.setCity(cityText.getText());
+        ngo.setZipCode(zipCode.getText());
+        ngo.setPhoneNumber(phoneNmbr.getText());
+        ngo.setEmailId(emailAddrText.getText());
+        ngo.setStreet(addressTxt.getText());
+        ngo.setUserName(userNameTxt.getText());
         dir.addNGO(ngo);
-        dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Information Saved!");
+        dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

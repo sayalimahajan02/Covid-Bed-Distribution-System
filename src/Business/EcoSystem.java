@@ -6,7 +6,9 @@
 package Business;
 
 import Business.Authorization.DriverAuthorizationAdmin;
+import Business.Authorization.DriverAuthorizationDirectory;
 import Business.Authorization.PatientAuthorizationAdmin;
+import Business.Authorization.PatientAuthorizationDirectory;
 import Business.Driver.AmbulanceDriverDirectory;
 import Business.Driver.PrivateDriverDirectory;
 import Business.Employee.EmployeeDirectory;
@@ -34,8 +36,8 @@ public class EcoSystem extends Organization{
     private static EcoSystem business;
     private EnterpriseDirectory enterpriseDirectory;
     private OrganizationDirectory organizationDirectory;
-    private DriverAuthorizationAdmin driverAuthorizationAdmin;
-    private PatientAuthorizationAdmin patientAuthorizationAdmin;
+    private DriverAuthorizationDirectory driverAuthorizationDirectory;
+    private PatientAuthorizationDirectory patientAuthorizationDirectory;
     private HospitalDirectory hospitalDirectory;
     private AmbulanceDriverDirectory ambulanceDriverDirectory;
     private PrivateDriverDirectory privateDriverDirectory;
@@ -60,20 +62,20 @@ public class EcoSystem extends Organization{
         this.organizationDirectory = organizationDirectory;
     }
 
-    public DriverAuthorizationAdmin getDriverAuthorizationAdmin() {
-        return driverAuthorizationAdmin;
+    public DriverAuthorizationDirectory getDriverAuthorizationDirectory() {
+        return driverAuthorizationDirectory;
     }
 
-    public void setDriverAuthorizationAdmin(DriverAuthorizationAdmin driverAuthorizationAdmin) {
-        this.driverAuthorizationAdmin = driverAuthorizationAdmin;
+    public void setDriverAuthorizationDirectory(DriverAuthorizationDirectory driverAuthorizationDirectory) {
+        this.driverAuthorizationDirectory = driverAuthorizationDirectory;
     }
 
-    public PatientAuthorizationAdmin getPatientAuthorizationAdmin() {
-        return patientAuthorizationAdmin;
+    public PatientAuthorizationDirectory getPatientAuthorizationDirectory() {
+        return patientAuthorizationDirectory;
     }
 
-    public void setPatientAuthorizationAdmin(PatientAuthorizationAdmin patientAuthorizationAdmin) {
-        this.patientAuthorizationAdmin = patientAuthorizationAdmin;
+    public void setPatientAuthorizationDirectory(PatientAuthorizationDirectory patientAuthorizationDirectory) {
+        this.patientAuthorizationDirectory = patientAuthorizationDirectory;
     }
 
     public HospitalDirectory getHospitalDirectory() {
@@ -143,8 +145,8 @@ public class EcoSystem extends Organization{
         networkList=new ArrayList<Network>();
         enterpriseDirectory=new EnterpriseDirectory();
         organizationDirectory=new OrganizationDirectory();
-        driverAuthorizationAdmin=new DriverAuthorizationAdmin();
-        patientAuthorizationAdmin=new PatientAuthorizationAdmin();
+        driverAuthorizationDirectory=new DriverAuthorizationDirectory();
+        patientAuthorizationDirectory=new PatientAuthorizationDirectory();
         hospitalDirectory=new HospitalDirectory();
         ambulanceDriverDirectory=new AmbulanceDriverDirectory();
         privateDriverDirectory=new PrivateDriverDirectory();

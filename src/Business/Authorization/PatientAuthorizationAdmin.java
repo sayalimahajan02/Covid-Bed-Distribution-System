@@ -10,11 +10,19 @@ package Business.Authorization;
  * @author sayalimahajan
  */
 public class PatientAuthorizationAdmin {
-    
+    private String id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;

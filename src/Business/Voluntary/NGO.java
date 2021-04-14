@@ -25,6 +25,7 @@ public class NGO {
     private int bedCount;
     private ArrayList<CampAdmin> campadminlist;
     private ArrayList<PrivateDriver> pdriverist;
+    private int id;
 
     public NGO() {
         this.campadminlist = new ArrayList<CampAdmin>();
@@ -51,12 +52,12 @@ public class NGO {
     public void removeCampAdmin(CampAdmin campAdmin) {
         campadminlist.remove(campAdmin);
     }
-    
-    public void addPrivateDriver(PrivateDriver pd){
+
+    public void addPrivateDriver(PrivateDriver pd) {
         pdriverist.add(pd);
     }
-    
-    public void removePrivateDriver(PrivateDriver pd){
+
+    public void removePrivateDriver(PrivateDriver pd) {
         pdriverist.remove(pd);
     }
 
@@ -147,10 +148,13 @@ public class NGO {
     public void setPdriverist(ArrayList<PrivateDriver> pdriverist) {
         this.pdriverist = pdriverist;
     }
-    
-    
-    
-    
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
 }

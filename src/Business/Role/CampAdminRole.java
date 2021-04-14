@@ -15,13 +15,11 @@ import ui.CampAdminRole.CampAdminWorkAreaJPanel;
  *
  * @author aishwarya
  */
-public class CampAdminRole extends Role{
+public class CampAdminRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new CampAdminWorkAreaJPanel();
+        return new CampAdminWorkAreaJPanel(userProcessContainer, account, business, business.getCampAdminDirectory().getCampAdminByUserName(account.getUsername()));
     }
 
-    
-    
 }

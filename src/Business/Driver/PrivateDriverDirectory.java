@@ -41,5 +41,19 @@ public class PrivateDriverDirectory {
         }
         return selectedDriver;
     }
+    public PrivateDriver getUserById(int id)
+    {
+        PrivateDriver selectedDriver=new PrivateDriver();
+        for(PrivateDriver pd : this.privateDriverDirectory){
+            if(pd.getId()==id){
+                selectedDriver=pd;
+                break;
+            }
+        }
+        return selectedDriver;
+    }
     
+    public int generateId(){
+        return this.privateDriverDirectory.size()+1;
+    }
 }

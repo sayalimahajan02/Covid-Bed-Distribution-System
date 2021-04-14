@@ -13,13 +13,31 @@ import Business.Hospital.Hospital;
  */
 public class AmbulanceDriver {
     
+    private int id;
     private String driverFirstName;
     private String driverLastName;
     private int age;
     private Hospital hospital;
     private String phoneNumber;
     private String ambulanceNumber;
+    private boolean isAvailable;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
+    
     public int getAge() {
         return age;
     }

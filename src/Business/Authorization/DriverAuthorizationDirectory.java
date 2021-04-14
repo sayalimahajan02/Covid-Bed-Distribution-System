@@ -5,6 +5,7 @@
  */
 package Business.Authorization;
 
+import Business.Driver.AmbulanceDriver;
 import java.util.ArrayList;
 
 /**
@@ -28,6 +29,10 @@ public class DriverAuthorizationDirectory {
     
     private void add(DriverAuthorizationAdmin newadmin){
         this.driverAuthorizationDirectory.add(newadmin);
+    }
+    
+    public int generateId(){
+        return this.driverAuthorizationDirectory.size()+1;
     }
     
 }

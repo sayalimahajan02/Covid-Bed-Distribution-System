@@ -28,6 +28,7 @@ public class CampAdminDirectory {
     }
 
     public CampAdmin addCampAdmin(CampAdmin campadmin) {
+        campadmin.setId(generateID());
         this.campadminList.add(campadmin);
         return campadmin;
     }
@@ -49,6 +50,19 @@ public class CampAdminDirectory {
         for (CampAdmin campadmin : campadminList) {
             if (campadmin.getUserName().equals(uname)) {
                 return campadmin;
+            }
+        }
+        return null;
+    }
+
+    public int generateID() {
+        return campadminList.size() + 1;
+    }
+
+    public CampAdmin findCampByID(int id) {
+        for (CampAdmin ca : campadminList) {
+            if (ca.getId() == id) {
+                return ca;
             }
         }
         return null;

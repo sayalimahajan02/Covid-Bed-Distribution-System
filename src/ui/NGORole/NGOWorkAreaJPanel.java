@@ -36,10 +36,10 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         this.account = account;
         this.system = system;
         this.ngo = ngo;
-        campLabel.setVisible(false);
-        jScrollPane2.setVisible(false);
-        campListTable.setVisible(false);
-        assignCampBtn.setVisible(false);
+//        campLabel.setVisible(false);
+//        jScrollPane2.setVisible(false);
+//        campListTable.setVisible(false);
+//        assignCampBtn.setVisible(false);
         populateRequestTable();
         this.setSize(1680, 1050);
     }
@@ -99,17 +99,17 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 
         campListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Type", "Bed Capacity", "Admin Name", "Email Id", "Contact No", "Location"
+                "Camp ID", "Name", "Type", "Bed Capacity", "Admin Name", "Email Id", "Contact No", "Location"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -219,16 +219,12 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
         for (int i = 0; i < hospitalReqTable.getRowCount(); i++) {
             String requestStatus = model.getValueAt(i, 3).toString();
-            if (requestStatus.equals("Assign To Me")) {
-                String hospitalName = model.getValueAt(i, 1).toString();
-                for (HospitalNgoRequests requests : system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequests()) {
-                    int reqId = requests.getId();
-                    Integer requestId = Integer.parseInt(model.getValueAt(i, 0).toString());
-                    if (requests.getHospital().getName().equals(hospitalName) && reqId == requestId) {
-                        requests.setNgo(ngo);
-                        hospitalReqTable.setValueAt(requestStatus, i, 3);
-                    }
-                }
+            if (requestStatus.equals("In Progress")) {
+                Integer requestId = Integer.parseInt(model.getValueAt(i, 0).toString());
+                HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
+                requests.setNgo(ngo);
+                requests.setStatus(Status.InProgress);
+                hospitalReqTable.setValueAt(requestStatus, i, 3);
             }
         }
         JOptionPane.showMessageDialog(null, "Accepted Hospital request!");
@@ -239,14 +235,10 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
         int selectedRowInd = campListTable.getSelectedRow();
-        String campName = model.getValueAt(selectedRowInd, 0).toString();
-        for (CampAdmin ca : system.getCampAdminDirectory().getCampadminList()) {
-            if (ca.getName().equals(campName)) {
-                for (HospitalNgoRequests requests : system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequests()) {
-                    requests.setCampAdmin(ca);
-                }
-            }
-        }
+        Integer campId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
+        CampAdmin ca = system.getCampAdminDirectory().findCampByID(campId);
+        HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequestByNGO(ngo);
+        requests.setCampAdmin(ca);
         JOptionPane.showMessageDialog(null, "Camp Admin Assigned!");
     }//GEN-LAST:event_assignCampBtnActionPerformed
 
@@ -254,27 +246,6 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
         model.setRowCount(0);
         requestStatusComboBox.addItem(Status.InProgress.getValue());
-        for (CampAdmin ca : system.getCampAdminDirectory().getCampadminList()) {
-            Object[] row = new Object[7];
-            row[0] = ca.getName();
-            row[1] = ca.getType();
-            row[2] = ca.getCapacity();
-            row[3] = ca.getAdminName();
-            row[4] = ca.getEmailId();
-            row[5] = ca.getPhoneNumber();
-            row[6] = ca.getStreet() + ", " + ca.getCity() + ", " + ca.getZipCode();
-            model.addRow(row);
-        }
-    }
-
-    public void populateCampTable() {
-        campLabel.setVisible(true);
-        campListTable.setVisible(true);
-        jScrollPane2.setVisible(true);
-        assignCampBtn.setVisible(true);
-        DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
-        model.setRowCount(0);
-        requestStatusComboBox.addItem(Status.AssignToMe.getValue());
         for (HospitalNgoRequests requests : system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequests()) {
             Object[] row = new Object[6];
             row[0] = requests.getId();
@@ -283,6 +254,27 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
             row[3] = requests.getStatus().getValue();
             row[4] = requests.getHospital().getStreetaddress() + ", " + requests.getHospital().getCity() + ", " + requests.getHospital().getZipcode();
             row[5] = requests.getRequestTime();
+            model.addRow(row);
+        }
+    }
+
+    public void populateCampTable() {
+//        campLabel.setVisible(true);
+//        campListTable.setVisible(true);
+//        jScrollPane2.setVisible(true);
+//        assignCampBtn.setVisible(true);
+        DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
+        model.setRowCount(0);
+        for (CampAdmin ca : system.getCampAdminDirectory().getCampadminList()) {
+            Object[] row = new Object[8];
+            row[0] = ca.getId();
+            row[1] = ca.getName();
+            row[2] = ca.getType();
+            row[3] = ca.getCapacity();
+            row[4] = ca.getAdminName();
+            row[5] = ca.getEmailId();
+            row[6] = ca.getPhoneNumber();
+            row[7] = ca.getStreet() + ", " + ca.getCity() + ", " + ca.getZipCode();
             model.addRow(row);
         }
     }

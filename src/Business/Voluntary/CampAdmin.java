@@ -5,6 +5,7 @@
  */
 package Business.Voluntary;
 
+import Business.Hospital.Hospital;
 import Business.Hospital.Patient;
 import java.util.ArrayList;
 
@@ -24,7 +25,9 @@ public class CampAdmin {
     private String emailId;
     private String phoneNumber;
     private int capacity;
+    private Hospital hospital;
     private ArrayList<Patient> patientlist;
+    private int id;
 
     public CampAdmin() {
         this.patientlist = new ArrayList<Patient>();
@@ -150,6 +153,22 @@ public class CampAdmin {
     public void setType(String type) {
         this.type = type;
     }
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }    
 
     
 }

@@ -5,7 +5,6 @@
  */
 package ui.CampAdminRole;
 
-import ui.HospitalAdminRole.*;
 
 /**
  *

@@ -28,12 +28,35 @@ public class HospitalNgoDirectory {
     }
 
     public HospitalNgoRequests addHospitalRequests(HospitalNgoRequests requests) {
+        requests.setId(generateID());
         this.hospitalRequests.add(requests);
         return requests;
     }
 
     public void removeHospitalRequests(HospitalNgoRequests requests) {
         hospitalRequests.remove(requests);
+    }
+
+    public int generateID() {
+        return hospitalRequests.size() + 1;
+    }
+
+    public HospitalNgoRequests findRequestByID(int id) {
+        for (HospitalNgoRequests req : hospitalRequests) {
+            if (req.getId() == id) {
+                return req;
+            }
+        }
+        return null;
+    }
+
+    public HospitalNgoRequests getHospitalRequestByNGO(NGO ngo) {
+        for (HospitalNgoRequests req : hospitalRequests) {
+            if (req.getNgo() == ngo) {
+                return req;
+            }
+        }
+        return null;
     }
 
 }

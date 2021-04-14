@@ -15,7 +15,7 @@ public enum Status {
     Approved("Approved"),
     Allocation("Allocation"),
     Allocated("Allocated"),
-    InProgress("InProgress"),
+    InProgress("In Progress"),
     PatientPickup("Patient Pickup"),
     PatientDrop("Patient Drop"),
     AssignToMe("Assign To Me"),

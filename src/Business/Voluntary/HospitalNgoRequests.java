@@ -22,15 +22,12 @@ public class HospitalNgoRequests {
     private Timestamp requestTime;
     private int requiredBeds;
     private int id;
-    private static int count = 1;
 
     public HospitalNgoRequests(Hospital hospital, Status status, int requiredBeds) {
         this.hospital = hospital;
         this.status = status;
         this.requiredBeds = requiredBeds;
         this.requestTime = new Timestamp(System.currentTimeMillis());
-        this.id = count;
-        count++;
     }
 
     public Hospital getHospital() {

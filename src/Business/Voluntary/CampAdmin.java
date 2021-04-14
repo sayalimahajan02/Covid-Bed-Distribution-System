@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class CampAdmin {
 
     private String name;
+    private String type;
     private String adminName;
     private String userName;
     private String street;
@@ -142,4 +143,13 @@ public class CampAdmin {
         this.patientlist = patientlist;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    
 }

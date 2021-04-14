@@ -14,13 +14,23 @@ import java.util.ArrayList;
 public class NGODirectory {
 
     private ArrayList<NGO> ngoList;
+    private HospitalNgoDirectory hospitalNgoDirectory;
+
+    public HospitalNgoDirectory getHospitalNgoDirectory() {
+        return hospitalNgoDirectory;
+    }
+
+    public void setHospitalNgoDirectory(HospitalNgoDirectory hospitalNgoDirectory) {
+        this.hospitalNgoDirectory = hospitalNgoDirectory;
+    }
 
     public ArrayList<NGO> getNGOList() {
         return ngoList;
     }
 
     public NGODirectory() {
-        ngoList = new ArrayList<NGO>();
+        this.ngoList = new ArrayList<NGO>();
+        this.hospitalNgoDirectory = new HospitalNgoDirectory();
     }
 
     public NGO addNGO(NGO ngo) {

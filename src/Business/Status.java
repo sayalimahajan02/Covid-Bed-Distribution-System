@@ -18,6 +18,7 @@ public enum Status {
     InProgress("InProgress"),
     PatientPickup("Patient Pickup"),
     PatientDrop("Patient Drop"),
+    AssignToMe("Assign To Me"),
     Completed("Completed");
 
     private final String value;

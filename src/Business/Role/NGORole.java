@@ -15,13 +15,11 @@ import ui.NGORole.NGOWorkAreaJPanel;
  *
  * @author aishwarya
  */
-public class NGORole extends Role{
-
+public class NGORole extends Role {
+    
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new NGOWorkAreaJPanel();
+        return new NGOWorkAreaJPanel(userProcessContainer, account, business, business.getnGODirectory().getNGOByUserName(account.getUsername()));
     }
-
-    
     
 }

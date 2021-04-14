@@ -5,17 +5,49 @@
  */
 package ui.HospitalAdminRole;
 
+import Business.Driver.AmbulanceDriver;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Hospital.Hospital;
+import Business.Hospital.Patient;
+import Business.Hospital.PatientCareStaff;
+import Business.Organization.Organization;
+import Business.Status;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import ui.RegisterJPanel;
+
 /**
  *
  * @author Yash
  */
 public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
+    private Patient patient;
+    private Hospital hospital;
+    private EcoSystem system;
+    private Organization organization;
+    private Enterprise enterprise;
+    private UserAccount account;
+    private Status status;
+    //DB4OUtil dB4OUtil;
+    private JPanel userProcessorcontainer;
+    private AmbulanceDriver ambulancedriver;
+    
     /**
      * Creates new form HospitalAdminWorkAreaJPanel
      */
-    public HospitalAdminWorkAreaJPanel() {
+    public HospitalAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
         initComponents();
+        this.patient = patient;
+        this.system = system;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.userProcessorcontainer = userProcessorcontainer;
     }
 
     /**
@@ -33,20 +65,21 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtrequests = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnassignambulance = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        btnacceptpatient = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblpatient = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        tblambulance = new javax.swing.JTable();
+        btnassignstaff = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        txtbeds1 = new javax.swing.JTextField();
-        btnrequestcamp = new javax.swing.JButton();
+        txtbeds = new javax.swing.JTextField();
+        btnshowcamps = new javax.swing.JButton();
         btncheckall = new javax.swing.JButton();
+        btnrequestcamp1 = new javax.swing.JButton();
 
         btnback.setText("<<Back");
         btnback.addActionListener(new java.awt.event.ActionListener() {
@@ -69,10 +102,10 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Patient Data");
 
-        jButton1.setText("Assign Ambulance");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnassignambulance.setText("Assign Ambulance");
+        btnassignambulance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnassignambulanceActionPerformed(evt);
             }
         });
 
@@ -97,37 +130,37 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jButton2.setText("Accept Patient");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnacceptpatient.setText("Accept Patient");
+        btnacceptpatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnacceptpatientActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Ambulance Data");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblpatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Phone Number", "Address", "Email ID", "Report Status", "Patient Request Status"
+                "Patient Name", "Phone Number", "Address", "Email ID", "Patient Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tblpatient);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblambulance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -146,24 +179,24 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(tblambulance);
 
-        jButton3.setText("Assign Staff");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnassignstaff.setText("Assign Staff");
+        btnassignstaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnassignstaffActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Patient Requests:");
 
-        txtbeds1.addActionListener(new java.awt.event.ActionListener() {
+        txtbeds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtbeds1ActionPerformed(evt);
+                txtbedsActionPerformed(evt);
             }
         });
 
-        btnrequestcamp.setText("Request Camp");
+        btnshowcamps.setText("Show Camps");
 
         btncheckall.setText("Check Accepted Patients");
         btncheckall.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +204,8 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btncheckallActionPerformed(evt);
             }
         });
+
+        btnrequestcamp1.setText("Request Camp");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -194,31 +229,33 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(381, 381, 381)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnassignambulance, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(382, 382, 382)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnassignstaff, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(130, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(btnback)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
+                .addGap(83, 83, 83)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtbeds1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtrequests, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(btnrequestcamp)
-                .addGap(43, 43, 43))
+                    .addComponent(txtrequests, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbeds, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnshowcamps, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnrequestcamp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(400, 400, 400)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnacceptpatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(436, 436, 436)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -229,48 +266,49 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnback)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtbeds1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                    .addComponent(txtbeds, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(16, 16, 16)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6)
-                                    .addComponent(txtrequests, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(btnrequestcamp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                                    .addComponent(txtrequests, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnback))
                         .addGap(2, 2, 2)
-                        .addComponent(btncheckall)))
-                .addGap(199, 199, 199)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(btncheckall)))
+                        .addGap(199, 199, 199)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnrequestcamp1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnshowcamps, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnassignambulance)
                 .addGap(58, 58, 58)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(btnassignstaff)
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(277, 277, 277)
-                    .addComponent(jButton2)
+                    .addComponent(btnacceptpatient)
                     .addContainerGap(511, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -282,27 +320,51 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
+        userProcessorcontainer.remove(this);
+        Component[] componentArray = userProcessorcontainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.previous(userProcessorcontainer);
     }//GEN-LAST:event_btnbackActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnassignambulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignambulanceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        int selectedRow = tblambulance.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null,"Please select a row");
+            return;
+        }
+        
+        AmbulanceDriver ambulancedriver = (AmbulanceDriver) tblambulance.getValueAt(selectedRow,0);
+      
+        //patient.setAmbulancedriver(account.getEmployee().getName());
+        
+        ambulancedriver.setAvailability(false);
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnassignambulanceActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnacceptpatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptpatientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        populateAmbulanceTable();
+    }//GEN-LAST:event_btnacceptpatientActionPerformed
+
+    private void btnassignstaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignstaffActionPerformed
+        // TODO add your handling code here:
+        populatePatientCareStaffTable();
+    }//GEN-LAST:event_btnassignstaffActionPerformed
 
     private void txtrequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrequestsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtrequestsActionPerformed
 
-    private void txtbeds1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbeds1ActionPerformed
+    private void txtbedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbedsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtbeds1ActionPerformed
+        txtbeds.setText(String.valueOf(hospital.getBedcount()));
+        
+    }//GEN-LAST:event_txtbedsActionPerformed
 
     private void btncheckallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckallActionPerformed
         // TODO add your handling code here:
@@ -310,12 +372,13 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnacceptpatient;
+    private javax.swing.JButton btnassignambulance;
+    private javax.swing.JButton btnassignstaff;
     private javax.swing.JButton btnback;
     private javax.swing.JButton btncheckall;
-    private javax.swing.JButton btnrequestcamp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnrequestcamp1;
+    private javax.swing.JButton btnshowcamps;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -326,9 +389,61 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTextField txtbeds1;
+    private javax.swing.JTable tblambulance;
+    private javax.swing.JTable tblpatient;
+    private javax.swing.JTextField txtbeds;
     private javax.swing.JTextField txtrequests;
     // End of variables declaration//GEN-END:variables
+
+    public void populatePatientTable(){
+        DefaultTableModel model = (DefaultTableModel) tblpatient.getModel();
+        model.setRowCount(0);
+        for (Patient patient : system.getPatientDirectory().getPatientDirectory()) {
+            if(status.getValue() == "Approved") {
+          
+                Object[] row = new Object[5];
+                row[0] = patient.getFirstname() + patient.getLastname();
+                row[1] = patient.getPhonenumber();
+                row[2] = patient.getStreetaddress() + patient.getCity() + patient.getZipcode();
+                row[3] = patient.getEmail() ;
+                row[4] = status.getValue();
+                
+                model.addRow(row);
+            }
+        }
+    }
+
+    public void populateAmbulanceTable(){
+        DefaultTableModel model = (DefaultTableModel) tblpatient.getModel();
+        model.setRowCount(0);
+        for (AmbulanceDriver ambulancedriver : system.getAmbulanceDriverDirectory().getAmbulanceDriverDirectory()) {
+            
+          
+                Object[] row = new Object[4];
+                row[0] = ambulancedriver.getAmbulanceNumber();
+                row[1] = ambulancedriver.getDriverFirstName() + ambulancedriver.getDriverLastName();
+                row[2] = ambulancedriver.getPhoneNumber();
+                row[3] = ambulancedriver.getAvailability();
+                
+                model.addRow(row);
+            
+        }
+    }
+    
+    public void populatePatientCareStaffTable(){
+        DefaultTableModel model = (DefaultTableModel) tblpatient.getModel();
+        model.setRowCount(0);
+        for (PatientCareStaff patientcarestaff : system.getPatientCareStaffDirectory().getPatientCareStaffDirectory()) {
+            
+          
+                Object[] row = new Object[4];
+                row[0] = patientcarestaff.getFirstname() + patientcarestaff.getLastname();
+                row[1] = patientcarestaff.getPhonenumber();
+                row[2] = patientcarestaff.getEmail();
+                row[3] = patientcarestaff.getAvailability();
+                
+                model.addRow(row);
+            
+        }
+    }
 }

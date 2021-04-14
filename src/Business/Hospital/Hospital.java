@@ -5,6 +5,7 @@
  */
 package Business.Hospital;
 
+import Business.Driver.AmbulanceDriver;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,8 @@ public class Hospital {
     private String password;
     private int bedcount;
     private List<Patient> Patient;
+    private int hospitalID;
+
 
  
     public Hospital(){
@@ -122,4 +125,13 @@ public class Hospital {
         this.Patient = Patient;
     }
     
+    public int getHospitalID() {
+        return hospitalID;
+    }
+
+    public void setHospitalID(int hospitalID) {
+        this.hospitalID = hospitalID;
+    }
+
+  
 }

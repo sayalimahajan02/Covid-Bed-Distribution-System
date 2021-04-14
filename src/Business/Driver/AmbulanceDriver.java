@@ -20,7 +20,13 @@ public class AmbulanceDriver {
     private Hospital hospital;
     private String phoneNumber;
     private String ambulanceNumber;
+<<<<<<< HEAD
+    private boolean availability = true;
+
+
+=======
     private boolean isAvailable;
+>>>>>>> e4dd2e2952684c2aa857014aae51db9a7b9e6629
 
     public int getId() {
         return id;
@@ -86,6 +92,12 @@ public class AmbulanceDriver {
         this.ambulanceNumber = ambulanceNumber;
     }
     
-    
+    public boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
     
 }

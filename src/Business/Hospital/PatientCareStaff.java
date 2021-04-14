@@ -17,13 +17,16 @@ public class PatientCareStaff {
     private String phonenumber;
     private String email;
     private String username;
-    private Hospital hospital;
-    private Patient patient;
     private String password;
+    private int PatientcarestaffID;
+    private Hospital hospital; 
+    private boolean availability = true;
+
 
     
-    public PatientCareStaff() {
-       
+    public PatientCareStaff(Hospital hospital, Patient patient) {
+       this.hospital = hospital;
+      
     }
     
     public String getFirstname() {
@@ -81,15 +84,22 @@ public class PatientCareStaff {
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
-
-    public Patient getPatient() {
-        return patient;
+    
+    public boolean getAvailability() {
+        return availability;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
     }
     
+    public int getPatientcarestaffID() {
+        return PatientcarestaffID;
+    }
+
+    public void setPatientcarestaffID(int PatientcarestaffID) {
+        this.PatientcarestaffID = PatientcarestaffID;
+    }
 }
     
     

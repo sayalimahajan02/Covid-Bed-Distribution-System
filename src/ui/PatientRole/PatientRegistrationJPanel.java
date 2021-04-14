@@ -6,19 +6,24 @@
 package ui.PatientRole;
 
 import Business.DB4OUtil.DB4OUtil;
+import Business.Driver.AmbulanceDriver;
+import Business.Driver.PrivateDriver;
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
 import Business.Hospital.HospitalDirectory;
 import Business.Hospital.Patient;
+import Business.Hospital.PatientCareStaff;
 import Business.Hospital.PatientDirectory;
 import Business.Role.PatientRole;
 import Business.UserAccount.UserAccount;
 import Business.ValidationUtility;
+import Business.Voluntary.CampAdmin;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ui.RegisterJPanel;
+
 
 /**
  *
@@ -27,11 +32,14 @@ import ui.RegisterJPanel;
 public class PatientRegistrationJPanel extends javax.swing.JPanel {
     
     private JPanel userProcessContainer;
-    private Patient patient;
+    private Hospital hospital;
     private ValidationUtility validation;
     private EcoSystem system;
     private static DB4OUtil dB4OUtil;
-    private static JPanel userProcessorcontainer;
+    private CampAdmin campadmin;
+    private AmbulanceDriver ambulancedriver;
+    private PatientCareStaff patientcarestaff;
+    private PrivateDriver privatedriver;
     
 
     /**
@@ -41,7 +49,7 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         initComponents();
         this.system = system;
         this.dB4OUtil = dB4OUtil;
-        this.userProcessorcontainer = container;
+        this.userProcessContainer = container;
     }
 
     /**
@@ -74,6 +82,8 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         btnregister = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         passwordfield = new javax.swing.JPasswordField();
+        jLabel7 = new javax.swing.JLabel();
+        txtemergency = new javax.swing.JTextField();
 
         setLayout(null);
 
@@ -190,7 +200,7 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(btnregister);
-        btnregister.setBounds(250, 510, 130, 30);
+        btnregister.setBounds(260, 550, 130, 30);
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +212,18 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         btnBack.setBounds(60, 30, 80, 23);
         add(passwordfield);
         passwordfield.setBounds(280, 230, 220, 20);
+
+        jLabel7.setText("Emergency Contact:");
+        add(jLabel7);
+        jLabel7.setBounds(140, 490, 110, 14);
+
+        txtemergency.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemergencyActionPerformed(evt);
+            }
+        });
+        add(txtemergency);
+        txtemergency.setBounds(280, 490, 220, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -240,14 +262,14 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         PatientDirectory dir = system.getPatientDirectory();
-        Patient p = new Patient();
+        Patient p = new Patient(hospital, campadmin, ambulancedriver, patientcarestaff, privatedriver);
         char[] passwordCharArray = passwordfield.getPassword();
         String password = String.valueOf(passwordCharArray);
 
         
         if(txtfname.getText().isEmpty() || txtfname.getText().isEmpty() || txtusername.getText().isEmpty() ||
         passwordfield.getText().isEmpty()  || txtemailid.getText().isEmpty() || txtstreet.getText().isEmpty() ||
-                txtzipcode.getText().isEmpty() || txtcity.getText().isEmpty() || txtphone.getText().isEmpty()) {
+        txtzipcode.getText().isEmpty() || txtcity.getText().isEmpty() || txtphone.getText().isEmpty() || txtemergency.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
             return;
         }
@@ -316,6 +338,14 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         }
         else{ p.setPhonenumber(txtphone.getText());}
         
+        boolean flagemergency = validation.isPhoneNumberValid(txtemergency.getText());
+        
+        if(flagemergency == false) {
+            JOptionPane.showMessageDialog(null, "Phone number must have 10 digits! Check the format!");
+            return;
+        }
+        else{ p.setEmergencycontact(txtemergency.getText());}
+        
         for(UserAccount account : system.getUserAccountDirectory().getUserAccountList()) {
             if(account.getUsername().equals(txtusername.getText())) {
                 JOptionPane.showMessageDialog(null, "Username Already exists!");
@@ -358,6 +388,10 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void txtemergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemergencyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemergencyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -370,11 +404,13 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField passwordfield;
     private javax.swing.JTextField txtcity;
     private javax.swing.JTextField txtemailid;
+    private javax.swing.JTextField txtemergency;
     private javax.swing.JTextField txtfname;
     private javax.swing.JTextField txtlname;
     private javax.swing.JTextField txtphone;

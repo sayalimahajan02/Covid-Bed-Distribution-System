@@ -28,9 +28,14 @@ public class PatientCareStaffDirectory {
         this.PatientCareStaffDirectory = PatientCareStaffDirectory;
     }
     
+    public int generateID() {
+        return PatientCareStaffDirectory.size() + 1;
+    }
+    
     public PatientCareStaff addPatientCareStaff(PatientCareStaff patientcarestaff){
      
-        PatientCareStaffDirectory.add(patientcarestaff);
+        patientcarestaff.setPatientcarestaffID(generateID());
+        this.PatientCareStaffDirectory.add(patientcarestaff);
         return patientcarestaff;
     }
     
@@ -46,5 +51,15 @@ public class PatientCareStaffDirectory {
         }
         return null;
     }
+    
+    public PatientCareStaff getPatientByID(int patientcarestaffID){ 
+        for(PatientCareStaff patientcarestaff: PatientCareStaffDirectory){
+            if (patientcarestaff.getPatientcarestaffID() == patientcarestaffID) {
+                return patientcarestaff;
+        }
+        
+    }
+        return null;
+ }
     
 }

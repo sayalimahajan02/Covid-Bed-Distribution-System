@@ -28,4 +28,9 @@ public class PatientAuthorizationDirectory {
     private void add(PatientAuthorizationAdmin newadmin){
         this.patientAuthorizationDirectory.add(newadmin);
     }
+    
+    
+    public int generateId(){
+        return this.patientAuthorizationDirectory.size()+1;
+    }
 }

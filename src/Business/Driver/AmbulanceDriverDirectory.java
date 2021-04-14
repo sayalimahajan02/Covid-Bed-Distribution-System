@@ -32,4 +32,20 @@ public class AmbulanceDriverDirectory {
     public void add(AmbulanceDriver ambulanceDriver){
         ambulanceDriverDirectory.add(ambulanceDriver);
     }
+    
+    public int generateId(){
+        return this.ambulanceDriverDirectory.size()+1;
+    }
+    
+      public AmbulanceDriver getUserById(int id)
+    {
+        AmbulanceDriver selectedDriver=new AmbulanceDriver();
+        for(AmbulanceDriver ad : this.ambulanceDriverDirectory){
+            if(ad.getId()==id){
+                selectedDriver=ad;
+                break;
+            }
+        }
+        return selectedDriver;
+    }
 }

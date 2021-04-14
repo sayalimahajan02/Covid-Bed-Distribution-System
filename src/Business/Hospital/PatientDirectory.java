@@ -29,9 +29,14 @@ public class PatientDirectory {
         this.PatientDirectory = PatientDirectory;
     }
     
+    public int generateID() {
+        return PatientDirectory.size() + 1;
+    }
+    
     public Patient addPatient(Patient patient){
      
-        PatientDirectory.add(patient);
+        patient.setPatientID(generateID());
+        this.PatientDirectory.add(patient);
         return patient;
     }
     
@@ -47,5 +52,15 @@ public class PatientDirectory {
         }
         return null;
     }
+    
+    public Patient getPatientByID(int patientID){ 
+        for(Patient patient: PatientDirectory){
+            if (patient.getPatientID() == patientID) {
+                return patient;
+        }
+        
+    }
+        return null;
+ }
     
 }

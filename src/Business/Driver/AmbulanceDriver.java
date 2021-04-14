@@ -19,6 +19,9 @@ public class AmbulanceDriver {
     private Hospital hospital;
     private String phoneNumber;
     private String ambulanceNumber;
+    private boolean availability = true;
+
+
 
     public int getAge() {
         return age;
@@ -68,6 +71,12 @@ public class AmbulanceDriver {
         this.ambulanceNumber = ambulanceNumber;
     }
     
-    
+    public boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
     
 }

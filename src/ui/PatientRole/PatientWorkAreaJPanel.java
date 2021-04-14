@@ -5,19 +5,64 @@
  */
 package ui.PatientRole;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Hospital.Hospital;
+import Business.Hospital.HospitalDirectory;
+import Business.Hospital.Patient;
+import Business.Organization.Organization;
+import Business.Status;
+import Business.UserAccount.UserAccount;
+import java.awt.Image;
+import java.io.File;
+import static java.time.Clock.system;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Yash
  */
 public class PatientWorkAreaJPanel extends javax.swing.JPanel {
 
+    private Patient patient;
+    private Hospital hospital;
+    private EcoSystem system;
+    private Organization organization;
+    private Enterprise enterprise;
+    private Status status;
+    //DB4OUtil dB4OUtil;
+    private JPanel userProcessorcontainer;
+    
+    
+    private String path = "null";
     /**
      * Creates new form PatientWorkAreaJPanel
      */
-    public PatientWorkAreaJPanel() {
+    public PatientWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
         initComponents();
+        this.patient = patient;
+        this.system = system;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.userProcessorcontainer = userProcessContainer;
+        //lblpatientstatus.setText(patient.getPatientstatus());
     }
 
+    
+    public ImageIcon reportsubmit(String imgpath)
+    {
+        ImageIcon MyImage = new ImageIcon(imgpath);
+        Image reportimg = MyImage.getImage();
+        Image newimg = reportimg.getScaledInstance(lblreport.getWidth(), lblreport.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon Image = new ImageIcon(newimg);
+        return Image;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,14 +76,25 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnfindbeds = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        hospitaltable = new javax.swing.JTable();
         btnproceed = new javax.swing.JButton();
         btnemergency = new javax.swing.JButton();
         btnback = new javax.swing.JButton();
+        btnupload = new javax.swing.JButton();
+        lblreport = new javax.swing.JLabel();
+        btnsubmit = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        lblpatientstatus = new javax.swing.JLabel();
+
+        setLayout(null);
 
         jLabel1.setText("Patient Work Area");
+        add(jLabel1);
+        jLabel1.setBounds(346, 28, 127, 30);
 
         jLabel2.setText("Upload report here:");
+        add(jLabel2);
+        jLabel2.setBounds(110, 180, 130, 23);
 
         btnfindbeds.setText("Find Beds");
         btnfindbeds.addActionListener(new java.awt.event.ActionListener() {
@@ -46,8 +102,10 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 btnfindbedsActionPerformed(evt);
             }
         });
+        add(btnfindbeds);
+        btnfindbeds.setBounds(350, 290, 163, 23);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        hospitaltable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -66,7 +124,10 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(hospitaltable);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(55, 342, 794, 200);
 
         btnproceed.setText("Proceed");
         btnproceed.addActionListener(new java.awt.event.ActionListener() {
@@ -74,8 +135,12 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 btnproceedActionPerformed(evt);
             }
         });
+        add(btnproceed);
+        btnproceed.setBounds(360, 570, 153, 23);
 
         btnemergency.setText("Emergency");
+        add(btnemergency);
+        btnemergency.setBounds(737, 32, 114, 23);
 
         btnback.setText("<<Back");
         btnback.addActionListener(new java.awt.event.ActionListener() {
@@ -83,52 +148,34 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 btnbackActionPerformed(evt);
             }
         });
+        add(btnback);
+        btnback.setBounds(67, 32, 71, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnback)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnemergency, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
-                        .addComponent(btnproceed, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(346, 346, 346)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnfindbeds, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnemergency)
-                    .addComponent(btnback))
-                .addGap(58, 58, 58)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(btnfindbeds)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btnproceed)
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
+        btnupload.setText("Upload Report");
+        btnupload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnuploadActionPerformed(evt);
+            }
+        });
+        add(btnupload);
+        btnupload.setBounds(660, 160, 105, 23);
+        add(lblreport);
+        lblreport.setBounds(320, 170, 178, 72);
+
+        btnsubmit.setText("Submit");
+        btnsubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsubmitActionPerformed(evt);
+            }
+        });
+        add(btnsubmit);
+        btnsubmit.setBounds(660, 210, 110, 23);
+
+        jLabel3.setText("Patient Status:");
+        add(jLabel3);
+        jLabel3.setBounds(180, 100, 100, 30);
+        add(lblpatientstatus);
+        lblpatientstatus.setBounds(340, 104, 180, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnproceedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproceedActionPerformed
@@ -137,21 +184,72 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnfindbedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfindbedsActionPerformed
         // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_btnfindbedsActionPerformed
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbackActionPerformed
 
+    private void btnuploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnuploadActionPerformed
+        // TODO add your handling code here:
+        
+        JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images","jpg","gif","png");
+        file.addChoosableFileFilter(filter);
+        int resultimg= file.showSaveDialog(null);
+        
+        if(resultimg == JFileChooser.APPROVE_OPTION){
+            File SelectedFile = file.getSelectedFile();
+            path = SelectedFile.getAbsolutePath();
+            lblreport.setIcon(reportsubmit(path));
+//            patient.setPath(path);  
+            
+        }
+        if(resultimg == JFileChooser.CANCEL_OPTION){
+            System.out.println("NO FILE CHOSEN");
+        }
+    }//GEN-LAST:event_btnuploadActionPerformed
+
+    private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
+        // TODO add your handling code here:
+       //patient.setPatientstatus("Pending");
+       status.Pending.getValue();
+       patient.setPath(path); 
+    }//GEN-LAST:event_btnsubmitActionPerformed
+
+    public void populateTable(){
+        DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();
+        model.setRowCount(0);
+        for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
+          
+                Object[] row = new Object[7];
+                row[0] = hospital.getName();
+                row[1] = hospital.getStreetaddress();
+                row[2] = hospital.getZipcode();
+                row[3] = hospital.getCity();
+                row[4] = hospital.getPhonenumber();
+                row[5] = hospital.getEmail();
+                row[6] = hospital.getBedcount();
+                model.addRow(row);
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnemergency;
     private javax.swing.JButton btnfindbeds;
     private javax.swing.JButton btnproceed;
+    private javax.swing.JButton btnsubmit;
+    private javax.swing.JButton btnupload;
+    private javax.swing.JTable hospitaltable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblpatientstatus;
+    private javax.swing.JLabel lblreport;
     // End of variables declaration//GEN-END:variables
 }

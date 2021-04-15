@@ -5,6 +5,7 @@
  */
 package ui.DriverAuthorizationAdminRole;
 
+import Business.Authorization.DriverAuthorizationAdmin;
 import Business.DB4OUtil.DB4OUtil;
 import Business.Driver.PrivateDriver;
 import Business.EcoSystem;
@@ -41,8 +42,9 @@ public class DriverAuthorizationAdminWorkAreaJPanel extends javax.swing.JPanel {
     private Organization organization;
     private Enterprise enterprise;
     private EcoSystem business;
+    private DriverAuthorizationAdmin driverAdminLogin;
 
-    public DriverAuthorizationAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
+    public DriverAuthorizationAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, DriverAuthorizationAdmin driverAdminLogin) {
         initComponents();
          this.system = business;
         this.dB4OUtil = dB4OUtil;
@@ -52,6 +54,7 @@ public class DriverAuthorizationAdminWorkAreaJPanel extends javax.swing.JPanel {
     this.organization=organization;
     this.enterprise=enterprise;
     this.business=business;
+    this.driverAdminLogin=driverAdminLogin;
     this.setSize(1680, 1050);
     populatePrivateDriverDetails();
     }
@@ -64,7 +67,7 @@ public void populatePrivateDriverDetails(){
         model.setRowCount(0);
 
         for(PrivateDriver privDriver : system.getPrivateDriverDirectory().getPrivateDriverDirectory()){
-            if(!privDriver.isIsAuthorized()){
+            if( !privDriver.isIsAuthorized()){
                 Object[] row=new Object[5];
                 row[0]=privDriver.getId();
                 row[1]=privDriver.getDriverLastName()+", "+privDriver.getDriverFirstName();
@@ -181,7 +184,7 @@ public void populatePrivateDriverDetails(){
         if (privDriverjTable.getSelectedRowCount() == 1) {
         
             try {
-                PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserByFullName((String)privDriverjTable.getValueAt(selectedRowIndex, 0));
+                PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserById(Integer.parseInt((String)privDriverjTable.getValueAt(selectedRowIndex, 0)));
                 byte[] image= privateDriver.getLicImage();
                 //additional code
                 InputStream is = new ByteArrayInputStream(image);

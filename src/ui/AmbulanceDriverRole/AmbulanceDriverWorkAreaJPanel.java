@@ -6,6 +6,7 @@
 package ui.AmbulanceDriverRole;
 
 import Business.DB4OUtil.DB4OUtil;
+import Business.Driver.AmbulanceDriver;
 import Business.Driver.PrivateDriver;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
@@ -34,12 +35,13 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private EcoSystem business;
     private Status status;
+    private AmbulanceDriver ambulanceDriverLogin;
     /**
      * Creates new form AmbulanceDriverWorkAreaJPanel
      */
     
 
-    public AmbulanceDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, AmbulanceDriverOrganization ambulanceDriverOrganization, Enterprise enterprise) {
+    public AmbulanceDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, AmbulanceDriverOrganization ambulanceDriverOrganization, Enterprise enterprise,AmbulanceDriver ambulanceDriverLogin) {
       initComponents();
          this.system = system;
         this.dB4OUtil = dB4OUtil;
@@ -49,19 +51,18 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
     this.organization=organization;
     this.enterprise=enterprise;
     this.business=business;
+    this.ambulanceDriverLogin=ambulanceDriverLogin;
     this.setSize(1680, 1050);
     populatePatientPickUpDetails();
     }
 
     public void populatePatientPickUpDetails(){
-   
-    
     
      DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
         model.setRowCount(0);
 
         for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
-            if(patient.getPatientstatus().equals(status.Allocated.getValue())){
+            if(patient.getAmbulancedriver().getId()!=0 && patient.getAmbulancedriver().getId()==ambulanceDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())){
                 Object[] row=new Object[6];
                 row[0]=patient.getPatientID();
                 row[1]=patient.getLastname()+", "+patient.getFirstname();

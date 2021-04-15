@@ -36,16 +36,18 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private EcoSystem business;
     private Status status;
+    private PrivateDriver privateDriverLogin;
     /**
      * Creates new form AmbulanceDriverWorkAreaJPanel
      */
-    public PrivateDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, PrivateDriverOrganization privateDriverOrganization, Enterprise enterprise, EcoSystem business) {
+    public PrivateDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, PrivateDriverOrganization privateDriverOrganization, Enterprise enterprise, EcoSystem business,PrivateDriver privateDriverLogin) {
           initComponents();
          this.system = system;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = userProcessContainer;
     this.userProcessContainer=userProcessContainer;
     this.account=account;
+    this.privateDriverLogin= privateDriverLogin;
     this.organization=organization;
     this.enterprise=enterprise;
     this.business=business;
@@ -61,7 +63,7 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
-            if(/*  privatedriver allocated to patient is same as login&&*/patient.getPatientstatus().equals(status.Allocated.getValue())){
+            if(patient.getPrivatedriver().getId()!=0 && patient.getPrivatedriver().getId()==privateDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())){
                 Object[] row=new Object[6];
                 
                 row[0]=patient.getPatientID();

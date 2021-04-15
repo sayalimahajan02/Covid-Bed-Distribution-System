@@ -16,11 +16,20 @@ public class AmbulanceDriver {
     private int id;
     private String driverFirstName;
     private String driverLastName;
+    private String userName;
     private int age;
     private Hospital hospital;
     private String phoneNumber;
     private String ambulanceNumber;
     private boolean availability = true;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
 
     private boolean isAvailable;

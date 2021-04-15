@@ -5,6 +5,7 @@
  */
 package Business.Authorization;
 
+import Business.Driver.AmbulanceDriver;
 import java.util.ArrayList;
 
 /**
@@ -32,5 +33,17 @@ public class PatientAuthorizationDirectory {
     
     public int generateId(){
         return this.patientAuthorizationDirectory.size()+1;
+    }
+    
+       public PatientAuthorizationAdmin getUserByUserName(String uname)
+    {
+        PatientAuthorizationAdmin selectedAdmin=new PatientAuthorizationAdmin();
+        for(PatientAuthorizationAdmin ad : this.patientAuthorizationDirectory){
+            if(ad.getUserName().equalsIgnoreCase(uname)){
+                selectedAdmin=ad;
+                break;
+            }
+        }
+        return selectedAdmin;
     }
 }

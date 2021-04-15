@@ -5,18 +5,38 @@
  */
 package ui.CampAdminRole;
 
+import Business.EcoSystem;
+import Business.Hospital.Patient;
+import Business.Status;
+import Business.UserAccount.UserAccount;
+import Business.Voluntary.CampAdmin;
+import Business.Voluntary.HospitalNgoRequests;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Yash
+ * @author aishwarya
  */
 public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
+
+    private JPanel userProcessContainer;
+    private UserAccount account;
+    private EcoSystem system;
+    private CampAdmin ca;
+    private Patient patient;
 
     /**
      * Creates new form CheckAllPatientStatusJPanel
      */
-    public CheckAllCampPatientStatusJPanel() {
+    public CheckAllCampPatientStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, CampAdmin ca) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
+        this.ca = ca;
+        this.setSize(1680, 1050);
+        populateTable();
     }
 
     /**
@@ -30,11 +50,12 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        patientStatTable = new javax.swing.JTable();
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel1.setText("View Accepted Patient Status");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        patientStatTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -48,10 +69,18 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Patient Phone Number", "Ambulance Number", "Driver Name", "Driver Phone Number", "Staff Name", "Staff Phone Number", "Stutus"
+                "Patient Name", "Patient Phone Number", "Vehicle Number", "Driver Name", "Driver Phone Number", "Staff Name", "Staff Phone Number", "Status"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(patientStatTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -59,21 +88,21 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1214, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(360, 360, 360))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(407, 407, 407))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(321, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -81,6 +110,23 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable patientStatTable;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) patientStatTable.getModel();
+        model.setRowCount(0);
+        for (Patient p : ca.getPatientlist()) {
+            Object[] row = new Object[7];
+            row[0] = p.getFirstname() + " " + p.getLastname();
+            row[1] = p.getPhonenumber();
+            row[2] = p.getPrivatedriver().getPrivateVehicleNumber();
+            row[3] = p.getPrivatedriver().getDriverFirstName() + " " + p.getPrivatedriver().getDriverLastName();
+            row[4] = p.getPrivatedriver().getPhoneNumber();
+            row[5] = p.getPatientcarestaff().getFirstname() + " " + p.getPatientcarestaff().getLastname();
+            row[6] = p.getPatientcarestaff().getPhonenumber();
+            row[7] = p.getStatus().getValue();
+            model.addRow(row);
+        }
+    }
 }

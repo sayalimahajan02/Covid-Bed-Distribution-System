@@ -10,19 +10,11 @@ package Business.Authorization;
  * @author sayalimahajan
  */
 public class DriverAuthorizationAdmin {
-    private String id;
+    private int id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -54,6 +46,14 @@ public class DriverAuthorizationAdmin {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 }

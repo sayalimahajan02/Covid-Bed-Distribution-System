@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ui.AmbulanceDriverRole.AmbulanceDriverRegistrationJPanel;
 import ui.CampAdminRole.CampAdminRegistrationJPanel;
+import ui.DriverAuthorizationAdminRole.DriverAuthorizationAdminWorkAreaJPanel;
+import ui.DriverAuthorizationAdminRole.DriverAuthorizationRegistrationJPanel;
 import ui.HospitalAdminRole.HospitalAdminRegistrationJPanel;
 import ui.NGORole.NGORegistrationJPanel;
 import ui.PatientCareStaffRole.PatientCareStaffRegistrationJPanel;
@@ -575,6 +577,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void driverAuthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driverAuthBtnActionPerformed
         // TODO add your handling code here:
+        DriverAuthorizationRegistrationJPanel j = new DriverAuthorizationRegistrationJPanel(system, registerDetails, dB4OUtil);
+        container.add("workArea", j);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        container.setVisible(true);
     }//GEN-LAST:event_driverAuthBtnActionPerformed
 
     private void patientAuthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientAuthBtnActionPerformed

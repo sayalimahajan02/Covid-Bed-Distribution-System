@@ -330,7 +330,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
          ambDriver.setAge(Integer.parseInt(ageTxt.getText()));
          ambDriver.setPhoneNumber(phoneTxt.getText());
          ambDriver.setAmbulanceNumber(ambulanceNumberTxt.getText());
-         
+         ambDriver.setId(system.getAmbulanceDriverDirectory().generateId());
             //save to db04
             Employee employee = system.getEmployeeDirectory().createEmployee(ambDriver.getDriverLastName()+", "+ambDriver.getDriverFirstName());
             system.getAmbulanceDriverDirectory().add(ambDriver);

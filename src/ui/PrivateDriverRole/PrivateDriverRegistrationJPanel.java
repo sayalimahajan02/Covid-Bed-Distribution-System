@@ -22,6 +22,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ui.RegisterJPanel;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -32,7 +39,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
      private static EcoSystem system;
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
-    private String randomCode;
+        private byte[] dlImageArray;
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
@@ -43,9 +50,6 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
          this.system = system;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = container;
-        VerifyjButton.setVisible(false);
-        verificationCOdejLabel.setVisible(false);
-        verificationCodeTxt.setVisible(false);
         this.setSize(1680, 1050);
         populateHospitalDetails();
     }
@@ -71,14 +75,16 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         firstNameTxt = new javax.swing.JTextField();
         RegisterjButton = new javax.swing.JButton();
         phoneTxt = new javax.swing.JTextField();
-        userNameTxt = new javax.swing.JLabel();
-        passwordTxt = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        verificationCOdejLabel = new javax.swing.JLabel();
-        verificationCodeTxt = new javax.swing.JTextField();
-        VerifyjButton = new javax.swing.JButton();
+        userNamelbl = new javax.swing.JLabel();
+        passwordlbl = new javax.swing.JLabel();
+        usernameTxt = new javax.swing.JTextField();
         campjComboBox = new javax.swing.JComboBox<>();
+        uploadjButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        emailTxt1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        uploadsuccessLabel = new javax.swing.JLabel();
+        passwordTxt = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -131,30 +137,21 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
-        userNameTxt.setText("UserName :");
+        userNamelbl.setText("UserName :");
 
-        passwordTxt.setText("Password :");
+        passwordlbl.setText("Password :");
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        uploadjButton.setText("Upload");
+        uploadjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                uploadjButtonActionPerformed(evt);
             }
         });
 
-        verificationCOdejLabel.setText("Verification code :");
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        jLabel9.setText("upload driving license photo (.jpeg or .png)");
 
-        verificationCodeTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verificationCodeTxtActionPerformed(evt);
-            }
-        });
-
-        VerifyjButton.setText("Verify");
-        VerifyjButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VerifyjButtonActionPerformed(evt);
-            }
-        });
+        jLabel8.setText("Driving License Number: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -171,10 +168,6 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(passwordTxt)
-                                .addGap(45, 45, 45)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel4))
@@ -188,33 +181,47 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                                 .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(userNameTxt)
+                                    .addComponent(userNamelbl)
                                     .addComponent(jLabel6))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(47, 47, 47)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(62, 62, 62)
                                         .addComponent(campjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(55, 55, 55)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(VerifyjButton)
-                                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(verificationCOdejLabel)
-                        .addGap(55, 55, 55)
-                        .addComponent(verificationCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel9))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(RegisterjButton)))
+                        .addComponent(uploadjButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(uploadsuccessLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(85, 85, 85))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(RegisterjButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel8)
+                        .addGap(44, 44, 44)
+                        .addComponent(emailTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(passwordlbl)
+                        .addGap(47, 47, 47)
+                        .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -230,13 +237,13 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                         .addComponent(campjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userNameTxt)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                    .addComponent(userNamelbl)
+                    .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordTxt)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(passwordlbl)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -256,15 +263,19 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(VerifyjButton)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(verificationCOdejLabel)
-                    .addComponent(verificationCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                    .addComponent(jLabel8)
+                    .addComponent(emailTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(uploadjButton)
+                    .addComponent(uploadsuccessLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addComponent(RegisterjButton)
-                .addGap(381, 381, 381))
+                .addGap(347, 347, 347))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -290,9 +301,9 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 
     private void RegisterjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterjButtonActionPerformed
         // TODO add your handling code here:
-        verificationCOdejLabel.setVisible(false);
-        verificationCodeTxt.setVisible(false);
-        if(campjComboBox.getSelectedIndex()==-1 || firstNameTxt.getText().isEmpty() ||lastNameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || ageTxt.getText().isEmpty() || ambulanceNumberTxt.getText().isEmpty() )
+         char[] passwordCharArray = passwordTxt.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        if(campjComboBox.getSelectedIndex()==-1 || firstNameTxt.getText().isEmpty() ||lastNameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || ageTxt.getText().isEmpty() || ambulanceNumberTxt.getText().isEmpty() || usernameTxt.getText().isEmpty() || password.isEmpty() )
         {
             JOptionPane.showMessageDialog(null, "Please enter all fields..");  
              return;
@@ -301,26 +312,16 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 //            JOptionPane.showMessageDialog(null, "Verification Code is incorrect please enter correct code or click on verify to resend new code");  
 //            return;
 //        }
- if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(userNameTxt.getText())) {
+ if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(usernameTxt.getText())) {
             JOptionPane.showMessageDialog(null, "User with this username already exist! Please try another UserName");
                 return;
                 } 
-      if (!system.isPasswordValid(passwordTxt.getText())) {
+      if (!system.isPasswordValid(password)) {
           JOptionPane.showMessageDialog(null, "Password muct be between 3-20 characters. "
                   + "Lower case, upper case, digit and a special character should occur once.");  
             return;
         }
       
-      if (verificationCodeTxt.getText().isEmpty()) {
-          JOptionPane.showMessageDialog(null, "Please verify your Phone Number");  
-            return;
-        }
-      
-        if (!system.checkIfUserIsUnique(userNameTxt.getText())) {
-            JOptionPane.showMessageDialog(null, "Please enter all fields..");  
-            return;
-        }
-
         if (!this.system.isPhoneNumberValid(phoneTxt.getText())) {
             JOptionPane.showMessageDialog(null, "Please provide Contact number in format 123-456-7890 OR 123.456.7890 OR 123 456 7890");  
             return;
@@ -337,10 +338,15 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
          privateDriver.setPhoneNumber(phoneTxt.getText());
          privateDriver.setPrivateVehicleNumber(ambulanceNumberTxt.getText());
          privateDriver.setIsAuthorized(false);
+         privateDriver.setLicImage(dlImageArray);
+         privateDriver.setId(system.getPatientDirectory().generateID());
             //save to db04
             Employee employee = system.getEmployeeDirectory().createEmployee(privateDriver.getDriverLastName()+", "+privateDriver.getDriverFirstName());
             system.getPrivateDriverDirectory().add(privateDriver);
-            UserAccount account = system.getUserAccountDirectory().createUserAccount(userNameTxt.getText(), passwordTxt.getText(), employee, new PrivateDriverRole());
+            system.getPrivateDriverDirectory().getPrivateDriverDirectory().add(privateDriver);
+            UserAccount account = system.getUserAccountDirectory().createUserAccount(usernameTxt.getText(), password, employee, new PrivateDriverRole());
+            dB4OUtil.storeSystem(system);
+            JOptionPane.showMessageDialog(null, "Information saved successfully");
             
     }//GEN-LAST:event_RegisterjButtonActionPerformed
 
@@ -348,37 +354,58 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneTxtActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+     private static String getFileExtension(File file) {
+        String fileName = file.getName();
+        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+        return fileName.substring(fileName.lastIndexOf(".")+1);
+        else return "";
+    }
 
-    private void verificationCodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificationCodeTxtActionPerformed
+     
+    private void uploadjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadjButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_verificationCodeTxtActionPerformed
-
-    private void VerifyjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerifyjButtonActionPerformed
-        // TODO add your handling code here:
-        if(phoneTxt.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Please enter your phone number first");
-            return; 
+        JFileChooser uploadImage=new JFileChooser();
+        uploadImage.showOpenDialog(null);
+        File f=uploadImage.getSelectedFile();
+        String fileExt = getFileExtension(f);
+       if(!(fileExt.toLowerCase().equals("png") || fileExt.toLowerCase().equals("jpeg"))){
+         JOptionPane.showMessageDialog(null, "Please upload only Jpeg or png file");  
+            return;  
+       }
+        //additional code
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File(f.getAbsolutePath()));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        verificationCOdejLabel.setVisible(true);
-        verificationCodeTxt.setVisible(true);
-        Random random=new Random();
-        this.randomCode=String.format("%04d", random.nextInt(10000));
-            SendSMS sendSMS = new SendSMS(phoneTxt.getText(), "Code : "+ randomCode);
-        JOptionPane.showMessageDialog(null, "Please enter verification code received on registered mobile number");
-       
-    }//GEN-LAST:event_VerifyjButtonActionPerformed
+        String fileName = f.getAbsolutePath();
+        uploadsuccessLabel.setText("file Uploaded Successfully");
+
+        try{
+
+            File imageFile=new File(fileName);
+            FileInputStream fis=new FileInputStream(imageFile);
+            ByteArrayOutputStream bos=new ByteArrayOutputStream();
+            byte[] writetoArray=new byte[1024];
+            for(int read; (read=fis.read(writetoArray))!=-1;){
+                bos.write(writetoArray,0,read);
+            }
+            dlImageArray=bos.toByteArray();
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_uploadjButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton RegisterjButton;
-    private javax.swing.JButton VerifyjButton;
     private javax.swing.JTextField ageTxt;
     private javax.swing.JTextField ambulanceNumberTxt;
     private javax.swing.JComboBox<String> campjComboBox;
+    private javax.swing.JTextField emailTxt1;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -386,14 +413,16 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField lastNameTxt;
-    private javax.swing.JLabel passwordTxt;
+    private javax.swing.JPasswordField passwordTxt;
+    private javax.swing.JLabel passwordlbl;
     private javax.swing.JTextField phoneTxt;
-    private javax.swing.JLabel userNameTxt;
-    private javax.swing.JLabel verificationCOdejLabel;
-    private javax.swing.JTextField verificationCodeTxt;
+    private javax.swing.JButton uploadjButton;
+    private javax.swing.JLabel uploadsuccessLabel;
+    private javax.swing.JLabel userNamelbl;
+    private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
 
     private void populateHospitalDetails() {

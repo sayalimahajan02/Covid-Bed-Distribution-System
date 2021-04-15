@@ -21,7 +21,7 @@ public class PrivateDriverRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new PrivateDriverWorkAreaJPanel(userProcessContainer, account, (PrivateDriverOrganization)organization, enterprise);
+        return new PrivateDriverWorkAreaJPanel(userProcessContainer, account, (PrivateDriverOrganization)organization, enterprise,business);
     }
     
 }

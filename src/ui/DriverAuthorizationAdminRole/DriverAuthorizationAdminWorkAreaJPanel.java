@@ -11,6 +11,15 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -35,7 +44,7 @@ public class DriverAuthorizationAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     public DriverAuthorizationAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
-         this.system = system;
+         this.system = business;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = userProcessContainer;
     this.userProcessContainer=userProcessContainer;
@@ -56,11 +65,12 @@ public void populatePrivateDriverDetails(){
 
         for(PrivateDriver privDriver : system.getPrivateDriverDirectory().getPrivateDriverDirectory()){
             if(!privDriver.isIsAuthorized()){
-                Object[] row=new Object[4];
-                row[0]=privDriver.getDriverLastName()+", "+privDriver.getDriverFirstName();
-                row[1]=privDriver.getPhoneNumber();
-                row[2]=privDriver.getAge();
-                row[3]=privDriver.getPrivateVehicleNumber();
+                Object[] row=new Object[5];
+                row[0]=privDriver.getId();
+                row[1]=privDriver.getDriverLastName()+", "+privDriver.getDriverFirstName();
+                row[2]=privDriver.getPhoneNumber();
+                row[3]=privDriver.getAge();
+                row[4]=privDriver.getPrivateVehicleNumber();
                 model.addRow(row);
             }
         }
@@ -77,23 +87,25 @@ public void populatePrivateDriverDetails(){
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         privDriverjTable = new javax.swing.JTable();
-        ConfirmButton = new javax.swing.JButton();
+        viewDlButton = new javax.swing.JButton();
+        ConfirmButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel8.setText("Your pending Request");
 
         privDriverjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Driver's Fullname", "Phone Number", "Age", "Private car number"
+                "Ptient Id", "Driver's Fullname", "Phone Number", "Age", "Private car number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -102,29 +114,46 @@ public void populatePrivateDriverDetails(){
         });
         jScrollPane1.setViewportView(privDriverjTable);
 
-        ConfirmButton.setText("Confirm");
-        ConfirmButton.addActionListener(new java.awt.event.ActionListener() {
+        viewDlButton.setText("View DL");
+        viewDlButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmButtonActionPerformed(evt);
+                viewDlButtonActionPerformed(evt);
             }
         });
+
+        ConfirmButton1.setText("Confirm");
+        ConfirmButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Click here to see DL of selected Driver :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(viewDlButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(181, 181, 181))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(198, 198, 198)
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(ConfirmButton)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(249, 249, 249)
+                    .addComponent(ConfirmButton1)
+                    .addContainerGap(325, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,26 +162,67 @@ public void populatePrivateDriverDetails(){
                 .addComponent(jLabel8)
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(ConfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(viewDlButton))
+                .addContainerGap(137, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(422, Short.MAX_VALUE)
+                    .addComponent(ConfirmButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(51, 51, 51)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
+    private void viewDlButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDlButtonActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = privDriverjTable.getSelectedRow();
         if (privDriverjTable.getSelectedRowCount() == 1) {
         
-             PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserByFullName((String)privDriverjTable.getValueAt(selectedRowIndex, 0));
+            try {
+                PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserByFullName((String)privDriverjTable.getValueAt(selectedRowIndex, 0));
+                byte[] image= privateDriver.getLicImage();
+                //additional code
+                InputStream is = new ByteArrayInputStream(image);
+                BufferedImage img = ImageIO.read(is);
+                Image dimg = img.getScaledInstance(186, 151,
+                        Image.SCALE_SMOOTH);
+                //additional code
+                JOptionPane.showMessageDialog(null,"", "Driving License Image", + JOptionPane.INFORMATION_MESSAGE,   new ImageIcon(dimg));
+            } catch (IOException ex) {
+                Logger.getLogger(DriverAuthorizationAdminWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    }//GEN-LAST:event_ConfirmButtonActionPerformed
+        else {
+            JOptionPane.showMessageDialog(null, "Please select one row to see Driving licanse");
+            return;
+        }
+    }//GEN-LAST:event_viewDlButtonActionPerformed
+
+    private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
+        // TODO add your handling code here:
+         int selectedRowIndex = privDriverjTable.getSelectedRow();
+        if (privDriverjTable.getSelectedRowCount() == 1) {
+        
+             PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserByFullName((String)privDriverjTable.getValueAt(selectedRowIndex, 4));
+             privateDriver.setIsAuthorized(true);
+             JOptionPane.showMessageDialog(null, "Driver has been Authorized successfully");
+             populatePrivateDriverDetails();
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Please select one row to confirm");
+            return;
+        }
+    }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ConfirmButton;
+    private javax.swing.JButton ConfirmButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable privDriverjTable;
+    private javax.swing.JButton viewDlButton;
     // End of variables declaration//GEN-END:variables
 }

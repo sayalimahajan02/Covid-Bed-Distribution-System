@@ -339,6 +339,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
          privateDriver.setPrivateVehicleNumber(ambulanceNumberTxt.getText());
          privateDriver.setIsAuthorized(false);
          privateDriver.setLicImage(dlImageArray);
+         privateDriver.setUserName(usernameTxt.getText());
          privateDriver.setId(system.getPatientDirectory().generateID());
             //save to db04
             Employee employee = system.getEmployeeDirectory().createEmployee(privateDriver.getDriverLastName()+", "+privateDriver.getDriverFirstName());

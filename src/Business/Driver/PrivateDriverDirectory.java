@@ -56,4 +56,16 @@ public class PrivateDriverDirectory {
     public int generateId(){
         return this.privateDriverDirectory.size()+1;
     }
+    
+       public PrivateDriver getUserByUserName(String uname)
+    {
+        PrivateDriver selectedDriver=new PrivateDriver();
+        for(PrivateDriver ad : this.privateDriverDirectory){
+            if(ad.getUserName().equalsIgnoreCase(uname)){
+                selectedDriver=ad;
+                break;
+            }
+        }
+        return selectedDriver;
+    }
 }

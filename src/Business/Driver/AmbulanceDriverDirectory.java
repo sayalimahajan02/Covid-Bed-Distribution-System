@@ -48,4 +48,16 @@ public class AmbulanceDriverDirectory {
         }
         return selectedDriver;
     }
+      
+        public AmbulanceDriver getUserByUserName(String uname)
+    {
+        AmbulanceDriver selectedDriver=new AmbulanceDriver();
+        for(AmbulanceDriver ad : this.ambulanceDriverDirectory){
+            if(ad.getUserName().equalsIgnoreCase(uname)){
+                selectedDriver=ad;
+                break;
+            }
+        }
+        return selectedDriver;
+    }
 }

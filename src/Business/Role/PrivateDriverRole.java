@@ -5,6 +5,8 @@
  */
 package Business.Role;
 
+import Business.Driver.AmbulanceDriver;
+import Business.Driver.PrivateDriver;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -21,7 +23,7 @@ public class PrivateDriverRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new PrivateDriverWorkAreaJPanel(userProcessContainer, account, (PrivateDriverOrganization)organization, enterprise,business);
+        return new PrivateDriverWorkAreaJPanel(userProcessContainer, account, (PrivateDriverOrganization)organization, enterprise,business,(PrivateDriver)business.getPrivateDriverDirectory().getUserByUserName(account.getUsername()));
     }
     
 }

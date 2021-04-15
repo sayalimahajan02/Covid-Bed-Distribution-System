@@ -17,6 +17,7 @@ public class PrivateDriver {
     private String driverFirstName;
     private String driverLastName;
     private CampAdmin associatedCampAdmin;
+    private String userName;
     private int age;
     private String phoneNumber;
     private String privateVehicleNumber;
@@ -24,6 +25,14 @@ public class PrivateDriver {
     private byte[] licImage;
     private String dlNumber;
     private boolean isAvailable;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public int getId() {
         return id;

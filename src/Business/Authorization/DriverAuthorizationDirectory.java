@@ -35,4 +35,16 @@ public class DriverAuthorizationDirectory {
         return this.driverAuthorizationDirectory.size()+1;
     }
     
+       public DriverAuthorizationAdmin getUserByUserName(String uname)
+    {
+        DriverAuthorizationAdmin selectedAdmin=new DriverAuthorizationAdmin();
+        for(DriverAuthorizationAdmin ad : this.driverAuthorizationDirectory){
+            if(ad.getUserName().equalsIgnoreCase(uname)){
+                selectedAdmin=ad;
+                break;
+            }
+        }
+        return selectedAdmin;
+    }
+    
 }

@@ -11,10 +11,19 @@ package Business.Authorization;
  */
 public class DriverAuthorizationAdmin {
     private int id;
+    private String userName;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public String getFirstName() {
         return firstName;

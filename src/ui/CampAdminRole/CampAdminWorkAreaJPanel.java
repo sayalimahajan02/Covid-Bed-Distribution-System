@@ -55,7 +55,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         requestStatusComboBox.addItem(Status.Approved.getValue());
         for (HospitalNgoRequests requests : system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequests()) {
-            if (requests.getCampAdmin().equals(ca)) {
+            if (requests.getCampAdmin().getId() == ca.getId()) {
                 Object[] row = new Object[7];
                 row[0] = requests.getId();
                 row[1] = requests.getHospital().getName();
@@ -407,6 +407,10 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void acceptReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptReqBtnActionPerformed
         // TODO add your handling code here:
+        if (ngoReqTable.getSelectedRow() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) ngoReqTable.getModel();
         int selectedRowInd = ngoReqTable.getSelectedRow();
         String requestStatus = model.getValueAt(selectedRowInd, 4).toString();
@@ -414,6 +418,8 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
             Integer requestId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
             HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
             requests.setStatus(Status.Approved);
+            ca.setHospital(requests.getHospital());
+            ca.setNgo(requests.getNgo());
             ngoReqTable.setValueAt(requestStatus, selectedRowInd, 3);
         }
         JOptionPane.showMessageDialog(null, "Accepted NGO request!");
@@ -424,7 +430,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         patientComboBox.addItem(Status.Approved.getValue());
         for (Patient p : system.getPatientDirectory().getPatientDirectory()) {
-            if (p.getCampadmin().equals(ca) && p.getStatus().equals(Status.Allocation)) {
+            if (p.getCampadmin().getId() == ca.getId() && p.getStatus().equals(Status.Allocation)) {
                 Object[] row = new Object[6];
                 row[0] = p.getPatientID();
                 row[1] = p.getFirstname() + " " + p.getLastname();
@@ -440,6 +446,10 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void approvePatientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approvePatientBtnActionPerformed
         // TODO add your handling code here:
+        if (patientTable.getSelectedRow() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) patientTable.getModel();
         int selectedRowInd = patientTable.getSelectedRow();
         Integer patientId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
@@ -485,6 +495,10 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void assignPvtDriverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignPvtDriverBtnActionPerformed
         // TODO add your handling code here:
+        if (privateDriverTable.getSelectedRow() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) privateDriverTable.getModel();
         int selectedRowInd = privateDriverTable.getSelectedRow();
         Integer pvtDrivId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
@@ -505,6 +519,10 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void assignStaffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignStaffBtnActionPerformed
         // TODO add your handling code here:
+        if (patientCareSTaffTable.getSelectedRow() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) patientCareSTaffTable.getModel();
         int selectedRowInd = patientCareSTaffTable.getSelectedRow();
         Integer staffId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());

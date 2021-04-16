@@ -216,6 +216,10 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 
     private void acceptReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptReqBtnActionPerformed
         // TODO add your handling code here:
+        if (requestStatusComboBox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Please update request status!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
         for (int i = 0; i < hospitalReqTable.getRowCount(); i++) {
             String requestStatus = model.getValueAt(i, 3).toString();
@@ -233,6 +237,10 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 
     private void assignCampBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignCampBtnActionPerformed
         // TODO add your handling code here:
+        if (campListTable.getSelectedRow() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
         int selectedRowInd = campListTable.getSelectedRow();
         Integer campId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());

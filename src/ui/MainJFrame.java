@@ -6,9 +6,6 @@ package ui;
 
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
-import Business.Enterprise.Enterprise;
-import Business.Network.Network;
-import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -17,7 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ui.AmbulanceDriverRole.AmbulanceDriverRegistrationJPanel;
 import ui.CampAdminRole.CampAdminRegistrationJPanel;
-import ui.DriverAuthorizationAdminRole.DriverAuthorizationAdminWorkAreaJPanel;
 import ui.DriverAuthorizationAdminRole.DriverAuthorizationRegistrationJPanel;
 import ui.HospitalAdminRole.HospitalAdminRegistrationJPanel;
 import ui.NGORole.NGORegistrationJPanel;

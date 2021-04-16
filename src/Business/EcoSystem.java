@@ -12,6 +12,7 @@ import Business.Authorization.PatientAuthorizationDirectory;
 import Business.Driver.AmbulanceDriverDirectory;
 import Business.Driver.PrivateDriverDirectory;
 import Business.Employee.EmployeeDirectory;
+import Business.Enterprise.Enterprise;
 import Business.Enterprise.EnterpriseDirectory;
 import Business.Hospital.HospitalDirectory;
 import Business.Hospital.PatientCareStaffDirectory;
@@ -30,8 +31,8 @@ import java.util.regex.Pattern;
  *
  * @author MyPC1
  */
-public class EcoSystem extends Organization{
-    
+public class EcoSystem extends Organization {
+
     private ArrayList<Network> networkList;
     private static EcoSystem business;
     private EnterpriseDirectory enterpriseDirectory;
@@ -109,7 +110,7 @@ public class EcoSystem extends Organization{
     public void setPatientDirectory(PatientDirectory patientDirectory) {
         this.patientDirectory = patientDirectory;
     }
-    
+
     public PatientCareStaffDirectory getPatientCareStaffDirectory() {
         return patientCareStaffDirectory;
     }
@@ -118,44 +119,45 @@ public class EcoSystem extends Organization{
         this.patientCareStaffDirectory = patientCareStaffDirectory;
     }
 
-    public static EcoSystem getInstance(){
-        if(business==null){
-            business=new EcoSystem();
+    public static EcoSystem getInstance() {
+        if (business == null) {
+            business = new EcoSystem();
         }
         return business;
     }
-    
-     public static void setInstance(EcoSystem system) {
+
+    public static void setInstance(EcoSystem system) {
         business = system;
     }
 
-    public Network createAndAddNetwork(){
-        Network network=new Network();
+    public Network createAndAddNetwork() {
+        Network network = new Network();
         networkList.add(network);
         return network;
     }
+
     @Override
     public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roleList=new ArrayList<Role>();
+        ArrayList<Role> roleList = new ArrayList<Role>();
         roleList.add(new SystemAdminRole());
         return roleList;
     }
-    private EcoSystem(){
-        super(null);
-        networkList=new ArrayList<Network>();
-        enterpriseDirectory=new EnterpriseDirectory();
-        organizationDirectory=new OrganizationDirectory();
-        driverAuthorizationDirectory=new DriverAuthorizationDirectory();
-        patientAuthorizationDirectory=new PatientAuthorizationDirectory();
-        hospitalDirectory=new HospitalDirectory();
-        ambulanceDriverDirectory=new AmbulanceDriverDirectory();
-        privateDriverDirectory=new PrivateDriverDirectory();
-        patientDirectory=new PatientDirectory();
-        campAdminDirectory=new CampAdminDirectory();
-        patientCareStaffDirectory=new PatientCareStaffDirectory();
-                nGODirectory = new NGODirectory();
 
-        
+    private EcoSystem() {
+        super(null);
+        networkList = new ArrayList<Network>();
+        enterpriseDirectory = new EnterpriseDirectory();
+        organizationDirectory = new OrganizationDirectory();
+        driverAuthorizationDirectory = new DriverAuthorizationDirectory();
+        patientAuthorizationDirectory = new PatientAuthorizationDirectory();
+        hospitalDirectory = new HospitalDirectory();
+        ambulanceDriverDirectory = new AmbulanceDriverDirectory();
+        privateDriverDirectory = new PrivateDriverDirectory();
+        patientDirectory = new PatientDirectory();
+        campAdminDirectory = new CampAdminDirectory();
+        patientCareStaffDirectory = new PatientCareStaffDirectory();
+        nGODirectory = new NGODirectory();
+
     }
 
     public CampAdminDirectory getCampAdminDirectory() {
@@ -173,19 +175,18 @@ public class EcoSystem extends Organization{
     public void setNetworkList(ArrayList<Network> networkList) {
         this.networkList = networkList;
     }
-    
-    public boolean checkIfUserIsUnique(String userName){
-        if(!this.getUserAccountDirectory().checkIfUsernameIsUnique(userName)){
+
+    public boolean checkIfUserIsUnique(String userName) {
+        if (!this.getUserAccountDirectory().checkIfUsernameIsUnique(userName)) {
             return false;
         }
-        for(Network network:networkList){
-            
+        for (Network network : networkList) {
+
         }
         return true;
     }
-    
-    
-     public static boolean isNameValid(String text) {
+
+    public static boolean isNameValid(String text) {
         String regex = "^[a-zA-Z].*[\\s\\.]*$";
         return text.matches(regex);
     }
@@ -246,6 +247,24 @@ public class EcoSystem extends Organization{
     public void setnGODirectory(NGODirectory nGODirectory) {
         this.nGODirectory = nGODirectory;
     }
-    
-    
+
+    public boolean checkIsNetworkUnique(String network) {
+        for (Network n : business.getNetworkList()) {
+            if (n.getName().toLowerCase().equals(network.toLowerCase())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+     public boolean checkIsEnterpriseUnique(String entName) {
+        for (Network n : business.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                if (e.getName().toLowerCase().equals(entName.toLowerCase())) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }

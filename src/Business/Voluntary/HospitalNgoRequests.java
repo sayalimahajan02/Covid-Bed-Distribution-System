@@ -28,6 +28,8 @@ public class HospitalNgoRequests {
         this.status = status;
         this.requiredBeds = requiredBeds;
         this.requestTime = new Timestamp(System.currentTimeMillis());
+        this.ngo = new NGO();
+        this.campAdmin = new CampAdmin();
     }
 
     public Hospital getHospital() {

@@ -26,11 +26,14 @@ public class CampAdmin {
     private String phoneNumber;
     private int capacity;
     private Hospital hospital;
+    private NGO ngo;
     private ArrayList<Patient> patientlist;
     private int id;
 
     public CampAdmin() {
         this.patientlist = new ArrayList<Patient>();
+        this.hospital =new Hospital();
+        this.ngo= new NGO();
     }
 
     public CampAdmin(String name, String adminName, String userName, String street, String city, String zipCode, String emailId, String phoneNumber, int bedCount) {
@@ -170,5 +173,14 @@ public class CampAdmin {
         this.id = id;
     }    
 
+    public NGO getNgo() {
+        return ngo;
+    }
+
+    public void setNgo(NGO ngo) {
+        this.ngo = ngo;
+    }
+
+    
     
 }

@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.Network.Network;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,7 +36,6 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private void populateNetworkTable() {
         DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();
-
         model.setRowCount(0);
         for (Network network : system.getNetworkList()) {
             Object[] row = new Object[1];
@@ -143,18 +143,25 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-
-        String name = txtNetworkName.getText();
-
-        Network network = system.createAndAddNetwork();
-        network.setName(name);
-
+        String name = txtNetworkName.getText().trim();
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please Enter a Network Name!");
+            return;
+        }
+        if (system.checkIsNetworkUnique(name)) {
+            Network network = system.createAndAddNetwork();
+            network.setName(name);
+            JOptionPane.showMessageDialog(null, "Network is Created Successfully!");
+            txtNetworkName.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Network Already Exists!");
+        }
         populateNetworkTable();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         userProcessContainer.remove(this);
-         Component[] componentArray = userProcessContainer.getComponents();
+        Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
         sysAdminwjp.populateTree();

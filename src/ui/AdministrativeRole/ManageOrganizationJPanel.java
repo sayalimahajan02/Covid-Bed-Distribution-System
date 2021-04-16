@@ -108,8 +108,6 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
 
-        organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel1.setText("Organization Type ");
 
         backJButton.setText("<< Back");

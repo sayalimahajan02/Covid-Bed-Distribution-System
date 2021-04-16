@@ -140,8 +140,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Employee");
 
-        employeeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         backjButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         backjButton1.setText("<< Back");
         backjButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +150,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Organization");
 
-        organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationJComboBoxActionPerformed(evt);
@@ -160,8 +157,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         });
 
         jLabel4.setText("Role");
-
-        roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

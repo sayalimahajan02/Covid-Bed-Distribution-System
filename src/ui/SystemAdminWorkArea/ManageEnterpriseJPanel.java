@@ -36,7 +36,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) enterpriseJTable.getModel();
-
         model.setRowCount(0);
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
@@ -183,26 +182,27 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-
         Network network = (Network) networkJComboBox.getSelectedItem();
         Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseTypeJComboBox.getSelectedItem();
-
-        if (network == null || type == null) {
-            JOptionPane.showMessageDialog(null, "Invalid Input!");
-            return;
-        }
-
         String name = nameJTextField.getText();
 
-        Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
-
-        populateTable();
-
+        if (network == null || type == null || name.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please Enter All Fields to Proceed!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (system.checkIsEnterpriseUnique(name)) {
+            Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
+            JOptionPane.showMessageDialog(null, "Enterprise created sucessfully!");
+            nameJTextField.setText("");
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Enterprise name already exists in system!", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         userProcessContainer.remove(this);
-         Component[] componentArray = userProcessContainer.getComponents();
+        Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
         sysAdminwjp.populateTree();

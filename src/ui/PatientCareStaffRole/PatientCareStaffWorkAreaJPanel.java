@@ -10,7 +10,7 @@ package ui.PatientCareStaffRole;
  * @author Yash
  */
 public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form PatientCareStaffWorkAreaJPanel
      */

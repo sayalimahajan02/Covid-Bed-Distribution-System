@@ -27,6 +27,7 @@ public class Hospital {
     private int bedcount;
     private List<Patient> Patient;
     private int hospitalID;
+    private int requestcount;
 
 
  
@@ -117,11 +118,11 @@ public class Hospital {
         this.bedcount = bedcount;
     }
 
-    public List<Patient> getPatient() {
+    public List<Patient> getPatientlist() {
         return Patient;
     }
 
-    public void setPatient(List<Patient> Patient) {
+    public void setPatientlist(List<Patient> Patient) {
         this.Patient = Patient;
     }
     
@@ -133,5 +134,20 @@ public class Hospital {
         this.hospitalID = hospitalID;
     }
 
-  
+    public List<Patient> getPatient() {
+        return Patient;
+    }
+
+    public void setPatient(List<Patient> Patient) {
+        this.Patient = Patient;
+    }
+
+    public int getRequestcount() {
+        return requestcount;
+    }
+
+    public void setRequestcount(int requestcount) {
+        this.requestcount = requestcount;
+    }
+    
 }

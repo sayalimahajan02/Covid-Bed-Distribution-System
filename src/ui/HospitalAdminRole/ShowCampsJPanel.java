@@ -5,17 +5,38 @@
  */
 package ui.HospitalAdminRole;
 
+import Business.EcoSystem;
+import Business.Hospital.Hospital;
+import Business.Hospital.Patient;
+import Business.Status;
+import Business.UserAccount.UserAccount;
+import Business.Voluntary.CampAdmin;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Yash
  */
 public class ShowCampsJPanel extends javax.swing.JPanel {
+    
+    private JPanel userProcessContainer;
+    private UserAccount account;
+    private CampAdmin campadmin;
+    private EcoSystem system;
+    private Hospital hospital;
 
     /**
      * Creates new form ShowCampsJPanel
      */
-    public ShowCampsJPanel() {
+    public ShowCampsJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Hospital hospital, CampAdmin campadmin ) {
         initComponents();
+        populateTable();
+        this.campadmin = campadmin;
+        this.hospital = hospital;
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
     }
 
     /**
@@ -29,22 +50,30 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblshowcamps = new javax.swing.JTable();
 
         jLabel1.setText("Camps Created");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblshowcamps.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Camp Name", "Address", "Admin Name", "Phone Number", "Capacity"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblshowcamps);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,6 +104,25 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblshowcamps;
     // End of variables declaration//GEN-END:variables
+
+    public void populateTable(){
+        DefaultTableModel model = (DefaultTableModel) tblshowcamps.getModel();
+        model.setRowCount(0);
+        
+        for (CampAdmin campadmin : system.getCampAdminDirectory().getCampadminList()) {
+            if(campadmin.getId() == hospital.getHospitalID()) {
+          
+                Object[] row = new Object[5];
+                row[0] = campadmin.getName();
+                row[1] = campadmin.getStreet() + campadmin.getCity() + campadmin.getZipCode();
+                row[2] = campadmin.getAdminName();
+                row[3] = campadmin.getCapacity();
+              
+                
+                model.addRow(row);
+            }
+        }
+    }
 }

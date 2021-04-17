@@ -17,7 +17,7 @@ public class UserAccountDirectory {
     private ArrayList<UserAccount> userAccountList;
 
     public UserAccountDirectory() {
-        this.userAccountList = new ArrayList<UserAccount>();
+        this.userAccountList = new ArrayList<>();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
@@ -38,12 +38,12 @@ public class UserAccountDirectory {
         userAccount.setPassword(password);
         userAccount.setEmployee(employee);
         userAccount.setRole(role);
-        this.userAccountList.add(userAccount);
+        userAccountList.add(userAccount);
         return userAccount;
     }
     
     public boolean checkIfUsernameIsUnique(String username){
-        for (UserAccount ua : this.userAccountList){
+        for (UserAccount ua : userAccountList){
             if (ua.getUsername().equals(username))
                 return false;
         }

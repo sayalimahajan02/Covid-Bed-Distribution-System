@@ -7,11 +7,8 @@ package ui.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
-import Business.Enterprise.VoluntaryEnterprise;
 import Business.Network.Network;
-import Business.Role.AdminRole;
 import Business.Role.AuthorizationAdminRole;
-import Business.Role.HospitalAdminRole;
 import Business.Role.HospitalEntAdminRole;
 import Business.Role.TransportAdminRole;
 import Business.Role.VoluntaryAdminRole;
@@ -63,7 +60,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void populateNetworkComboBox() {
         networkJComboBox.removeAllItems();
-
         for (Network network : system.getNetworkList()) {
             networkJComboBox.addItem(network);
         }
@@ -71,7 +67,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void populateEnterpriseComboBox(Network network) {
         enterpriseJComboBox.removeAllItems();
-
         for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
             enterpriseJComboBox.addItem(enterprise);
         }
@@ -233,13 +228,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
-
         Network network = (Network) networkJComboBox.getSelectedItem();
         if (network != null) {
             populateEnterpriseComboBox(network);
         }
-
-
     }//GEN-LAST:event_networkJComboBoxActionPerformed
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed

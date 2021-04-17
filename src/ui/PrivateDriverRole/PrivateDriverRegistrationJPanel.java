@@ -5,23 +5,15 @@
  */
 package ui.PrivateDriverRole;
 
-import ui.AmbulanceDriverRole.*;
 import Business.DB4OUtil.DB4OUtil;
-import Business.Driver.AmbulanceDriver;
 import Business.Driver.PrivateDriver;
 import Business.EcoSystem;
 import Business.Employee.Employee;
-import Business.Hospital.Hospital;
-import Business.Role.AmbulanceDriverRole;
 import Business.Role.PrivateDriverRole;
-import Business.SendSMS;
 import Business.UserAccount.UserAccount;
 import Business.Voluntary.CampAdmin;
-import java.util.Random;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import ui.RegisterJPanel;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -29,6 +21,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
 
 /**
  *
@@ -36,22 +31,49 @@ import javax.swing.JFileChooser;
  */
 public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 
-     private static EcoSystem system;
+    private static EcoSystem system;
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
-        private byte[] dlImageArray;
+    private byte[] dlImageArray;
+
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
- 
 
     public PrivateDriverRegistrationJPanel(JPanel container, EcoSystem system, DB4OUtil dB4OUtil) {
-          initComponents();
-         this.system = system;
+        initComponents();
+        this.system = system;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = container;
         this.setSize(1680, 1050);
         populateHospitalDetails();
+        populateNetworkComboBox();
+    }
+
+    private void populateNetworkComboBox() {
+        networkComboBox.removeAllItems();
+        for (Network network : system.getNetworkList()) {
+            networkComboBox.addItem(network);
+        }
+    }
+
+    private void populateEnterpriseComboBox(Network network) {
+        enterpriseComboBox.removeAllItems();
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (Enterprise.EnterpriseType.Transportation.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                enterpriseComboBox.addItem(enterprise);
+            }
+        }
+
+    }
+
+    public void popOrganizationComboBox(Enterprise enterprise) {
+        orgComboBox.removeAllItems();
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (Organization.Type.PrivateDriver.getValue().equals(organization.getType().getValue())) {
+                orgComboBox.addItem(organization);
+            }
+        }
     }
 
     /**
@@ -85,6 +107,12 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         uploadsuccessLabel = new javax.swing.JLabel();
         passwordTxt = new javax.swing.JPasswordField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        orgComboBox = new javax.swing.JComboBox<>();
+        enterpriseComboBox = new javax.swing.JComboBox<>();
+        networkComboBox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -153,129 +181,146 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel8.setText("Driving License Number: ");
 
+        jLabel15.setText("Network:");
+
+        jLabel16.setText("Enterprise:");
+
+        jLabel17.setText("Organization:");
+
+        enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseComboBoxActionPerformed(evt);
+            }
+        });
+
+        networkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(132, 132, 132)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel1)
-                        .addGap(55, 55, 55)
-                        .addComponent(firstNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
+                        .addGap(244, 244, 244)
+                        .addComponent(RegisterjButton))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(327, 327, 327)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(passwordlbl)
+                                .addComponent(jLabel1)
+                                .addComponent(userNamelbl)
+                                .addComponent(jLabel6)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
-                                .addGap(55, 55, 55)
+                                .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ambulanceNumberTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel9)
+                                    .addComponent(uploadjButton)
+                                    .addComponent(emailTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ambulanceNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(55, 55, 55)
-                                .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(userNamelbl)
-                                    .addComponent(jLabel6))
+                                .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(47, 47, 47)
-                                        .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(62, 62, 62)
-                                        .addComponent(campjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(55, 55, 55)
-                                .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addComponent(campjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(130, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel9))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(uploadjButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(uploadsuccessLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(85, 85, 85))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(RegisterjButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel8)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(uploadsuccessLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(44, 44, 44)
-                        .addComponent(emailTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(passwordlbl)
-                        .addGap(47, 47, 47)
-                        .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(orgComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(158, 158, 158))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel6)
-                        .addGap(47, 47, 47))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(campjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(192, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(orgComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNamelbl)
                     .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordlbl)
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordlbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(ambulanceNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(emailTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(uploadjButton)
-                    .addComponent(uploadsuccessLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(uploadsuccessLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(uploadjButton)
+                .addGap(27, 27, 27)
                 .addComponent(RegisterjButton)
-                .addGap(347, 347, 347))
+                .addGap(270, 270, 270))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -301,78 +346,80 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 
     private void RegisterjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterjButtonActionPerformed
         // TODO add your handling code here:
-         char[] passwordCharArray = passwordTxt.getPassword();
+        Organization org = (Organization) orgComboBox.getSelectedItem();
+        char[] passwordCharArray = passwordTxt.getPassword();
         String password = String.valueOf(passwordCharArray);
-        if(campjComboBox.getSelectedIndex()==-1 || firstNameTxt.getText().isEmpty() ||lastNameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || ageTxt.getText().isEmpty() || ambulanceNumberTxt.getText().isEmpty() || usernameTxt.getText().isEmpty() || password.isEmpty() )
-        {
-            JOptionPane.showMessageDialog(null, "Please enter all fields..");  
-             return;
+        if (campjComboBox.getSelectedIndex() == -1 || firstNameTxt.getText().isEmpty() || lastNameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || ageTxt.getText().isEmpty() || ambulanceNumberTxt.getText().isEmpty() || usernameTxt.getText().isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter all fields..");
+            return;
         }
 //        if(!randomCode.equalsIgnoreCase(verificationCodeTxt.getText())){
 //            JOptionPane.showMessageDialog(null, "Verification Code is incorrect please enter correct code or click on verify to resend new code");  
 //            return;
 //        }
- if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(usernameTxt.getText())) {
+        if (!org.getUserAccountDirectory().checkIfUsernameIsUnique(usernameTxt.getText())) {
             JOptionPane.showMessageDialog(null, "User with this username already exist! Please try another UserName");
-                return;
-                } 
-      if (!system.isPasswordValid(password)) {
-          JOptionPane.showMessageDialog(null, "Password muct be between 3-20 characters. "
-                  + "Lower case, upper case, digit and a special character should occur once.");  
             return;
         }
-      
+        if (!system.isPasswordValid(password)) {
+            JOptionPane.showMessageDialog(null, "Password muct be between 3-20 characters. "
+                    + "Lower case, upper case, digit and a special character should occur once.");
+            return;
+        }
+
         if (!this.system.isPhoneNumberValid(phoneTxt.getText())) {
-            JOptionPane.showMessageDialog(null, "Please provide Contact number in format 123-456-7890 OR 123.456.7890 OR 123 456 7890");  
+            JOptionPane.showMessageDialog(null, "Please provide Contact number in format 123-456-7890 OR 123.456.7890 OR 123 456 7890");
             return;
         }
-         CampAdmin selectedCamp=new CampAdmin();
-         selectedCamp= system.getCampAdminDirectory().getCampAdminByName((String)campjComboBox.getSelectedItem());
-        
-         //create Private Driver object
-         PrivateDriver privateDriver=new PrivateDriver();
-         privateDriver.setDriverFirstName(firstNameTxt.getText());
-         privateDriver.setDriverLastName(lastNameTxt.getText());
-         privateDriver.setAssociatedCampAdmin(selectedCamp);
-         privateDriver.setAge(Integer.parseInt(ageTxt.getText()));
-         privateDriver.setPhoneNumber(phoneTxt.getText());
-         privateDriver.setPrivateVehicleNumber(ambulanceNumberTxt.getText());
-         privateDriver.setIsAuthorized(false);
-         privateDriver.setLicImage(dlImageArray);
-         privateDriver.setUserName(usernameTxt.getText());
-         privateDriver.setId(system.getPatientDirectory().generateID());
-            //save to db04
-            Employee employee = system.getEmployeeDirectory().createEmployee(privateDriver.getDriverLastName()+", "+privateDriver.getDriverFirstName());
-            system.getPrivateDriverDirectory().add(privateDriver);
-            system.getPrivateDriverDirectory().getPrivateDriverDirectory().add(privateDriver);
-            UserAccount account = system.getUserAccountDirectory().createUserAccount(usernameTxt.getText(), password, employee, new PrivateDriverRole());
-            dB4OUtil.storeSystem(system);
-            JOptionPane.showMessageDialog(null, "Information saved successfully");
-            
+        CampAdmin selectedCamp = new CampAdmin();
+        selectedCamp = system.getCampAdminDirectory().getCampAdminByName((String) campjComboBox.getSelectedItem());
+
+        //create Private Driver object
+        PrivateDriver privateDriver = new PrivateDriver();
+        privateDriver.setDriverFirstName(firstNameTxt.getText());
+        privateDriver.setDriverLastName(lastNameTxt.getText());
+        privateDriver.setAssociatedCampAdmin(selectedCamp);
+        privateDriver.setAge(Integer.parseInt(ageTxt.getText()));
+        privateDriver.setPhoneNumber(phoneTxt.getText());
+        privateDriver.setPrivateVehicleNumber(ambulanceNumberTxt.getText());
+        privateDriver.setIsAuthorized(false);
+        privateDriver.setLicImage(dlImageArray);
+        privateDriver.setUserName(usernameTxt.getText());
+        privateDriver.setId(system.getPatientDirectory().generateID());
+        //save to db04
+        Employee employee = org.getEmployeeDirectory().createEmployee(privateDriver.getDriverLastName() + ", " + privateDriver.getDriverFirstName());
+        system.getPrivateDriverDirectory().add(privateDriver);
+        system.getPrivateDriverDirectory().getPrivateDriverDirectory().add(privateDriver);
+        UserAccount account = org.getUserAccountDirectory().createUserAccount(usernameTxt.getText(), password, employee, new PrivateDriverRole());
+        dB4OUtil.storeSystem(system);
+        JOptionPane.showMessageDialog(null, "Information saved successfully");
+
     }//GEN-LAST:event_RegisterjButtonActionPerformed
 
     private void phoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneTxtActionPerformed
 
-     private static String getFileExtension(File file) {
+    private static String getFileExtension(File file) {
         String fileName = file.getName();
-        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
-        return fileName.substring(fileName.lastIndexOf(".")+1);
-        else return "";
+        if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0) {
+            return fileName.substring(fileName.lastIndexOf(".") + 1);
+        } else {
+            return "";
+        }
     }
 
-     
+
     private void uploadjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadjButtonActionPerformed
         // TODO add your handling code here:
-        JFileChooser uploadImage=new JFileChooser();
+        JFileChooser uploadImage = new JFileChooser();
         uploadImage.showOpenDialog(null);
-        File f=uploadImage.getSelectedFile();
+        File f = uploadImage.getSelectedFile();
         String fileExt = getFileExtension(f);
-       if(!(fileExt.toLowerCase().equals("png") || fileExt.toLowerCase().equals("jpeg"))){
-         JOptionPane.showMessageDialog(null, "Please upload only Jpeg or png file");  
-            return;  
-       }
+        if (!(fileExt.toLowerCase().equals("png") || fileExt.toLowerCase().equals("jpeg"))) {
+            JOptionPane.showMessageDialog(null, "Please upload only Jpeg or png file");
+            return;
+        }
         //additional code
         BufferedImage img = null;
         try {
@@ -383,22 +430,37 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         String fileName = f.getAbsolutePath();
         uploadsuccessLabel.setText("file Uploaded Successfully");
 
-        try{
+        try {
 
-            File imageFile=new File(fileName);
-            FileInputStream fis=new FileInputStream(imageFile);
-            ByteArrayOutputStream bos=new ByteArrayOutputStream();
-            byte[] writetoArray=new byte[1024];
-            for(int read; (read=fis.read(writetoArray))!=-1;){
-                bos.write(writetoArray,0,read);
+            File imageFile = new File(fileName);
+            FileInputStream fis = new FileInputStream(imageFile);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] writetoArray = new byte[1024];
+            for (int read; (read = fis.read(writetoArray)) != -1;) {
+                bos.write(writetoArray, 0, read);
             }
-            dlImageArray=bos.toByteArray();
+            dlImageArray = bos.toByteArray();
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_uploadjButtonActionPerformed
+
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
+        if (e != null) {
+            popOrganizationComboBox(e);
+        }
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -407,8 +469,12 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField ambulanceNumberTxt;
     private javax.swing.JComboBox<String> campjComboBox;
     private javax.swing.JTextField emailTxt1;
+    private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -417,6 +483,8 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField lastNameTxt;
+    private javax.swing.JComboBox<Object> networkComboBox;
+    private javax.swing.JComboBox<Object> orgComboBox;
     private javax.swing.JPasswordField passwordTxt;
     private javax.swing.JLabel passwordlbl;
     private javax.swing.JTextField phoneTxt;
@@ -427,10 +495,11 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateHospitalDetails() {
-        if(system.getHospitalDirectory()!=null)
-        for(CampAdmin camp : system.getCampAdminDirectory().getCampadminList()){
-            {
-                campjComboBox.addItem(camp.getName());
+        if (system.getHospitalDirectory() != null) {
+            for (CampAdmin camp : system.getCampAdminDirectory().getCampadminList()) {
+                {
+                    campjComboBox.addItem(camp.getName());
+                }
             }
         }
     }

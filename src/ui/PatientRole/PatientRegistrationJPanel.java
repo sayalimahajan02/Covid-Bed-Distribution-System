@@ -10,7 +10,6 @@ import Business.Driver.AmbulanceDriver;
 import Business.Driver.PrivateDriver;
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
-import Business.Hospital.HospitalDirectory;
 import Business.Hospital.Patient;
 import Business.Hospital.PatientCareStaff;
 import Business.Hospital.PatientDirectory;
@@ -23,7 +22,6 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ui.RegisterJPanel;
-
 
 /**
  *

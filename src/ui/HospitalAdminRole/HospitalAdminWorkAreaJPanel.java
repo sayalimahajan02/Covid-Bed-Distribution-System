@@ -111,7 +111,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnback);
-        btnback.setBounds(42, 27, 71, 23);
+        btnback.setBounds(42, 27, 89, 29);
 
         jLabel1.setText("Hospital Admin Work Area");
         add(jLabel1);
@@ -131,7 +131,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(txtrequests);
-        txtrequests.setBounds(688, 70, 44, 20);
+        txtrequests.setBounds(688, 70, 44, 26);
 
         jLabel4.setText("Patient Data");
         add(jLabel4);
@@ -144,7 +144,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnassignambulance);
-        btnassignambulance.setBounds(381, 494, 138, 23);
+        btnassignambulance.setBounds(381, 494, 138, 29);
 
         tblpcs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,7 +177,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnacceptpatient);
-        btnacceptpatient.setBounds(400, 290, 103, 23);
+        btnacceptpatient.setBounds(400, 290, 133, 29);
 
         jLabel5.setText("Ambulance Data");
         add(jLabel5);
@@ -238,11 +238,11 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnassignstaff);
-        btnassignstaff.setBounds(382, 733, 118, 23);
+        btnassignstaff.setBounds(382, 733, 118, 29);
 
         jLabel6.setText("Patient Requests:");
         add(jLabel6);
-        jLabel6.setBounds(567, 73, 86, 14);
+        jLabel6.setBounds(567, 73, 122, 20);
 
         txtbeds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +250,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(txtbeds);
-        txtbeds.setBounds(688, 30, 44, 20);
+        txtbeds.setBounds(688, 30, 44, 26);
 
         btnshowcamps.setText("Show Camps");
         btnshowcamps.addActionListener(new java.awt.event.ActionListener() {
@@ -259,7 +259,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnshowcamps);
-        btnshowcamps.setBounds(800, 90, 110, 23);
+        btnshowcamps.setBounds(800, 90, 140, 29);
 
         btncheckall.setText("Check Accepted Patients");
         btncheckall.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +268,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btncheckall);
-        btncheckall.setBounds(120, 90, 160, 23);
+        btncheckall.setBounds(120, 90, 160, 29);
 
         btnrequestcamp1.setText("Request Camp");
         btnrequestcamp1.addActionListener(new java.awt.event.ActionListener() {
@@ -277,7 +277,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnrequestcamp1);
-        btnrequestcamp1.setBounds(800, 50, 110, 23);
+        btnrequestcamp1.setBounds(800, 50, 140, 29);
 
         txtbedrequirement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -11,29 +11,24 @@ import Business.Hospital.Hospital;
 import Business.Hospital.Patient;
 import Business.Hospital.PatientCareStaff;
 import Business.Hospital.PatientCareStaffDirectory;
-import Business.Hospital.PatientDirectory;
 import Business.Role.PatientCareStaffRole;
-import Business.Role.PatientRole;
 import Business.UserAccount.UserAccount;
 import Business.ValidationUtility;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import ui.PatientAuthorizationAdminRole.*;
-import ui.NGORole.*;
-import ui.HospitalAdminRole.*;
-import ui.DriverAuthorizationAdminRole.*;
-import ui.CampAdminRole.*;
-import ui.AmbulanceDriverRole.*;
 import ui.RegisterJPanel;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
 
 /**
  *
  * @author aishwarya
  */
 public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
-  
+
     private JPanel userProcessContainer;
     private Patient patient;
     private Hospital hospital;
@@ -49,7 +44,35 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         initComponents();
         this.system = ecosystem;
         this.dB4OUtil = dB4OUtil;
-        this.userProcessorcontainer = container;
+        this.userProcessContainer = container;
+        populateNetworkComboBox();
+        populateHospitalDetails();
+    }
+
+    private void populateNetworkComboBox() {
+        networkComboBox.removeAllItems();
+        for (Network network : system.getNetworkList()) {
+            networkComboBox.addItem(network);
+        }
+    }
+
+    private void populateEnterpriseComboBox(Network network) {
+        enterpriseComboBox.removeAllItems();
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (Enterprise.EnterpriseType.Hospital.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                enterpriseComboBox.addItem(enterprise);
+            }
+        }
+
+    }
+
+    public void popOrganizationComboBox(Enterprise enterprise) {
+        orgComboBox.removeAllItems();
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (Organization.Type.PatientCareStaff.getValue().equals(organization.getType().getValue())) {
+                orgComboBox.addItem(organization);
+            }
+        }
     }
 
     /**
@@ -78,6 +101,12 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         passwordfield = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         combohospital = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        orgComboBox = new javax.swing.JComboBox<>();
+        enterpriseComboBox = new javax.swing.JComboBox<>();
+        networkComboBox = new javax.swing.JComboBox<>();
 
         jLabel1.setText("Create Account");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -153,50 +182,70 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel15.setText("Network:");
+
+        jLabel16.setText("Enterprise:");
+
+        jLabel17.setText("Organization:");
+
+        enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseComboBoxActionPerformed(evt);
+            }
+        });
+
+        networkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnregister, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
-                                .addComponent(txtlname, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
-                                .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(51, 51, 51)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(passwordfield, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
-                                .addGap(51, 51, 51)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtfname, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(combohospital, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(184, 184, 184)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(btnregister, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(271, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(jLabel6))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordfield, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtlname, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(orgComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(combohospital, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtfname, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,37 +254,52 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combohospital, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(orgComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combohospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtfname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtlname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtfname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtlname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(btnregister, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addComponent(btnregister, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                    .addComponent(passwordfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(203, 203, 203))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -262,86 +326,89 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
         // TODO add your handling code here:
 
+        Organization org = (Organization) orgComboBox.getSelectedItem();
         PatientCareStaffDirectory dir = system.getPatientCareStaffDirectory();
-        PatientCareStaff p = new PatientCareStaff( hospital, patient);
+        PatientCareStaff p = new PatientCareStaff(hospital, patient);
         char[] passwordCharArray = passwordfield.getPassword();
         String password = String.valueOf(passwordCharArray);
-        
-        
-        if(txtfname.getText().isEmpty() || txtfname.getText().isEmpty() || txtusername.getText().isEmpty() ||
-        passwordfield.getText().isEmpty()  || txtemailid.getText().isEmpty() ||
-               txtphone.getText().isEmpty() || combohospital.getSelectedIndex()==-1 ) {
+
+        if (txtfname.getText().isEmpty() || txtfname.getText().isEmpty() || txtusername.getText().isEmpty()
+                || passwordfield.getText().isEmpty() || txtemailid.getText().isEmpty()
+                || txtphone.getText().isEmpty() || combohospital.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
             return;
         }
-       
+
         boolean flagfname = validation.isNameValid(txtfname.getText());
         boolean flaglname = validation.isNameValid(txtlname.getText());
-      
-        
-        if(flagfname == false) {
+
+        if (flagfname == false) {
             JOptionPane.showMessageDialog(null, "First name cannot have integer values!");
             return;
+        } else {
+            p.setFirstname(txtfname.getText());
         }
-        else{ p.setFirstname(txtfname.getText());}
-        
-        if(flaglname == false) {
+
+        if (flaglname == false) {
             JOptionPane.showMessageDialog(null, "Last name cannot have integer values!");
             return;
+        } else {
+            p.setLastname(txtlname.getText());
         }
-        else{ p.setLastname(txtlname.getText());}
-        
+
         boolean flagusername = validation.isUserNameValid(txtusername.getText());
-        
-        if(flagusername == false) {
+
+        if (flagusername == false) {
             JOptionPane.showMessageDialog(null, "Username must be unique!");
             return;
+        } else {
+            p.setUsername(txtusername.getText());
         }
-        else{ p.setUsername(txtusername.getText());}
-        
+
         boolean flagpassword = validation.isPasswordValid(passwordfield.getText());
-        
-        if(flagpassword == false) {
+
+        if (flagpassword == false) {
             JOptionPane.showMessageDialog(null, "Password must have atleast a digit, a special symbol, uppercase and lowercase!");
             return;
+        } else {
+            p.setPassword(passwordfield.getText());
         }
-        else{ p.setPassword(passwordfield.getText());}
-        
-        
+
         boolean flagemailid = validation.isEmailAddressValid(txtemailid.getText());
-        
-        if(flagemailid == false) {
+
+        if (flagemailid == false) {
             JOptionPane.showMessageDialog(null, "Check email address format!");
             return;
+        } else {
+            p.setEmail(txtemailid.getText());
         }
-        else{ p.setEmail(txtemailid.getText());}
-        
-        
+
         boolean flagphonenumber = validation.isPhoneNumberValid(txtphone.getText());
-        
-        if(flagphonenumber == false) {
+
+        if (flagphonenumber == false) {
             JOptionPane.showMessageDialog(null, "Zipcode must have 10 digits! Check the format!");
             return;
+        } else {
+            p.setPhonenumber(txtphone.getText());
         }
-        else{ p.setPhonenumber(txtphone.getText());}
-        
-        Hospital selectedHospital=new Hospital();
-        selectedHospital= system.getHospitalDirectory().getHospitalByName((String)combohospital.getSelectedItem());
+
+        Hospital selectedHospital = new Hospital();
+        selectedHospital = system.getHospitalDirectory().getHospitalByName((String) combohospital.getSelectedItem());
         p.setHospital(selectedHospital);
-        
-        for(UserAccount account : system.getUserAccountDirectory().getUserAccountList()) {
-            if(account.getUsername().equals(txtusername.getText())) {
+
+        for (UserAccount account : org.getUserAccountDirectory().getUserAccountList()) {
+            if (account.getUsername().equals(txtusername.getText())) {
                 JOptionPane.showMessageDialog(null, "Username Already exists!");
                 return;
             }
         }
-        
-          if (ValidationUtility.isUserNameValid(txtusername.getText())) {
+
+        if (ValidationUtility.isUserNameValid(txtusername.getText())) {
             if (ValidationUtility.isPasswordValid(password)) {
-                if (system.checkIfUserIsUnique(txtusername.getText())) {
+                if (org.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
                     p.setUsername(txtusername.getText());
-                    system.getUserAccountDirectory()
-                            .createUserAccount(txtusername.getText(), password, system.getEmployeeDirectory().createEmployee(txtfname.getText()), new PatientCareStaffRole());
+                    org.getUserAccountDirectory()
+                            .createUserAccount(txtusername.getText(), password, org.getEmployeeDirectory().createEmployee(txtfname.getText()), new PatientCareStaffRole());
                 } else {
                     JOptionPane.showMessageDialog(null, "UserName already in use. Please try something else!");
                 }
@@ -351,22 +418,17 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please provide proper User Name!");
         }
-        
-         dir.addPatientCareStaff(p);
-         
+
+        dir.addPatientCareStaff(p);
+
         dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Information Saved!");
     }//GEN-LAST:event_btnregisterActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+         this.setVisible(false);
+        userProcessContainer.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void passwordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordfieldActionPerformed
@@ -377,19 +439,41 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_combohospitalActionPerformed
 
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
+        if (e != null) {
+            popOrganizationComboBox(e);
+        }
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkComboBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnregister;
     private javax.swing.JComboBox<String> combohospital;
+    private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<Object> networkComboBox;
+    private javax.swing.JComboBox<Object> orgComboBox;
     private javax.swing.JPasswordField passwordfield;
     private javax.swing.JTextField txtemailid;
     private javax.swing.JTextField txtfname;
@@ -398,11 +482,12 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
 
-private void populateHospitalDetails() {
-        if(system.getHospitalDirectory()!=null)
-        for(Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()){
-            {
-                combohospital.addItem(hospital.getName());
+    private void populateHospitalDetails() {
+        if (system.getHospitalDirectory() != null) {
+            for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
+                {
+                    combohospital.addItem(hospital.getName());
+                }
             }
         }
     }

@@ -10,11 +10,11 @@ import com.twilio.sdk.TwilioRestException;
 
 import com.twilio.sdk.resource.factory.MessageFactory;
 import com.twilio.sdk.resource.instance.Message;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-
 
 /**
  *
@@ -28,23 +28,15 @@ public class SendSMS {
     public String toNum;
     public String body;
 
-    public SendSMS(String toNum, String body) {
-//        this.toNum = toNum;
-//        this.body = body;
-//        try {
-//            TwilioRestClient client =new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
-//            
-//            Message message = new MessageCreator(
-//                    new PhoneNumber(toNum),
-//                    new PhoneNumber(fromNum),
-//                    body).create(client);
-//            System.out.println(message);
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
+    public static void main(String args[]) {
+        SendSMS1("+16174809437", "hiiii");
+    }
 
- this.toNum = toNum;
-        this.body = body;
+    public static void SendSMS1(String toNum, String body) {
+
+        String fromNum = "+14159934238";
+        //this.toNum = toNum;
+        //this.body = body;
         try {
             TwilioRestClient client = new TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN);
 
@@ -55,7 +47,7 @@ public class SendSMS {
 
             MessageFactory messageFactory = client.getAccount().getMessageFactory();
             Message message = messageFactory.create(params);
-            System.out.println(message);
+            System.out.println(message.getBody());
         } catch (TwilioRestException e) {
             System.out.println(e);
         }

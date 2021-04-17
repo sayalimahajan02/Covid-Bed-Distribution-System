@@ -52,6 +52,15 @@ public class HospitalDirectory {
         }
         return null;
     }
+    
+    public Hospital getHospitalByUsername(String name) {
+        for (Hospital hospital : HospitalDirectory) {
+            if (hospital.getUsername().equalsIgnoreCase(name)) {
+                return hospital;
+            }
+        }
+        return null;
+    }
 
     public Hospital getHospitalByID(int hospitalID) {
         for (Hospital hospital : HospitalDirectory) {

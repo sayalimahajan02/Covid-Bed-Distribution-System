@@ -48,15 +48,22 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form HospitalAdminWorkAreaJPanel
      */
-    public HospitalAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
+    //AmbulanceDriver ambulancedriver, HospitalNgoRequests requests, CampAdmin campadmin
+    public HospitalAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system, Patient patient, Hospital hospital) {
         initComponents();
+        this.hospital = hospital;
+        this.ambulancedriver = ambulancedriver;
+        this.requests = requests;
+        this.campadmin = campadmin;
         this.patient = patient;
         this.system = system;
         this.organization = organization;
         this.enterprise = enterprise;
         this.userProcessorcontainer = userProcessorcontainer;
         
+        
         txtbeds.setText(String.valueOf(hospital.getBedcount()));
+        txtrequests.setText(String.valueOf(hospital.getRequestcount()));
         txtbedrequirement.setText(String.valueOf(requests.getRequiredBeds()));
         populatePatientTable();
         

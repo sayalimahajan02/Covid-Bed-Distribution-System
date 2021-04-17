@@ -38,20 +38,23 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private Status status;
     //DB4OUtil dB4OUtil;
-    private JPanel userProcessorcontainer;
-    
-    
+    private JPanel userProcessorcontainer; 
+    private UserAccount account;
     private String path = "null";
+    
+   private int count = 0;
     /**
      * Creates new form PatientWorkAreaJPanel
      */
-    public PatientWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
+    public PatientWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system, Patient patient, Hospital hospital) {
         initComponents();
         this.patient = patient;
+        this.hospital = hospital;
         this.system = system;
         this.organization = organization;
         this.enterprise = enterprise;
         this.userProcessorcontainer = userProcessContainer;
+        this.account = account;
         //lblpatientstatus.setText(patient.getPatientstatus());
     }
 
@@ -183,19 +186,24 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     private void btnproceedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproceedActionPerformed
         // TODO add your handling code here:
         
+        
         if (hospitaltable.getSelectedRow() == 0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
         status.Allocation.getValue();
+        
         DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();
         int selectedRow = hospitaltable.getSelectedRow();
-        //Hospital hospital = (Hospital) hospitaltable.getValueAt(selectedRow, 0);
         
         Integer ID = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
         Hospital hospital = system.getHospitalDirectory().getHospitalByID(ID);
-        this.patient.setHospital(hospital);
+        Patient p = system.getPatientDirectory().getPatientByUsername(account.getUsername());
+        this.patient = p;
+        p.setHospital(hospital);
+        
+        hospital.setRequestcount(count++);
     }//GEN-LAST:event_btnproceedActionPerformed
 
     private void btnfindbedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfindbedsActionPerformed
@@ -232,6 +240,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
        //patient.setPatientstatus("Pending");
        status.Pending.getValue();
+       Patient patient = system.getPatientDirectory().getPatientByUsername(account.getUsername());
        patient.setPath(path); 
     }//GEN-LAST:event_btnsubmitActionPerformed
 
@@ -240,14 +249,14 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
           
-                Object[] row = new Object[7];
+                Object[] row = new Object[8];
                 row[0] = hospital.getHospitalID();
                 row[1] = hospital.getName();
                 row[2] = hospital.getStreetaddress();
                 row[3] = hospital.getZipcode();
                 row[4] = hospital.getCity();
                 row[5] = hospital.getPhonenumber();
-                row[5] = hospital.getEmail();
+                row[6] = hospital.getEmail();
                 row[7] = hospital.getBedcount();
                 model.addRow(row);
             

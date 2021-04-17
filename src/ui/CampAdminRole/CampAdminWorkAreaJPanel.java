@@ -179,6 +179,12 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(patientTable);
         if (patientTable.getColumnModel().getColumnCount() > 0) {
+            patientTable.getColumnModel().getColumn(0).setHeaderValue("Patient ID");
+            patientTable.getColumnModel().getColumn(1).setHeaderValue("Patient Name");
+            patientTable.getColumnModel().getColumn(2).setHeaderValue("Phone Number");
+            patientTable.getColumnModel().getColumn(3).setHeaderValue("Address");
+            patientTable.getColumnModel().getColumn(4).setHeaderValue("Email ID");
+            patientTable.getColumnModel().getColumn(5).setHeaderValue("Patient Request Status");
             patientTable.getColumnModel().getColumn(5).setCellEditor(new DefaultCellEditor(patientComboBox));
         }
 
@@ -526,7 +532,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) patientCareSTaffTable.getModel();
         int selectedRowInd = patientCareSTaffTable.getSelectedRow();
         Integer staffId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
-        PatientCareStaff ps = system.getPatientCareStaffDirectory().getPatientByID(staffId);
+        PatientCareStaff ps = system.getPatientCareStaffDirectory().getPatientcarestaffByID(staffId);
         this.patient.setPatientcarestaff(ps);
         ps.setAvailability(false);
         patientCareSTaffTable.setValueAt(false, selectedRowInd, 4);

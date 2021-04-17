@@ -5,17 +5,36 @@
  */
 package ui.HospitalAdminRole;
 
+import Business.EcoSystem;
+import Business.Hospital.Hospital;
+import Business.Hospital.Patient;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Yash
  */
 public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private UserAccount account;
+    private EcoSystem system;
+    private Hospital hospital;
+    private Patient patient;
     /**
      * Creates new form CheckAllPatientStatusJPanel
      */
-    public CheckAllPatientStatusJPanel() {
+    public CheckAllPatientStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Hospital hospital, Patient patient) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
+        this.hospital = hospital;
+        this.patient = patient;
+        this.setSize(1680, 1050);
+        populateTable();
     }
 
     /**
@@ -29,11 +48,11 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblallpatient = new javax.swing.JTable();
 
         jLabel1.setText("View Accepted Patient Status");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblallpatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -50,7 +69,7 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
                 "Patient Name", "Patient Phone Number", "Ambulance Number", "Driver Name", "Driver Phone Number", "Staff Name", "Staff Phone Number", "Stutus"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblallpatient);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,6 +99,23 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblallpatient;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblallpatient.getModel();
+        model.setRowCount(0);
+        for (Patient p : hospital.getPatientlist()) {
+            Object[] row = new Object[7];
+            row[0] = p.getFirstname() + " " + p.getLastname();
+            row[1] = p.getPhonenumber();
+            row[2] = p.getAmbulancedriver().getAmbulanceNumber();
+            row[3] = p.getAmbulancedriver().getDriverFirstName() + " " + p.getAmbulancedriver().getDriverLastName();
+            row[4] = p.getAmbulancedriver().getPhoneNumber();
+            row[5] = p.getPatientcarestaff().getFirstname() + " " + p.getPatientcarestaff().getLastname();
+            row[6] = p.getPatientcarestaff().getPhonenumber();
+            row[7] = p.getStatus().getValue();
+            model.addRow(row);
+        }
+    }
 }

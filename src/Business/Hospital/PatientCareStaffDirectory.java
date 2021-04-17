@@ -52,7 +52,7 @@ public class PatientCareStaffDirectory {
         return null;
     }
     
-    public PatientCareStaff getPatientByID(int patientcarestaffID){ 
+    public PatientCareStaff getPatientcarestaffByID(int patientcarestaffID){ 
         for(PatientCareStaff patientcarestaff: PatientCareStaffDirectory){
             if (patientcarestaff.getPatientcarestaffID() == patientcarestaffID) {
                 return patientcarestaff;

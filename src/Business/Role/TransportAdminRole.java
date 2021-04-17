@@ -20,7 +20,7 @@ public class TransportAdminRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new TransportationAdminWorkAreaPanel();
+        return new TransportationAdminWorkAreaPanel(userProcessContainer,enterprise);
     }
 
 }

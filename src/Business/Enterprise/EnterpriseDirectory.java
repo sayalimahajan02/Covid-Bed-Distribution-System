@@ -5,7 +5,6 @@
  */
 package Business.Enterprise;
 
-import Business.Organization.OrganizationDirectory;
 import java.util.ArrayList;
 
 /**
@@ -49,21 +48,5 @@ public class EnterpriseDirectory {
         }
         return enterprise;
     }
-    
-//    public Enterprise getEntByName(EnterpriseType type){
-//        for(Enterprise ent:enterpriseList){
-//if (type == Enterprise.EnterpriseType.Hospital) {
-//            enterprise = new HospitalEnterprise(name);
-//        }
-//        if (type == Enterprise.EnterpriseType.Transportation) {
-//            enterprise = new TransportationEnterprise(name);
-//        }
-//        if (type == Enterprise.EnterpriseType.Voluntary) {
-//            enterprise = new VoluntaryEnterprise(name);
-//        }
-//        if (type == Enterprise.EnterpriseType.Authorization) {
-//            enterprise = new AuthorizationEnterprise(name);
-//            enterpriseList.add(enterprise);
-//        }        }
-//    }
+
 }

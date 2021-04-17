@@ -20,7 +20,7 @@ public class VoluntaryAdminRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-          return new VoluntaryAdminWorkAreaPanel();
+          return new VoluntaryAdminWorkAreaPanel(userProcessContainer,enterprise);
     }
     
 }

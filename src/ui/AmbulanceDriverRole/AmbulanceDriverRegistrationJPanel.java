@@ -9,10 +9,14 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.Driver.AmbulanceDriver;
 import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
 import Business.Hospital.Hospital;
+import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.Role.AmbulanceDriverRole;
 import Business.SendSMS;
 import Business.UserAccount.UserAccount;
+import Business.ValidationUtility;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -29,21 +33,48 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
     private String randomCode;
+
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
- 
 
     public AmbulanceDriverRegistrationJPanel(JPanel container, EcoSystem system, DB4OUtil dB4OUtil) {
-          initComponents();
-         this.system = system;
+        initComponents();
+        this.system = system;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = container;
         VerifyjButton.setVisible(false);
-            verificationCOdejLabel.setVisible(false);
+        verificationCOdejLabel.setVisible(false);
         verificationCodeTxt.setVisible(false);
         this.setSize(1680, 1050);
         populateHospitalDetails();
+        populateNetworkComboBox();
+    }
+
+    private void populateNetworkComboBox() {
+        networkComboBox.removeAllItems();
+        for (Network network : system.getNetworkList()) {
+            networkComboBox.addItem(network);
+        }
+    }
+
+    private void populateEnterpriseComboBox(Network network) {
+        enterpriseComboBox.removeAllItems();
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (Enterprise.EnterpriseType.Transportation.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                enterpriseComboBox.addItem(enterprise);
+            }
+        }
+
+    }
+
+    public void popOrganizationComboBox(Enterprise enterprise) {
+        orgComboBox.removeAllItems();
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (Organization.Type.AmbulanceDriver.getValue().equals(organization.getType().getValue())) {
+                orgComboBox.addItem(organization);
+            }
+        }
     }
 
     /**
@@ -75,6 +106,12 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         verificationCodeTxt = new javax.swing.JTextField();
         VerifyjButton = new javax.swing.JButton();
         jPasswordField2 = new javax.swing.JPasswordField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        orgComboBox = new javax.swing.JComboBox<>();
+        enterpriseComboBox = new javax.swing.JComboBox<>();
+        networkComboBox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -152,6 +189,24 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel15.setText("Network:");
+
+        jLabel16.setText("Enterprise:");
+
+        jLabel17.setText("Organization:");
+
+        enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseComboBoxActionPerformed(evt);
+            }
+        });
+
+        networkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,8 +214,11 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(261, 261, 261)
+                        .addComponent(RegisterjButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -171,55 +229,65 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
                                         .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(ambulanceNumberTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addGap(55, 55, 55)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(VerifyjButton)
-                                        .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPasswordField2)
+                                    .addComponent(jTextField1)
+                                    .addComponent(hospitaljComboBox, 0, 168, Short.MAX_VALUE)
+                                    .addComponent(orgComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(enterpriseComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(networkComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel15)
+                                                .addComponent(jLabel2)
+                                                .addComponent(jLabel16)
+                                                .addComponent(jLabel17))
+                                            .addGap(55, 55, 55))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(58, 58, 58)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel6)
+                                                .addComponent(jLabel1)
                                                 .addComponent(userNameTxt)
-                                                .addComponent(jLabel6))
-                                            .addGap(47, 47, 47))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGap(23, 23, 23)
-                                            .addComponent(passwordTxt)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGap(32, 32, 32)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jPasswordField2)
-                                        .addComponent(jTextField1)
-                                        .addComponent(hospitaljComboBox, 0, 168, Short.MAX_VALUE))))
+                                                .addComponent(passwordTxt))
+                                            .addGap(62, 62, 62)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jLabel1)
-                                .addGap(42, 42, 42)
-                                .addComponent(firstNameTxt))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
                                 .addComponent(verificationCOdejLabel)
                                 .addGap(55, 55, 55)
-                                .addComponent(verificationCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(105, 105, 105)
-                                .addComponent(RegisterjButton)))))
-                .addContainerGap(215, Short.MAX_VALUE))
+                                .addComponent(verificationCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(VerifyjButton)))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(hospitaljComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(orgComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hospitaljComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameTxt)
@@ -254,9 +322,9 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verificationCOdejLabel)
                     .addComponent(verificationCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RegisterjButton)
-                .addGap(381, 381, 381))
+                .addGap(320, 320, 320))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -282,61 +350,56 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
 
     private void RegisterjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterjButtonActionPerformed
         // TODO add your handling code here:
+        Organization org = (Organization) orgComboBox.getSelectedItem();
         verificationCOdejLabel.setVisible(false);
         verificationCodeTxt.setVisible(false);
         char[] passwordCharArray = jPasswordField2.getPassword();
         String password = String.valueOf(passwordCharArray);
-        if(hospitaljComboBox.getSelectedIndex()==-1 || firstNameTxt.getText().isEmpty() ||lastNameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || ageTxt.getText().isEmpty() || ambulanceNumberTxt.getText().isEmpty() )
-        {
-            JOptionPane.showMessageDialog(null, "Please enter all fields..");  
-             return;
+        if (hospitaljComboBox.getSelectedIndex() == -1 || firstNameTxt.getText().isEmpty() || lastNameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || ageTxt.getText().isEmpty() || ambulanceNumberTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter all fields..");
+            return;
         }
 //        if(!randomCode.equalsIgnoreCase(verificationCodeTxt.getText())){
 //            JOptionPane.showMessageDialog(null, "Verification Code is incorrect please enter correct code or click on verify to resend new code");  
 //            return;
 //        }
-         if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(userNameTxt.getText())) {
+        if (!org.getUserAccountDirectory().checkIfUsernameIsUnique(userNameTxt.getText())) {
             JOptionPane.showMessageDialog(null, "User with this username already exist! Please try another UserName");
-                return;
-                } 
-      if (!system.isPasswordValid(passwordTxt.getText())) {
-          JOptionPane.showMessageDialog(null, "Password muct be between 3-20 characters. "
-                  + "Lower case, upper case, digit and a special character should occur once.");  
             return;
         }
-      
-      if (verificationCodeTxt.getText().isEmpty()) {
-          JOptionPane.showMessageDialog(null, "Please verify your Phone Number");  
-            return;
-        }
-      
-        if (!system.checkIfUserIsUnique(userNameTxt.getText())) {
-            JOptionPane.showMessageDialog(null, "Please enter all fields..");  
+        if (!system.isPasswordValid(password)) {
+            JOptionPane.showMessageDialog(null, "Password must be between 3-20 characters. "
+                    + "Lower case, upper case, digit and a special character should occur once.");
             return;
         }
 
-        if (!this.system.isPhoneNumberValid(phoneTxt.getText())) {
-            JOptionPane.showMessageDialog(null, "Please provide Contact number in format 123-456-7890 OR 123.456.7890 OR 123 456 7890");  
+        if (!system.checkIfUserIsUnique(userNameTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter all fields..");
             return;
         }
-         Hospital selectedHospital=new Hospital();
-         selectedHospital= system.getHospitalDirectory().getHospitalByName((String)hospitaljComboBox.getSelectedItem());
-        
-         //create ambulance criver object
-         AmbulanceDriver ambDriver=new AmbulanceDriver();
-         ambDriver.setDriverFirstName(firstNameTxt.getText());
-         ambDriver.setDriverLastName(lastNameTxt.getText());
-         ambDriver.setHospital(selectedHospital);
-         ambDriver.setAge(Integer.parseInt(ageTxt.getText()));
-         ambDriver.setPhoneNumber(phoneTxt.getText());
-         ambDriver.setAmbulanceNumber(ambulanceNumberTxt.getText());
-         ambDriver.setUserName(userNameTxt.getText());
-         ambDriver.setId(system.getAmbulanceDriverDirectory().generateId());
-            //save to db04
-            Employee employee = system.getEmployeeDirectory().createEmployee(ambDriver.getDriverLastName()+", "+ambDriver.getDriverFirstName());
-            system.getAmbulanceDriverDirectory().add(ambDriver);
-            UserAccount account = system.getUserAccountDirectory().createUserAccount(userNameTxt.getText(), password, employee, new AmbulanceDriverRole());
-            dB4OUtil.storeSystem(system);
+
+        if (!ValidationUtility.isPhoneNumberValid(phoneTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide Contact number in format 123-456-7890 OR 123.456.7890 OR 123 456 7890");
+            return;
+        }
+        Hospital selectedHospital = new Hospital();
+        selectedHospital = system.getHospitalDirectory().getHospitalByName((String) hospitaljComboBox.getSelectedItem());
+
+        //create ambulance criver object
+        AmbulanceDriver ambDriver = new AmbulanceDriver();
+        ambDriver.setDriverFirstName(firstNameTxt.getText());
+        ambDriver.setDriverLastName(lastNameTxt.getText());
+        ambDriver.setHospital(selectedHospital);
+        ambDriver.setAge(Integer.parseInt(ageTxt.getText()));
+        ambDriver.setPhoneNumber(phoneTxt.getText());
+        ambDriver.setAmbulanceNumber(ambulanceNumberTxt.getText());
+        ambDriver.setUserName(userNameTxt.getText());
+        ambDriver.setId(system.getAmbulanceDriverDirectory().generateId());
+        //save to db04
+        Employee employee = org.getEmployeeDirectory().createEmployee(ambDriver.getDriverLastName() + ", " + ambDriver.getDriverFirstName());
+        system.getAmbulanceDriverDirectory().add(ambDriver);
+        UserAccount account = org.getUserAccountDirectory().createUserAccount(userNameTxt.getText(), password, employee, new AmbulanceDriverRole());
+        dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_RegisterjButtonActionPerformed
 
     private void phoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
@@ -349,19 +412,34 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
 
     private void VerifyjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerifyjButtonActionPerformed
         // TODO add your handling code here:
-        if(phoneTxt.getText().isEmpty())
-        {
+        if (phoneTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter your phone number first");
-            return; 
+            return;
         }
         verificationCOdejLabel.setVisible(true);
         verificationCodeTxt.setVisible(true);
-        Random random=new Random();
-        this.randomCode=String.format("%04d", random.nextInt(10000));
-            SendSMS sendSMS = new SendSMS(phoneTxt.getText(), "Code : "+ randomCode);
+        Random random = new Random();
+        this.randomCode = String.format("%04d", random.nextInt(10000));
+        // SendSMS sendSMS = new SendSMS(phoneTxt.getText(), "Code : "+ randomCode);
         JOptionPane.showMessageDialog(null, "Please enter verification code received on registered mobile number");
-       
+
     }//GEN-LAST:event_VerifyjButtonActionPerformed
+
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
+        if (e != null) {
+            popOrganizationComboBox(e);
+        }
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -369,9 +447,13 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JButton VerifyjButton;
     private javax.swing.JTextField ageTxt;
     private javax.swing.JTextField ambulanceNumberTxt;
+    private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JComboBox<String> hospitaljComboBox;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -380,6 +462,8 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField lastNameTxt;
+    private javax.swing.JComboBox<Object> networkComboBox;
+    private javax.swing.JComboBox<Object> orgComboBox;
     private javax.swing.JLabel passwordTxt;
     private javax.swing.JTextField phoneTxt;
     private javax.swing.JLabel userNameTxt;
@@ -388,10 +472,11 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateHospitalDetails() {
-        if(system.getHospitalDirectory()!=null)
-        for(Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()){
-            {
-                hospitaljComboBox.addItem(hospital.getName());
+        if (system.getHospitalDirectory() != null) {
+            for (Hospital hospital : system.getHospitalDirectory().getHospitalDirectory()) {
+                {
+                    hospitaljComboBox.addItem(hospital.getName());
+                }
             }
         }
     }

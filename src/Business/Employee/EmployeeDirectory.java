@@ -25,7 +25,12 @@ public class EmployeeDirectory {
     public Employee createEmployee(String name){
         Employee employee = new Employee();
         employee.setName(name);
+        employee.setId(generateId());
         employeeList.add(employee);
         return employee;
+    }
+    
+    public int generateId(){
+        return this.employeeList.size()+1;
     }
 }

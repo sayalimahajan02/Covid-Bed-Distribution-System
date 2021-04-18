@@ -28,7 +28,7 @@ public class Patient {
     private String password;
     private String path;
     private Status status;
-    private String patientstatus = status.New.getValue();
+    private String patientstatus;
     private String emergencycontact;
     private int patientID;
     private Hospital hospital;
@@ -46,6 +46,7 @@ public class Patient {
         this.ambulancedriver = ambulancedriver;
         this.patientcarestaff = patientcarestaff;
         this.privatedriver = privatedriver;
+        this.patientstatus=status.New.getValue();
        
     }
     

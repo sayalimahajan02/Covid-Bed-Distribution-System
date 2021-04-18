@@ -49,7 +49,7 @@
                               </Group>
                               <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jPasswordField2" max="32767" attributes="0"/>
-                                  <Component id="jTextField1" max="32767" attributes="0"/>
+                                  <Component id="usernameText" max="32767" attributes="0"/>
                                   <Component id="hospitaljComboBox" pref="168" max="32767" attributes="0"/>
                                   <Component id="orgComboBox" max="32767" attributes="0"/>
                                   <Component id="enterpriseComboBox" max="32767" attributes="0"/>
@@ -126,7 +126,7 @@
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="userNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="usernameText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -259,7 +259,7 @@
         <Property name="text" type="java.lang.String" value="Password :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="usernameText">
     </Component>
     <Component class="javax.swing.JLabel" name="verificationCOdejLabel">
       <Properties>

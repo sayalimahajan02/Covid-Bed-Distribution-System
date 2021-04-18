@@ -33,7 +33,7 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
     public PatientAuthorizationRegistrationJPanel(EcoSystem system, JPanel registerDetails, DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
-        this.jPanel = jPanel;
+        this.jPanel = registerDetails;
         this.dB4OUtil = dB4OUtil;
         this.setSize(1680, 1050);
         populateNetworkComboBox();

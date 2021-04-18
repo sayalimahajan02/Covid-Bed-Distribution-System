@@ -271,6 +271,7 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         admin.setLastName(lastNameTxt.getText());
         admin.setPhoneNumber(phoneTxt.getText());
         admin.setEmail(emailTxt.getText());
+        admin.setUserName(UsernameTxt.getText()); 
         admin.setId(system.getDriverAuthorizationDirectory().generateId());
         //save to db04
         Employee employee = org.getEmployeeDirectory().createEmployee(admin.getLastName() + ", " + admin.getFirstName());

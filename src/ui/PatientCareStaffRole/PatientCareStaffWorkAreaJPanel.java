@@ -5,17 +5,50 @@
  */
 package ui.PatientCareStaffRole;
 
+import Business.Authorization.PatientAuthorizationAdmin;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Hospital.Patient;
+import Business.Hospital.PatientCareStaff;
+import Business.Organization.Organization;
+import Business.Status;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Yash
  */
 public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
-    
+private static EcoSystem system;
+    private static DB4OUtil dB4OUtil;
+    private static JPanel userProcessorcontainer;
+    private JPanel userProcessContainer;
+    private UserAccount account;
+    private Organization organization;
+    private Enterprise enterprise;
+    private EcoSystem business;
+    private Status status;
+    private PatientCareStaff patientCareStaffLogin;
     /**
      * Creates new form PatientCareStaffWorkAreaJPanel
      */
-    public PatientCareStaffWorkAreaJPanel() {
+    public PatientCareStaffWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, PatientCareStaff patientCareStaff) {
         initComponents();
+         this.system = business;
+        this.dB4OUtil = dB4OUtil;
+        this.userProcessorcontainer = userProcessContainer;
+    this.userProcessContainer=userProcessContainer;
+    this.account=account;
+    this.organization=organization;
+    this.enterprise=enterprise;
+    this.business=business;
+    this.patientCareStaffLogin=patientCareStaffLogin;
+    this.setSize(1680, 1050);
+    populatePatientDetails();
     }
 
     /**
@@ -29,7 +62,7 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        patientjTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btncomplete = new javax.swing.JButton();
         btnaccept = new javax.swing.JButton();
@@ -37,7 +70,7 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Patient Care Staff WorkArea");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        patientjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -56,7 +89,7 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(patientjTable);
 
         jLabel2.setText("Patient and Ambulance Assigned");
 
@@ -86,15 +119,10 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(80, 80, 80)
-                                .addComponent(btnback)
-                                .addGap(212, 212, 212)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(363, 363, 363)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(80, 80, 80)
+                        .addComponent(btnback)
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -103,12 +131,16 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(154, 154, 154)
                 .addComponent(btncomplete, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(211, 211, 211))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnback)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64)
@@ -125,10 +157,35 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btncompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncompleteActionPerformed
         // TODO add your handling code here:
+        int selectedRowIndex = patientjTable.getSelectedRow();
+        if (patientjTable.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
+            return;
+        }
+        Patient selectedPatient=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)patientjTable.getValueAt(selectedRowIndex, 0)));
+         if(selectedPatient.getPatientstatus().equals(status.PatientDrop.getValue())){
+         selectedPatient.setPatientstatus(status.Completed.getValue());
+         }
+         else{
+             JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
+            return;
+         } 
     }//GEN-LAST:event_btncompleteActionPerformed
 
     private void btnacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptActionPerformed
-        // TODO add your handling code here:
+int selectedRowIndex = patientjTable.getSelectedRow();
+        if (patientjTable.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
+            return;
+        }
+        Patient selectedPatient=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)patientjTable.getValueAt(selectedRowIndex, 0)));
+         if(selectedPatient.getPatientstatus().equals(status.PatientPickup.getValue())){
+         selectedPatient.setPatientstatus(status.AssignToMe.getValue());
+         }
+         else{
+             JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
+            return;
+         }        // TODO add your handling code here:
     }//GEN-LAST:event_btnacceptActionPerformed
 
 
@@ -139,6 +196,32 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable patientjTable;
     // End of variables declaration//GEN-END:variables
+
+    private void populatePatientDetails() {
+         DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
+        model.setRowCount(0);
+
+        for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
+            if((patient.getAmbulancedriver().getId()!=0 || patient.getPrivatedriver().getId()!=0) && patient.getAmbulancedriver().getId()==patientCareStaffLogin.getPatientcarestaffID() && (patient.getPatientstatus().equals(status.PatientPickup.getValue()) || patient.getPatientstatus().equals(status.Allocated.getValue()) )){
+                Object[] row=new Object[5];
+                row[0]=patient.getLastname()+", "+patient.getFirstname();
+                row[1]=patient.getPhonenumber();
+                if(patient.getAmbulancedriver().getId()!=0)
+                {
+                row[2]=patient.getAmbulancedriver().getAmbulanceNumber();
+                row[3]=patient.getAmbulancedriver().getDriverLastName()+", "+patient.getAmbulancedriver().getDriverFirstName();
+                row[4]=patient.getAmbulancedriver().getPhoneNumber();
+                }
+                if(patient.getPrivatedriver().getId()!=0)
+                {
+                row[2]=patient.getPrivatedriver().getPrivateVehicleNumber();
+                row[3]=patient.getPrivatedriver().getDriverLastName()+", "+patient.getPrivatedriver().getDriverFirstName();
+                row[4]=patient.getPrivatedriver().getPhoneNumber();
+                }
+                model.addRow(row);
+            }
+        }
+    }
 }

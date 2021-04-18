@@ -333,7 +333,7 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         String password = String.valueOf(passwordCharArray);
 
         if (txtfname.getText().isEmpty() || txtfname.getText().isEmpty() || txtusername.getText().isEmpty()
-                || passwordfield.getText().isEmpty() || txtemailid.getText().isEmpty()
+                || password.isEmpty() || txtemailid.getText().isEmpty()
                 || txtphone.getText().isEmpty() || combohospital.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
             return;
@@ -371,7 +371,7 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Password must have atleast a digit, a special symbol, uppercase and lowercase!");
             return;
         } else {
-            p.setPassword(passwordfield.getText());
+            p.setPassword(password);
         }
 
         boolean flagemailid = validation.isEmailAddressValid(txtemailid.getText());

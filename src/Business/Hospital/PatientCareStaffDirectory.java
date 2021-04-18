@@ -61,5 +61,14 @@ public class PatientCareStaffDirectory {
     }
         return null;
  }
-    
+       public PatientCareStaff getUserByUserName(String uname)
+    {
+       
+        for(PatientCareStaff ad : this.PatientCareStaffDirectory){
+            if(ad.getUsername().equalsIgnoreCase(uname)){
+                return ad;
+            }
+        }
+        return null;
+    }
 }

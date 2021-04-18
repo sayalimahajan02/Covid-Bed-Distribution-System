@@ -8,6 +8,7 @@ package ui.PatientRole;
 import Business.DB4OUtil.DB4OUtil;
 import Business.Driver.AmbulanceDriver;
 import Business.EcoSystem;
+import Business.call.EmergencyCall;
 import Business.Enterprise.Enterprise;
 import Business.Hospital.Hospital;
 import Business.Hospital.HospitalDirectory;
@@ -108,7 +109,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnfindbeds);
-        btnfindbeds.setBounds(350, 290, 163, 23);
+        btnfindbeds.setBounds(350, 290, 163, 29);
 
         hospitaltable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -141,11 +142,16 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnproceed);
-        btnproceed.setBounds(360, 570, 153, 23);
+        btnproceed.setBounds(360, 570, 153, 29);
 
         btnemergency.setText("Emergency");
+        btnemergency.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnemergencyActionPerformed(evt);
+            }
+        });
         add(btnemergency);
-        btnemergency.setBounds(737, 32, 114, 23);
+        btnemergency.setBounds(737, 32, 114, 29);
 
         btnback.setText("<<Back");
         btnback.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +160,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnback);
-        btnback.setBounds(67, 32, 71, 23);
+        btnback.setBounds(67, 32, 93, 29);
 
         btnupload.setText("Upload Report");
         btnupload.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +169,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnupload);
-        btnupload.setBounds(660, 160, 105, 23);
+        btnupload.setBounds(660, 160, 105, 29);
         add(lblreport);
         lblreport.setBounds(320, 170, 178, 72);
 
@@ -174,7 +180,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnsubmit);
-        btnsubmit.setBounds(660, 210, 110, 23);
+        btnsubmit.setBounds(660, 210, 110, 29);
 
         jLabel3.setText("Patient Status:");
         add(jLabel3);
@@ -243,6 +249,22 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
        Patient patient = system.getPatientDirectory().getPatientByUsername(account.getUsername());
        patient.setPath(path); 
     }//GEN-LAST:event_btnsubmitActionPerformed
+
+    private void btnemergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnemergencyActionPerformed
+        // TODO add your handling code here:
+
+        EmergencyCall ecall=new EmergencyCall();
+        Patient p= system.getPatientDirectory().getPatientByUsername(account.getUsername());
+         String[] number=new String[2];
+        if(p.getEmergencycontact().contains("-"))
+        number=p.getEmergencycontact().split("-");
+        if(p.getEmergencycontact().contains("."))
+        number=p.getEmergencycontact().split(".");
+        String emergencyNumber="+1"+number[0]+number[1]+number[2];
+        //ecall.Calling("+18574984878");
+        ecall.Calling(emergencyNumber);
+    
+    }//GEN-LAST:event_btnemergencyActionPerformed
 
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();

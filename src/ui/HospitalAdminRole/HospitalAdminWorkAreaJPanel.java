@@ -59,12 +59,12 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.system = system;
         this.organization = organization;
         this.enterprise = enterprise;
-        this.userProcessorcontainer = userProcessorcontainer;
+        this.userProcessorcontainer = userProcessContainer;
         
         
         txtbeds.setText(String.valueOf(hospital.getBedcount()));
         txtrequests.setText(String.valueOf(hospital.getRequestcount()));
-        txtbedrequirement.setText(String.valueOf(requests.getRequiredBeds()));
+        //txtbedrequirement.setText(String.valueOf(requests.getRequiredBeds()));
         populatePatientTable();
         
     }
@@ -119,7 +119,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Patient Care Staff Data");
         add(jLabel2);
-        jLabel2.setBounds(381, 575, 138, 22);
+        jLabel2.setBounds(390, 520, 138, 22);
 
         jLabel3.setText("Beds Available:");
         add(jLabel3);
@@ -144,21 +144,21 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnassignambulance);
-        btnassignambulance.setBounds(381, 494, 138, 29);
+        btnassignambulance.setBounds(390, 480, 138, 29);
 
         tblpcs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Staff Name", "Phone Number", "Email ID", "Availability"
+                "Staff ID", "Staff Name", "Phone Number", "Email ID", "Availability"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                true, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -168,7 +168,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblpcs);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(86, 603, 723, 112);
+        jScrollPane2.setBounds(90, 550, 723, 112);
 
         btnacceptpatient.setText("Accept Patient");
         btnacceptpatient.addActionListener(new java.awt.event.ActionListener() {
@@ -185,17 +185,17 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         tblpatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Phone Number", "Address", "Email ID", "Patient Status"
+                "Patient ID", "Patient Name", "Phone Number", "Address", "Email ID", "Patient Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -209,17 +209,17 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         tblambulance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Ambulance Number", "Driver Name", "Phone Number", "Availability"
+                "AmbulanceID", "Ambulance Number", "Driver Name", "Phone Number", "Availability"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -238,7 +238,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnassignstaff);
-        btnassignstaff.setBounds(382, 733, 118, 29);
+        btnassignstaff.setBounds(720, 510, 118, 29);
 
         jLabel6.setText("Patient Requests:");
         add(jLabel6);
@@ -328,7 +328,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void btnacceptpatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptpatientActionPerformed
         // TODO add your handling code here:
         
-        int selectedRow = tblambulance.getSelectedRow();
+        int selectedRow = tblpatient.getSelectedRow();
         
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null,"Please select a row");
@@ -381,9 +381,10 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btncheckallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckallActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
         CheckAllPatientStatusJPanel checkallpatientstatuspanel = new CheckAllPatientStatusJPanel( userProcessorcontainer,  account,  system, hospital, patient);
-        checkallpatientstatuspanel.setVisible(true);
+        userProcessorcontainer.add("checkAllCampPatientStatusJPanel", checkallpatientstatuspanel);
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.next(userProcessorcontainer);
     }//GEN-LAST:event_btncheckallActionPerformed
 
     private void btnrequestcamp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrequestcamp1ActionPerformed
@@ -441,14 +442,16 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         //patientComboBox.addItem(Status.Approved.getValue());
         for (Patient patient : system.getPatientDirectory().getPatientDirectory()) {
-            if(patient.getPatientID() == hospital.getHospitalID() && patient.getStatus().equals(Status.Allocation)) {
+            if(patient.getHospital().getHospitalID() == hospital.getHospitalID() && patient.getStatus().equals(Status.Allocation)) {
           
-                Object[] row = new Object[5];
-                row[0] = patient.getFirstname() + patient.getLastname();
-                row[1] = patient.getPhonenumber();
-                row[2] = patient.getStreetaddress() + patient.getCity() + patient.getZipcode();
-                row[3] = patient.getEmail() ;
-                row[4] = status.getValue();
+                Object[] row = new Object[6];
+                
+                row[0] = patient.getPatientID();
+                row[1] = patient.getFirstname() + patient.getLastname();
+                row[2] = patient.getPhonenumber();
+                row[3] = patient.getStreetaddress() + patient.getCity() + patient.getZipcode();
+                row[4] = patient.getEmail() ;
+                row[5] = patient.getPatientstatus();
                 
                 model.addRow(row);
             }
@@ -456,16 +459,17 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     public void populateAmbulanceTable(){
-        DefaultTableModel model = (DefaultTableModel) tblpatient.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblambulance.getModel();
         model.setRowCount(0);
         for (AmbulanceDriver ambulancedriver : system.getAmbulanceDriverDirectory().getAmbulanceDriverDirectory()) {
             
             if(ambulancedriver.getAvailability()){
-                Object[] row = new Object[4];
-                row[0] = ambulancedriver.getAmbulanceNumber();
-                row[1] = ambulancedriver.getDriverFirstName() + ambulancedriver.getDriverLastName();
-                row[2] = ambulancedriver.getPhoneNumber();
-                row[3] = ambulancedriver.getAvailability();
+                Object[] row = new Object[5];
+                row[0] =ambulancedriver.getId();
+                row[1] = ambulancedriver.getAmbulanceNumber();
+                row[2] = ambulancedriver.getDriverFirstName() + ambulancedriver.getDriverLastName();
+                row[3] = ambulancedriver.getPhoneNumber();
+                row[4] = ambulancedriver.getAvailability();
                 
                 model.addRow(row);
             }
@@ -473,16 +477,17 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populatePatientCareStaffTable(){
-        DefaultTableModel model = (DefaultTableModel) tblpatient.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblpcs.getModel();
         model.setRowCount(0);
         for (PatientCareStaff patientcarestaff : system.getPatientCareStaffDirectory().getPatientCareStaffDirectory()) {
             
           if(patientcarestaff.getAvailability()){
-                Object[] row = new Object[4];
-                row[0] = patientcarestaff.getFirstname() + patientcarestaff.getLastname();
-                row[1] = patientcarestaff.getPhonenumber();
-                row[2] = patientcarestaff.getEmail();
-                row[3] = patientcarestaff.getAvailability();
+                Object[] row = new Object[5];
+                row[0]= patientcarestaff.getPatientcarestaffID();
+                row[1] = patientcarestaff.getFirstname() + patientcarestaff.getLastname();
+                row[2] = patientcarestaff.getPhonenumber();
+                row[3] = patientcarestaff.getEmail();
+                row[4] = patientcarestaff.getAvailability();
                 
                 model.addRow(row);
             

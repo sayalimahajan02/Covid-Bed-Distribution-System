@@ -101,7 +101,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         phoneTxt = new javax.swing.JTextField();
         userNameTxt = new javax.swing.JLabel();
         passwordTxt = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        usernameText = new javax.swing.JTextField();
         verificationCOdejLabel = new javax.swing.JLabel();
         verificationCodeTxt = new javax.swing.JTextField();
         VerifyjButton = new javax.swing.JButton();
@@ -234,7 +234,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
                                     .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPasswordField2)
-                                    .addComponent(jTextField1)
+                                    .addComponent(usernameText)
                                     .addComponent(hospitaljComboBox, 0, 168, Short.MAX_VALUE)
                                     .addComponent(orgComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(enterpriseComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -291,7 +291,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameTxt)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usernameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -363,7 +363,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
 //            JOptionPane.showMessageDialog(null, "Verification Code is incorrect please enter correct code or click on verify to resend new code");  
 //            return;
 //        }
-        if (!org.getUserAccountDirectory().checkIfUsernameIsUnique(userNameTxt.getText())) {
+        if (!org.getUserAccountDirectory().checkIfUsernameIsUnique(usernameText.getText())) {
             JOptionPane.showMessageDialog(null, "User with this username already exist! Please try another UserName");
             return;
         }
@@ -460,13 +460,13 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField lastNameTxt;
     private javax.swing.JComboBox<Object> networkComboBox;
     private javax.swing.JComboBox<Object> orgComboBox;
     private javax.swing.JLabel passwordTxt;
     private javax.swing.JTextField phoneTxt;
     private javax.swing.JLabel userNameTxt;
+    private javax.swing.JTextField usernameText;
     private javax.swing.JLabel verificationCOdejLabel;
     private javax.swing.JTextField verificationCodeTxt;
     // End of variables declaration//GEN-END:variables

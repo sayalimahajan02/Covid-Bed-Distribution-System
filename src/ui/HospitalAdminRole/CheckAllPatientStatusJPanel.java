@@ -66,7 +66,7 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Patient Phone Number", "Ambulance Number", "Driver Name", "Driver Phone Number", "Staff Name", "Staff Phone Number", "Stutus"
+                "Patient Name", "Patient Phone Number", "Ambulance Number", "Driver Name", "Driver Phone Number", "Staff Name", "Staff Phone Number", "Status"
             }
         ));
         jScrollPane1.setViewportView(tblallpatient);

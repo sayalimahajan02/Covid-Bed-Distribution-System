@@ -236,6 +236,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
         Enterprise enterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
+        System.out.println("INSIDE ADMIN");
         String username = usernameJTextField.getText().trim();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();

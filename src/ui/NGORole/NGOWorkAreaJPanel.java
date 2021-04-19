@@ -41,6 +41,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 //        campListTable.setVisible(false);
 //        assignCampBtn.setVisible(false);
         populateRequestTable();
+        populateCampTable();
         this.setSize(1680, 1050);
     }
 
@@ -53,7 +54,6 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        requestStatusComboBox = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -65,8 +65,6 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         acceptReqBtn = new javax.swing.JButton();
         campLabel = new javax.swing.JLabel();
         assignCampBtn = new javax.swing.JButton();
-
-        requestStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -91,7 +89,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(hospitalReqTable);
         if (hospitalReqTable.getColumnModel().getColumnCount() > 0) {
-            hospitalReqTable.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(requestStatusComboBox));
+            hospitalReqTable.getColumnModel().getColumn(3).setCellEditor(null);
         }
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -214,30 +212,9 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void acceptReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptReqBtnActionPerformed
-        // TODO add your handling code here:
-        if (requestStatusComboBox.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null, "Please update request status!", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
-        for (int i = 0; i < hospitalReqTable.getRowCount(); i++) {
-            String requestStatus = model.getValueAt(i, 3).toString();
-            if (requestStatus.equals("In Progress")) {
-                Integer requestId = Integer.parseInt(model.getValueAt(i, 0).toString());
-                HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
-                requests.setNgo(ngo);
-                requests.setStatus(Status.InProgress);
-                hospitalReqTable.setValueAt(requestStatus, i, 3);
-            }
-        }
-        JOptionPane.showMessageDialog(null, "Accepted Hospital request!");
-        populateCampTable();
-    }//GEN-LAST:event_acceptReqBtnActionPerformed
-
     private void assignCampBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignCampBtnActionPerformed
         // TODO add your handling code here:
-        if (campListTable.getSelectedRow() == 0) {
+        if (campListTable.getSelectedRow() != 1) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -250,10 +227,47 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Camp Admin Assigned!");
     }//GEN-LAST:event_assignCampBtnActionPerformed
 
+    private void acceptReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptReqBtnActionPerformed
+        // TODO add your handling code here:
+        if (hospitalReqTable.getRowCount()==0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no request as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (hospitalReqTable.getSelectedRowCount()!=1) {
+            JOptionPane.showMessageDialog(null, "Please select one row", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if(campListTable.getRowCount()==0){
+            JOptionPane.showMessageDialog(null, "Sorry, There are no Camps available at this moment as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+//        if (requestStatusComboBox.getSelectedItem() == null) {
+//            JOptionPane.showMessageDialog(null, "Please update request status!", "Warning", JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
+        DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
+        for (int i = 0; i < hospitalReqTable.getRowCount(); i++) {
+            String requestStatus = model.getValueAt(i, 3).toString();
+            if (requestStatus.equals("In Progress")) {
+                Integer requestId = Integer.parseInt(model.getValueAt(i, 0).toString());
+                HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
+                requests.setNgo(ngo);
+                requests.setStatus(Status.InProgress);
+                hospitalReqTable.setValueAt(requestStatus, i, 3);
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Accepted Hospital request!");
+        //populateCampTable();
+    }//GEN-LAST:event_acceptReqBtnActionPerformed
+
     public void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
         model.setRowCount(0);
-        requestStatusComboBox.addItem(Status.InProgress.getValue());
+        if(system.getnGODirectory().getHospitalNgoDirectory()!=null)
+        {
+           
+
         for (HospitalNgoRequests requests : system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequests()) {
             Object[] row = new Object[6];
             row[0] = requests.getId();
@@ -264,6 +278,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
             row[5] = requests.getRequestTime();
             model.addRow(row);
         }
+        }
     }
 
     public void populateCampTable() {
@@ -273,6 +288,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 //        assignCampBtn.setVisible(true);
         DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
         model.setRowCount(0);
+        if(system.getCampAdminDirectory().getCampadminList()!=null)
         for (CampAdmin ca : system.getCampAdminDirectory().getCampadminList()) {
             Object[] row = new Object[8];
             row[0] = ca.getId();
@@ -300,6 +316,5 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JComboBox<String> requestStatusComboBox;
     // End of variables declaration//GEN-END:variables
 }

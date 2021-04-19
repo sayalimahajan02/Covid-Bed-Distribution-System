@@ -73,6 +73,19 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
                 model.addRow(row);
             }
         }
+        
+          for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
+            if(patient.getAmbulancedriver().getId()!=0 && patient.getAmbulancedriver().getId()==ambulanceDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())){
+                Object[] row=new Object[6];
+                row[0]=patient.getPatientID();
+                row[1]=patient.getLastname()+", "+patient.getFirstname();
+                row[2]=""; //hospital details
+                row[3]=patient.getStreetaddress()+", "+patient.getCity()+", "+patient.getZipcode();
+                row[4]=patient.getPhonenumber();
+                row[5]= patient.getPatientstatus();
+                model.addRow(row);
+            }
+        }
 }
     /**
      * This method is called from within the constructor to initialize the form.

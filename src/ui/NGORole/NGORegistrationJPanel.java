@@ -353,7 +353,7 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
 
         if (ngoName.getText().isEmpty() || managerNameText.getText().isEmpty() || cityText.getText().isEmpty()
                 || zipCode.getText().isEmpty() || phoneNmbr.getText().isEmpty() || emailAddrText.getText().isEmpty()
-                || userNameTxt.getText().isEmpty() || passwordField.getText().isEmpty()) {
+                || userNameTxt.getText().isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please provide all the fields!");
             return;
         }

@@ -60,10 +60,10 @@ public class PatientAuthorizationAdminWorkAreaJPanel extends javax.swing.JPanel 
     this.business=business;
     this.patientAdminLogin=patientAdminLogin;
     this.setSize(1680, 1050);
-    populatePrivateDriverDetails();
+    populatePatientDetails();
     }
    
-public void populatePrivateDriverDetails(){
+public void populatePatientDetails(){
    
     
     
@@ -188,7 +188,8 @@ public void populatePrivateDriverDetails(){
         if (pendingPatientjTable.getSelectedRowCount() == 1) {
         
             try {
-                Patient patientsel=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)pendingPatientjTable.getValueAt(selectedRowIndex, 0)));
+                
+                Patient patientsel=system.getPatientDirectory().getPatientByID((int)pendingPatientjTable.getValueAt(selectedRowIndex, 0));
                 ImageIcon MyImage = new ImageIcon(patientsel.getPath());
                  Image licimg = MyImage.getImage();
                 Image newimg = licimg.getScaledInstance(170,120, Image.SCALE_SMOOTH);
@@ -210,10 +211,10 @@ public void populatePrivateDriverDetails(){
          int selectedRowIndex = pendingPatientjTable.getSelectedRow();
         if (pendingPatientjTable.getSelectedRowCount() == 1) {
         
-             PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserByFullName((String)pendingPatientjTable.getValueAt(selectedRowIndex, 4));
-             privateDriver.setIsAuthorized(true);
+              Patient selectedPatient=system.getPatientDirectory().getPatientByID((int)pendingPatientjTable.getValueAt(selectedRowIndex, 0));
+             selectedPatient.setPatientstatus(status.Approved.getValue());
              JOptionPane.showMessageDialog(null, "Driver has been Authorized successfully");
-             populatePrivateDriverDetails();
+             populatePatientDetails();
         }
         else {
             JOptionPane.showMessageDialog(null, "Please select one row to confirm");

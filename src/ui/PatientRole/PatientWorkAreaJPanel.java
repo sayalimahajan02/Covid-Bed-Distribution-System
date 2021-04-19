@@ -16,6 +16,7 @@ import Business.Hospital.Patient;
 import Business.Organization.Organization;
 import Business.Status;
 import Business.UserAccount.UserAccount;
+import Business.Voluntary.CampAdmin;
 import java.awt.Image;
 import java.io.File;
 import static java.time.Clock.system;
@@ -57,6 +58,15 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessorcontainer = userProcessContainer;
         this.account = account;
         //lblpatientstatus.setText(patient.getPatientstatus());
+        if(!patient.getPatientstatus().equalsIgnoreCase(status.New.getValue())){
+           btnupload.setEnabled(false);
+            btnsubmit.setEnabled(false);
+        }
+        if(patient.getPath()!=null || !patient.getPath().isEmpty())
+        {
+            lblreport.setIcon(reportsubmit(patient.getPath()));
+        }
+        
     }
 
     
@@ -192,29 +202,50 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     private void btnproceedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproceedActionPerformed
         // TODO add your handling code here:
         
-        
-        if (hospitaltable.getSelectedRow() == 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        status.Allocation.getValue();
-        
-        DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();
+          if(patient.getPatientstatus().equalsIgnoreCase(status.Approved.getValue())){
+               DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();
         int selectedRow = hospitaltable.getSelectedRow();
         
         Integer ID = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
         Hospital hospital = system.getHospitalDirectory().getHospitalByID(ID);
         Patient p = system.getPatientDirectory().getPatientByUsername(account.getUsername());
+        p.setPatientstatus(status.Allocation.getValue());
         this.patient = p;
         p.setHospital(hospital);
         
         hospital.setRequestcount(count++);
+               
+        }
+        else if(patient.getPatientstatus().equalsIgnoreCase(status.New.getValue()) || patient.getPatientstatus().equalsIgnoreCase(status.Pending.getValue()))
+        {
+             JOptionPane.showMessageDialog(null, "You dont have approved request from patient authorization", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }else {
+             JOptionPane.showMessageDialog(null, "You have already allocated bed", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (hospitaltable.getSelectedRow() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+       
     }//GEN-LAST:event_btnproceedActionPerformed
 
     private void btnfindbedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfindbedsActionPerformed
         // TODO add your handling code here:
-        populateTable();
+        if(patient.getPatientstatus().equalsIgnoreCase(status.Approved.getValue())){
+               populateTable();
+        }
+        else if(patient.getPatientstatus().equalsIgnoreCase(status.New.getValue()) || patient.getPatientstatus().equalsIgnoreCase(status.Pending.getValue()))
+        {
+             JOptionPane.showMessageDialog(null, "You dont have approved request from patient authorization", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }else {
+             JOptionPane.showMessageDialog(null, "You have already allocated bed", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_btnfindbedsActionPerformed
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
@@ -245,9 +276,13 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
        //patient.setPatientstatus("Pending");
-       status.Pending.getValue();
+      
        Patient patient = system.getPatientDirectory().getPatientByUsername(account.getUsername());
+       patient.setPatientstatus(status.Pending.getValue());
        patient.setPath(path); 
+       JOptionPane.showMessageDialog(null, "Report has been uploaded successfully", null, JOptionPane.WARNING_MESSAGE);
+        btnupload.setEnabled(false);
+         btnsubmit.setEnabled(false);
     }//GEN-LAST:event_btnsubmitActionPerformed
 
     private void btnemergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnemergencyActionPerformed
@@ -280,6 +315,21 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 row[5] = hospital.getPhonenumber();
                 row[6] = hospital.getEmail();
                 row[7] = hospital.getBedcount();
+                model.addRow(row);
+            
+        }
+        
+           for (CampAdmin campadmin : system.getCampAdminDirectory().getCampadminList()) {
+          
+                Object[] row = new Object[8];
+                row[0] = campadmin.getId();
+                row[1] = campadmin.getName();
+                row[2] = campadmin.getStreet();
+                row[3] = campadmin.getZipCode();
+                row[4] = campadmin.getCity();
+                row[5] = campadmin.getPhoneNumber();
+                row[6] = campadmin.getEmailId();
+                row[7] = campadmin.getAvailableBedCount();
                 model.addRow(row);
             
         }

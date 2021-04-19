@@ -389,6 +389,11 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnrequestcamp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrequestcamp1ActionPerformed
         // TODO add your handling code here:
+        if(txtbedrequirement.getText()==null || txtbedrequirement.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Plewse fillout bed requirement details");
+            return;
+        }
         HospitalNgoRequests requests=new HospitalNgoRequests(this.hospital, status.New, Integer.parseInt(txtbedrequirement.getText()));
 //        requests.setHospital(this.hospital);  //hospital.getName();
 //        requests.setStatus(status.New); //status.New.getValue();

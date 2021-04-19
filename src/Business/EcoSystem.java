@@ -22,7 +22,15 @@ import Business.Role.SystemAdminRole;
 import Business.Voluntary.CampAdminDirectory;
 import Business.Voluntary.NGODirectory;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.regex.Pattern;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -265,5 +273,37 @@ public class EcoSystem extends Organization {
         return true;
     }
      
+    public static void sendEmailMessage(String emailId, String body) {
+        String to = emailId;
+        String from = "beddistributionsystem@gmail.com";
+        String pass = "Fossil@02";
+
+        Properties properties = new Properties();
+        String host = "smtp.gmail.com";
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.ssl.trust", host);
+        properties.put("mail.smtp.user", from);
+        properties.put("mail.smtp.port", "25");
+        properties.put("mail.smtp.auth", "true");
+
+        Session session = Session.getDefaultInstance(properties);
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.setSubject("New User Registration");
+            message.setText(body);
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+            System.out.println("Sent message successfully....");
+        } catch (MessagingException mex) {
+            JOptionPane.showMessageDialog(null, "Invalid Email Address");
+        }
+    }
     
+    public static void main(String args[]){
+        sendEmailMessage("sayalimahjan18@gmail.com","hiiii test email");
+    }
 }

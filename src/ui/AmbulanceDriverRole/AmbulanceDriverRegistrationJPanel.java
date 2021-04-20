@@ -373,7 +373,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
             return;
         }
 
-        if (!system.checkIfUserIsUnique(userNameTxt.getText())) {
+        if (!system.checkIfUserIsUnique(usernameText.getText())) {
             JOptionPane.showMessageDialog(null, "Please enter all fields..");
             return;
         }
@@ -393,12 +393,12 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         ambDriver.setAge(Integer.parseInt(ageTxt.getText()));
         ambDriver.setPhoneNumber(phoneTxt.getText());
         ambDriver.setAmbulanceNumber(ambulanceNumberTxt.getText());
-        ambDriver.setUserName(userNameTxt.getText());
+        ambDriver.setUserName(usernameText.getText());
         ambDriver.setId(system.getAmbulanceDriverDirectory().generateId());
         //save to db04
         Employee employee = org.getEmployeeDirectory().createEmployee(ambDriver.getDriverLastName() + ", " + ambDriver.getDriverFirstName());
         system.getAmbulanceDriverDirectory().add(ambDriver);
-        UserAccount account = org.getUserAccountDirectory().createUserAccount(userNameTxt.getText(), password, employee, new AmbulanceDriverRole());
+        UserAccount account = org.getUserAccountDirectory().createUserAccount(usernameText.getText(), password, employee, new AmbulanceDriverRole());
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_RegisterjButtonActionPerformed
 

@@ -26,67 +26,53 @@ import ui.PatientCareStaffRole.*;
  */
 public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
 
-      private static EcoSystem system;
+    private static EcoSystem system;
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
     private JPanel userProcessContainer;
     private UserAccount account;
     private Organization organization;
     private Enterprise enterprise;
-    private EcoSystem business;
     private Status status;
     private AmbulanceDriver ambulanceDriverLogin;
+
     /**
      * Creates new form AmbulanceDriverWorkAreaJPanel
      */
-    
-
-    public AmbulanceDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, AmbulanceDriverOrganization ambulanceDriverOrganization, Enterprise enterprise,AmbulanceDriver ambulanceDriverLogin) {
-      initComponents();
-         this.system = system;
+    public AmbulanceDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, AmbulanceDriverOrganization ambulanceDriverOrganization, Enterprise enterprise, AmbulanceDriver ambulanceDriverLogin) {
+        initComponents();
+        this.system = system;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = userProcessContainer;
-    this.userProcessContainer=userProcessContainer;
-    this.account=account;
-    this.organization=organization;
-    this.enterprise=enterprise;
-    this.business=business;
-    this.ambulanceDriverLogin=ambulanceDriverLogin;
-    this.setSize(1680, 1050);
-    populatePatientPickUpDetails();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.ambulanceDriverLogin = ambulanceDriverLogin;
+        this.setSize(1680, 1050);
+        populatePatientPickUpDetails();
     }
 
-    public void populatePatientPickUpDetails(){
-    
-     DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
+    public void populatePatientPickUpDetails() {
+
+        DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
         model.setRowCount(0);
 
-        for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
-            if(patient.getAmbulancedriver().getId()!=0 && patient.getAmbulancedriver().getId()==ambulanceDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())){
-                Object[] row=new Object[6];
-                row[0]=patient.getPatientID();
-                row[1]=patient.getLastname()+", "+patient.getFirstname();
-                row[2]=""; //hospital details
-                row[3]=patient.getStreetaddress()+", "+patient.getCity()+", "+patient.getZipcode();
-                row[4]=patient.getPhonenumber();
-                row[5]= patient.getPatientstatus();
+        for (Patient patient : system.getPatientDirectory().getPatientDirectory()) {
+            if (patient.getAmbulancedriver().getId() != 0 && patient.getAmbulancedriver().getId() == ambulanceDriverLogin.getId() && (patient.getPatientstatus().equals(status.Allocated.getValue()) || patient.getPatientstatus().equals(status.PatientPickup.getValue()))) {
+                Object[] row = new Object[7];
+                row[0] = patient.getPatientID();
+                row[1] = patient.getLastname() + ", " + patient.getFirstname();
+                row[2] = patient.getHospital().getName(); //hospital details
+                row[3] = patient.getStreetaddress() + ", " + patient.getCity() + ", " + patient.getZipcode();
+                row[4] = patient.getPhonenumber();
+                row[5] = patient.getPatientstatus();
+                row[6] = patient.getHospital().getStreetaddress() + ", " + patient.getHospital().getCity() + ", " + patient.getHospital().getZipcode();
                 model.addRow(row);
             }
         }
-        
-          for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
-            if(patient.getAmbulancedriver().getId()!=0 && patient.getAmbulancedriver().getId()==ambulanceDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())){
-                Object[] row=new Object[6];
-                row[0]=patient.getPatientID();
-                row[1]=patient.getLastname()+", "+patient.getFirstname();
-                row[2]=""; //hospital details
-                row[3]=patient.getStreetaddress()+", "+patient.getCity()+", "+patient.getZipcode();
-                row[4]=patient.getPhonenumber();
-                row[5]= patient.getPatientstatus();
-                model.addRow(row);
-            }
-        }
-}
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,21 +89,26 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
 
         patientjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Hospital Name", "Patient Address", "Phone Number", "Status"
+                "Patient ID", "Patient Name", "Hospital Name", "Patient Address", "Phone Number", "Status", "Hospital Address"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        patientjTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                patientjTableMousePressed(evt);
             }
         });
         jScrollPane1.setViewportView(patientjTable);
@@ -149,8 +140,8 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(dropButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 864, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,44 +152,57 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pickupButton)
                     .addComponent(dropButton))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void pickupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickupButtonActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
         int selectedRowIndex = patientjTable.getSelectedRow();
         if (patientjTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
             return;
         }
-        Patient selectedPatient=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)patientjTable.getValueAt(selectedRowIndex, 0)));
-         if(selectedPatient.getPatientstatus().equals(status.Allocated.getValue())){
-         selectedPatient.setPatientstatus(status.PatientPickup.getValue());
-         }
-         else{
-             JOptionPane.showMessageDialog(null, "Please select allocated patient to confirm pickup!!");
+        Integer patientId = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        Patient selectedPatient = system.getPatientDirectory().getPatientByID(patientId);
+        if (selectedPatient.getPatientstatus().equals(status.Allocated.getValue())) {
+            selectedPatient.setPatientstatus(status.PatientPickup.getValue());
+            model.setValueAt(status.PatientPickup.getValue(), selectedRowIndex, 5);
+            JOptionPane.showMessageDialog(null, "Confirmed Patient Pickup!!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select allocated patient to confirm pickup!!");
             return;
-         }
-         
+        }
+
     }//GEN-LAST:event_pickupButtonActionPerformed
 
     private void dropButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropButtonActionPerformed
         // TODO add your handling code here:
-         int selectedRowIndex = patientjTable.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
+
+        int selectedRowIndex = patientjTable.getSelectedRow();
         if (patientjTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select one patient to confirm drop!!");
             return;
         }
-         Patient selectedPatient=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)patientjTable.getValueAt(selectedRowIndex, 0)));
-         if(selectedPatient.getPatientstatus().equals(status.PatientPickup.getValue())){
-         selectedPatient.setPatientstatus(status.PatientDrop.getValue());
-         }
-         else {
-             JOptionPane.showMessageDialog(null, "Please select patient with Confirm pickup to drop pickup successfully!!");
+        Integer patientId = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        Patient selectedPatient = system.getPatientDirectory().getPatientByID(patientId);
+        if (selectedPatient.getPatientstatus().equals(status.PatientPickup.getValue())) {
+            selectedPatient.setPatientstatus(status.PatientDrop.getValue());
+            model.setValueAt(status.PatientDrop.getValue(), selectedRowIndex, 5);
+            JOptionPane.showMessageDialog(null, "Confirmed Patient Drop!!");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select patient with Confirm pickup to drop pickup successfully!!");
             return;
-         }
+        }
     }//GEN-LAST:event_dropButtonActionPerformed
+
+    private void patientjTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientjTableMousePressed
+        // TODO add your handling code here:
+        System.out.println("SELECTED ROW::" + patientjTable.getSelectedRow());
+    }//GEN-LAST:event_patientjTableMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

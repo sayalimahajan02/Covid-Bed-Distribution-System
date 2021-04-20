@@ -64,7 +64,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         
         txtbeds.setText(String.valueOf(hospital.getBedcount()));
         txtrequests.setText(String.valueOf(hospital.getRequestcount()));
-        //txtbedrequirement.setText(String.valueOf(requests.getRequiredBeds()));
+        txtbedrequirement.setText(String.valueOf(requests.getRequiredBeds()));
         populatePatientTable();
         
     }
@@ -410,9 +410,10 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnshowcampsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowcampsActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        ShowCampsJPanel showcampspanel = new ShowCampsJPanel( userProcessorcontainer,  account,  system,  hospital,  campadmin);
-        showcampspanel.setVisible(true);
+        ShowCampsJPanel showcampspanel = new ShowCampsJPanel(userProcessorcontainer, account, system, hospital, campadmin);
+        userProcessorcontainer.add("ShowCampsJPanel", showcampspanel);
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.next(userProcessorcontainer);
          
     }//GEN-LAST:event_btnshowcampsActionPerformed
 
@@ -442,60 +443,60 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtrequests;
     // End of variables declaration//GEN-END:variables
 
-    public void populatePatientTable(){
+    public void populatePatientTable() {
         DefaultTableModel model = (DefaultTableModel) tblpatient.getModel();
         model.setRowCount(0);
         //patientComboBox.addItem(Status.Approved.getValue());
         for (Patient patient : system.getPatientDirectory().getPatientDirectory()) {
-            if(patient.getHospital().getHospitalID() == hospital.getHospitalID() && patient.getStatus().equals(Status.Allocation)) {
-          
-                Object[] row = new Object[6];
-                
-                row[0] = patient.getPatientID();
-                row[1] = patient.getFirstname() + patient.getLastname();
-                row[2] = patient.getPhonenumber();
-                row[3] = patient.getStreetaddress() + patient.getCity() + patient.getZipcode();
-                row[4] = patient.getEmail() ;
-                row[5] = patient.getPatientstatus();
-                
-                model.addRow(row);
+            if (patient.getHospital() != null) {
+                if (patient.getHospital().getHospitalID() == hospital.getHospitalID() && patient.getPatientstatus().equals(Status.Allocation.getValue())) {
+                    Object[] row = new Object[6];
+                    row[0] = patient.getPatientID();
+                    row[1] = patient.getFirstname() + patient.getLastname();
+                    row[2] = patient.getPhonenumber();
+                    row[3] = patient.getStreetaddress() + patient.getCity() + patient.getZipcode();
+                    row[4] = patient.getEmail();
+                    row[5] = patient.getPatientstatus();
+                    model.addRow(row);
+                }
             }
         }
     }
 
-    public void populateAmbulanceTable(){
+    public void populateAmbulanceTable() {
         DefaultTableModel model = (DefaultTableModel) tblambulance.getModel();
         model.setRowCount(0);
         for (AmbulanceDriver ambulancedriver : system.getAmbulanceDriverDirectory().getAmbulanceDriverDirectory()) {
-            
-            if(ambulancedriver.getAvailability()){
+
+            if (ambulancedriver.getAvailability()) {
                 Object[] row = new Object[5];
-                row[0] =ambulancedriver.getId();
+                row[0] = ambulancedriver.getId();
                 row[1] = ambulancedriver.getAmbulanceNumber();
                 row[2] = ambulancedriver.getDriverFirstName() + ambulancedriver.getDriverLastName();
                 row[3] = ambulancedriver.getPhoneNumber();
                 row[4] = ambulancedriver.getAvailability();
-                
+
                 model.addRow(row);
             }
         }
     }
     
-    public void populatePatientCareStaffTable(){
+    public void populatePatientCareStaffTable() {
         DefaultTableModel model = (DefaultTableModel) tblpcs.getModel();
         model.setRowCount(0);
         for (PatientCareStaff patientcarestaff : system.getPatientCareStaffDirectory().getPatientCareStaffDirectory()) {
-            
-          if(patientcarestaff.getAvailability()){
+
+            if (patientcarestaff.getAvailability()) {
                 Object[] row = new Object[5];
-                row[0]= patientcarestaff.getPatientcarestaffID();
+                row[0] = patientcarestaff.getPatientcarestaffID();
                 row[1] = patientcarestaff.getFirstname() + patientcarestaff.getLastname();
                 row[2] = patientcarestaff.getPhonenumber();
                 row[3] = patientcarestaff.getEmail();
                 row[4] = patientcarestaff.getAvailability();
-                
+
                 model.addRow(row);
-            
+
+            }
         }
     }
-}}
+}

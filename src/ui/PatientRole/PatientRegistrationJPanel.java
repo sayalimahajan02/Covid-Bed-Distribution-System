@@ -59,7 +59,6 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -77,128 +76,107 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         txtstreet = new javax.swing.JTextField();
         txtcity = new javax.swing.JTextField();
         txtzipcode = new javax.swing.JTextField();
-        btnregister = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         passwordfield = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         txtemergency = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        btnregister = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setLayout(null);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Create Account");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.setName(""); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(320, 20, 143, 45);
-
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("First Name:");
-        add(jLabel2);
-        jLabel2.setBounds(140, 100, 89, 23);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, 23));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Phone number:");
-        add(jLabel3);
-        jLabel3.setBounds(140, 270, 89, 23);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 90, 23));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Last Name:");
-        add(jLabel4);
-        jLabel4.setBounds(140, 140, 89, 23);
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 70, 23));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Street:");
-        add(jLabel5);
-        jLabel5.setBounds(140, 350, 89, 23);
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 50, 23));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Zipcode:");
-        add(jLabel6);
-        jLabel6.setBounds(140, 440, 89, 23);
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 60, 23));
 
-        jLabel8.setText("Email ID:");
-        add(jLabel8);
-        jLabel8.setBounds(140, 310, 89, 23);
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("Email Address:");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 90, 23));
 
-        jLabel9.setText("Username:");
-        add(jLabel9);
-        jLabel9.setBounds(140, 190, 89, 23);
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setText("UserName:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 70, 23));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("City:");
-        add(jLabel10);
-        jLabel10.setBounds(140, 400, 89, 23);
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 40, 23));
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Password:");
-        add(jLabel11);
-        jLabel11.setBounds(140, 230, 89, 23);
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 60, 23));
 
         txtfname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtfnameActionPerformed(evt);
             }
         });
-        add(txtfname);
-        txtfname.setBounds(280, 100, 220, 20);
+        add(txtfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 220, -1));
 
         txtlname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtlnameActionPerformed(evt);
             }
         });
-        add(txtlname);
-        txtlname.setBounds(280, 140, 220, 20);
+        add(txtlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 220, -1));
 
         txtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtusernameActionPerformed(evt);
             }
         });
-        add(txtusername);
-        txtusername.setBounds(280, 190, 220, 20);
+        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 220, -1));
 
         txtphone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtphoneActionPerformed(evt);
             }
         });
-        add(txtphone);
-        txtphone.setBounds(280, 270, 220, 20);
+        add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 220, -1));
 
         txtemailid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtemailidActionPerformed(evt);
             }
         });
-        add(txtemailid);
-        txtemailid.setBounds(280, 310, 220, 20);
+        add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 220, -1));
 
         txtstreet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtstreetActionPerformed(evt);
             }
         });
-        add(txtstreet);
-        txtstreet.setBounds(280, 350, 220, 20);
+        add(txtstreet, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 220, -1));
 
         txtcity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcityActionPerformed(evt);
             }
         });
-        add(txtcity);
-        txtcity.setBounds(280, 400, 220, 20);
+        add(txtcity, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 220, -1));
 
         txtzipcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtzipcodeActionPerformed(evt);
             }
         });
-        add(txtzipcode);
-        txtzipcode.setBounds(280, 440, 220, 20);
-
-        btnregister.setText("Register");
-        btnregister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregisterActionPerformed(evt);
-            }
-        });
-        add(btnregister);
-        btnregister.setBounds(260, 550, 130, 30);
+        add(txtzipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, 220, -1));
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -206,22 +184,37 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack);
-        btnBack.setBounds(60, 30, 80, 23);
-        add(passwordfield);
-        passwordfield.setBounds(280, 230, 220, 20);
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, -1));
+        add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 220, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Emergency Contact:");
-        add(jLabel7);
-        jLabel7.setBounds(140, 490, 110, 14);
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 500, 120, 20));
 
         txtemergency.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtemergencyActionPerformed(evt);
             }
         });
-        add(txtemergency);
-        txtemergency.setBounds(280, 490, 220, 20);
+        add(txtemergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 220, -1));
+
+        jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel12.setText("PLEASE FILL THE FORM FOR REGISTRATION");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
+
+        btnregister.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnregister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnregister.setText("Submit");
+        btnregister.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnregister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnregisterMousePressed(evt);
+            }
+        });
+        add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 560, 120, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/medical-mask.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 280, 320));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -256,7 +249,23 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtzipcodeActionPerformed
 
-    private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtemergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemergencyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemergencyActionPerformed
+
+    private void btnregisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnregisterMousePressed
         // TODO add your handling code here:
         
         PatientDirectory dir = system.getPatientDirectory();
@@ -372,31 +381,16 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
          
         dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Information Saved!");
-    }//GEN-LAST:event_btnregisterActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void txtemergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemergencyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtemergencyActionPerformed
+    }//GEN-LAST:event_btnregisterMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnregister;
+    private javax.swing.JLabel btnregister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

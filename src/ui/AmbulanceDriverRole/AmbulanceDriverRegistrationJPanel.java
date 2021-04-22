@@ -97,7 +97,6 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         ambulanceNumberTxt = new javax.swing.JTextField();
         ageTxt = new javax.swing.JTextField();
         firstNameTxt = new javax.swing.JTextField();
-        RegisterjButton = new javax.swing.JButton();
         phoneTxt = new javax.swing.JTextField();
         userNameTxt = new javax.swing.JLabel();
         passwordTxt = new javax.swing.JLabel();
@@ -112,75 +111,98 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         orgComboBox = new javax.swing.JComboBox<>();
         enterpriseComboBox = new javax.swing.JComboBox<>();
         networkComboBox = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
+        RegisterjButton = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("First Name :");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Last Name :");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Phone Number :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Age :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Ambulance Number :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Hospital :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         hospitaljComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hospitaljComboBoxActionPerformed(evt);
             }
         });
+        add(hospitaljComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 168, -1));
 
         lastNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTxtActionPerformed(evt);
             }
         });
+        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 168, -1));
 
         ambulanceNumberTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ambulanceNumberTxtActionPerformed(evt);
             }
         });
+        add(ambulanceNumberTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 168, -1));
 
         ageTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTxtActionPerformed(evt);
             }
         });
+        add(ageTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 168, -1));
 
         firstNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTxtActionPerformed(evt);
             }
         });
-
-        RegisterjButton.setText("Register");
-        RegisterjButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterjButtonActionPerformed(evt);
-            }
-        });
+        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 168, -1));
 
         phoneTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneTxtActionPerformed(evt);
             }
         });
+        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 168, -1));
 
+        userNameTxt.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         userNameTxt.setText("UserName :");
+        add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 70, -1));
 
+        passwordTxt.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         passwordTxt.setText("Password :");
+        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
+        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 168, -1));
 
+        verificationCOdejLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         verificationCOdejLabel.setText("Verification code :");
+        add(verificationCOdejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, -1, -1));
 
         verificationCodeTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verificationCodeTxtActionPerformed(evt);
             }
         });
+        add(verificationCodeTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 59, -1));
 
         VerifyjButton.setText("Verify");
         VerifyjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -188,144 +210,62 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
                 VerifyjButtonActionPerformed(evt);
             }
         });
+        add(VerifyjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, -1, -1));
+        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 168, -1));
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setText("Enterprise:");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Organization:");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 168, -1));
 
         enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 168, -1));
 
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkComboBoxActionPerformed(evt);
             }
         });
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 168, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(RegisterjButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel4))
-                                    .addGap(55, 55, 55)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ambulanceNumberTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPasswordField2)
-                                    .addComponent(usernameText)
-                                    .addComponent(hospitaljComboBox, 0, 168, Short.MAX_VALUE)
-                                    .addComponent(orgComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(enterpriseComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(networkComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel15)
-                                                .addComponent(jLabel2)
-                                                .addComponent(jLabel16)
-                                                .addComponent(jLabel17))
-                                            .addGap(55, 55, 55))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(58, 58, 58)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel6)
-                                                .addComponent(jLabel1)
-                                                .addComponent(userNameTxt)
-                                                .addComponent(passwordTxt))
-                                            .addGap(62, 62, 62)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(verificationCOdejLabel)
-                                .addGap(55, 55, 55)
-                                .addComponent(verificationCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(289, 289, 289)
-                        .addComponent(VerifyjButton)))
-                .addContainerGap(208, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(orgComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hospitaljComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameTxt)
-                    .addComponent(usernameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordTxt))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(ambulanceNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(VerifyjButton)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(verificationCOdejLabel)
-                    .addComponent(verificationCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RegisterjButton)
-                .addGap(320, 320, 320))
-        );
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
+
+        backBtn.setText("<<Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 80, -1));
+
+        RegisterjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        RegisterjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RegisterjButton.setText("Submit");
+        RegisterjButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        RegisterjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                RegisterjButtonMousePressed(evt);
+            }
+        });
+        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 620, 100, 30));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ambulance (2).png"))); // NOI18N
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 260, 440));
     }// </editor-fold>//GEN-END:initComponents
 
     private void hospitaljComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaljComboBoxActionPerformed
@@ -348,9 +288,54 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameTxtActionPerformed
 
-    private void RegisterjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterjButtonActionPerformed
+    private void phoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
         // TODO add your handling code here:
-        Organization org = (Organization) orgComboBox.getSelectedItem();
+    }//GEN-LAST:event_phoneTxtActionPerformed
+
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
+        if (e != null) {
+            popOrganizationComboBox(e);
+        }
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkComboBoxActionPerformed
+
+    private void VerifyjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerifyjButtonActionPerformed
+        // TODO add your handling code here:
+        if (phoneTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your phone number first");
+            return;
+        }
+        verificationCOdejLabel.setVisible(true);
+        verificationCodeTxt.setVisible(true);
+        Random random = new Random();
+        this.randomCode = String.format("%04d", random.nextInt(10000));
+        // SendSMS sendSMS = new SendSMS(phoneTxt.getText(), "Code : "+ randomCode);
+        JOptionPane.showMessageDialog(null, "Please enter verification code received on registered mobile number");
+    }//GEN-LAST:event_VerifyjButtonActionPerformed
+
+    private void verificationCodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificationCodeTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verificationCodeTxtActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+       // jpanel.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void RegisterjButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterjButtonMousePressed
+        // TODO add your handling code here:
+        
+         Organization org = (Organization) orgComboBox.getSelectedItem();
         verificationCOdejLabel.setVisible(false);
         verificationCodeTxt.setVisible(false);
         char[] passwordCharArray = jPasswordField2.getPassword();
@@ -400,53 +385,15 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         system.getAmbulanceDriverDirectory().add(ambDriver);
         UserAccount account = org.getUserAccountDirectory().createUserAccount(usernameText.getText(), password, employee, new AmbulanceDriverRole());
         dB4OUtil.storeSystem(system);
-    }//GEN-LAST:event_RegisterjButtonActionPerformed
-
-    private void phoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneTxtActionPerformed
-
-    private void verificationCodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificationCodeTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verificationCodeTxtActionPerformed
-
-    private void VerifyjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerifyjButtonActionPerformed
-        // TODO add your handling code here:
-        if (phoneTxt.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter your phone number first");
-            return;
-        }
-        verificationCOdejLabel.setVisible(true);
-        verificationCodeTxt.setVisible(true);
-        Random random = new Random();
-        this.randomCode = String.format("%04d", random.nextInt(10000));
-        // SendSMS sendSMS = new SendSMS(phoneTxt.getText(), "Code : "+ randomCode);
-        JOptionPane.showMessageDialog(null, "Please enter verification code received on registered mobile number");
-
-    }//GEN-LAST:event_VerifyjButtonActionPerformed
-
-    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
-        // TODO add your handling code here:
-        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
-        if (e != null) {
-            popOrganizationComboBox(e);
-        }
-    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
-
-    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
-        // TODO add your handling code here:
-        Network network = (Network) networkComboBox.getSelectedItem();
-        if (network != null) {
-            populateEnterpriseComboBox(network);
-        }
-    }//GEN-LAST:event_networkComboBoxActionPerformed
+    }//GEN-LAST:event_RegisterjButtonMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton RegisterjButton;
+    private javax.swing.JLabel RegisterjButton;
     private javax.swing.JButton VerifyjButton;
     private javax.swing.JTextField ageTxt;
     private javax.swing.JTextField ambulanceNumberTxt;
+    private javax.swing.JButton backBtn;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JComboBox<String> hospitaljComboBox;
@@ -459,6 +406,8 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField lastNameTxt;
     private javax.swing.JComboBox<Object> networkComboBox;

@@ -154,10 +154,10 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
     private void acceptReqBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acceptReqBtnMousePressed
         // TODO add your handling code here:
         
-        if (requestStatusComboBox.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null, "Please update request status!", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+//        if (requestStatusComboBox.getSelectedItem() == null) {
+//            JOptionPane.showMessageDialog(null, "Please update request status!", "Warning", JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
         DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
         for (int i = 0; i < hospitalReqTable.getRowCount(); i++) {
             String requestStatus = model.getValueAt(i, 3).toString();

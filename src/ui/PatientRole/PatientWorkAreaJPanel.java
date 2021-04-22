@@ -56,7 +56,8 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userProcessorcontainer = userProcessContainer;
         this.account = account;
-        //lblpatientstatus.setText(patient.getPatientstatus());
+        
+        lblpatientstatus.setText(patient.getPatientstatus());
     }
 
     

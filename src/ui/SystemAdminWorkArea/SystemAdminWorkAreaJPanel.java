@@ -101,14 +101,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        rightjPanel.setBackground(new java.awt.Color(252, 165, 165));
+        rightjPanel.setBackground(new java.awt.Color(242, 181, 181));
         rightjPanel.setLayout(new java.awt.CardLayout());
         jSplitPane.setRightComponent(rightjPanel);
 
-        jPanel1.setBackground(new java.awt.Color(97, 195, 244));
+        jPanel1.setBackground(new java.awt.Color(95, 191, 239));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTree.setBackground(new java.awt.Color(148, 222, 247));
+        jTree.setBackground(new java.awt.Color(131, 206, 243));
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);
@@ -116,7 +116,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTree);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 200, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 200, 170));
 
         btnManageNetwork.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnManageNetwork.setText("Manage Network");

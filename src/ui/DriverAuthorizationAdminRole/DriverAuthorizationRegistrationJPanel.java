@@ -74,14 +74,12 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        registerButton = new javax.swing.JButton();
         UsernameTxt = new javax.swing.JTextField();
         firstNameTxt = new javax.swing.JTextField();
         phoneTxt = new javax.swing.JTextField();
@@ -95,27 +93,47 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         orgComboBox = new javax.swing.JComboBox<>();
         enterpriseComboBox = new javax.swing.JComboBox<>();
         networkComboBox = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        registerButton = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Register here");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Username :");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("UserName :");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Password :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Phone Number :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("First Name :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Last Name :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
 
-        jLabel7.setText("Email :");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setText("Email Address:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, -1, -1));
+        add(UsernameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 220, -1));
+        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 220, -1));
+        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 220, -1));
 
-        registerButton.setText("Register");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        lastNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                lastNameTxtActionPerformed(evt);
             }
         });
+        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 220, -1));
+        add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 220, -1));
+        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 220, -1));
 
         backBtn.setText("<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -123,120 +141,84 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 22, 102, -1));
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setText("Enterprise:");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Organization:");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, -1));
+
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 220, -1));
 
         enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 220, -1));
 
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkComboBoxActionPerformed(evt);
             }
         });
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 220, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(199, 199, 199)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel17)
-                                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addComponent(jLabel2))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel6)))
-                                .addGap(38, 38, 38))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(orgComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(397, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backBtn)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orgComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(registerButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addContainerGap(168, Short.MAX_VALUE))
-        );
+        jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel12.setText("PLEASE FILL THE FORM FOR REGISTRATION");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
+
+        registerButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        registerButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registerButton.setText("Register");
+        registerButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registerButtonMousePressed(evt);
+            }
+        });
+        add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 110, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/literature.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 270, 320));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        jPanel.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
+        if (e != null) {
+            popOrganizationComboBox(e);
+        }
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkComboBoxActionPerformed
+
+    private void lastNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameTxtActionPerformed
+
+    private void registerButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMousePressed
+        // TODO add your handling code here:
+        
         Organization org = (Organization) orgComboBox.getSelectedItem();
         char[] passwordCharArray = passwordTxt.getPassword();
         String password = String.valueOf(passwordCharArray);
@@ -280,30 +262,7 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         dB4OUtil.storeSystem(system);
 
         JOptionPane.showMessageDialog(null, "Driver Authorization role has been created successfully. Please login");
-
-    }//GEN-LAST:event_registerButtonActionPerformed
-
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        jPanel.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
-    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
-        // TODO add your handling code here:
-        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
-        if (e != null) {
-            popOrganizationComboBox(e);
-        }
-    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
-
-    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
-        // TODO add your handling code here:
-        Network network = (Network) networkComboBox.getSelectedItem();
-        if (network != null) {
-            populateEnterpriseComboBox(network);
-        }
-    }//GEN-LAST:event_networkComboBoxActionPerformed
+    }//GEN-LAST:event_registerButtonMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -313,6 +272,7 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -327,6 +287,6 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<Object> orgComboBox;
     private javax.swing.JPasswordField passwordTxt;
     private javax.swing.JTextField phoneTxt;
-    private javax.swing.JButton registerButton;
+    private javax.swing.JLabel registerButton;
     // End of variables declaration//GEN-END:variables
 }

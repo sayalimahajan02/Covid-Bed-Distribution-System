@@ -217,9 +217,11 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         campLabel1.setText("Private Driver List");
         jPanel1.add(campLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Beds Available:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Patient Requests:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, -1, -1));
 

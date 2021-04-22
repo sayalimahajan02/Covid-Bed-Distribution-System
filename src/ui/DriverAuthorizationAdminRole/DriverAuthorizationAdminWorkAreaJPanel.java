@@ -87,17 +87,21 @@ public void populatePrivateDriverDetails(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         privDriverjTable = new javax.swing.JTable();
-        viewDlButton = new javax.swing.JButton();
-        ConfirmButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        viewDlButton = new javax.swing.JLabel();
+        ConfirmButton1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
-        jLabel8.setText("Your pending Request");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         privDriverjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -117,69 +121,45 @@ public void populatePrivateDriverDetails(){
         });
         jScrollPane1.setViewportView(privDriverjTable);
 
-        viewDlButton.setText("View DL");
-        viewDlButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewDlButtonActionPerformed(evt);
-            }
-        });
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 583, 151));
 
-        ConfirmButton1.setText("Confirm");
-        ConfirmButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmButton1ActionPerformed(evt);
-            }
-        });
-
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Click here to see DL of selected Driver :");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(viewDlButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(181, 181, 181))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addComponent(jLabel8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(249, 249, 249)
-                    .addComponent(ConfirmButton1)
-                    .addContainerGap(325, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabel8)
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(viewDlButton))
-                .addContainerGap(137, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(422, Short.MAX_VALUE)
-                    .addComponent(ConfirmButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(51, 51, 51)))
-        );
+        viewDlButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        viewDlButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewDlButton.setText("View DL");
+        viewDlButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        viewDlButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                viewDlButtonMousePressed(evt);
+            }
+        });
+        add(viewDlButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 114, 26));
+
+        ConfirmButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ConfirmButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ConfirmButton1.setText("Confirm");
+        ConfirmButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ConfirmButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ConfirmButton1MousePressed(evt);
+            }
+        });
+        add(ConfirmButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 464, 113, 33));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driver (1).png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 250, 260));
+
+        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel8.setText("DRIVER PENDING REQUESTS");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, 23));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewDlButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDlButtonActionPerformed
+    private void viewDlButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDlButtonMousePressed
         // TODO add your handling code here:
+        
         int selectedRowIndex = privDriverjTable.getSelectedRow();
         if (privDriverjTable.getSelectedRowCount() == 1) {
         
@@ -200,12 +180,13 @@ public void populatePrivateDriverDetails(){
         else {
             JOptionPane.showMessageDialog(null, "Please select one row to see Driving licanse");
             return;
-        }
-    }//GEN-LAST:event_viewDlButtonActionPerformed
+        }     
+    }//GEN-LAST:event_viewDlButtonMousePressed
 
-    private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
+    private void ConfirmButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmButton1MousePressed
         // TODO add your handling code here:
-         int selectedRowIndex = privDriverjTable.getSelectedRow();
+        
+        int selectedRowIndex = privDriverjTable.getSelectedRow();
         if (privDriverjTable.getSelectedRowCount() == 1) {
         
              PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserByFullName((String)privDriverjTable.getValueAt(selectedRowIndex, 4));
@@ -217,15 +198,16 @@ public void populatePrivateDriverDetails(){
             JOptionPane.showMessageDialog(null, "Please select one row to confirm");
             return;
         }
-    }//GEN-LAST:event_ConfirmButton1ActionPerformed
+    }//GEN-LAST:event_ConfirmButton1MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ConfirmButton1;
+    private javax.swing.JLabel ConfirmButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable privDriverjTable;
-    private javax.swing.JButton viewDlButton;
+    private javax.swing.JLabel viewDlButton;
     // End of variables declaration//GEN-END:variables
 }

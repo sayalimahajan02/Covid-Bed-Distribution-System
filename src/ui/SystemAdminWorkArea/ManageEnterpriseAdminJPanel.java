@@ -165,12 +165,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, -1, -1));
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 22, 795, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager.png"))); // NOI18N
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 80, 540, 500));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager (2).png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 300, 500));
 
         submitJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         submitJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

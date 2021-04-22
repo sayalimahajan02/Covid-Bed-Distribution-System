@@ -214,7 +214,7 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 560, 120, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/medical-mask.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 280, 320));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 280, 410));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed

@@ -147,7 +147,7 @@ public class HospitalAdminRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Password:");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 304, 60, 23));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 60, 20));
 
         txtfname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

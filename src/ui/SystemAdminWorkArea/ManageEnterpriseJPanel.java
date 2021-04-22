@@ -135,7 +135,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 50, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(25, 56, 82));
@@ -153,10 +153,10 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 submitJButtonMousePressed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 140, 20));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 120, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (1).png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 650, 510));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (5).png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 300, 430));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

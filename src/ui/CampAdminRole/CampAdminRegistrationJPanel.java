@@ -85,31 +85,31 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Camp Name:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, 20));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Manager Name:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Street Address:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("City:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Zip Code:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Contact Number:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Email Address:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 680, -1, -1));
 
         campName.addActionListener(new java.awt.event.ActionListener() {
@@ -117,40 +117,40 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
                 campNameActionPerformed(evt);
             }
         });
-        jPanel2.add(campName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 176, -1));
-        jPanel2.add(managerNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 176, -1));
+        jPanel2.add(campName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 176, -1));
+        jPanel2.add(managerNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 176, -1));
 
         cityText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cityTextActionPerformed(evt);
             }
         });
-        jPanel2.add(cityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 176, -1));
-        jPanel2.add(zipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 176, -1));
-        jPanel2.add(phoneNmbr, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 176, -1));
-        jPanel2.add(emailAddrText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 176, -1));
+        jPanel2.add(cityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 176, -1));
+        jPanel2.add(zipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 176, -1));
+        jPanel2.add(phoneNmbr, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 176, -1));
+        jPanel2.add(emailAddrText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 176, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("User Name:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 610, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Password:");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 660, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, -1, -1));
 
         userNameTxt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userNameTxt1ActionPerformed(evt);
             }
         });
-        jPanel2.add(userNameTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 610, 176, -1));
+        jPanel2.add(userNameTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 176, -1));
 
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 660, 176, -1));
+        jPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 560, 176, -1));
 
         backBtn.setText("<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -158,18 +158,18 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 80, -1));
+        jPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 80, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setText("Capacity:");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, -1, -1));
 
         capacityTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 capacityTxtActionPerformed(evt);
             }
         });
-        jPanel2.add(capacityTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 560, 176, -1));
+        jPanel2.add(capacityTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 176, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
@@ -203,7 +203,7 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 173, -1));
-        jPanel2.add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 176, -1));
+        jPanel2.add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 176, -1));
 
         submitBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         submitBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -214,7 +214,7 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
                 submitBtnMousePressed(evt);
             }
         });
-        jPanel2.add(submitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 720, 111, 29));
+        jPanel2.add(submitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 620, 111, 29));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/website.png"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 380, 360));
@@ -231,7 +231,7 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

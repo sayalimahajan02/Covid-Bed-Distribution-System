@@ -95,12 +95,18 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             networkJTable.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 100, 404, 91));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 100, 430, 91));
 
-        lblName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblName.setText("Name:");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 50, -1));
-        add(txtNetworkName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 181, -1));
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 50, -1));
+
+        txtNetworkName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNetworkNameActionPerformed(evt);
+            }
+        });
+        add(txtNetworkName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 181, -1));
 
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -108,10 +114,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(665, 41, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/SystemAdminWorkArea/networking.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 650, 560));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/networking (1).png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 270, 320));
 
         btnSubmit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -122,14 +128,14 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 btnSubmitMousePressed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 314, 120, 20));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 110, 30));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(25, 56, 82));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MANAGE NETWORK");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 380, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 380, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -159,6 +165,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         }
         populateNetworkTable();
     }//GEN-LAST:event_btnSubmitMousePressed
+
+    private void txtNetworkNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNetworkNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNetworkNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

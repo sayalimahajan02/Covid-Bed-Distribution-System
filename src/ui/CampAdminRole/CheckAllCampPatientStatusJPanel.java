@@ -57,7 +57,7 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("VIEW ALL ACCEPTED PATIENTS");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 47, 362, 29));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 362, 29));
 
         patientStatTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,7 +86,7 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(patientStatTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 116, 1214, 194));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 900, 194));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/information.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 244, 600, 360));

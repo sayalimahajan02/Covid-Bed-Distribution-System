@@ -51,7 +51,6 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -70,150 +69,111 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
         driverContactNumber = new javax.swing.JLabel();
         patientStatus = new javax.swing.JLabel();
         patientCareStaffContactNo = new javax.swing.JLabel();
-        backButton = new javax.swing.JLabel();
+        backButton1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Report");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Hospital Name:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 100, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Hospital Contact Number:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 138, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Ambulance Vehicle Number:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 214, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Ambulance Driver Name:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 252, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Patient Care Staff Name:");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 325, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Ambulance Driver Contact Number:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 290, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("Patient Care Contact Number:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 366, -1, -1));
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Request Status:");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 404, -1, -1));
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setText("Hospital Address:");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 176, -1, -1));
 
         hospitalName.setText("A");
+        hospitalName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(hospitalName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 97, 282, 20));
 
         hospAddress.setBackground(new java.awt.Color(51, 51, 51));
         hospAddress.setText("B");
+        hospAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(hospAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 173, 282, 20));
 
         hospContactNo.setBackground(new java.awt.Color(51, 51, 51));
         hospContactNo.setText("B");
+        hospContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(hospContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 135, 282, 20));
 
         driverName.setBackground(new java.awt.Color(51, 51, 51));
         driverName.setText("B");
+        driverName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(driverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 249, 282, 20));
 
         vehicleNumber.setBackground(new java.awt.Color(51, 51, 51));
         vehicleNumber.setText("B");
+        vehicleNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(vehicleNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 211, 282, 20));
 
         patientCareStaffName.setBackground(new java.awt.Color(51, 51, 51));
         patientCareStaffName.setText("B");
+        patientCareStaffName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(patientCareStaffName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 325, 282, 20));
 
         driverContactNumber.setBackground(new java.awt.Color(51, 51, 51));
         driverContactNumber.setText("B");
+        driverContactNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(driverContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 287, 282, 20));
 
         patientStatus.setBackground(new java.awt.Color(51, 51, 51));
         patientStatus.setText("B");
+        patientStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(patientStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 401, 282, 20));
 
         patientCareStaffContactNo.setBackground(new java.awt.Color(51, 51, 51));
         patientCareStaffContactNo.setText("B");
+        patientCareStaffContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        add(patientCareStaffContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 363, 282, 20));
 
-        backButton.setText("Back");
-        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        backButton1.setText("<<Back");
+        backButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                backButtonMousePressed(evt);
+                backButton1MousePressed(evt);
             }
         });
+        add(backButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 50, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(hospContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6))
-                            .addComponent(backButton))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(hospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(hospAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(vehicleNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(driverName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(driverContactNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(patientCareStaffName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(patientCareStaffContactNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(patientStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(224, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(hospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(hospContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(hospAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(vehicleNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(driverName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(driverContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(patientCareStaffName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(patientCareStaffContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(patientStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(backButton)
-                .addContainerGap(94, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setText("REPORT");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 32, 89, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/report.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 290, 330));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMousePressed
+    private void backButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton1MousePressed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
@@ -221,11 +181,11 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
         PatientWorkAreaJPanel dwjp = (PatientWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backButtonMousePressed
+    }//GEN-LAST:event_backButton1MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel backButton;
+    private javax.swing.JLabel backButton1;
     private javax.swing.JLabel driverContactNumber;
     private javax.swing.JLabel driverName;
     private javax.swing.JLabel hospAddress;
@@ -236,6 +196,7 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

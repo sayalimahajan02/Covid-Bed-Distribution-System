@@ -274,7 +274,7 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         String password = String.valueOf(passwordCharArray);
 
         
-        if(txtfname.getText().isEmpty() || txtfname.getText().isEmpty() || txtusername.getText().isEmpty() ||
+        if(txtfname.getText().isEmpty() || txtlname.getText().isEmpty() || txtusername.getText().isEmpty() ||
         passwordfield.getText().isEmpty()  || txtemailid.getText().isEmpty() || txtstreet.getText().isEmpty() ||
         txtzipcode.getText().isEmpty() || txtcity.getText().isEmpty() || txtphone.getText().isEmpty() || txtemergency.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");

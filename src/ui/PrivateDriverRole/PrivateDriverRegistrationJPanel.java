@@ -118,21 +118,27 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("First Name :");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Last Name :");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Phone Number :");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Age :");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Ambulance Number :");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 530, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("CampSite :");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
@@ -171,9 +177,11 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         });
         add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 168, -1));
 
+        userNamelbl.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         userNamelbl.setText("UserName :");
         add(userNamelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
+        passwordlbl.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         passwordlbl.setText("Password :");
         add(passwordlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, -1));
         add(usernameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 170, -1));
@@ -185,17 +193,21 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 660, -1, 16));
         add(emailTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 170, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Driving License Number: ");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, -1, -1));
         add(uploadsuccessLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 570, 180, 19));
         add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 170, -1));
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
 
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setText("Enterprise:");
         add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Organization:");
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
 
@@ -241,6 +253,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driver.png"))); // NOI18N
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 270, 340));
     }// </editor-fold>//GEN-END:initComponents

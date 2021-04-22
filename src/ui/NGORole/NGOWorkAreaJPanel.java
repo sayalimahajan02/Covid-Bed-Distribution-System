@@ -54,46 +54,26 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        hospitalReqTable = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         campListTable = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        acceptReqBtn = new javax.swing.JButton();
         campLabel = new javax.swing.JLabel();
-        assignCampBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        hospitalReqTable = new javax.swing.JTable();
+        acceptReqBtn = new javax.swing.JLabel();
+        assignCampBtn = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        hospitalReqTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Request Id", "Hospital Name", "Required Bed Count", "Request Status", "Location", "Request Time"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel2.setText("HELLO NGO!");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 168, -1));
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(hospitalReqTable);
-        if (hospitalReqTable.getColumnModel().getColumnCount() > 0) {
-            hospitalReqTable.getColumnModel().getColumn(3).setCellEditor(null);
-        }
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel1.setText("NGO Work Area");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Hospital Requests");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 105, -1, -1));
 
         campListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,136 +96,68 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(campListTable);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel3.setText("Hospital Requests");
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 870, 99));
 
-        acceptReqBtn.setText("Accept Request");
-        acceptReqBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acceptReqBtnActionPerformed(evt);
-            }
-        });
-
-        campLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        campLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         campLabel.setText("Available Camps ");
+        add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, -1, -1));
 
-        assignCampBtn.setText("Assign Camp");
-        assignCampBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignCampBtnActionPerformed(evt);
+        hospitalReqTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Request Id", "Hospital Name", "Required Bed Count", "Request Status", "Location", "Request Time"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        jScrollPane1.setViewportView(hospitalReqTable);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(406, 406, 406)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(assignCampBtn)
-                            .addComponent(jLabel9)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(399, 399, 399)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(acceptReqBtn)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(campLabel))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(396, 396, 396)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(405, 405, 405)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 49, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel3)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(acceptReqBtn)
-                .addGap(34, 34, 34)
-                .addComponent(campLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(assignCampBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(109, 109, 109))
-        );
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 877, 98));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 978, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 802, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        acceptReqBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        acceptReqBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        acceptReqBtn.setText("Accept Request");
+        acceptReqBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        acceptReqBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                acceptReqBtnMousePressed(evt);
+            }
+        });
+        add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 132, 23));
+
+        assignCampBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        assignCampBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        assignCampBtn.setText("Assign Camp");
+        assignCampBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        assignCampBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                assignCampBtnMousePressed(evt);
+            }
+        });
+        add(assignCampBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 117, 23));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/organization (1).png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 330, 440));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void assignCampBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignCampBtnActionPerformed
+    private void acceptReqBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acceptReqBtnMousePressed
         // TODO add your handling code here:
-        if (campListTable.getSelectedRow() != 1) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
-        int selectedRowInd = campListTable.getSelectedRow();
-        Integer campId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
-        CampAdmin ca = system.getCampAdminDirectory().findCampByID(campId);
-        HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequestByNGO(ngo);
-        requests.setCampAdmin(ca);
-        JOptionPane.showMessageDialog(null, "Camp Admin Assigned!");
-    }//GEN-LAST:event_assignCampBtnActionPerformed
-
-    private void acceptReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptReqBtnActionPerformed
-        // TODO add your handling code here:
-        if (hospitalReqTable.getRowCount()==0) {
-            JOptionPane.showMessageDialog(null, "Sorry, There are no request as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        if (hospitalReqTable.getSelectedRowCount()!=1) {
-            JOptionPane.showMessageDialog(null, "Please select one row", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
         
-        if(campListTable.getRowCount()==0){
-            JOptionPane.showMessageDialog(null, "Sorry, There are no Camps available at this moment as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+        if (requestStatusComboBox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Please update request status!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-//        if (requestStatusComboBox.getSelectedItem() == null) {
-//            JOptionPane.showMessageDialog(null, "Please update request status!", "Warning", JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
         DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
         for (int i = 0; i < hospitalReqTable.getRowCount(); i++) {
             String requestStatus = model.getValueAt(i, 3).toString();
@@ -258,8 +170,24 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
             }
         }
         JOptionPane.showMessageDialog(null, "Accepted Hospital request!");
-        //populateCampTable();
-    }//GEN-LAST:event_acceptReqBtnActionPerformed
+        populateCampTable();
+    }//GEN-LAST:event_acceptReqBtnMousePressed
+
+    private void assignCampBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_assignCampBtnMousePressed
+        // TODO add your handling code here:
+        
+         if (campListTable.getSelectedRow() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
+        int selectedRowInd = campListTable.getSelectedRow();
+        Integer campId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
+        CampAdmin ca = system.getCampAdminDirectory().findCampByID(campId);
+        HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequestByNGO(ngo);
+        requests.setCampAdmin(ca);
+        JOptionPane.showMessageDialog(null, "Camp Admin Assigned!");
+    }//GEN-LAST:event_assignCampBtnMousePressed
 
     public void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
@@ -305,15 +233,14 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton acceptReqBtn;
-    private javax.swing.JButton assignCampBtn;
+    private javax.swing.JLabel acceptReqBtn;
+    private javax.swing.JLabel assignCampBtn;
     private javax.swing.JLabel campLabel;
     private javax.swing.JTable campListTable;
     private javax.swing.JTable hospitalReqTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

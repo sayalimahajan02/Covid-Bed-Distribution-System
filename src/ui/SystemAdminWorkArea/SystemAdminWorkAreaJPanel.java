@@ -83,23 +83,32 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jSplitPane = new javax.swing.JSplitPane();
+        rightjPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree = new javax.swing.JTree();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         btnManageNetwork = new javax.swing.JLabel();
         btnManageEnterprise = new javax.swing.JLabel();
         btnManageAdmin = new javax.swing.JLabel();
         btnpie = new javax.swing.JLabel();
         btnbar = new javax.swing.JLabel();
-        rightjPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(252, 165, 165));
+        rightjPanel.setBackground(new java.awt.Color(252, 165, 165));
+        rightjPanel.setLayout(new java.awt.CardLayout());
+        jSplitPane.setRightComponent(rightjPanel);
 
-        jTree.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(97, 195, 244));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTree.setBackground(new java.awt.Color(148, 222, 247));
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);
@@ -107,109 +116,73 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTree);
 
-        jButton1.setText("Pie chart");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 200, 150));
 
-        jButton2.setText("Bar graph");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton2MousePressed(evt);
-            }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
+        btnManageNetwork.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnManageNetwork.setText("Manage Network");
         btnManageNetwork.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnManageNetworkMousePressed(evt);
             }
         });
+        jPanel1.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 170, 29));
 
+        btnManageEnterprise.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnManageEnterprise.setText("Manage Enterprise");
         btnManageEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnManageEnterpriseMousePressed(evt);
             }
         });
+        jPanel1.add(btnManageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 170, 26));
 
+        btnManageAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnManageAdmin.setText("Manage Enterprise Admin");
         btnManageAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnManageAdminMousePressed(evt);
             }
         });
+        jPanel1.add(btnManageAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 170, 27));
 
+        btnpie.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnpie.setText("Pie Chart");
         btnpie.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnpieMousePressed(evt);
             }
         });
+        jPanel1.add(btnpie, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 175, 170, 20));
 
+        btnbar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnbar.setText("Bar Graph");
         btnbar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnbarMousePressed(evt);
             }
         });
+        jPanel1.add(btnbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 215, 170, 20));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1)
-                            .addComponent(btnpie, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnbar))
-                        .addGap(50, 50, 50))
-                    .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnManageAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(66, 66, 66)
-                .addComponent(btnpie)
-                .addGap(18, 18, 18)
-                .addComponent(btnbar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Selected Node:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 394, 110, 20));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/graph-bar (1).png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 30, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/network (1).png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 30, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (2).png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 30, 30));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 30, 30));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pie-chart.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 30, 30));
 
         jSplitPane.setLeftComponent(jPanel1);
-
-        rightjPanel.setLayout(new java.awt.CardLayout());
-        jSplitPane.setRightComponent(rightjPanel);
 
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -221,23 +194,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
            
         }
     }//GEN-LAST:event_jTreeValueChanged
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        PieCHartUserNumberStatistics piechart = new PieCHartUserNumberStatistics(rightjPanel, ecosystem);
-        rightjPanel.add("PieCHartUserNumberStatistics",piechart);
-        CardLayout layout = (CardLayout) rightjPanel.getLayout();
-        layout.next(rightjPanel);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        PatientStatusBarChart piechart = new PatientStatusBarChart(rightjPanel, ecosystem);
-        rightjPanel.add("PatientStatusBarChart",piechart);
-        CardLayout layout = (CardLayout) rightjPanel.getLayout();
-        layout.next(rightjPanel);
-       
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnManageNetworkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageNetworkMousePressed
         // TODO add your handling code here:
@@ -274,14 +230,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(rightjPanel);
     }//GEN-LAST:event_btnpieMousePressed
 
-    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
-        // TODO add your handling code here:
-        PatientStatusBarChart piechart = new PatientStatusBarChart(rightjPanel, ecosystem);
-        rightjPanel.add("PatientStatusBarChart",piechart);
-        CardLayout layout = (CardLayout) rightjPanel.getLayout();
-        layout.next(rightjPanel);
-    }//GEN-LAST:event_jButton2MousePressed
-
     private void btnbarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbarMousePressed
         // TODO add your handling code here:
         
@@ -298,8 +246,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnManageNetwork;
     private javax.swing.JLabel btnbar;
     private javax.swing.JLabel btnpie;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane;

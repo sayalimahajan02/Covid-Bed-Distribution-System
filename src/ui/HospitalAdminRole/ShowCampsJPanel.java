@@ -86,7 +86,7 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 685, 140));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (5).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 260, 230));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 260, 250));
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -87,8 +87,12 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         patientjTable = new javax.swing.JTable();
-        pickupButton = new javax.swing.JButton();
-        dropButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        pickupButton = new javax.swing.JLabel();
+        dropButton = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         patientjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,51 +115,41 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(patientjTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 133, 508, 120));
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel2.setText("HELLO PRIVATE DRIVER!");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
+
+        pickupButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        pickupButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pickupButton.setText("Confirm PickUp");
-        pickupButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pickupButtonActionPerformed(evt);
+        pickupButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pickupButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pickupButtonMousePressed(evt);
             }
         });
+        add(pickupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 120, 30));
 
+        dropButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        dropButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dropButton.setText("Confirm Drop");
-        dropButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dropButtonActionPerformed(evt);
+        dropButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        dropButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                dropButtonMousePressed(evt);
             }
         });
+        add(dropButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 140, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(pickupButton)
-                        .addGap(63, 63, 63)
-                        .addComponent(dropButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pickupButton)
-                    .addComponent(dropButton))
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/taxi-driver.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 370, 330));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pickupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickupButtonActionPerformed
+    private void pickupButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pickupButtonMousePressed
         // TODO add your handling code here:
+        
         int selectedRowIndex = patientjTable.getSelectedRow();
         if (patientjTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
@@ -169,12 +163,12 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
              JOptionPane.showMessageDialog(null, "Please select allocated patient to confirm pickup!!");
             return;
          }
-         
-    }//GEN-LAST:event_pickupButtonActionPerformed
+    }//GEN-LAST:event_pickupButtonMousePressed
 
-    private void dropButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropButtonActionPerformed
+    private void dropButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropButtonMousePressed
         // TODO add your handling code here:
-         int selectedRowIndex = patientjTable.getSelectedRow();
+        
+        int selectedRowIndex = patientjTable.getSelectedRow();
         if (patientjTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select one patient to confirm drop!!");
             return;
@@ -187,13 +181,15 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
              JOptionPane.showMessageDialog(null, "Please select patient with Confirm pickup to drop pickup successfully!!");
             return;
          }
-    }//GEN-LAST:event_dropButtonActionPerformed
+    }//GEN-LAST:event_dropButtonMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton dropButton;
+    private javax.swing.JLabel dropButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable patientjTable;
-    private javax.swing.JButton pickupButton;
+    private javax.swing.JLabel pickupButton;
     // End of variables declaration//GEN-END:variables
 }

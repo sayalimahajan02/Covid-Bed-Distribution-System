@@ -86,16 +86,12 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         ngoReqTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        acceptReqBtn = new javax.swing.JButton();
         campLabel = new javax.swing.JLabel();
-        approvePatientBtn = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         patientTable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         privateDriverTable = new javax.swing.JTable();
         campLabel1 = new javax.swing.JLabel();
-        assignPvtDriverBtn = new javax.swing.JButton();
-        btncheckall = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         bedsAvailableText = new javax.swing.JTextField();
@@ -103,13 +99,19 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         patientCareSTaffTable = new javax.swing.JTable();
-        assignStaffBtn = new javax.swing.JButton();
+        btncheckall = new javax.swing.JLabel();
+        assignStaffBtn = new javax.swing.JLabel();
+        acceptReqBtn = new javax.swing.JLabel();
+        approvePatientBtn = new javax.swing.JLabel();
+        assignPvtDriverBtn = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         requestStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         patientComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 609, -1, -1));
 
         ngoReqTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,28 +137,19 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
             ngoReqTable.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(requestStatusComboBox));
         }
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel2.setText("Camp Admin Work Area");
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 133, 965, 98));
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel2.setText("HELLO CAMP ADMIN!");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(503, 20, 206, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("NGO Requests");
-
-        acceptReqBtn.setText("Accept Request");
-        acceptReqBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acceptReqBtnActionPerformed(evt);
-            }
-        });
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 102, -1, -1));
 
         campLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         campLabel.setText("Patient Data ");
-
-        approvePatientBtn.setText("Approve Patient");
-        approvePatientBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                approvePatientBtnActionPerformed(evt);
-            }
-        });
+        jPanel1.add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(564, 283, -1, -1));
 
         patientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,6 +181,8 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
             patientTable.getColumnModel().getColumn(5).setCellEditor(new DefaultCellEditor(patientComboBox));
         }
 
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 309, 965, 96));
+
         privateDriverTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -216,41 +211,37 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(privateDriverTable);
 
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 476, 965, 97));
+
         campLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         campLabel1.setText("Private Driver List");
-
-        assignPvtDriverBtn.setText("Assign Private Driver");
-        assignPvtDriverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignPvtDriverBtnActionPerformed(evt);
-            }
-        });
-
-        btncheckall.setText("Check Accepted Patients");
-        btncheckall.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncheckallActionPerformed(evt);
-            }
-        });
+        jPanel1.add(campLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, -1, -1));
 
         jLabel4.setText("Beds Available:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, -1, -1));
 
         jLabel6.setText("Patient Requests:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, -1, -1));
 
+        bedsAvailableText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         bedsAvailableText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bedsAvailableTextActionPerformed(evt);
             }
         });
+        jPanel1.add(bedsAvailableText, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 50, -1));
 
+        patientReqTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         patientReqTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 patientReqTxtActionPerformed(evt);
             }
         });
+        jPanel1.add(patientReqTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 80, 50, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel5.setText("Patient Care Staff Data");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(479, 658, -1, 22));
 
         patientCareSTaffTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -280,124 +271,65 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(patientCareSTaffTable);
 
-        assignStaffBtn.setText("Assign Staff");
-        assignStaffBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignStaffBtnActionPerformed(evt);
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 686, 965, 100));
+
+        btncheckall.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btncheckall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btncheckall.setText("Check Accepted Patients");
+        btncheckall.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btncheckall.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btncheckallMousePressed(evt);
             }
         });
+        jPanel1.add(btncheckall, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 160, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(497, 497, 497)
-                .addComponent(assignStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(480, 480, 480)
-                                .addComponent(acceptReqBtn))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 973, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(441, 441, 441)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(btncheckall)
-                                .addGap(531, 531, 531)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(bedsAvailableText, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(patientReqTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(491, 491, 491)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(491, 491, 491)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(campLabel1)
-                                    .addComponent(approvePatientBtn)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(409, 409, 409)
-                                .addComponent(jLabel9))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(501, 501, 501)
-                                .addComponent(campLabel))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(201, 201, 201)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 77, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jScrollPane3))))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(assignPvtDriverBtn)
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(bedsAvailableText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(patientReqTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel2)
-                        .addGap(25, 25, 25)
-                        .addComponent(btncheckall)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(acceptReqBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(approvePatientBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(assignPvtDriverBtn)
-                .addGap(2, 2, 2)
-                .addComponent(jLabel9)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(assignStaffBtn)
-                .addGap(219, 219, 219))
-        );
+        assignStaffBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        assignStaffBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        assignStaffBtn.setText("Assign Staff");
+        assignStaffBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        assignStaffBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                assignStaffBtnMousePressed(evt);
+            }
+        });
+        jPanel1.add(assignStaffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 800, 120, 20));
+
+        acceptReqBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        acceptReqBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        acceptReqBtn.setText("Accept Request");
+        acceptReqBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        acceptReqBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                acceptReqBtnMousePressed(evt);
+            }
+        });
+        jPanel1.add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 120, 20));
+
+        approvePatientBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        approvePatientBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        approvePatientBtn.setText("Approve Patient");
+        approvePatientBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        approvePatientBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                approvePatientBtnMousePressed(evt);
+            }
+        });
+        jPanel1.add(approvePatientBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 120, 20));
+
+        assignPvtDriverBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        assignPvtDriverBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        assignPvtDriverBtn.setText("Assign Private Driver");
+        assignPvtDriverBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        assignPvtDriverBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                assignPvtDriverBtnMousePressed(evt);
+            }
+        });
+        jPanel1.add(assignPvtDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 590, 120, 20));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 510, 850));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -410,26 +342,6 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void acceptReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptReqBtnActionPerformed
-        // TODO add your handling code here:
-        if (ngoReqTable.getSelectedRow() == 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) ngoReqTable.getModel();
-        int selectedRowInd = ngoReqTable.getSelectedRow();
-        String requestStatus = model.getValueAt(selectedRowInd, 4).toString();
-        if (requestStatus.equals("Approved")) {
-            Integer requestId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
-            HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
-            requests.setStatus(Status.Approved);
-            ca.setHospital(requests.getHospital());
-            ca.setNgo(requests.getNgo());
-            ngoReqTable.setValueAt(requestStatus, selectedRowInd, 3);
-        }
-        JOptionPane.showMessageDialog(null, "Accepted NGO request!");
-    }//GEN-LAST:event_acceptReqBtnActionPerformed
 
     private void populatePatientData() {
         DefaultTableModel model = (DefaultTableModel) patientTable.getModel();
@@ -449,23 +361,6 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         }
 
     }
-
-    private void approvePatientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approvePatientBtnActionPerformed
-        // TODO add your handling code here:
-        if (patientTable.getSelectedRow() == 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) patientTable.getModel();
-        int selectedRowInd = patientTable.getSelectedRow();
-        Integer patientId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
-        Patient p = system.getPatientDirectory().getPatientByID(patientId);
-        p.setStatus(Status.Allocated);
-        patientTable.setValueAt(Status.Allocated.getValue(), selectedRowInd, 5);
-        this.patient = p;
-        ca.assignPatientABed(p);
-        JOptionPane.showMessageDialog(null, "Approved Patient!");
-    }//GEN-LAST:event_approvePatientBtnActionPerformed
 
     private void populateDrivers() {
         DefaultTableModel model = (DefaultTableModel) privateDriverTable.getModel();
@@ -499,8 +394,67 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         }
     }
 
-    private void assignPvtDriverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignPvtDriverBtnActionPerformed
+    private void bedsAvailableTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bedsAvailableTextActionPerformed
         // TODO add your handling code here:
+
+    }//GEN-LAST:event_bedsAvailableTextActionPerformed
+
+    private void patientReqTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientReqTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_patientReqTxtActionPerformed
+
+    private void btncheckallMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckallMousePressed
+        // TODO add your handling code here:
+        
+        CheckAllCampPatientStatusJPanel j = new CheckAllCampPatientStatusJPanel(userProcessContainer, account, system, ca);
+        userProcessContainer.add("checkAllCampPatientStatusJPanel", j);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+    }//GEN-LAST:event_btncheckallMousePressed
+
+    private void acceptReqBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acceptReqBtnMousePressed
+        // TODO add your handling code here:
+        
+        if (ngoReqTable.getSelectedRow() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) ngoReqTable.getModel();
+        int selectedRowInd = ngoReqTable.getSelectedRow();
+        String requestStatus = model.getValueAt(selectedRowInd, 4).toString();
+        if (requestStatus.equals("Approved")) {
+            Integer requestId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
+            HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
+            requests.setStatus(Status.Approved);
+            ca.setHospital(requests.getHospital());
+            ca.setNgo(requests.getNgo());
+            ngoReqTable.setValueAt(requestStatus, selectedRowInd, 3);
+        }
+        JOptionPane.showMessageDialog(null, "Accepted NGO request!");
+    }//GEN-LAST:event_acceptReqBtnMousePressed
+
+    private void approvePatientBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_approvePatientBtnMousePressed
+        // TODO add your handling code here:
+        
+        if (patientTable.getSelectedRow() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) patientTable.getModel();
+        int selectedRowInd = patientTable.getSelectedRow();
+        Integer patientId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
+        Patient p = system.getPatientDirectory().getPatientByID(patientId);
+        p.setStatus(Status.Allocated);
+        patientTable.setValueAt(Status.Allocated.getValue(), selectedRowInd, 5);
+        this.patient = p;
+        ca.assignPatientABed(p);
+        JOptionPane.showMessageDialog(null, "Approved Patient!");
+    }//GEN-LAST:event_approvePatientBtnMousePressed
+
+    private void assignPvtDriverBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_assignPvtDriverBtnMousePressed
+        // TODO add your handling code here:
+        
         if (privateDriverTable.getSelectedRow() == 0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
@@ -513,18 +467,11 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         pd.setIsAvailable(false);
         privateDriverTable.setValueAt(false, selectedRowInd, 4);
         JOptionPane.showMessageDialog(null, "Private Driver Assigned to the Patient!");
-    }//GEN-LAST:event_assignPvtDriverBtnActionPerformed
+    }//GEN-LAST:event_assignPvtDriverBtnMousePressed
 
-    private void btncheckallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckallActionPerformed
+    private void assignStaffBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_assignStaffBtnMousePressed
         // TODO add your handling code here:
-        CheckAllCampPatientStatusJPanel j = new CheckAllCampPatientStatusJPanel(userProcessContainer, account, system, ca);
-        userProcessContainer.add("checkAllCampPatientStatusJPanel", j);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btncheckallActionPerformed
-
-    private void assignStaffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignStaffBtnActionPerformed
-        // TODO add your handling code here:
+        
         if (patientCareSTaffTable.getSelectedRow() == 0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
@@ -537,27 +484,19 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         ps.setAvailability(false);
         patientCareSTaffTable.setValueAt(false, selectedRowInd, 4);
         JOptionPane.showMessageDialog(null, "Patient Care Staff assigned to the Patient!");
-    }//GEN-LAST:event_assignStaffBtnActionPerformed
-
-    private void bedsAvailableTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bedsAvailableTextActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_bedsAvailableTextActionPerformed
-
-    private void patientReqTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientReqTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_patientReqTxtActionPerformed
+    }//GEN-LAST:event_assignStaffBtnMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton acceptReqBtn;
-    private javax.swing.JButton approvePatientBtn;
-    private javax.swing.JButton assignPvtDriverBtn;
-    private javax.swing.JButton assignStaffBtn;
+    private javax.swing.JLabel acceptReqBtn;
+    private javax.swing.JLabel approvePatientBtn;
+    private javax.swing.JLabel assignPvtDriverBtn;
+    private javax.swing.JLabel assignStaffBtn;
     private javax.swing.JTextField bedsAvailableText;
-    private javax.swing.JButton btncheckall;
+    private javax.swing.JLabel btncheckall;
     private javax.swing.JLabel campLabel;
     private javax.swing.JLabel campLabel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

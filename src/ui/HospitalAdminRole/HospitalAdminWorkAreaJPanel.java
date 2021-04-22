@@ -80,27 +80,28 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnback = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtrequests = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        btnassignambulance = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblpcs = new javax.swing.JTable();
-        btnacceptpatient = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblpatient = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblambulance = new javax.swing.JTable();
-        btnassignstaff = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtbeds = new javax.swing.JTextField();
-        btnshowcamps = new javax.swing.JButton();
-        btncheckall = new javax.swing.JButton();
-        btnrequestcamp1 = new javax.swing.JButton();
         txtbedrequirement = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btncheckall = new javax.swing.JLabel();
+        btnrequestcamp = new javax.swing.JLabel();
+        showcamps = new javax.swing.JLabel();
+        btnacceptpatient1 = new javax.swing.JLabel();
+        btnassignambulance = new javax.swing.JLabel();
+        btnassignstaff = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -111,40 +112,31 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnback);
-        btnback.setBounds(42, 27, 89, 29);
+        btnback.setBounds(42, 27, 71, 23);
 
-        jLabel1.setText("Hospital Admin Work Area");
-        add(jLabel1);
-        jLabel1.setBounds(320, 20, 166, 27);
-
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Patient Care Staff Data");
         add(jLabel2);
-        jLabel2.setBounds(390, 520, 138, 22);
+        jLabel2.setBounds(420, 490, 138, 22);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Beds Available:");
         add(jLabel3);
-        jLabel3.setBounds(567, 29, 80, 22);
+        jLabel3.setBounds(610, 40, 90, 22);
 
+        txtrequests.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtrequests.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtrequestsActionPerformed(evt);
             }
         });
         add(txtrequests);
-        txtrequests.setBounds(688, 70, 44, 26);
+        txtrequests.setBounds(730, 76, 44, 20);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Patient Data");
         add(jLabel4);
-        jLabel4.setBounds(407, 115, 85, 22);
-
-        btnassignambulance.setText("Assign Ambulance");
-        btnassignambulance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnassignambulanceActionPerformed(evt);
-            }
-        });
-        add(btnassignambulance);
-        btnassignambulance.setBounds(390, 480, 138, 29);
+        jLabel4.setBounds(450, 110, 85, 22);
 
         tblpcs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -168,20 +160,12 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblpcs);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(90, 550, 723, 112);
+        jScrollPane2.setBounds(130, 520, 723, 100);
 
-        btnacceptpatient.setText("Accept Patient");
-        btnacceptpatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnacceptpatientActionPerformed(evt);
-            }
-        });
-        add(btnacceptpatient);
-        btnacceptpatient.setBounds(400, 290, 133, 29);
-
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Ambulance Data");
         add(jLabel5);
-        jLabel5.setBounds(407, 336, 103, 22);
+        jLabel5.setBounds(440, 300, 103, 22);
 
         tblpatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -205,7 +189,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane3.setViewportView(tblpatient);
 
         add(jScrollPane3);
-        jScrollPane3.setBounds(20, 160, 906, 119);
+        jScrollPane3.setBounds(46, 140, 880, 100);
 
         tblambulance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -229,63 +213,111 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane4.setViewportView(tblambulance);
 
         add(jScrollPane4);
-        jScrollPane4.setBounds(86, 364, 723, 112);
+        jScrollPane4.setBounds(140, 330, 723, 100);
 
-        btnassignstaff.setText("Assign Staff");
-        btnassignstaff.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnassignstaffActionPerformed(evt);
-            }
-        });
-        add(btnassignstaff);
-        btnassignstaff.setBounds(720, 510, 118, 29);
-
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Patient Requests:");
         add(jLabel6);
-        jLabel6.setBounds(567, 73, 122, 20);
+        jLabel6.setBounds(600, 80, 110, 14);
 
+        txtbeds.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtbeds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtbedsActionPerformed(evt);
             }
         });
         add(txtbeds);
-        txtbeds.setBounds(688, 30, 44, 26);
+        txtbeds.setBounds(730, 40, 44, 20);
 
-        btnshowcamps.setText("Show Camps");
-        btnshowcamps.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnshowcampsActionPerformed(evt);
-            }
-        });
-        add(btnshowcamps);
-        btnshowcamps.setBounds(800, 90, 140, 29);
-
-        btncheckall.setText("Check Accepted Patients");
-        btncheckall.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncheckallActionPerformed(evt);
-            }
-        });
-        add(btncheckall);
-        btncheckall.setBounds(120, 90, 160, 29);
-
-        btnrequestcamp1.setText("Request Camp");
-        btnrequestcamp1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnrequestcamp1ActionPerformed(evt);
-            }
-        });
-        add(btnrequestcamp1);
-        btnrequestcamp1.setBounds(800, 50, 140, 29);
-
+        txtbedrequirement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtbedrequirement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtbedrequirementActionPerformed(evt);
             }
         });
         add(txtbedrequirement);
-        txtbedrequirement.setBounds(830, 20, 50, 20);
+        txtbedrequirement.setBounds(850, 20, 50, 20);
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel7.setText("HELLO HOSPITAL ADMIN!");
+        add(jLabel7);
+        jLabel7.setBounds(320, 20, 240, 24);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (3).png"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(560, 60, 230, 630);
+
+        btncheckall.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btncheckall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btncheckall.setText("Check Accepted Patients");
+        btncheckall.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btncheckall.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btncheckallMousePressed(evt);
+            }
+        });
+        add(btncheckall);
+        btncheckall.setBounds(110, 80, 160, 30);
+
+        btnrequestcamp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnrequestcamp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnrequestcamp.setText("Request Camp");
+        btnrequestcamp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnrequestcamp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnrequestcampMousePressed(evt);
+            }
+        });
+        add(btnrequestcamp);
+        btnrequestcamp.setBounds(820, 60, 100, 20);
+
+        showcamps.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        showcamps.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        showcamps.setText("Show Camps");
+        showcamps.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        showcamps.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                showcampsMousePressed(evt);
+            }
+        });
+        add(showcamps);
+        showcamps.setBounds(820, 90, 100, 20);
+
+        btnacceptpatient1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnacceptpatient1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnacceptpatient1.setText("Accept Patient");
+        btnacceptpatient1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnacceptpatient1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnacceptpatient1MousePressed(evt);
+            }
+        });
+        add(btnacceptpatient1);
+        btnacceptpatient1.setBounds(430, 250, 120, 20);
+
+        btnassignambulance.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnassignambulance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnassignambulance.setText("Assign Ambulance");
+        btnassignambulance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnassignambulance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnassignambulanceMousePressed(evt);
+            }
+        });
+        add(btnassignambulance);
+        btnassignambulance.setBounds(410, 440, 140, 20);
+
+        btnassignstaff.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnassignstaff.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnassignstaff.setText("Assign Staff");
+        btnassignstaff.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnassignstaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnassignstaffMousePressed(evt);
+            }
+        });
+        add(btnassignstaff);
+        btnassignstaff.setBounds(430, 630, 120, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
@@ -299,6 +331,115 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnassignambulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignambulanceActionPerformed
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_btnassignambulanceActionPerformed
+
+    private void btnacceptpatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptpatientActionPerformed
+        // TODO add your handling code here:
+        
+       
+    }//GEN-LAST:event_btnacceptpatientActionPerformed
+
+    private void btnassignstaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignstaffActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnassignstaffActionPerformed
+
+    private void txtrequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrequestsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtrequestsActionPerformed
+
+    private void txtbedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbedsActionPerformed
+        // TODO add your handling code here:     
+        
+    }//GEN-LAST:event_txtbedsActionPerformed
+
+    private void btncheckallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckallActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_btncheckallActionPerformed
+
+    private void btnrequestcamp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrequestcamp1ActionPerformed
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_btnrequestcamp1ActionPerformed
+
+    private void txtbedrequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbedrequirementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtbedrequirementActionPerformed
+
+    private void btnshowcampsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowcampsActionPerformed
+        // TODO add your handling code here:
+  
+         
+    }//GEN-LAST:event_btnshowcampsActionPerformed
+
+    private void btncheckallMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckallMousePressed
+        // TODO add your handling code here:
+       
+         CheckAllPatientStatusJPanel checkallpatientstatuspanel = new CheckAllPatientStatusJPanel( userProcessorcontainer,  account,  system, hospital, patient);
+        userProcessorcontainer.add("checkAllCampPatientStatusJPanel", checkallpatientstatuspanel);
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.next(userProcessorcontainer);
+    
+    }//GEN-LAST:event_btncheckallMousePressed
+
+    private void btnrequestcampMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrequestcampMousePressed
+        // TODO add your handling code here:
+        
+        if(txtbedrequirement.getText()==null || txtbedrequirement.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Plewse fillout bed requirement details");
+            return;
+        }
+        HospitalNgoRequests requests=new HospitalNgoRequests(this.hospital, status.New, Integer.parseInt(txtbedrequirement.getText()));
+//        requests.setHospital(this.hospital);  //hospital.getName();
+//        requests.setStatus(status.New); //status.New.getValue();
+//        requests.setRequiredBeds(Integer.parseInt(txtbedrequirement.getText()));
+        //requests.setRequiredBeds();
+        system.getnGODirectory().getHospitalNgoDirectory().addHospitalRequests(requests);
+        JOptionPane.showMessageDialog(null, "Camp Request Sent!");
+    }//GEN-LAST:event_btnrequestcampMousePressed
+
+    private void showcampsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showcampsMousePressed
+        // TODO add your handling code here:
+        
+              ShowCampsJPanel showcampspanel = new ShowCampsJPanel(userProcessorcontainer, account, system, hospital, campadmin);
+        userProcessorcontainer.add("ShowCampsJPanel", showcampspanel);
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.next(userProcessorcontainer);
+    }//GEN-LAST:event_showcampsMousePressed
+
+    private void btnacceptpatient1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnacceptpatient1MousePressed
+        // TODO add your handling code here:
+        
+         int selectedRow = tblpatient.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null,"Please select a row");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblpatient.getModel();
+       
+        Integer patientId = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
+        Patient p = system.getPatientDirectory().getPatientByID(patientId);
+        p.setStatus(Status.Allocated);
+        tblpatient.setValueAt(Status.Allocated.getValue(), selectedRow, 5);
+        this.patient = p;
+        hospital.addPatient(patient);
+        JOptionPane.showMessageDialog(null, "Patient Approved!");
+        
+        populateAmbulanceTable();
+        populatePatientCareStaffTable();
+        
+    }//GEN-LAST:event_btnacceptpatient1MousePressed
+
+    private void btnassignambulanceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnassignambulanceMousePressed
         // TODO add your handling code here:
         
         int selectedRow = tblambulance.getSelectedRow();
@@ -321,36 +462,9 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
       
         //patient.setAmbulancedriver(account.getEmployee().getName());
         
-        
+    }//GEN-LAST:event_btnassignambulanceMousePressed
 
-    }//GEN-LAST:event_btnassignambulanceActionPerformed
-
-    private void btnacceptpatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptpatientActionPerformed
-        // TODO add your handling code here:
-        
-        int selectedRow = tblpatient.getSelectedRow();
-        
-        if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null,"Please select a row");
-            return;
-        }
-        
-        DefaultTableModel model = (DefaultTableModel) tblpatient.getModel();
-       
-        Integer patientId = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
-        Patient p = system.getPatientDirectory().getPatientByID(patientId);
-        p.setStatus(Status.Allocated);
-        tblpatient.setValueAt(Status.Allocated.getValue(), selectedRow, 5);
-        this.patient = p;
-        hospital.addPatient(patient);
-        JOptionPane.showMessageDialog(null, "Patient Approved!");
-        
-        populateAmbulanceTable();
-        populatePatientCareStaffTable();
-        
-    }//GEN-LAST:event_btnacceptpatientActionPerformed
-
-    private void btnassignstaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignstaffActionPerformed
+    private void btnassignstaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnassignstaffMousePressed
         // TODO add your handling code here:
         
         int selectedRow = tblambulance.getSelectedRow();
@@ -368,73 +482,27 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         patientcarestaff.setAvailability(false);
         tblpcs.setValueAt(false, selectedRow, 4);
         JOptionPane.showMessageDialog(null, "Patient Care Staff Assigned to the Patient!");
-    }//GEN-LAST:event_btnassignstaffActionPerformed
-
-    private void txtrequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrequestsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtrequestsActionPerformed
-
-    private void txtbedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbedsActionPerformed
-        // TODO add your handling code here:     
-        
-    }//GEN-LAST:event_txtbedsActionPerformed
-
-    private void btncheckallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckallActionPerformed
-        // TODO add your handling code here:
-        CheckAllPatientStatusJPanel checkallpatientstatuspanel = new CheckAllPatientStatusJPanel( userProcessorcontainer,  account,  system, hospital, patient);
-        userProcessorcontainer.add("checkAllCampPatientStatusJPanel", checkallpatientstatuspanel);
-        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
-        layout.next(userProcessorcontainer);
-    }//GEN-LAST:event_btncheckallActionPerformed
-
-    private void btnrequestcamp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrequestcamp1ActionPerformed
-        // TODO add your handling code here:
-        if(txtbedrequirement.getText()==null || txtbedrequirement.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Plewse fillout bed requirement details");
-            return;
-        }
-        HospitalNgoRequests requests=new HospitalNgoRequests(this.hospital, status.New, Integer.parseInt(txtbedrequirement.getText()));
-//        requests.setHospital(this.hospital);  //hospital.getName();
-//        requests.setStatus(status.New); //status.New.getValue();
-//        requests.setRequiredBeds(Integer.parseInt(txtbedrequirement.getText()));
-        //requests.setRequiredBeds();
-        system.getnGODirectory().getHospitalNgoDirectory().addHospitalRequests(requests);
-        JOptionPane.showMessageDialog(null, "Camp Request Sent!");
-
-    }//GEN-LAST:event_btnrequestcamp1ActionPerformed
-
-    private void txtbedrequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbedrequirementActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtbedrequirementActionPerformed
-
-    private void btnshowcampsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowcampsActionPerformed
-        // TODO add your handling code here:
-        ShowCampsJPanel showcampspanel = new ShowCampsJPanel(userProcessorcontainer, account, system, hospital, campadmin);
-        userProcessorcontainer.add("ShowCampsJPanel", showcampspanel);
-        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
-        layout.next(userProcessorcontainer);
-         
-    }//GEN-LAST:event_btnshowcampsActionPerformed
+    }//GEN-LAST:event_btnassignstaffMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnacceptpatient;
-    private javax.swing.JButton btnassignambulance;
-    private javax.swing.JButton btnassignstaff;
+    private javax.swing.JLabel btnacceptpatient1;
+    private javax.swing.JLabel btnassignambulance;
+    private javax.swing.JLabel btnassignstaff;
     private javax.swing.JButton btnback;
-    private javax.swing.JButton btncheckall;
-    private javax.swing.JButton btnrequestcamp1;
-    private javax.swing.JButton btnshowcamps;
+    private javax.swing.JLabel btncheckall;
+    private javax.swing.JLabel btnrequestcamp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel showcamps;
     private javax.swing.JTable tblambulance;
     private javax.swing.JTable tblpatient;
     private javax.swing.JTable tblpcs;

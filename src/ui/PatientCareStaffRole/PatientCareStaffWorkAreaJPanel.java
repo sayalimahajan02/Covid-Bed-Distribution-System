@@ -60,15 +60,16 @@ private static EcoSystem system;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         patientjTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        btncomplete = new javax.swing.JButton();
-        btnaccept = new javax.swing.JButton();
         btnback = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        btnaccept = new javax.swing.JLabel();
+        btncomplete = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Patient Care Staff WorkArea");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         patientjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,73 +92,67 @@ private static EcoSystem system;
         });
         jScrollPane1.setViewportView(patientjTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 166, 797, 97));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Patient and Ambulance Assigned");
-
-        btncomplete.setText("Complete");
-        btncomplete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncompleteActionPerformed(evt);
-            }
-        });
-
-        btnaccept.setText("Accept and Proceed");
-        btnaccept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnacceptActionPerformed(evt);
-            }
-        });
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 196, 27));
 
         btnback.setText("<<Back");
+        add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 21, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(btnback)
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 275, Short.MAX_VALUE)
-                .addComponent(btnaccept)
-                .addGap(154, 154, 154)
-                .addComponent(btncomplete, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(211, 211, 211))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnback)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btncomplete)
-                    .addComponent(btnaccept))
-                .addContainerGap(204, Short.MAX_VALUE))
-        );
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel3.setText("HELLO PATIENT CARE STAFF!");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
+
+        btnaccept.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnaccept.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnaccept.setText("Accept and Proceed");
+        btnaccept.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnaccept.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnacceptMousePressed(evt);
+            }
+        });
+        add(btnaccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 143, 28));
+
+        btncomplete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btncomplete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btncomplete.setText("Complete");
+        btncomplete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btncomplete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btncompleteMousePressed(evt);
+            }
+        });
+        add(btncomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 130, 28));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse (1).png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 360, 260));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btncompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncompleteActionPerformed
+    private void btnacceptMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnacceptMousePressed
         // TODO add your handling code here:
+        
         int selectedRowIndex = patientjTable.getSelectedRow();
+        if (patientjTable.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
+            return;
+        }
+        Patient selectedPatient=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)patientjTable.getValueAt(selectedRowIndex, 0)));
+         if(selectedPatient.getPatientstatus().equals(status.PatientPickup.getValue())){
+         selectedPatient.setPatientstatus(status.AssignToMe.getValue());
+         }
+         else{
+             JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
+            return;
+         }       
+    }//GEN-LAST:event_btnacceptMousePressed
+
+    private void btncompleteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncompleteMousePressed
+        // TODO add your handling code here:
+        
+         int selectedRowIndex = patientjTable.getSelectedRow();
         if (patientjTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
             return;
@@ -170,31 +165,16 @@ private static EcoSystem system;
              JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
             return;
          } 
-    }//GEN-LAST:event_btncompleteActionPerformed
-
-    private void btnacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptActionPerformed
-int selectedRowIndex = patientjTable.getSelectedRow();
-        if (patientjTable.getSelectedRowCount() != 1) {
-            JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
-            return;
-        }
-        Patient selectedPatient=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)patientjTable.getValueAt(selectedRowIndex, 0)));
-         if(selectedPatient.getPatientstatus().equals(status.PatientPickup.getValue())){
-         selectedPatient.setPatientstatus(status.AssignToMe.getValue());
-         }
-         else{
-             JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
-            return;
-         }        // TODO add your handling code here:
-    }//GEN-LAST:event_btnacceptActionPerformed
+    }//GEN-LAST:event_btncompleteMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnaccept;
+    private javax.swing.JLabel btnaccept;
     private javax.swing.JButton btnback;
-    private javax.swing.JButton btncomplete;
+    private javax.swing.JLabel btncomplete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable patientjTable;
     // End of variables declaration//GEN-END:variables

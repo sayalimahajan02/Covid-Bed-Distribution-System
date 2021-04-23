@@ -33,7 +33,7 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
-    public DriverAuthorizationRegistrationJPanel(JPanel topPanel, JPanel mainContainer,EcoSystem system, DB4OUtil dB4OUtil) {
+    public DriverAuthorizationRegistrationJPanel(JPanel mainContainer, JPanel topPanel, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
         this.jPanel = mainContainer;
@@ -187,12 +187,13 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 270, 320));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 40, 40));
 
         backBtn.setText("<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {

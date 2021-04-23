@@ -35,7 +35,7 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
-    public PatientAuthorizationRegistrationJPanel( JPanel registerDetails,JPanel topPanel, EcoSystem system,DB4OUtil dB4OUtil) {
+    public PatientAuthorizationRegistrationJPanel( JPanel registerDetails, JPanel topPanel, EcoSystem system,DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
         this.jPanel = registerDetails;
@@ -102,7 +102,6 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         registerButton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -180,20 +179,13 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 280, 450));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
-
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
@@ -274,22 +266,10 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        jPanel.remove(this);
-        Component[] componentArray = jPanel.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) jPanel.getLayout();
-        layout.previous(jPanel);
-        topPanel.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField UsernameTxt;
     private javax.swing.JLabel back;
-    private javax.swing.JButton backBtn;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;

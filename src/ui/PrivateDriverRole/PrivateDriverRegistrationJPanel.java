@@ -120,7 +120,6 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -264,20 +263,13 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 270, 340));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
-
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampsitejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampsitejComboBoxActionPerformed
@@ -432,24 +424,12 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        userProcessorcontainer.remove(this);
-        Component[] componentArray = userProcessorcontainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
-        layout.previous(userProcessorcontainer);
-        topPanel.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel RegisterjButton;
     private javax.swing.JTextField ageTxt;
     private javax.swing.JTextField ambulanceNumberTxt;
     private javax.swing.JLabel back;
-    private javax.swing.JButton backBtn;
     private javax.swing.JComboBox<String> campjComboBox;
     private javax.swing.JTextField emailTxt1;
     private javax.swing.JComboBox<Object> enterpriseComboBox;

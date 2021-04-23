@@ -97,7 +97,6 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         userNameTxt = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
-        backBtn = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -107,7 +106,7 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         addressTxt = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        btnsubmit = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -175,14 +174,6 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         });
         add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 550, 176, -1));
 
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
-
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
@@ -219,24 +210,25 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         jLabel2.setText("PLEASE FILL THE FORM FOR REGISTRATION");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Submit");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnsubmit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnsubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnsubmit.setText("Submit");
+        btnsubmit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnsubmit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel13MousePressed(evt);
+                btnsubmitMousePressed(evt);
             }
         });
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 600, 90, 30));
+        add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 600, 90, 30));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
@@ -247,17 +239,6 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_submitBtnActionPerformed
-
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        jPanel.remove(this);
-        Component[] componentArray = jPanel.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) jPanel.getLayout();
-        layout.previous(jPanel);
-        topPanel.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
 
     private void ngoNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoNameActionPerformed
         // TODO add your handling code here:
@@ -283,7 +264,7 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_networkComboBoxActionPerformed
 
-    private void jLabel13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MousePressed
+    private void btnsubmitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsubmitMousePressed
         // TODO add your handling code here:
         
          Organization org = (Organization) orgComboBox.getSelectedItem();
@@ -355,20 +336,25 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         dir.addNGO(ngo);
         JOptionPane.showMessageDialog(null, "Information Saved!");
         dB4OUtil.storeSystem(system);
-    }//GEN-LAST:event_jLabel13MousePressed
+    }//GEN-LAST:event_btnsubmitMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
         
-         this.setVisible(false);
-        jPanel.setVisible(true);
+        jPanel.remove(this);
+        Component[] componentArray = jPanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) jPanel.getLayout();
+        layout.previous(jPanel);
+        topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressTxt;
     private javax.swing.JLabel back;
-    private javax.swing.JButton backBtn;
+    private javax.swing.JLabel btnsubmit;
     private javax.swing.JTextField cityText;
     private javax.swing.JTextField emailAddrText;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
@@ -376,7 +362,6 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;

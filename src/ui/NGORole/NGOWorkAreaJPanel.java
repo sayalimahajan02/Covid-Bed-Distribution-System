@@ -26,6 +26,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
     private UserAccount account;
     private EcoSystem system;
     private NGO ngo;
+    private HospitalNgoRequests hnr;
 
     /**
      * Creates new form NGOJPanel
@@ -36,12 +37,11 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         this.account = account;
         this.system = system;
         this.ngo = ngo;
-//        campLabel.setVisible(false);
-//        jScrollPane2.setVisible(false);
-//        campListTable.setVisible(false);
-//        assignCampBtn.setVisible(false);
+        campLabel.setVisible(false);
+        jScrollPane2.setVisible(false);
+        campListTable.setVisible(false);
+        assignCampBtn.setVisible(false);
         populateRequestTable();
-        populateCampTable();
         this.setSize(1680, 1050);
     }
 
@@ -73,21 +73,21 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Hospital Requests");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 105, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, -1));
 
         campListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Camp ID", "Name", "Type", "Bed Capacity", "Admin Name", "Email Id", "Contact No", "Location"
+                "Camp ID", "Name", "Bed Capacity", "Admin Name", "Email Id", "Contact No", "Location"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -96,11 +96,11 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(campListTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 870, 99));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 870, 99));
 
         campLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         campLabel.setText("Available Camps ");
-        add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, -1, -1));
+        add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
 
         hospitalReqTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,7 +123,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(hospitalReqTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 877, 98));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 877, 98));
 
         acceptReqBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         acceptReqBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -134,7 +134,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
                 acceptReqBtnMousePressed(evt);
             }
         });
-        add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 132, 23));
+        add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 132, 23));
 
         assignCampBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         assignCampBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -145,7 +145,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
                 assignCampBtnMousePressed(evt);
             }
         });
-        add(assignCampBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 117, 23));
+        add(assignCampBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 117, 23));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/organization (1).png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 330, 440));
@@ -153,77 +153,106 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 
     private void acceptReqBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acceptReqBtnMousePressed
         // TODO add your handling code here:
-       
-        DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
-        for (int i = 0; i < hospitalReqTable.getRowCount(); i++) {
-            String requestStatus = model.getValueAt(i, 3).toString();
-            if (requestStatus.equals("In Progress")) {
-                Integer requestId = Integer.parseInt(model.getValueAt(i, 0).toString());
-                HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
-                requests.setNgo(ngo);
-                requests.setStatus(Status.InProgress);
-                hospitalReqTable.setValueAt(requestStatus, i, 3);
-            }
+        if (hospitalReqTable.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no request as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
         }
+        if (!system.getnGODirectory().getHospitalNgoDirectory().areNewRequestsAvailable()) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no new requests as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (hospitalReqTable.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select one row from the table to proceed!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (campListTable.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no Camps available at this moment as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int selectedRowInd = hospitalReqTable.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
+        String requestStatus = model.getValueAt(selectedRowInd, 3).toString();
+
+        if (requestStatus.equals("New")) {
+            Integer requestId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
+            HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
+            hnr = requests;
+            requests.setNgo(ngo);
+            requests.setStatus(Status.InProgress);
+            hospitalReqTable.setValueAt(Status.InProgress.getValue(), selectedRowInd, 3);
+        } else {
+            JOptionPane.showMessageDialog(null, "Your request is already in " + requestStatus + " !", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         JOptionPane.showMessageDialog(null, "Accepted Hospital request!");
         populateCampTable();
     }//GEN-LAST:event_acceptReqBtnMousePressed
 
     private void assignCampBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_assignCampBtnMousePressed
         // TODO add your handling code here:
-        
-         if (campListTable.getSelectedRow() == 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+        if (campListTable.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select one row from the table to proceed!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        if (hospitalReqTable.getSelectedRowCount() == 0 || hnr == null) {
+            JOptionPane.showMessageDialog(null, "Please accept a Hospital request to assign the Camp!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
         int selectedRowInd = campListTable.getSelectedRow();
         Integer campId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
         CampAdmin ca = system.getCampAdminDirectory().findCampByID(campId);
-        HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequestByNGO(ngo);
-        requests.setCampAdmin(ca);
+        if (!ca.isIsCampAvailable()) {
+            JOptionPane.showMessageDialog(null, "Camp is already Assigned!");
+            return;
+        }
+        hnr.setCampAdmin(ca);
+        ca.setIsCampAvailable(false);
         JOptionPane.showMessageDialog(null, "Camp Admin Assigned!");
     }//GEN-LAST:event_assignCampBtnMousePressed
 
     public void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) hospitalReqTable.getModel();
         model.setRowCount(0);
-        if(system.getnGODirectory().getHospitalNgoDirectory()!=null)
-        {
-           
-
-        for (HospitalNgoRequests requests : system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequests()) {
-            Object[] row = new Object[6];
-            row[0] = requests.getId();
-            row[1] = requests.getHospital().getName();
-            row[2] = requests.getRequiredBeds();
-            row[3] = requests.getStatus().getValue();
-            row[4] = requests.getHospital().getStreetaddress() + ", " + requests.getHospital().getCity() + ", " + requests.getHospital().getZipcode();
-            row[5] = requests.getRequestTime();
-            model.addRow(row);
-        }
+        if (system.getnGODirectory().getHospitalNgoDirectory() != null) {
+            for (HospitalNgoRequests requests : system.getnGODirectory().getHospitalNgoDirectory().getHospitalRequests()) {
+                Object[] row = new Object[6];
+                row[0] = requests.getId();
+                row[1] = requests.getHospital().getName();
+                row[2] = requests.getRequiredBeds();
+                row[3] = requests.getStatus().getValue();
+                row[4] = requests.getHospital().getStreetaddress() + ", " + requests.getHospital().getCity() + ", " + requests.getHospital().getZipcode();
+                row[5] = requests.getRequestTime();
+                model.addRow(row);
+            }
         }
     }
 
     public void populateCampTable() {
-//        campLabel.setVisible(true);
-//        campListTable.setVisible(true);
-//        jScrollPane2.setVisible(true);
-//        assignCampBtn.setVisible(true);
+        campLabel.setVisible(true);
+        campListTable.setVisible(true);
+        jScrollPane2.setVisible(true);
+        assignCampBtn.setVisible(true);
         DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
         model.setRowCount(0);
-        if(system.getCampAdminDirectory().getCampadminList()!=null)
-        for (CampAdmin ca : system.getCampAdminDirectory().getCampadminList()) {
-            Object[] row = new Object[8];
-            row[0] = ca.getId();
-            row[1] = ca.getName();
-            row[2] = ca.getType();
-            row[3] = ca.getCapacity();
-            row[4] = ca.getAdminName();
-            row[5] = ca.getEmailId();
-            row[6] = ca.getPhoneNumber();
-            row[7] = ca.getStreet() + ", " + ca.getCity() + ", " + ca.getZipCode();
-            model.addRow(row);
+        if (system.getCampAdminDirectory().getCampadminList() != null) {
+            for (CampAdmin ca : system.getCampAdminDirectory().getCampadminList()) {
+                if (ca.isIsCampAvailable()) {
+                    Object[] row = new Object[8];
+                    row[0] = ca.getId();
+                    row[1] = ca.getName();
+                    row[2] = ca.getCapacity();
+                    row[3] = ca.getAdminName();
+                    row[4] = ca.getEmailId();
+                    row[5] = ca.getPhoneNumber();
+                    row[6] = ca.getStreet() + ", " + ca.getCity() + ", " + ca.getZipCode();
+                    model.addRow(row);
+                }
+            }
         }
     }
 

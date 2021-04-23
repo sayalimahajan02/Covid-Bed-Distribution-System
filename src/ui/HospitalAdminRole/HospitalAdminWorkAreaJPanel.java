@@ -400,10 +400,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }
         HospitalNgoRequests requests=new HospitalNgoRequests(this.hospital, status.New, Integer.parseInt(txtbedrequirement.getText()));
-//        requests.setHospital(this.hospital);  //hospital.getName();
-//        requests.setStatus(status.New); //status.New.getValue();
-//        requests.setRequiredBeds(Integer.parseInt(txtbedrequirement.getText()));
-        //requests.setRequiredBeds();
         system.getnGODirectory().getHospitalNgoDirectory().addHospitalRequests(requests);
         JOptionPane.showMessageDialog(null, "Camp Request Sent!");
     }//GEN-LAST:event_btnrequestcampMousePressed

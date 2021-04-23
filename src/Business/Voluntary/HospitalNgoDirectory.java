@@ -58,5 +58,14 @@ public class HospitalNgoDirectory {
         }
         return null;
     }
+    
+       public boolean areNewRequestsAvailable(){
+        for (HospitalNgoRequests req : hospitalRequests) {
+            if (req.getStatus().getValue().equals("New")) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

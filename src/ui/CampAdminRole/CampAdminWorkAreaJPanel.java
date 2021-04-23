@@ -18,7 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JOptionPane;
-import ui.NGORole.NGORegistrationJPanel;
 
 /**
  *
@@ -143,15 +142,15 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setText("HELLO CAMP ADMIN!");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(503, 20, 206, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 206, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("NGO Requests");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 102, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
 
         campLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         campLabel.setText("Patient Data ");
-        jPanel1.add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(564, 283, -1, -1));
+        jPanel1.add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, -1, -1));
 
         patientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,25 +186,18 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         privateDriverTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Driver ID", "Driver Name", "Vehicle Number", "Contact Number", "Availability"
+                "Driver ID", "Driver Name", "Vehicle Number", "Contact Number"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -217,7 +209,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         campLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         campLabel1.setText("Private Driver List");
-        jPanel1.add(campLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, -1, -1));
+        jPanel1.add(campLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Beds Available:");
@@ -245,29 +237,22 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel5.setText("Patient Care Staff Data");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(479, 658, -1, 22));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 650, -1, 22));
 
         patientCareSTaffTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Staff ID", "Staff Name", "Phone Number", "Email ID", "Availability"
+                "Staff ID", "Staff Name", "Phone Number", "Email ID"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -297,7 +282,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 assignStaffBtnMousePressed(evt);
             }
         });
-        jPanel1.add(assignStaffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 800, 120, 20));
+        jPanel1.add(assignStaffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 800, 120, 20));
 
         acceptReqBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         acceptReqBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -308,7 +293,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 acceptReqBtnMousePressed(evt);
             }
         });
-        jPanel1.add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 120, 20));
+        jPanel1.add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 120, 20));
 
         approvePatientBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         approvePatientBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -319,7 +304,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 approvePatientBtnMousePressed(evt);
             }
         });
-        jPanel1.add(approvePatientBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 120, 20));
+        jPanel1.add(approvePatientBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 120, 20));
 
         assignPvtDriverBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         assignPvtDriverBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -330,7 +315,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 assignPvtDriverBtnMousePressed(evt);
             }
         });
-        jPanel1.add(assignPvtDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 590, 120, 20));
+        jPanel1.add(assignPvtDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 580, 140, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 510, 850));
@@ -359,25 +344,26 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         patientComboBox.addItem(Status.Approved.getValue());
         for (Patient p : system.getPatientDirectory().getPatientDirectory()) {
-            if (p.getCampadmin().getId() == ca.getId() && p.getStatus().equals(Status.Allocation)) {
-                Object[] row = new Object[6];
-                row[0] = p.getPatientID();
-                row[1] = p.getFirstname() + " " + p.getLastname();
-                row[2] = p.getPhonenumber();
-                row[3] = p.getStreetaddress() + ", " + p.getCity() + ", " + p.getZipcode();
-                row[4] = p.getEmail();
-                row[5] = p.getPatientstatus();
-                model.addRow(row);
+            if (p.getCampadmin() != null) {
+                if (p.getCampadmin().getId() == ca.getId() && p.getPatientstatus().equals(Status.Allocation.getValue())) {
+                    Object[] row = new Object[6];
+                    row[0] = p.getPatientID();
+                    row[1] = p.getFirstname() + " " + p.getLastname();
+                    row[2] = p.getPhonenumber();
+                    row[3] = p.getStreetaddress() + ", " + p.getCity() + ", " + p.getZipcode();
+                    row[4] = p.getEmail();
+                    row[5] = p.getPatientstatus();
+                    model.addRow(row);
+                }
             }
         }
-
     }
 
     private void populateDrivers() {
         DefaultTableModel model = (DefaultTableModel) privateDriverTable.getModel();
         model.setRowCount(0);
         for (PrivateDriver p : system.getPrivateDriverDirectory().getPrivateDriverDirectory()) {
-            if (p.isIsAuthorized()) {
+            if (p.isIsAuthorized() && p.isIsAvailable()) {
                 Object[] row = new Object[6];
                 row[0] = p.getId();
                 row[1] = p.getDriverFirstName() + " " + p.getDriverLastName();
@@ -416,85 +402,119 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btncheckallMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckallMousePressed
         // TODO add your handling code here:
-        
+
         CheckAllCampPatientStatusJPanel j = new CheckAllCampPatientStatusJPanel(userProcessContainer, account, system, ca);
         userProcessContainer.add("checkAllCampPatientStatusJPanel", j);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-        
+
     }//GEN-LAST:event_btncheckallMousePressed
 
     private void acceptReqBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acceptReqBtnMousePressed
         // TODO add your handling code here:
-        
-        if (ngoReqTable.getSelectedRow() == 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+        if (ngoReqTable.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select only one row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (ngoReqTable.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no NGO Requests as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         DefaultTableModel model = (DefaultTableModel) ngoReqTable.getModel();
         int selectedRowInd = ngoReqTable.getSelectedRow();
         String requestStatus = model.getValueAt(selectedRowInd, 4).toString();
-        if (requestStatus.equals("Approved")) {
+        if (requestStatus.equals("In Progress")) {
             Integer requestId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
             HospitalNgoRequests requests = system.getnGODirectory().getHospitalNgoDirectory().findRequestByID(requestId);
             requests.setStatus(Status.Approved);
             ca.setHospital(requests.getHospital());
             ca.setNgo(requests.getNgo());
-            ngoReqTable.setValueAt(requestStatus, selectedRowInd, 3);
+            ngoReqTable.setValueAt(Status.Approved.getValue(), selectedRowInd, 4);
+        } else if (requestStatus.equals("Approved")) {
+            JOptionPane.showMessageDialog(null, "You have already approved the request!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
         }
         JOptionPane.showMessageDialog(null, "Accepted NGO request!");
     }//GEN-LAST:event_acceptReqBtnMousePressed
 
     private void approvePatientBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_approvePatientBtnMousePressed
         // TODO add your handling code here:
-        
-        if (patientTable.getSelectedRow() == 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+        if (patientTable.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select only one row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (patientTable.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no Patient Requests as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         DefaultTableModel model = (DefaultTableModel) patientTable.getModel();
         int selectedRowInd = patientTable.getSelectedRow();
         Integer patientId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
         Patient p = system.getPatientDirectory().getPatientByID(patientId);
-        p.setStatus(Status.Allocated);
-        patientTable.setValueAt(Status.Allocated.getValue(), selectedRowInd, 5);
-        this.patient = p;
-        ca.assignPatientABed(p);
-        JOptionPane.showMessageDialog(null, "Approved Patient!");
+        if (p.getPatientstatus() != Status.Allocated.getValue()) {
+            p.setPatientstatus(Status.Allocated.getValue());
+            patientTable.setValueAt(Status.Allocated.getValue(), selectedRowInd, 5);
+            this.patient = p;
+            ca.assignPatientABed(p);
+            JOptionPane.showMessageDialog(null, "Approved Patient!");
+        } else {
+            JOptionPane.showMessageDialog(null, "You have already approved the Patient!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_approvePatientBtnMousePressed
 
     private void assignPvtDriverBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_assignPvtDriverBtnMousePressed
         // TODO add your handling code here:
-        
-        if (privateDriverTable.getSelectedRow() == 0) {
+        if (privateDriverTable.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no Private Drivers Available as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (privateDriverTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
+
         DefaultTableModel model = (DefaultTableModel) privateDriverTable.getModel();
         int selectedRowInd = privateDriverTable.getSelectedRow();
         Integer pvtDrivId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
         PrivateDriver pd = system.getPrivateDriverDirectory().getUserById(pvtDrivId);
-        this.patient.setPrivatedriver(pd);
-        pd.setIsAvailable(false);
-        privateDriverTable.setValueAt(false, selectedRowInd, 4);
-        JOptionPane.showMessageDialog(null, "Private Driver Assigned to the Patient!");
+        if (this.patient != null) {
+            this.patient.setPrivatedriver(pd);
+            pd.setIsAvailable(false);
+            JOptionPane.showMessageDialog(null, "Private Driver Assigned to the Patient!");
+            populateDrivers();
+        } else if (this.patient == null) {
+            JOptionPane.showMessageDialog(null, "Please approve a Patient to assign a Private Driver!", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "You have already assigned the Private Driver to the Patient!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_assignPvtDriverBtnMousePressed
 
     private void assignStaffBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_assignStaffBtnMousePressed
         // TODO add your handling code here:
-        
-        if (patientCareSTaffTable.getSelectedRow() == 0) {
+
+        if (patientCareSTaffTable.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no Patient Care Staff available as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (patientCareSTaffTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
+
         DefaultTableModel model = (DefaultTableModel) patientCareSTaffTable.getModel();
         int selectedRowInd = patientCareSTaffTable.getSelectedRow();
         Integer staffId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
         PatientCareStaff ps = system.getPatientCareStaffDirectory().getPatientcarestaffByID(staffId);
-        this.patient.setPatientcarestaff(ps);
-        ps.setAvailability(false);
-        patientCareSTaffTable.setValueAt(false, selectedRowInd, 4);
-        JOptionPane.showMessageDialog(null, "Patient Care Staff assigned to the Patient!");
+        if (this.patient != null) {
+            this.patient.setPatientcarestaff(ps);
+            ps.setAvailability(false);
+            JOptionPane.showMessageDialog(null, "Patient Care Staff assigned to the Patient!");
+            populatePatientCareStaff();
+        } else if (this.patient == null) {
+            JOptionPane.showMessageDialog(null, "Please approve a Patient to assign a Patient Care Staff!", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "You have already assigned the Patient Care Staff to the Patient!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_assignStaffBtnMousePressed
 
 

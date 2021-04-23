@@ -34,7 +34,6 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
     private UserAccount account;
     private Organization organization;
     private Enterprise enterprise;
-    private EcoSystem business;
     private Status status;
     private PrivateDriver privateDriverLogin;
     /**
@@ -42,7 +41,7 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
      */
     public PrivateDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, PrivateDriverOrganization privateDriverOrganization, Enterprise enterprise, EcoSystem business,PrivateDriver privateDriverLogin) {
           initComponents();
-         this.system = system;
+         this.system = business;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = userProcessContainer;
     this.userProcessContainer=userProcessContainer;
@@ -50,7 +49,6 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
     this.privateDriverLogin= privateDriverLogin;
     this.organization=organization;
     this.enterprise=enterprise;
-    this.business=business;
      this.setSize(1680, 1050);
     populatePatientPickUpDetails();
     }
@@ -61,9 +59,9 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
     
      DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
         model.setRowCount(0);
-
+        if(system.getPatientDirectory()!=null)
         for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
-            if(patient.getPrivatedriver().getId()!=0 && patient.getPrivatedriver().getId()==privateDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())){
+            if(patient.getPrivatedriver()!=null && patient.getPrivatedriver().getId()!=0 && patient.getPrivatedriver().getId()==privateDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())){
                 Object[] row=new Object[6];
                 
                 row[0]=patient.getPatientID();

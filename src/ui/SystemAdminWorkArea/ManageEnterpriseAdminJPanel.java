@@ -99,6 +99,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         submitJButton = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        backJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -129,7 +130,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel1.setText("Network");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 220, -1, -1));
 
-        networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkJComboBoxActionPerformed(evt);
@@ -146,7 +146,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel3.setText("Enterprise");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 271, -1, -1));
 
-        enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseJComboBoxActionPerformed(evt);
+            }
+        });
         add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 268, 136, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -189,6 +193,14 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
+
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
@@ -260,8 +272,24 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backMousePressed
 
+    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        sysAdminwjp.populateTree();
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
+    private javax.swing.JButton backJButton;
     private javax.swing.JComboBox enterpriseJComboBox;
     private javax.swing.JTable enterpriseJTable;
     private javax.swing.JLabel jLabel1;

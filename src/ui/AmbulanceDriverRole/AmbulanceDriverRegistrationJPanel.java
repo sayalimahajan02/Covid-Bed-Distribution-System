@@ -17,6 +17,8 @@ import Business.Role.AmbulanceDriverRole;
 import Business.SendSMS;
 import Business.UserAccount.UserAccount;
 import Business.ValidationUtility;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -33,14 +35,16 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
     private String randomCode;
+    private JPanel topPanel;
 
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
 
-    public AmbulanceDriverRegistrationJPanel(JPanel container, EcoSystem system, DB4OUtil dB4OUtil) {
+    public AmbulanceDriverRegistrationJPanel(JPanel container,JPanel topPanel, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
+        this.topPanel=topPanel;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = container;
         
@@ -296,8 +300,13 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        userProcessorcontainer.setVisible(true);
+        userProcessorcontainer.remove(this);
+        Component[] componentArray = userProcessorcontainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.previous(userProcessorcontainer);
+        topPanel.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void RegisterjButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterjButtonMousePressed

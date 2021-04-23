@@ -16,6 +16,9 @@ import javax.swing.JPanel;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import java.awt.CardLayout;
+import java.awt.Component;
+import ui.RegisterJPanel;
 
 /**
  *
@@ -26,14 +29,16 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
     private EcoSystem system;
     private JPanel jPanel;
     private DB4OUtil dB4OUtil;
+    private JPanel topPanel;
 
     /**
      * Creates new form NGORegistrationJPanel
      */
-    public NGORegistrationJPanel(EcoSystem system, JPanel jPanel, DB4OUtil dB4OUtil) {
+    public NGORegistrationJPanel(JPanel mainContainer,JPanel topPanel , EcoSystem system,DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
-        this.jPanel = jPanel;
+        this.topPanel= topPanel;
+        this.jPanel = mainContainer;
         this.dB4OUtil = dB4OUtil;
         this.setSize(1680, 1050);
         populateNetworkComboBox();
@@ -176,7 +181,7 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, -1, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
@@ -245,8 +250,13 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        jPanel.setVisible(true);
+        jPanel.remove(this);
+        Component[] componentArray = jPanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) jPanel.getLayout();
+        layout.previous(jPanel);
+        topPanel.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void ngoNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoNameActionPerformed

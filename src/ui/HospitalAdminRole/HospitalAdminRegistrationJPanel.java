@@ -36,13 +36,15 @@ public class HospitalAdminRegistrationJPanel extends javax.swing.JPanel {
     private ValidationUtility validation;
     private EcoSystem system;
     private DB4OUtil dB4OUtil;
+private JPanel topPanel;
 
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
-    public HospitalAdminRegistrationJPanel(JPanel container, EcoSystem system, DB4OUtil dB4OUtil) {
+    public HospitalAdminRegistrationJPanel(JPanel container,JPanel topPanel, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
+        this.topPanel=topPanel;
         this.userProcessContainer = container;
         this.dB4OUtil = dB4OUtil;
          this.setSize(1680, 1050);
@@ -322,6 +324,7 @@ public class HospitalAdminRegistrationJPanel extends javax.swing.JPanel {
         RegisterJPanel Registerjpanel = (RegisterJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        topPanel.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtbedcountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbedcountActionPerformed

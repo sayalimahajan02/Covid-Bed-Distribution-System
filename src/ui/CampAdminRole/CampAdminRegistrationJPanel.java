@@ -14,8 +14,11 @@ import Business.Role.CampAdminRole;
 import Business.ValidationUtility;
 import Business.Voluntary.CampAdmin;
 import Business.Voluntary.CampAdminDirectory;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import ui.RegisterJPanel;
 
 /**
  *
@@ -26,14 +29,15 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
     private EcoSystem system;
     private JPanel jpanel;
     private DB4OUtil dB4OUtil;
-
+private JPanel topPanel;
     /**
      * Creates new form CampAdminRegistrationJPanel
      */
-    public CampAdminRegistrationJPanel(EcoSystem system, JPanel jpanel, DB4OUtil dB4OUtil) {
+    public CampAdminRegistrationJPanel(JPanel registerDetails,JPanel topPanel, EcoSystem system,DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
-        this.jpanel = jpanel;
+        this.topPanel=topPanel;
+        this.jpanel = registerDetails;
         this.dB4OUtil = dB4OUtil;
         this.setSize(1680, 1050);
         populateNetworkComboBox();
@@ -393,8 +397,13 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
 
-        this.setVisible(false);
-        jpanel.setVisible(true);
+        jpanel.remove(this);
+        Component[] componentArray = jpanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) jpanel.getLayout();
+        layout.previous(jpanel);
+        topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
 
 

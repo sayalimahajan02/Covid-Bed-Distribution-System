@@ -9,6 +9,8 @@ import Business.EcoSystem;
 import Business.Hospital.Patient;
 import Business.Status;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -53,6 +55,7 @@ JPanel userProcessContainer;
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        backJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,7 +69,7 @@ JPanel userProcessContainer;
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 25, 151, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/graph-bar (4).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 151, 137));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 151, 137));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,6 +78,14 @@ JPanel userProcessContainer;
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 50));
+
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
@@ -84,6 +95,17 @@ JPanel userProcessContainer;
          this.setVisible(false);
         userProcessContainer.setVisible(true);
     }//GEN-LAST:event_backMousePressed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        sysAdminwjp.populateTree();
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
 
     private void populateBarGraph() {
         
@@ -148,6 +170,7 @@ JPanel userProcessContainer;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
+    private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

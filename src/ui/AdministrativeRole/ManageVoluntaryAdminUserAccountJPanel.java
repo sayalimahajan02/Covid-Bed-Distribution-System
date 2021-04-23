@@ -93,6 +93,7 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        backjButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -184,6 +185,14 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+
+        backjButton1.setText("<< Back");
+        backjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backjButton1ActionPerformed(evt);
+            }
+        });
+        add(backjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, 100, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
@@ -215,9 +224,17 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
         popData();
     }//GEN-LAST:event_createUserJButtonMousePressed
 
+    private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButton1ActionPerformed
+        // TODO add your handling code here:
+        container.remove(this);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
+    }//GEN-LAST:event_backjButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
+    private javax.swing.JButton backjButton1;
     private javax.swing.JLabel createUserJButton;
     private javax.swing.JComboBox employeeJComboBox;
     private javax.swing.JLabel jLabel1;

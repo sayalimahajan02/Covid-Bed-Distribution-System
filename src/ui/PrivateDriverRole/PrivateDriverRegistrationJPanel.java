@@ -24,6 +24,9 @@ import javax.swing.JFileChooser;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import java.awt.CardLayout;
+import java.awt.Component;
+import ui.RegisterJPanel;
 
 /**
  *
@@ -35,15 +38,16 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
     private byte[] dlImageArray;
-
+    private JPanel topPanel;
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
 
-    public PrivateDriverRegistrationJPanel(JPanel container, EcoSystem system, DB4OUtil dB4OUtil) {
+    public PrivateDriverRegistrationJPanel(JPanel container,JPanel topPanel, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
         this.dB4OUtil = dB4OUtil;
+        this.topPanel=topPanel;
         this.userProcessorcontainer = container;
          this.setSize(1680, 1050);
         populateHospitalDetails();
@@ -116,6 +120,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -265,6 +270,14 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
+
+        backBtn.setText("<<Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampsitejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampsitejComboBoxActionPerformed
@@ -410,9 +423,25 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
 
-       this.setVisible(false);
-        userProcessorcontainer.setVisible(true);
+       userProcessorcontainer.remove(this);
+        Component[] componentArray = userProcessorcontainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.previous(userProcessorcontainer);
+        topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessorcontainer.remove(this);
+        Component[] componentArray = userProcessorcontainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.previous(userProcessorcontainer);
+        topPanel.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -420,6 +449,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField ageTxt;
     private javax.swing.JTextField ambulanceNumberTxt;
     private javax.swing.JLabel back;
+    private javax.swing.JButton backBtn;
     private javax.swing.JComboBox<String> campjComboBox;
     private javax.swing.JTextField emailTxt1;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
@@ -450,7 +480,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateHospitalDetails() {
-        if (system.getHospitalDirectory() != null) {
+        if (system.getCampAdminDirectory().getCampadminList()!=null) {
             for (CampAdmin camp : system.getCampAdminDirectory().getCampadminList()) {
                 {
                     campjComboBox.addItem(camp.getName());

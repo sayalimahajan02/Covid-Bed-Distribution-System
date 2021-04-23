@@ -36,14 +36,16 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
     private EcoSystem system;
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
+    private JPanel topPanel;
 
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
-    public PatientCareStaffRegistrationJPanel(JPanel container, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public PatientCareStaffRegistrationJPanel(JPanel container, JPanel topPanel, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
         initComponents();
         this.system = ecosystem;
         this.dB4OUtil = dB4OUtil;
+        this.topPanel=topPanel;
         this.userProcessContainer = container;
         populateNetworkComboBox();
         populateHospitalDetails();
@@ -275,8 +277,14 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-         this.setVisible(false);
-        userProcessContainer.setVisible(true);
+         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+        topPanel.setVisible(true);
+        
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void passwordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordfieldActionPerformed

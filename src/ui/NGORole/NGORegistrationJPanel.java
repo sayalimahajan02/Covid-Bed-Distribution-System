@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.SendEmail;
 import java.awt.CardLayout;
 import java.awt.Component;
 import ui.RegisterJPanel;
@@ -109,6 +110,7 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         btnsubmit = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -336,6 +338,7 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         dir.addNGO(ngo);
         JOptionPane.showMessageDialog(null, "Information Saved!");
         dB4OUtil.storeSystem(system);
+        SendEmail.sendEmailMessage(emailAddrText.getText(),"Welcome to Covid Bed Distribution System", "Hello "+ngoName.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");
     }//GEN-LAST:event_btnsubmitMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

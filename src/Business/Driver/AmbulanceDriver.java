@@ -21,6 +21,7 @@ public class AmbulanceDriver {
     private Hospital hospital;
     private String phoneNumber;
     private String ambulanceNumber;
+    private String emailid;
     private boolean availability = true;
 
     public String getUserName() {
@@ -105,5 +106,12 @@ public class AmbulanceDriver {
     public void setAvailability(boolean availability) {
         this.availability = availability;
     }
-    
+
+    public String getEmailid() {
+        return emailid;
+    }
+
+    public void setEmailid(String emailid) {
+        this.emailid = emailid;
+    }
 }

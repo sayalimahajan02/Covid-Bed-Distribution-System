@@ -14,6 +14,7 @@ import Business.Hospital.Hospital;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.AmbulanceDriverRole;
+import Business.SendEmail;
 import Business.SendSMS;
 import Business.UserAccount.UserAccount;
 import Business.ValidationUtility;
@@ -115,8 +116,10 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         RegisterjButton = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        emailTxt = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(247, 247, 247));
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -257,6 +260,11 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 40, 40));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setText("Email ID:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, -1, -1));
+        add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 540, 170, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void hospitaljComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaljComboBoxActionPerformed
@@ -357,12 +365,14 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         ambDriver.setAmbulanceNumber(ambulanceNumberTxt.getText());
         ambDriver.setUserName(usernameText.getText());
         ambDriver.setId(system.getAmbulanceDriverDirectory().generateId());
+        ambDriver.setEmailid(emailTxt.getText());
         //save to db04
         Employee employee = org.getEmployeeDirectory().createEmployee(ambDriver.getDriverLastName() + ", " + ambDriver.getDriverFirstName());
         system.getAmbulanceDriverDirectory().add(ambDriver);
         UserAccount account = org.getUserAccountDirectory().createUserAccount(usernameText.getText(), password, employee, new AmbulanceDriverRole());
         dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Information Saved!");
+        SendEmail.sendEmailMessage(emailTxt.getText(),"Welcome to Covid Bed Distribution System", "Hello "+firstNameTxt.getText()+" "+lastNameTxt.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");        
     }//GEN-LAST:event_RegisterjButtonMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
@@ -384,6 +394,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField ambulanceNumberTxt;
     private javax.swing.JLabel back;
     private javax.swing.JButton backBtn;
+    private javax.swing.JTextField emailTxt;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JComboBox<String> hospitaljComboBox;
@@ -398,6 +409,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField lastNameTxt;
     private javax.swing.JComboBox<Object> networkComboBox;

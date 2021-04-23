@@ -11,6 +11,7 @@ import Business.Status;
 import Business.UserAccount.UserAccount;
 import Business.Voluntary.CampAdmin;
 import Business.Voluntary.HospitalNgoRequests;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -115,16 +116,21 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) patientStatTable.getModel();
         model.setRowCount(0);
         for (Patient p : ca.getPatientlist()) {
-            Object[] row = new Object[7];
-            row[0] = p.getFirstname() + " " + p.getLastname();
-            row[1] = p.getPhonenumber();
-            row[2] = p.getPrivatedriver().getPrivateVehicleNumber();
-            row[3] = p.getPrivatedriver().getDriverFirstName() + " " + p.getPrivatedriver().getDriverLastName();
-            row[4] = p.getPrivatedriver().getPhoneNumber();
-            row[5] = p.getPatientcarestaff().getFirstname() + " " + p.getPatientcarestaff().getLastname();
-            row[6] = p.getPatientcarestaff().getPhonenumber();
-            row[7] = p.getStatus().getValue();
-            model.addRow(row);
+            try {
+                Object[] row = new Object[7];
+                row[0] = p.getFirstname() + " " + p.getLastname();
+                row[1] = p.getPhonenumber();
+                row[2] = p.getPrivatedriver().getPrivateVehicleNumber();
+                row[3] = p.getPrivatedriver().getDriverFirstName() + " " + p.getPrivatedriver().getDriverLastName();
+                row[4] = p.getPrivatedriver().getPhoneNumber();
+                row[5] = p.getPatientcarestaff().getFirstname() + " " + p.getPatientcarestaff().getLastname();
+                row[6] = p.getPatientcarestaff().getPhonenumber();
+                row[7] = p.getPatientstatus();
+                model.addRow(row);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Please complete all the assignments of the patient!", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
     }
 }

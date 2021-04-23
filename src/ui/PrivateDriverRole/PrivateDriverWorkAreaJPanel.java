@@ -27,8 +27,7 @@ import ui.PatientCareStaffRole.*;
  */
 public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
 
-      private static EcoSystem system;
-    private static DB4OUtil dB4OUtil;
+    private static EcoSystem system;
     private static JPanel userProcessorcontainer;
     private JPanel userProcessContainer;
     private UserAccount account;
@@ -36,44 +35,44 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private Status status;
     private PrivateDriver privateDriverLogin;
+
     /**
      * Creates new form AmbulanceDriverWorkAreaJPanel
      */
-    public PrivateDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, PrivateDriverOrganization privateDriverOrganization, Enterprise enterprise, EcoSystem business,PrivateDriver privateDriverLogin) {
-          initComponents();
-         this.system = business;
-        this.dB4OUtil = dB4OUtil;
+    public PrivateDriverWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, PrivateDriverOrganization privateDriverOrganization, Enterprise enterprise, EcoSystem business, PrivateDriver privateDriverLogin) {
+        initComponents();
+        this.system = business;
         this.userProcessorcontainer = userProcessContainer;
-    this.userProcessContainer=userProcessContainer;
-    this.account=account;
-    this.privateDriverLogin= privateDriverLogin;
-    this.organization=organization;
-    this.enterprise=enterprise;
-     this.setSize(1680, 1050);
-    populatePatientPickUpDetails();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.privateDriverLogin = privateDriverLogin;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.setSize(1680, 1050);
+        populatePatientPickUpDetails();
     }
 
-    public void populatePatientPickUpDetails(){
-   
-    
-    
-     DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
+    public void populatePatientPickUpDetails() {
+        DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
         model.setRowCount(0);
-        if(system.getPatientDirectory()!=null)
-        for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
-            if(patient.getPrivatedriver()!=null && patient.getPrivatedriver().getId()!=0 && patient.getPrivatedriver().getId()==privateDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())){
-                Object[] row=new Object[6];
-                
-                row[0]=patient.getPatientID();
-                row[1]=patient.getLastname()+", "+patient.getFirstname();
-                row[2]=patient.getHospital().getName();
-                row[3]=patient.getStreetaddress()+", "+patient.getCity()+", "+patient.getZipcode();
-                row[4]=patient.getPhonenumber();
-                row[5]= patient.getPatientstatus();
-                model.addRow(row);
+        if (system.getPatientDirectory() != null) {
+            for (Patient patient : system.getPatientDirectory().getPatientDirectory()) {
+                if (patient.getPrivatedriver() != null) {
+                    if (patient.getPrivatedriver() != null && patient.getPrivatedriver().getId() != 0 && patient.getPrivatedriver().getId() == privateDriverLogin.getId() && patient.getPatientstatus().equals(status.Allocated.getValue())) {
+                        Object[] row = new Object[6];
+                        row[0] = patient.getPatientID();
+                        row[1] = patient.getLastname() + ", " + patient.getFirstname();
+                        row[2] = patient.getHospital().getName();
+                        row[3] = patient.getStreetaddress() + ", " + patient.getCity() + ", " + patient.getZipcode();
+                        row[4] = patient.getPhonenumber();
+                        row[5] = patient.getPatientstatus();
+                        model.addRow(row);
+                    }
+                }
             }
         }
-}
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -147,38 +146,44 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
 
     private void pickupButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pickupButtonMousePressed
         // TODO add your handling code here:
-        
+
+         if (patientjTable.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no Patient Ride Requests as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         int selectedRowIndex = patientjTable.getSelectedRow();
         if (patientjTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
             return;
         }
-         Patient selectedPatient=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)patientjTable.getValueAt(selectedRowIndex, 0)));
-         if(selectedPatient.getPatientstatus().equals(status.Allocated.getValue())){
-         selectedPatient.setPatientstatus(status.PatientPickup.getValue());
-         }
-         else{
-             JOptionPane.showMessageDialog(null, "Please select allocated patient to confirm pickup!!");
+        Patient selectedPatient = system.getPatientDirectory().getPatientByID(Integer.parseInt((String) patientjTable.getValueAt(selectedRowIndex, 0)));
+        if (selectedPatient.getPatientstatus().equals(status.Allocated.getValue())) {
+            selectedPatient.setPatientstatus(status.PatientPickup.getValue());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select allocated patient to confirm pickup!!");
             return;
-         }
+        }
     }//GEN-LAST:event_pickupButtonMousePressed
 
     private void dropButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropButtonMousePressed
         // TODO add your handling code here:
-        
+
+         if (patientjTable.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry, There are no Patient Ride Requests as of now.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         int selectedRowIndex = patientjTable.getSelectedRow();
         if (patientjTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select one patient to confirm drop!!");
             return;
         }
-         Patient selectedPatient=system.getPatientDirectory().getPatientByID(Integer.parseInt((String)patientjTable.getValueAt(selectedRowIndex, 0)));
-         if(selectedPatient.getPatientstatus().equals(status.PatientPickup.getValue())){
-         selectedPatient.setPatientstatus(status.PatientDrop.getValue());
-         }
-         else {
-             JOptionPane.showMessageDialog(null, "Please select patient with Confirm pickup to drop pickup successfully!!");
+        Patient selectedPatient = system.getPatientDirectory().getPatientByID(Integer.parseInt((String) patientjTable.getValueAt(selectedRowIndex, 0)));
+        if (selectedPatient.getPatientstatus().equals(status.PatientPickup.getValue())) {
+            selectedPatient.setPatientstatus(status.PatientDrop.getValue());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select patient with Confirm pickup to drop pickup successfully!!");
             return;
-         }
+        }
     }//GEN-LAST:event_dropButtonMousePressed
 
 

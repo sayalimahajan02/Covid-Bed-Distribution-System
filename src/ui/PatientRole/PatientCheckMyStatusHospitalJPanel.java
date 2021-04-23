@@ -8,6 +8,7 @@ package ui.PatientRole;
 import Business.Hospital.Patient;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -27,19 +28,24 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
         this.p = p;
         this.userProcessContainer = userProcessContainer;
         populateData();
-         this.setSize(1680, 1050);
+        this.setSize(1680, 1050);
     }
 
     public void populateData() {
-        hospitalName.setText(p.getHospital().getName());
-        hospContactNo.setText(p.getHospital().getPhonenumber());
-        hospAddress.setText(p.getHospital().getStreetaddress() + ", " + p.getHospital().getCity() + ", " + p.getHospital().getZipcode());
-        vehicleNumber.setText(p.getAmbulancedriver().getAmbulanceNumber());
-        driverName.setText(p.getAmbulancedriver().getDriverFirstName() + " " + p.getAmbulancedriver().getDriverLastName());
-        driverContactNumber.setText(p.getAmbulancedriver().getPhoneNumber());
-        patientCareStaffContactNo.setText(p.getPatientcarestaff().getPhonenumber());
-        patientCareStaffName.setText(p.getPatientcarestaff().getPhonenumber());
-        patientStatus.setText(p.getPatientstatus());
+        try {
+            hospitalName.setText(p.getHospital().getName());
+            hospContactNo.setText(p.getHospital().getPhonenumber());
+            hospAddress.setText(p.getHospital().getStreetaddress() + ", " + p.getHospital().getCity() + ", " + p.getHospital().getZipcode());
+            vehicleNumber.setText(p.getAmbulancedriver().getAmbulanceNumber());
+            driverName.setText(p.getAmbulancedriver().getDriverFirstName() + " " + p.getAmbulancedriver().getDriverLastName());
+            driverContactNumber.setText(p.getAmbulancedriver().getPhoneNumber());
+            patientCareStaffContactNo.setText(p.getPatientcarestaff().getPhonenumber());
+            patientCareStaffName.setText(p.getPatientcarestaff().getPhonenumber());
+            patientStatus.setText(p.getPatientstatus());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please wait. Your request is in progress!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
     }
 
     /**
@@ -114,37 +120,30 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
         jLabel12.setText("Hospital Address:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 176, -1, -1));
 
-        hospitalName.setText("A");
         hospitalName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(hospitalName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 97, 282, 20));
 
         hospAddress.setBackground(new java.awt.Color(51, 51, 51));
-        hospAddress.setText("B");
         hospAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(hospAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 173, 282, 20));
 
         hospContactNo.setBackground(new java.awt.Color(51, 51, 51));
-        hospContactNo.setText("B");
         hospContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(hospContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 135, 282, 20));
 
         driverName.setBackground(new java.awt.Color(51, 51, 51));
-        driverName.setText("B");
         driverName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(driverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 249, 282, 20));
 
         vehicleNumber.setBackground(new java.awt.Color(51, 51, 51));
-        vehicleNumber.setText("B");
         vehicleNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(vehicleNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 211, 282, 20));
 
         patientCareStaffName.setBackground(new java.awt.Color(51, 51, 51));
-        patientCareStaffName.setText("B");
         patientCareStaffName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(patientCareStaffName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 325, 282, 20));
 
         driverContactNumber.setBackground(new java.awt.Color(51, 51, 51));
-        driverContactNumber.setText("B");
         driverContactNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(driverContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 287, 282, 20));
 
@@ -154,7 +153,6 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
         add(patientStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 401, 282, 20));
 
         patientCareStaffContactNo.setBackground(new java.awt.Color(51, 51, 51));
-        patientCareStaffContactNo.setText("B");
         patientCareStaffContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(patientCareStaffContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 363, 282, 20));
 
@@ -176,7 +174,7 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
-         userProcessContainer.remove(this);
+        userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         PatientWorkAreaJPanel workareajpanel = (PatientWorkAreaJPanel) component;

@@ -37,7 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
         loginPanel.setVisible(true);
         topPanel.setVisible(false);
         mainContainer.setVisible(false);
-        this.setSize(1680, 1050);
+        this.setSize(1720, 1200);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
     }
 
@@ -67,6 +67,7 @@ public class MainFrame extends javax.swing.JFrame {
         registerButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1680, 1050));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setText("Back Button");
@@ -94,7 +95,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(displayusernamelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(logoutButton)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,15 +104,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logoutButton)
                     .addComponent(displayusernamelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(backButton)))
+                    .addComponent(backButton))
                 .addGap(23, 23, 23))
         );
 
         getContentPane().add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 40));
 
         mainContainer.setLayout(new java.awt.CardLayout());
-        getContentPane().add(mainContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 760, 420));
+        getContentPane().add(mainContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1720, 1200));
 
         jLabel2.setText("Password");
 
@@ -321,6 +321,7 @@ public class MainFrame extends javax.swing.JFrame {
         loginPanel.setVisible(true);
         mainContainer.setVisible(false);
         topPanel.setVisible(false);
+        displayusernamelbl.setText(" ");
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed

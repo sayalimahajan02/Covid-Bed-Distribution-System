@@ -181,7 +181,8 @@ public class ManageAuthorizationAdminUserAccountJPanel extends javax.swing.JPane
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 40, 50));
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
 
         backjButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         backjButton1.setText("<< Back");

@@ -42,27 +42,34 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessorcontainer; 
     private UserAccount account;
     private String path = "null";
-    
-   private int count = 0;
+    private Patient loggedInPatient;
     /**
      * Creates new form PatientWorkAreaJPanel
      */
     public PatientWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system, Patient patient, Hospital hospital) {
         initComponents();
-        this.patient = patient;
         this.hospital = hospital;
         this.system = system;
         this.organization = organization;
         this.enterprise = enterprise;
         this.userProcessorcontainer = userProcessContainer;
         this.account = account;
+        this.loggedInPatient= system.getPatientDirectory().getPatientByUsername(account.getUsername());
          this.setSize(1680, 1050);
-        lblpatientstatus.setText(patient.getPatientstatus());
+         
+        lblpatientstatus.setText(loggedInPatient.getPatientstatus());
+        if (patient.getPath() != null && !patient.getPath().isEmpty()) {
+            lblreport.setIcon(reportsubmit(patient.getPath()));
+        }
     }
 
     
     public ImageIcon reportsubmit(String imgpath)
     {
+        if(imgpath.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please upload Covid report first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return null;
+        }
         ImageIcon MyImage = new ImageIcon(imgpath);
         Image reportimg = MyImage.getImage();
         Image newimg = reportimg.getScaledInstance(lblreport.getWidth(), lblreport.getHeight(), Image.SCALE_SMOOTH);
@@ -127,6 +134,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 794, 170));
 
         lblreport.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 153, 153)));
+        lblreport.setSize(new java.awt.Dimension(190, 72));
         add(lblreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 170, 190, 72));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -166,6 +174,11 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         btnsubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnsubmit.setText("Submit");
         btnsubmit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnsubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnsubmitMousePressed(evt);
+            }
+        });
         add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 100, 20));
 
         btnfindbeds.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -210,9 +223,10 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnemergencyMousePressed
 
     private void btnuploadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnuploadMousePressed
-        // TODO add your handling code here:
-        
-        
+        // TODO add your handling code here: 
+        if(!loggedInPatient.getPatientstatus().equalsIgnoreCase(status.New.getValue())){
+            return;
+        }
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File(System.getProperty("user.home")));
         FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images","jpg","gif","png");
@@ -223,7 +237,12 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             File SelectedFile = file.getSelectedFile();
             path = SelectedFile.getAbsolutePath();
             lblreport.setIcon(reportsubmit(path));
-//            patient.setPath(path);  
+            if(lblreport.getIcon()!=null)
+            {
+                 this.loggedInPatient.setPath(path); 
+                  JOptionPane.showMessageDialog(null, "Report uploaded successfully, Please submit the report for verification", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+      
             
         }
         if(resultimg == JFileChooser.CANCEL_OPTION){
@@ -233,31 +252,77 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnfindbedsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfindbedsMousePressed
         // TODO add your handling code here:
+        if(loggedInPatient.getPatientstatus().equalsIgnoreCase(status.New.getValue())){
+             JOptionPane.showMessageDialog(null, "Please Submit Covid report first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
+        if(loggedInPatient.getPatientstatus().equalsIgnoreCase(status.Pending.getValue())){
+             JOptionPane.showMessageDialog(null, "Your report authorization process is in progress.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(!loggedInPatient.getPatientstatus().equalsIgnoreCase(status.Approved.getValue())){
+             JOptionPane.showMessageDialog(null, "Your request is already in progress.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
          populateTable();
     }//GEN-LAST:event_btnfindbedsMousePressed
 
     private void btnproceedMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnproceedMousePressed
         // TODO add your handling code here:
-        
-         if (hospitaltable.getSelectedRow() == 0) {
+        if(loggedInPatient.getPatientstatus().equalsIgnoreCase(status.New.getValue())){
+             JOptionPane.showMessageDialog(null, "Please Submit Covid report first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(loggedInPatient.getPatientstatus().equalsIgnoreCase(status.Pending.getValue())){
+             JOptionPane.showMessageDialog(null, "Your report authorization process is in progress.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(!loggedInPatient.getPatientstatus().equalsIgnoreCase(status.Approved.getValue())){
+             JOptionPane.showMessageDialog(null, "Your request is already in progress.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+         if (hospitaltable.getSelectedRowCount()!=1) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
-        status.Allocation.getValue();
-        
-        DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();
-        int selectedRow = hospitaltable.getSelectedRow();
-        
-        Integer ID = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
-        Hospital hospital = system.getHospitalDirectory().getHospitalByID(ID);
-        Patient p = system.getPatientDirectory().getPatientByUsername(account.getUsername());
-        this.patient = p;
-        p.setHospital(hospital);
-        
-        hospital.setRequestcount(count++);
+        if (loggedInPatient.getPatientstatus().equalsIgnoreCase(status.Approved.getValue())) {
+            DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();
+            int selectedRow = hospitaltable.getSelectedRow();
+
+            Integer ID = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
+            Hospital hospital = system.getHospitalDirectory().getHospitalByID(ID);
+            loggedInPatient.setPatientstatus(status.Allocation.getValue());
+            loggedInPatient.setHospital(hospital);
+            hospital.setRequestcount(hospital.getRequestcount()+1);
+            JOptionPane.showMessageDialog(null, "Your allocation request has sent successfully.", "Warning", JOptionPane.WARNING_MESSAGE); 
+            lblpatientstatus.setText(this.loggedInPatient.getPatientstatus());
+        } else if (patient.getPatientstatus().equalsIgnoreCase(status.New.getValue()) || patient.getPatientstatus().equalsIgnoreCase(status.Pending.getValue())) {
+            JOptionPane.showMessageDialog(null, "You dont have approved request from patient authorization", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+            JOptionPane.showMessageDialog(null, "You have already allocated bed", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_btnproceedMousePressed
+
+    private void btnsubmitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsubmitMousePressed
+        // TODO add your handling code here:
+        if(!loggedInPatient.getPatientstatus().equalsIgnoreCase(status.New.getValue())){
+            return;
+        }
+
+        if(this.loggedInPatient.getPath()==null)
+        {
+            JOptionPane.showMessageDialog(null, "Please upload scanned report first !", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        this.loggedInPatient.setPatientstatus(status.Pending.getValue());
+        lblpatientstatus.setText(this.loggedInPatient.getPatientstatus());
+        JOptionPane.showMessageDialog(null, "Report has been successfully uploaded. ", "Warning", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnsubmitMousePressed
 
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();

@@ -28,10 +28,6 @@ public class SendSMS {
     public String toNum;
     public String body;
 
-    public static void main(String args[]) {
-        SendSMS1("+16174809437", "hiiii");
-    }
-
     public static void SendSMS1(String toNum, String body) {
 
         String fromNum = "+14159934238";

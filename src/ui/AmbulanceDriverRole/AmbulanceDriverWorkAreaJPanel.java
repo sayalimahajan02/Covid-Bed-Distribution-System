@@ -59,6 +59,7 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (Patient patient : system.getPatientDirectory().getPatientDirectory()) {
+            if(patient.getAmbulancedriver()!=null)
             if (patient.getAmbulancedriver().getId() != 0 && patient.getAmbulancedriver().getId() == ambulanceDriverLogin.getId() && (patient.getPatientstatus().equals(status.Allocated.getValue()) || patient.getPatientstatus().equals(status.PatientPickup.getValue()))) {
                 Object[] row = new Object[7];
                 row[0] = patient.getPatientID();

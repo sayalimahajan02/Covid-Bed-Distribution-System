@@ -27,7 +27,7 @@ public class Hospital {
     private int bedcount;
     private List<Patient> Patient;
     private int hospitalID;
-    private int requestcount;
+    private int requestcount=0;
 
 
  

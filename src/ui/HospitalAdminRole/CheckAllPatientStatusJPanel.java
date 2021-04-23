@@ -121,7 +121,7 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblallpatient.getModel();
         model.setRowCount(0);
         for (Patient p : hospital.getPatientlist()) {
-            Object[] row = new Object[7];
+            Object[] row = new Object[8];
             row[0] = p.getFirstname() + " " + p.getLastname();
             row[1] = p.getPhonenumber();
             row[2] = p.getAmbulancedriver().getAmbulanceNumber();
@@ -129,7 +129,7 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
             row[4] = p.getAmbulancedriver().getPhoneNumber();
             row[5] = p.getPatientcarestaff().getFirstname() + " " + p.getPatientcarestaff().getLastname();
             row[6] = p.getPatientcarestaff().getPhonenumber();
-            row[7] = p.getStatus().getValue();
+            row[7] = p.getPatientstatus();
             model.addRow(row);
         }
     }

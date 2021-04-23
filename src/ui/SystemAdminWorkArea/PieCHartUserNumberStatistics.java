@@ -33,6 +33,7 @@ JPanel userProcessContainer;
         this.userProcessContainer = rightjPanel;
         this.system = ecosystem;
         populatePieChart();
+         this.setSize(1680, 1050);
     }
 
     /**
@@ -47,6 +48,7 @@ JPanel userProcessContainer;
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -57,11 +59,26 @@ JPanel userProcessContainer;
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new java.awt.BorderLayout());
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 767, 507));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 780, 507));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pie-chart (1).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 139, 136));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 20, 130, 136));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+
+        this.setVisible(false);
+        userProcessContainer.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
 
     private void populatePieChart() {
         pieChart = ChartFactory.createPieChart(
@@ -76,6 +93,7 @@ JPanel userProcessContainer;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;

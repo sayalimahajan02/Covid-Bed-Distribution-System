@@ -67,7 +67,6 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         userNameTxt1 = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
-        backBtn = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         capacityTxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -80,7 +79,12 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
         submitBtn = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
+
+        jPanel2.setBackground(new java.awt.Color(247, 247, 247));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -152,14 +156,6 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 560, 176, -1));
 
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 80, -1));
-
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setText("Capacity:");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, -1, -1));
@@ -223,6 +219,17 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
         jLabel2.setText("PLEASE FILL THE FORM FOR REGISTRATION");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registration.png"))); // NOI18N
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        jPanel2.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 40, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -273,12 +280,6 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
-
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        jpanel.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
 
     private void capacityTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capacityTxtActionPerformed
         // TODO add your handling code here:
@@ -389,10 +390,17 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_submitBtnMousePressed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+
+        this.setVisible(false);
+        jpanel.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressTxt;
-    private javax.swing.JButton backBtn;
+    private javax.swing.JLabel back;
     private javax.swing.JTextField campName;
     private javax.swing.JTextField capacityTxt;
     private javax.swing.JTextField cityText;
@@ -402,6 +410,7 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

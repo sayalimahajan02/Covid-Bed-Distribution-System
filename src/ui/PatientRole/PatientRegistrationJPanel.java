@@ -48,6 +48,8 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         this.system = system;
         this.dB4OUtil = dB4OUtil;
         this.userProcessContainer = container;
+        
+        this.setSize(1680, 1050);
     }
 
     /**
@@ -76,13 +78,13 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         txtstreet = new javax.swing.JTextField();
         txtcity = new javax.swing.JTextField();
         txtzipcode = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
         passwordfield = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         txtemergency = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         btnregister = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -177,14 +179,6 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(txtzipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, 220, -1));
-
-        btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, -1));
         add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 220, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -215,6 +209,14 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/medical-mask.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 280, 410));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -248,18 +250,6 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     private void txtzipcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtzipcodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtzipcodeActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtemergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemergencyActionPerformed
         // TODO add your handling code here:
@@ -383,9 +373,20 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Information Saved!");
     }//GEN-LAST:event_btnregisterMousePressed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+         
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
+    private javax.swing.JLabel back;
     private javax.swing.JLabel btnregister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

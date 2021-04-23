@@ -76,7 +76,6 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backjButton1 = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         nameJTextField = new javax.swing.JTextField();
@@ -92,53 +91,51 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
         createUserJButton = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        backjButton1.setText("<< Back");
-        backjButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backjButton1ActionPerformed(evt);
-            }
-        });
-        add(backjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, -1));
-        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 500, 190, -1));
+        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 190, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Password");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, -1, -1));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 190, -1));
+        jLabel2.setText("Password:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 190, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("User Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, -1));
+        jLabel1.setText("User Name:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("Role");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, 10));
+        jLabel4.setText("Role:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, -1, 10));
 
-        add(roleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 190, -1));
+        add(roleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 190, -1));
 
-        add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 190, -1));
+        add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 190, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Employee");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, -1, -1));
+        jLabel3.setText("Employee:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
 
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationJComboBoxActionPerformed(evt);
             }
         });
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 190, -1));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 190, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setText("Organization");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        jLabel5.setText("Organization:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
                 "User Name", "Role"
@@ -161,7 +158,7 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(userJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 156, 430, 118));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 450, 110));
 
         createUserJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         createUserJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -172,23 +169,22 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
                 createUserJButtonMousePressed(evt);
             }
         });
-        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, 60, 20));
+        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 90, 30));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("MANAGE TRANSPORTATION ADMIN ORGANIZATION");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 740, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 530, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/business-woman.png"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 310, 230, 310));
-    }// </editor-fold>//GEN-END:initComponents
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 230, 310));
 
-    private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButton1ActionPerformed
-        // TODO add your handling code here:
-        container.remove(this);
-        CardLayout layout = (CardLayout) container.getLayout();
-        layout.previous(container);
-    }//GEN-LAST:event_backjButton1ActionPerformed
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (14).png"))); // NOI18N
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
@@ -221,7 +217,7 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backjButton1;
+    private javax.swing.JLabel back;
     private javax.swing.JLabel createUserJButton;
     private javax.swing.JComboBox employeeJComboBox;
     private javax.swing.JLabel jLabel1;
@@ -231,6 +227,7 @@ public class ManageVoluntaryAdminUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationJComboBox;

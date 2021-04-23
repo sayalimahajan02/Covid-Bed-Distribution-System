@@ -61,11 +61,12 @@ public class ManageHospitalAdminOrganizationJPanel extends javax.swing.JPanel {
         organizationJTable = new javax.swing.JTable();
         organizationJComboBox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
-        backJButton = new javax.swing.JButton();
         addJButton = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -100,21 +101,13 @@ public class ManageHospitalAdminOrganizationJPanel extends javax.swing.JPanel {
             organizationJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 197, 480, 89));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 480, 89));
 
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 339, 203, -1));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 203, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Organization Type: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 343, -1, -1));
-
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 28, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, -1, -1));
 
         addJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         addJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -125,22 +118,19 @@ public class ManageHospitalAdminOrganizationJPanel extends javax.swing.JPanel {
                 addJButtonMousePressed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 115, 29));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 115, 29));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MANAGE HOSPITAL ADMIN ORGANIZATION");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 770, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 510, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (4).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(394, 250, 300, 330));
-    }// </editor-fold>//GEN-END:initComponents
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 300, 330));
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/engineer.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMousePressed
         // TODO add your handling code here:
@@ -156,9 +146,9 @@ public class ManageHospitalAdminOrganizationJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addJButton;
-    private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox organizationJComboBox;

@@ -35,20 +35,23 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
         manageEmployeeJButton = new javax.swing.JLabel();
         userJButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("HOSPITAL ADMIN WORKAREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 580, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 580, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 120, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 120, 30));
 
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 130, -1));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         manageOrganizationJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -60,7 +63,7 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonMousePressed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 150, 30));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 150, 30));
 
         manageEmployeeJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         manageEmployeeJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -72,7 +75,7 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonMousePressed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 150, 30));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 150, 30));
 
         userJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         userJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -84,10 +87,16 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
                 userJButtonMousePressed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 150, 30));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 150, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (4).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 290, 400));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 310, 400));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/administrator.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonMousePressed
@@ -119,9 +128,11 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel manageEmployeeJButton;
     private javax.swing.JLabel manageOrganizationJButton;
     private javax.swing.JLabel userJButton;

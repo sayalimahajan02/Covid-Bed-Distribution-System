@@ -88,7 +88,9 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
         pickupButton = new javax.swing.JLabel();
         dropButton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         patientjTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -117,11 +119,11 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(patientjTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 111, 843, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 843, 90));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setText("HELLO AMBULANCE DRIVER!");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 270, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 270, -1));
 
         pickupButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         pickupButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -132,7 +134,7 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
                 pickupButtonMousePressed(evt);
             }
         });
-        add(pickupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 130, 30));
+        add(pickupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 130, 30));
 
         dropButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         dropButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -143,10 +145,13 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
                 dropButtonMousePressed(evt);
             }
         });
-        add(dropButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 130, 30));
+        add(dropButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 130, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ambulance (3).png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 300, 260));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 300, 260));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ambulance (5).png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void patientjTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientjTableMousePressed
@@ -203,6 +208,7 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel dropButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable patientjTable;
     private javax.swing.JLabel pickupButton;

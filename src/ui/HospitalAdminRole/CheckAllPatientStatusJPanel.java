@@ -9,6 +9,8 @@ import Business.EcoSystem;
 import Business.Hospital.Hospital;
 import Business.Hospital.Patient;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,12 +53,13 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
         tblallpatient = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("VIEW ACCEPTED PATIENTS");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 27, 258, 29));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 258, 29));
 
         tblallpatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,17 +80,36 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblallpatient);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 85, 879, 192));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 879, 192));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ambulance (1).png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 290, 230));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/patient (4).png"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 180, 150));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        HospitalAdminWorkAreaJPanel workareajpanel = (HospitalAdminWorkAreaJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

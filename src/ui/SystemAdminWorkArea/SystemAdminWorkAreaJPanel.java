@@ -101,11 +101,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        rightjPanel.setBackground(new java.awt.Color(224, 44, 44));
+        rightjPanel.setBackground(new java.awt.Color(214, 41, 41));
         rightjPanel.setLayout(new java.awt.CardLayout());
         jSplitPane.setRightComponent(rightjPanel);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 198, 142));
         jPanel1.setPreferredSize(new java.awt.Dimension(350, 750));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

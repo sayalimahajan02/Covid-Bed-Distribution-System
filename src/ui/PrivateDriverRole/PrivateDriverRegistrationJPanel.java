@@ -241,7 +241,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                 RegisterjButtonMousePressed(evt);
             }
         });
-        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 780, 100, 30));
+        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 690, 100, 30));
 
         uploadjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         uploadjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -367,7 +367,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         privateDriver.setId(system.getPatientDirectory().generateID());
         //save to db04
         Employee employee = org.getEmployeeDirectory().createEmployee(privateDriver.getDriverLastName() + ", " + privateDriver.getDriverFirstName());
-        system.getPrivateDriverDirectory().add(privateDriver);
+        //system.getPrivateDriverDirectory().add(privateDriver);
         system.getPrivateDriverDirectory().getPrivateDriverDirectory().add(privateDriver);
         UserAccount account = org.getUserAccountDirectory().createUserAccount(usernameTxt.getText(), password, employee, new PrivateDriverRole());
         dB4OUtil.storeSystem(system);

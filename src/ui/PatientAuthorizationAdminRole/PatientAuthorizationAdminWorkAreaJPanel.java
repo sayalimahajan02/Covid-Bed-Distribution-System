@@ -132,8 +132,8 @@ public void populatePatientDetails(){
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 121, 583, 149));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Click here to see DL of selected Driver :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 343, -1, -1));
+        jLabel1.setText("Click here to see COVID Report of selected Driver :");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
 
         ConfirmButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ConfirmButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -148,14 +148,14 @@ public void populatePatientDetails(){
 
         viewDlButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         viewDlButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        viewDlButton.setText("View DL");
+        viewDlButton.setText("View Report Here");
         viewDlButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         viewDlButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 viewDlButtonMousePressed(evt);
             }
         });
-        add(viewDlButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 93, 26));
+        add(viewDlButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 120, 26));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/medical-mask (1).png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 220, 310));

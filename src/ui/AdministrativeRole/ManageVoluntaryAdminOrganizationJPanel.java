@@ -130,7 +130,8 @@ public class ManageVoluntaryAdminOrganizationJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
 
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {

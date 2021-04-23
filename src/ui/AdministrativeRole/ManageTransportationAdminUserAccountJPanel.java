@@ -184,7 +184,8 @@ public class ManageTransportationAdminUserAccountJPanel extends javax.swing.JPan
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 40, 50));
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 40, 40));
 
         backjButton1.setText("<< Back");
         backjButton1.addActionListener(new java.awt.event.ActionListener() {

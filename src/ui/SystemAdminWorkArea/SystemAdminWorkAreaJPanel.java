@@ -101,14 +101,15 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        rightjPanel.setBackground(new java.awt.Color(242, 181, 181));
+        rightjPanel.setBackground(new java.awt.Color(224, 44, 44));
         rightjPanel.setLayout(new java.awt.CardLayout());
         jSplitPane.setRightComponent(rightjPanel);
 
-        jPanel1.setBackground(new java.awt.Color(95, 191, 239));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel1.setPreferredSize(new java.awt.Dimension(350, 750));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTree.setBackground(new java.awt.Color(131, 206, 243));
+        jTree.setBackground(new java.awt.Color(255, 225, 196));
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);
@@ -198,27 +199,27 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void btnManageNetworkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageNetworkMousePressed
         // TODO add your handling code here:
         
-         ManageNetworkJPanel manageNetworkJPanel=new ManageNetworkJPanel(userProcessContainer, ecosystem);
-        userProcessContainer.add("manageNetworkJPanel",manageNetworkJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+         ManageNetworkJPanel manageNetworkJPanel=new ManageNetworkJPanel(rightjPanel, ecosystem);
+        rightjPanel.add("manageNetworkJPanel",manageNetworkJPanel);
+        CardLayout layout=(CardLayout)rightjPanel.getLayout();
+        layout.next(rightjPanel);
         
     }//GEN-LAST:event_btnManageNetworkMousePressed
 
     private void btnManageEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageEnterpriseMousePressed
         // TODO add your handling code here:
-        ManageEnterpriseJPanel manageEnterpriseJPanel=new ManageEnterpriseJPanel(userProcessContainer, ecosystem);
-        userProcessContainer.add("manageEnterpriseJPanel",manageEnterpriseJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ManageEnterpriseJPanel manageEnterpriseJPanel=new ManageEnterpriseJPanel(rightjPanel, ecosystem);
+        rightjPanel.add("manageEnterpriseJPanel",manageEnterpriseJPanel);
+        CardLayout layout=(CardLayout)rightjPanel.getLayout();
+        layout.next(rightjPanel);
     }//GEN-LAST:event_btnManageEnterpriseMousePressed
 
     private void btnManageAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageAdminMousePressed
         // TODO add your handling code here:
-       ManageEnterpriseAdminJPanel manageEnterpriseAdminJPanel=new ManageEnterpriseAdminJPanel(userProcessContainer, ecosystem);
-        userProcessContainer.add("manageEnterpriseAdminJPanel",manageEnterpriseAdminJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer); 
+       ManageEnterpriseAdminJPanel manageEnterpriseAdminJPanel=new ManageEnterpriseAdminJPanel(rightjPanel, ecosystem);
+        rightjPanel.add("manageEnterpriseAdminJPanel",manageEnterpriseAdminJPanel);
+        CardLayout layout=(CardLayout)rightjPanel.getLayout();
+        layout.next(rightjPanel); 
     }//GEN-LAST:event_btnManageAdminMousePressed
 
     private void btnpieMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpieMousePressed

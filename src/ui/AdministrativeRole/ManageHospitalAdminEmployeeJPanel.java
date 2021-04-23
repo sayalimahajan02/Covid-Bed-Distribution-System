@@ -163,7 +163,8 @@ public class ManageHospitalAdminEmployeeJPanel extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
 
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {

@@ -68,7 +68,7 @@ public class ManageAuthorizationAdminOrganizationJPanel extends javax.swing.JPan
         back = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(247, 247, 247));
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 351, 203, -1));
@@ -107,6 +107,7 @@ public class ManageAuthorizationAdminOrganizationJPanel extends javax.swing.JPan
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 195, 480, 92));
 
+        jLabel2.setBackground(new java.awt.Color(255, 244, 244));
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("AUTHORIZATION ADMIN ORGANIZATION");
@@ -130,7 +131,8 @@ public class ManageAuthorizationAdminOrganizationJPanel extends javax.swing.JPan
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 130, 130));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
 
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {

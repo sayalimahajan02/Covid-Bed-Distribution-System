@@ -48,9 +48,10 @@ public class AuthorizationAdminWorkAreaPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(247, 247, 247));
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 244, 244));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -108,7 +109,8 @@ public class AuthorizationAdminWorkAreaPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 140));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonMousePressed

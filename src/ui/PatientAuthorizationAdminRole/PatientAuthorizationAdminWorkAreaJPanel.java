@@ -98,7 +98,6 @@ public void populatePatientDetails(){
         ConfirmButton1 = new javax.swing.JLabel();
         viewDlButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -160,14 +159,6 @@ public void populatePatientDetails(){
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/medical-mask (1).png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 220, 310));
-
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
-        back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                backMousePressed(evt);
-            }
-        });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewDlButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDlButtonMousePressed
@@ -212,17 +203,9 @@ public void populatePatientDetails(){
         }
     }//GEN-LAST:event_ConfirmButton1MousePressed
 
-    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
-        // TODO add your handling code here:
-
-        this.setVisible(false);
-        userProcessContainer.setVisible(true);
-    }//GEN-LAST:event_backMousePressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConfirmButton1;
-    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;

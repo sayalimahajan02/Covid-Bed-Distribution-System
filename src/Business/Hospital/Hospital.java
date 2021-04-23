@@ -8,6 +8,7 @@ package Business.Hospital;
 import Business.Driver.AmbulanceDriver;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -27,7 +28,7 @@ public class Hospital {
     private int bedcount;
     private List<Patient> Patient;
     private int hospitalID;
-    private int requestcount;
+    private int requestcount=0;
 
 
  
@@ -149,5 +150,40 @@ public class Hospital {
     public void setRequestcount(int requestcount) {
         this.requestcount = requestcount;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.name);
+        hash = 53 * hash + Objects.hashCode(this.username);
+        hash = 53 * hash + this.hospitalID;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Hospital other = (Hospital) obj;
+        if (this.hospitalID != other.hospitalID) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
 }

@@ -110,8 +110,6 @@ private JPanel topPanel;
         orgComboBox = new javax.swing.JComboBox<>();
         enterpriseComboBox = new javax.swing.JComboBox<>();
         networkComboBox = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        txtlname = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         btnregister = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -120,36 +118,36 @@ private JPanel topPanel;
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("First Name:");
+        jLabel2.setText("         Name:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 184, -1, 23));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Phone number:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 345, -1, 23));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 23));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Street:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 427, -1, 23));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 23));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Zipcode:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 511, -1, 23));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, 23));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Email Address:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 386, 90, 23));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 90, 23));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("UserName:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 266, -1, 23));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, 23));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("City:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 469, -1, 23));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, 23));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Password:");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 60, 20));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 60, 20));
 
         txtfname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,54 +161,54 @@ private JPanel topPanel;
                 txtusernameActionPerformed(evt);
             }
         });
-        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 266, 220, -1));
+        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 220, -1));
 
         txtphone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtphoneActionPerformed(evt);
             }
         });
-        add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 346, 220, -1));
+        add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 220, -1));
 
         txtemailid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtemailidActionPerformed(evt);
             }
         });
-        add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 386, 220, -1));
+        add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 220, -1));
 
         txtstreet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtstreetActionPerformed(evt);
             }
         });
-        add(txtstreet, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 428, 220, -1));
+        add(txtstreet, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 220, -1));
 
         txtcity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcityActionPerformed(evt);
             }
         });
-        add(txtcity, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 470, 220, -1));
+        add(txtcity, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 220, -1));
 
         txtzipcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtzipcodeActionPerformed(evt);
             }
         });
-        add(txtzipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 511, 220, -1));
-        add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 307, 220, -1));
+        add(txtzipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 220, -1));
+        add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 220, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Beds:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 550, 40, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 40, -1));
 
         txtbedcount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtbedcountActionPerformed(evt);
             }
         });
-        add(txtbedcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 552, 220, -1));
+        add(txtbedcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 220, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
@@ -240,17 +238,6 @@ private JPanel topPanel;
         });
         add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 65, 220, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setText("Last Name:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 225, -1, 23));
-
-        txtlname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtlnameActionPerformed(evt);
-            }
-        });
-        add(txtlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 225, 220, -1));
-
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel12.setText("PLEASE FILL THE FORM FOR REGISTRATION");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
@@ -264,10 +251,10 @@ private JPanel topPanel;
                 btnregisterMousePressed(evt);
             }
         });
-        add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 120, 30));
+        add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 120, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (4).png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 350, 250, 280));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 250, 280));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -327,10 +314,6 @@ private JPanel topPanel;
         }
     }//GEN-LAST:event_networkComboBoxActionPerformed
 
-    private void txtlnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtlnameActionPerformed
-
     private void btnregisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnregisterMousePressed
         // TODO add your handling code here:
         
@@ -340,7 +323,7 @@ private JPanel topPanel;
         char[] passwordCharArray = passwordfield.getPassword();
         String password = String.valueOf(passwordCharArray);
 
-        if (txtfname.getText().isEmpty() || txtlname.getText().isEmpty() || txtusername.getText().isEmpty()
+        if (txtfname.getText().isEmpty() || txtusername.getText().isEmpty()
                 || passwordfield.getText().isEmpty() || txtemailid.getText().isEmpty() || txtstreet.getText().isEmpty()
                 || txtzipcode.getText().isEmpty() || txtcity.getText().isEmpty() || txtphone.getText().isEmpty() || txtbedcount.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
@@ -350,20 +333,11 @@ private JPanel topPanel;
         boolean flagfname = validation.isNameValid(txtfname.getText());
 
         if (flagfname == false) {
-            JOptionPane.showMessageDialog(null, "First Name cannot have integer values!");
+            JOptionPane.showMessageDialog(null, "Name cannot have integer values!");
             return;
         } else {
             h.setName(txtfname.getText());
-        }
-        
-        boolean flaglname = validation.isNameValid(txtlname.getText());
-
-        if (flagfname == false) {
-            JOptionPane.showMessageDialog(null, "Last Name cannot have integer values!");
-            return;
-        } else {
-            h.setName(txtlname.getText());
-        }
+        }      
 
         boolean flagusername = validation.isUserNameValid(txtusername.getText());
 
@@ -478,7 +452,6 @@ private JPanel topPanel;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<Object> networkComboBox;
@@ -488,7 +461,6 @@ private JPanel topPanel;
     private javax.swing.JTextField txtcity;
     private javax.swing.JTextField txtemailid;
     private javax.swing.JTextField txtfname;
-    private javax.swing.JTextField txtlname;
     private javax.swing.JTextField txtphone;
     private javax.swing.JTextField txtstreet;
     private javax.swing.JTextField txtusername;

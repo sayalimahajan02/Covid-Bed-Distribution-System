@@ -56,15 +56,18 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.requests = requests;
         this.campadmin = campadmin;
         this.patient = patient;
+        this.account=account;
         this.system = system;
         this.organization = organization;
         this.enterprise = enterprise;
         this.userProcessorcontainer = userProcessContainer;
         this.setSize(1680, 1050);
         
+        txtbeds.setEnabled(false);
+        txtrequests.setEnabled(false);
         txtbeds.setText(String.valueOf(hospital.getBedcount()));
         txtrequests.setText(String.valueOf(hospital.getRequestcount()));
-        txtbedrequirement.setText(String.valueOf(requests.getRequiredBeds()));
+        //txtbedrequirement.setText(String.valueOf(requests.getRequiredBeds()));
         populatePatientTable();
         
     }
@@ -397,10 +400,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }
         HospitalNgoRequests requests=new HospitalNgoRequests(this.hospital, status.New, Integer.parseInt(txtbedrequirement.getText()));
-//        requests.setHospital(this.hospital);  //hospital.getName();
-//        requests.setStatus(status.New); //status.New.getValue();
-//        requests.setRequiredBeds(Integer.parseInt(txtbedrequirement.getText()));
-        //requests.setRequiredBeds();
         system.getnGODirectory().getHospitalNgoDirectory().addHospitalRequests(requests);
         JOptionPane.showMessageDialog(null, "Camp Request Sent!");
     }//GEN-LAST:event_btnrequestcampMousePressed
@@ -419,7 +418,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         
          int selectedRow = tblpatient.getSelectedRow();
         
-        if (selectedRow < 0){
+        if (tblpatient.getSelectedRowCount()!=1){
             JOptionPane.showMessageDialog(null,"Please select a row");
             return;
         }
@@ -428,12 +427,19 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
        
         Integer patientId = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
         Patient p = system.getPatientDirectory().getPatientByID(patientId);
-        p.setStatus(Status.Allocated);
+        if(!p.getPatientstatus().equalsIgnoreCase(status.Allocation.getValue())){
+            JOptionPane.showMessageDialog(null,"Patient is already Allocated to hospital");
+           return;
+        }
+        p.setPatientstatus(Status.Allocated.getValue());
         tblpatient.setValueAt(Status.Allocated.getValue(), selectedRow, 5);
         this.patient = p;
+        this.hospital.setBedcount(this.hospital.getBedcount()-1);
+        this.hospital.setRequestcount(this.hospital.getRequestcount()-1);
+        txtbeds.setText(String.valueOf(hospital.getBedcount()));
+        txtrequests.setText(String.valueOf(hospital.getRequestcount()));
         hospital.addPatient(patient);
         JOptionPane.showMessageDialog(null, "Patient Approved!");
-        
         populateAmbulanceTable();
         populatePatientCareStaffTable();
         
@@ -441,11 +447,15 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnassignambulanceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnassignambulanceMousePressed
         // TODO add your handling code here:
-        
+         if(this.patient==null)
+        {
+         JOptionPane.showMessageDialog(null,"Please first allocate patient");
+            return;   
+        }
         int selectedRow = tblambulance.getSelectedRow();
         
-        if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null,"Please select a row");
+        if (tblambulance.getSelectedRowCount() != 1){
+            JOptionPane.showMessageDialog(null,"Please select a Ambulance driver for patient");
             return;
         }
         
@@ -466,11 +476,19 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnassignstaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnassignstaffMousePressed
         // TODO add your handling code here:
+        if(this.patient==null)
+        {
+         JOptionPane.showMessageDialog(null,"Please first allocate patient");
+            return;   
+        }
+        if(this.patient.getAmbulancedriver()==null){
+            JOptionPane.showMessageDialog(null,"Please first select a Ambulance for patient");
+            return; 
+        }
+        int selectedRow = tblpcs.getSelectedRow();
         
-        int selectedRow = tblambulance.getSelectedRow();
-        
-        if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null,"Please select a row");
+       if (tblpcs.getSelectedRowCount() != 1){
+            JOptionPane.showMessageDialog(null,"Please select a Patientcare staff for patient");
             return;
         }
         
@@ -535,7 +553,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblambulance.getModel();
         model.setRowCount(0);
         for (AmbulanceDriver ambulancedriver : system.getAmbulanceDriverDirectory().getAmbulanceDriverDirectory()) {
-
+            if(this.hospital.getHospitalID()==ambulancedriver.getHospital().getHospitalID())
             if (ambulancedriver.getAvailability()) {
                 Object[] row = new Object[5];
                 row[0] = ambulancedriver.getId();
@@ -553,7 +571,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblpcs.getModel();
         model.setRowCount(0);
         for (PatientCareStaff patientcarestaff : system.getPatientCareStaffDirectory().getPatientCareStaffDirectory()) {
-
+            if(this.hospital.getHospitalID()==patientcarestaff.getHospital().getHospitalID())
             if (patientcarestaff.getAvailability()) {
                 Object[] row = new Object[5];
                 row[0] = patientcarestaff.getPatientcarestaffID();

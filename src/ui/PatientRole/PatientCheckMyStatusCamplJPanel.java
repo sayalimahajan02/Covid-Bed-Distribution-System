@@ -8,6 +8,7 @@ package ui.PatientRole;
 import Business.Hospital.Patient;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -31,15 +32,20 @@ public class PatientCheckMyStatusCamplJPanel extends javax.swing.JPanel {
     }
 
     public void populateData() {
-        hospitalName.setText(p.getHospital().getName());
-        hospContactNo.setText(p.getHospital().getPhonenumber());
-        hospAddress.setText(p.getHospital().getStreetaddress() + ", " + p.getHospital().getCity() + ", " + p.getHospital().getZipcode());
-        vehicleNumber.setText(p.getAmbulancedriver().getAmbulanceNumber());
-        driverName.setText(p.getAmbulancedriver().getDriverFirstName() + " " + p.getAmbulancedriver().getDriverLastName());
-        driverContactNumber.setText(p.getAmbulancedriver().getPhoneNumber());
-        patientCareStaffContactNo.setText(p.getPatientcarestaff().getPhonenumber());
-        patientCareStaffName.setText(p.getPatientcarestaff().getPhonenumber());
-        patientStatus.setText(p.getPatientstatus());
+        try {
+            hospitalName.setText(p.getHospital().getName());
+            hospContactNo.setText(p.getHospital().getPhonenumber());
+            hospAddress.setText(p.getHospital().getStreetaddress() + ", " + p.getHospital().getCity() + ", " + p.getHospital().getZipcode());
+            vehicleNumber.setText(p.getAmbulancedriver().getAmbulanceNumber());
+            driverName.setText(p.getAmbulancedriver().getDriverFirstName() + " " + p.getAmbulancedriver().getDriverLastName());
+            driverContactNumber.setText(p.getAmbulancedriver().getPhoneNumber());
+            patientCareStaffContactNo.setText(p.getPatientcarestaff().getPhonenumber());
+            patientCareStaffName.setText(p.getPatientcarestaff().getPhonenumber());
+            patientStatus.setText(p.getPatientstatus());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please wait. Your request is in progress!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
     }
 
     /**
@@ -118,47 +124,38 @@ public class PatientCheckMyStatusCamplJPanel extends javax.swing.JPanel {
         jLabel12.setText("Camp Address:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, 20));
 
-        hospitalName.setText("A");
         hospitalName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(hospitalName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 282, 20));
 
         hospAddress.setBackground(new java.awt.Color(51, 51, 51));
-        hospAddress.setText("B");
         hospAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(hospAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 282, 20));
 
         hospContactNo.setBackground(new java.awt.Color(51, 51, 51));
-        hospContactNo.setText("B");
         hospContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(hospContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 282, 20));
 
         driverName.setBackground(new java.awt.Color(51, 51, 51));
-        driverName.setText("B");
         driverName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(driverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 282, 20));
 
         vehicleNumber.setBackground(new java.awt.Color(51, 51, 51));
-        vehicleNumber.setText("B");
         vehicleNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(vehicleNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 282, 20));
 
         patientCareStaffName.setBackground(new java.awt.Color(51, 51, 51));
-        patientCareStaffName.setText("B");
         patientCareStaffName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(patientCareStaffName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 282, 20));
 
         driverContactNumber.setBackground(new java.awt.Color(51, 51, 51));
-        driverContactNumber.setText("B");
         driverContactNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(driverContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 282, 20));
 
         patientStatus.setBackground(new java.awt.Color(51, 51, 51));
-        patientStatus.setText("B");
         patientStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(patientStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 282, 20));
 
         patientCareStaffContactNo.setBackground(new java.awt.Color(51, 51, 51));
-        patientCareStaffContactNo.setText("B");
         patientCareStaffContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(patientCareStaffContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 282, 20));
 

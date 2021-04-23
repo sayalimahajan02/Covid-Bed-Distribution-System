@@ -10,6 +10,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.Driver.PrivateDriver;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Hospital.Patient;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.Image;
@@ -169,7 +170,9 @@ public void populatePrivateDriverDetails(){
         if (privDriverjTable.getSelectedRowCount() == 1) {
         
             try {
-                PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserById(Integer.parseInt((String)privDriverjTable.getValueAt(selectedRowIndex, 0)));
+                DefaultTableModel model = (DefaultTableModel) privDriverjTable.getModel();
+                Integer privdriverId = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+                PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserById(privdriverId);
                 byte[] image= privateDriver.getLicImage();
                 //additional code
                 InputStream is = new ByteArrayInputStream(image);
@@ -192,9 +195,13 @@ public void populatePrivateDriverDetails(){
         // TODO add your handling code here:
         
         int selectedRowIndex = privDriverjTable.getSelectedRow();
+         DefaultTableModel model = (DefaultTableModel) privDriverjTable.getModel();
+       
+        Integer privateDriverId = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        PrivateDriver privateDriver = system.getPrivateDriverDirectory().getUserById(privateDriverId);
         if (privDriverjTable.getSelectedRowCount() == 1) {
         
-             PrivateDriver privateDriver=system.getPrivateDriverDirectory().getUserByFullName((String)privDriverjTable.getValueAt(selectedRowIndex, 4));
+             
              privateDriver.setIsAuthorized(true);
              JOptionPane.showMessageDialog(null, "Driver has been Authorized successfully");
              populatePrivateDriverDetails();

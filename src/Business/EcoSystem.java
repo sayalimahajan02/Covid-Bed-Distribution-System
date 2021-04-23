@@ -303,7 +303,4 @@ public class EcoSystem extends Organization {
         }
     }
     
-    public static void main(String args[]){
-        sendEmailMessage("sayalimahjan18@gmail.com","hiiii test email");
-    }
 }

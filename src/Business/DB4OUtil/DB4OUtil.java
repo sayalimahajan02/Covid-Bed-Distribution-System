@@ -39,7 +39,7 @@ public class DB4OUtil {
 
             EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
             config.common().add(new TransparentPersistenceSupport());
-            //config.common().objectClass(Timestamp.class).translate(new TSerializable());
+            config.common().objectClass(Timestamp.class).translate(new TSerializable());
             //Controls the number of objects in memory
             config.common().activationDepth(Integer.MAX_VALUE);
             //Controls the depth/level of updation of Object

@@ -8,6 +8,7 @@ package Business.Voluntary;
 import Business.Hospital.Hospital;
 import Business.Hospital.Patient;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -29,6 +30,7 @@ public class CampAdmin {
     private NGO ngo;
     private ArrayList<Patient> patientlist;
     private int id;
+    private boolean isCampAvailable = true;
 
     public CampAdmin() {
         this.patientlist = new ArrayList<Patient>();
@@ -181,6 +183,48 @@ public class CampAdmin {
         this.ngo = ngo;
     }
 
+     public boolean isIsCampAvailable() {
+        return isCampAvailable;
+    }
+
+    public void setIsCampAvailable(boolean isCampAvailable) {
+        this.isCampAvailable = isCampAvailable;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + Objects.hashCode(this.userName);
+        hash = 37 * hash + this.id;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CampAdmin other = (CampAdmin) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.userName, other.userName)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
     
 }

@@ -362,6 +362,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         system.getAmbulanceDriverDirectory().add(ambDriver);
         UserAccount account = org.getUserAccountDirectory().createUserAccount(usernameText.getText(), password, employee, new AmbulanceDriverRole());
         dB4OUtil.storeSystem(system);
+        JOptionPane.showMessageDialog(null, "Information Saved!");
     }//GEN-LAST:event_RegisterjButtonMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

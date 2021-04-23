@@ -67,8 +67,22 @@ public class PatientDirectory {
     public int getPatientsRequestsByCamp(CampAdmin ca) {
         int count = 0;
         for (Patient p : PatientDirectory) {
-            if (p.getCampadmin().equals(ca)) {
-                count++;
+            if (p.getCampadmin() != null && p.getPatientstatus() == "Allocation") {
+                if (p.getCampadmin().equals(ca)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int getPatientsRequestsByHospital(Hospital h) {
+        int count = 0;
+        for (Patient p : PatientDirectory) {
+            if (p.getHospital() != null && p.getPatientstatus() == "Allocation") {
+                if (p.getHospital().equals(h)) {
+                    count++;
+                }
             }
         }
         return count;

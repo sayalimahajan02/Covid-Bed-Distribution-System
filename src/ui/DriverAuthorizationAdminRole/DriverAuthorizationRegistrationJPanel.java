@@ -86,7 +86,6 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         lastNameTxt = new javax.swing.JTextField();
         emailTxt = new javax.swing.JTextField();
         passwordTxt = new javax.swing.JPasswordField();
-        backBtn = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -96,6 +95,7 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         registerButton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -134,14 +134,6 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 220, -1));
         add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 220, -1));
         add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 220, -1));
-
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 22, 102, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
@@ -188,13 +180,15 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/literature.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 270, 320));
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        jPanel.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 40, 50));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
         // TODO add your handling code here:
@@ -264,10 +258,17 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Driver Authorization role has been created successfully. Please login");
     }//GEN-LAST:event_registerButtonMousePressed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        
+         this.setVisible(false);
+        jPanel.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField UsernameTxt;
-    private javax.swing.JButton backBtn;
+    private javax.swing.JLabel back;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;

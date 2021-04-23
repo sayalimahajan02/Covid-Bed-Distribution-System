@@ -103,6 +103,7 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -175,7 +176,7 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, -1, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
@@ -223,6 +224,14 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 600, 90, 30));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
@@ -338,9 +347,17 @@ public class NGORegistrationJPanel extends javax.swing.JPanel {
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_jLabel13MousePressed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        
+         this.setVisible(false);
+        jPanel.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressTxt;
+    private javax.swing.JLabel back;
     private javax.swing.JButton backBtn;
     private javax.swing.JTextField cityText;
     private javax.swing.JTextField emailAddrText;

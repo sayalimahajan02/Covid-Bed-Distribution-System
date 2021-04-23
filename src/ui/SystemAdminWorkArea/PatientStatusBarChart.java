@@ -37,6 +37,7 @@ JPanel userProcessContainer;
         this.userProcessContainer = userProcessContainer;
         this.system = ecosystem;
         populateBarGraph();
+         this.setSize(1680, 1050);
     }
 
     /**
@@ -51,21 +52,38 @@ JPanel userProcessContainer;
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new java.awt.BorderLayout());
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 65, 823, 463));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 65, 770, 460));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("BAR CHART");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 25, 151, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/graph-bar (4).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 151, 137));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 151, 137));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+
+       
+         this.setVisible(false);
+        userProcessContainer.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
 
     private void populateBarGraph() {
         
@@ -129,6 +147,7 @@ JPanel userProcessContainer;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

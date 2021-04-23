@@ -52,7 +52,10 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         patientStatTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -86,16 +89,24 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(patientStatTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 900, 194));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 900, 194));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/information.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 244, 600, 360));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 600, 360));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/patient (6).png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 130, 140));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable patientStatTable;
     // End of variables declaration//GEN-END:variables

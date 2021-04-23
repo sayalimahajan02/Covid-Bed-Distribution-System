@@ -60,7 +60,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.organization = organization;
         this.enterprise = enterprise;
         this.userProcessorcontainer = userProcessContainer;
-        
+        this.setSize(1680, 1050);
         
         txtbeds.setText(String.valueOf(hospital.getBedcount()));
         txtrequests.setText(String.valueOf(hospital.getRequestcount()));

@@ -43,9 +43,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         this.system = system;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = container;
-        VerifyjButton.setVisible(false);
-        verificationCOdejLabel.setVisible(false);
-        verificationCodeTxt.setVisible(false);
+        
         this.setSize(1680, 1050);
         populateHospitalDetails();
         populateNetworkComboBox();
@@ -101,9 +99,6 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         userNameTxt = new javax.swing.JLabel();
         passwordTxt = new javax.swing.JLabel();
         usernameText = new javax.swing.JTextField();
-        verificationCOdejLabel = new javax.swing.JLabel();
-        verificationCodeTxt = new javax.swing.JTextField();
-        VerifyjButton = new javax.swing.JButton();
         jPasswordField2 = new javax.swing.JPasswordField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -115,131 +110,114 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         RegisterjButton = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("First Name :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Last Name :");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Phone Number :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Age :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Ambulance Number :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Hospital :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         hospitaljComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hospitaljComboBoxActionPerformed(evt);
             }
         });
-        add(hospitaljComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 168, -1));
+        add(hospitaljComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 168, -1));
 
         lastNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTxtActionPerformed(evt);
             }
         });
-        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 168, -1));
+        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 168, -1));
 
         ambulanceNumberTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ambulanceNumberTxtActionPerformed(evt);
             }
         });
-        add(ambulanceNumberTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 168, -1));
+        add(ambulanceNumberTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 168, -1));
 
         ageTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTxtActionPerformed(evt);
             }
         });
-        add(ageTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 168, -1));
+        add(ageTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 168, -1));
 
         firstNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTxtActionPerformed(evt);
             }
         });
-        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 168, -1));
+        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 168, -1));
 
         phoneTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneTxtActionPerformed(evt);
             }
         });
-        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 168, -1));
+        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 168, -1));
 
         userNameTxt.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         userNameTxt.setText("UserName :");
-        add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 70, -1));
+        add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 70, -1));
 
         passwordTxt.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         passwordTxt.setText("Password :");
-        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
-        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 168, -1));
-
-        verificationCOdejLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        verificationCOdejLabel.setText("Verification code :");
-        add(verificationCOdejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, -1, -1));
-
-        verificationCodeTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verificationCodeTxtActionPerformed(evt);
-            }
-        });
-        add(verificationCodeTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 59, -1));
-
-        VerifyjButton.setText("Verify");
-        VerifyjButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VerifyjButtonActionPerformed(evt);
-            }
-        });
-        add(VerifyjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, -1, -1));
-        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 168, -1));
+        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, -1));
+        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 168, -1));
+        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 168, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setText("Enterprise:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Organization:");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
-        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 168, -1));
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 168, -1));
 
         enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 168, -1));
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 168, -1));
 
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 168, -1));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 168, -1));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
@@ -251,7 +229,7 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 80, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 80, -1));
 
         RegisterjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         RegisterjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -262,10 +240,18 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
                 RegisterjButtonMousePressed(evt);
             }
         });
-        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 620, 100, 30));
+        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 100, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ambulance (2).png"))); // NOI18N
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 260, 440));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 260, 440));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void hospitaljComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaljComboBoxActionPerformed
@@ -308,36 +294,17 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_networkComboBoxActionPerformed
 
-    private void VerifyjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerifyjButtonActionPerformed
-        // TODO add your handling code here:
-        if (phoneTxt.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter your phone number first");
-            return;
-        }
-        verificationCOdejLabel.setVisible(true);
-        verificationCodeTxt.setVisible(true);
-        Random random = new Random();
-        this.randomCode = String.format("%04d", random.nextInt(10000));
-        // SendSMS sendSMS = new SendSMS(phoneTxt.getText(), "Code : "+ randomCode);
-        JOptionPane.showMessageDialog(null, "Please enter verification code received on registered mobile number");
-    }//GEN-LAST:event_VerifyjButtonActionPerformed
-
-    private void verificationCodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificationCodeTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verificationCodeTxtActionPerformed
-
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-       // jpanel.setVisible(true);
+        userProcessorcontainer.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void RegisterjButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterjButtonMousePressed
         // TODO add your handling code here:
         
          Organization org = (Organization) orgComboBox.getSelectedItem();
-        verificationCOdejLabel.setVisible(false);
-        verificationCodeTxt.setVisible(false);
+        
         char[] passwordCharArray = jPasswordField2.getPassword();
         String password = String.valueOf(passwordCharArray);
         if (hospitaljComboBox.getSelectedIndex() == -1 || firstNameTxt.getText().isEmpty() || lastNameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || ageTxt.getText().isEmpty() || ambulanceNumberTxt.getText().isEmpty()) {
@@ -387,12 +354,19 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_RegisterjButtonMousePressed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        
+         this.setVisible(false);
+        userProcessorcontainer.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel RegisterjButton;
-    private javax.swing.JButton VerifyjButton;
     private javax.swing.JTextField ageTxt;
     private javax.swing.JTextField ambulanceNumberTxt;
+    private javax.swing.JLabel back;
     private javax.swing.JButton backBtn;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;
@@ -416,8 +390,6 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField phoneTxt;
     private javax.swing.JLabel userNameTxt;
     private javax.swing.JTextField usernameText;
-    private javax.swing.JLabel verificationCOdejLabel;
-    private javax.swing.JTextField verificationCodeTxt;
     // End of variables declaration//GEN-END:variables
 
     private void populateHospitalDetails() {

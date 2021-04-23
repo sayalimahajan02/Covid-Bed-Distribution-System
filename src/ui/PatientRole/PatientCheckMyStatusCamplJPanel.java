@@ -27,6 +27,7 @@ public class PatientCheckMyStatusCamplJPanel extends javax.swing.JPanel {
         this.p = p;
         this.userProcessContainer = userProcessContainer;
         populateData();
+         this.setSize(1680, 1050);
     }
 
     public void populateData() {
@@ -70,8 +71,8 @@ public class PatientCheckMyStatusCamplJPanel extends javax.swing.JPanel {
         driverContactNumber = new javax.swing.JLabel();
         patientStatus = new javax.swing.JLabel();
         patientCareStaffContactNo = new javax.swing.JLabel();
-        backButton = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -161,31 +162,31 @@ public class PatientCheckMyStatusCamplJPanel extends javax.swing.JPanel {
         patientCareStaffContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         add(patientCareStaffContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 282, 20));
 
-        backButton.setText("<<Back");
-        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                backButtonMousePressed(evt);
-            }
-        });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 50, -1));
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/business-report.png"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 260, 320));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMousePressed
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
+         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        PatientWorkAreaJPanel dwjp = (PatientWorkAreaJPanel) component;
+        PatientWorkAreaJPanel workareajpanel = (PatientWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backButtonMousePressed
+    }//GEN-LAST:event_backMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel backButton;
+    private javax.swing.JLabel back;
     private javax.swing.JLabel driverContactNumber;
     private javax.swing.JLabel driverName;
     private javax.swing.JLabel hospAddress;

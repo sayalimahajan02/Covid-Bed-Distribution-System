@@ -47,6 +47,7 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         this.userProcessContainer = container;
         populateNetworkComboBox();
         populateHospitalDetails();
+        this.setSize(1680, 1050);
     }
 
     private void populateNetworkComboBox() {
@@ -108,6 +109,7 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         btnregister = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -241,6 +243,14 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 240, 310));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -395,8 +405,15 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Information Saved!");
     }//GEN-LAST:event_btnregisterMousePressed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        userProcessContainer.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel btnregister;
     private javax.swing.JComboBox<String> combohospital;

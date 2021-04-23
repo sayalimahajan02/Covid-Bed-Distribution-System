@@ -45,7 +45,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         this.system = system;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = container;
-        this.setSize(1680, 1050);
+         this.setSize(1680, 1050);
         populateHospitalDetails();
         populateNetworkComboBox();
     }
@@ -115,117 +115,118 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         uploadjButton = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("First Name :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Last Name :");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Phone Number :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Age :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Ambulance Number :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 530, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("CampSite :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
 
         lastNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTxtActionPerformed(evt);
             }
         });
-        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 168, -1));
+        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, 168, -1));
 
         ambulanceNumberTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ambulanceNumberTxtActionPerformed(evt);
             }
         });
-        add(ambulanceNumberTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 168, -1));
+        add(ambulanceNumberTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, 168, -1));
 
         ageTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTxtActionPerformed(evt);
             }
         });
-        add(ageTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 168, -1));
+        add(ageTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 168, -1));
 
         firstNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTxtActionPerformed(evt);
             }
         });
-        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 170, -1));
+        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 170, -1));
 
         phoneTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneTxtActionPerformed(evt);
             }
         });
-        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 168, -1));
+        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 570, 168, -1));
 
         userNamelbl.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         userNamelbl.setText("UserName :");
-        add(userNamelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+        add(userNamelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, -1));
 
         passwordlbl.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         passwordlbl.setText("Password :");
-        add(passwordlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, -1));
-        add(usernameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 170, -1));
+        add(passwordlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+        add(usernameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 170, -1));
 
-        add(campjComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 170, -1));
+        add(campjComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         jLabel9.setText("upload driving license photo (.jpeg or .png)");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 660, -1, 16));
-        add(emailTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 170, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, -1, 16));
+        add(emailTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 610, 170, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Driving License Number: ");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, -1, -1));
-        add(uploadsuccessLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 570, 180, 19));
-        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 170, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 610, -1, -1));
+        add(uploadsuccessLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 180, 19));
+        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 170, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setText("Enterprise:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Organization:");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
-        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 170, -1));
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 170, -1));
 
         enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 170, -1));
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 170, -1));
 
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 170, -1));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 170, -1));
 
         RegisterjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         RegisterjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -236,7 +237,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                 RegisterjButtonMousePressed(evt);
             }
         });
-        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 770, 100, 30));
+        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 780, 100, 30));
 
         uploadjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         uploadjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -247,15 +248,23 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                 uploadjButtonMousePressed(evt);
             }
         });
-        add(uploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 690, 80, 30));
+        add(uploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 80, 30));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driver.png"))); // NOI18N
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 270, 340));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 270, 340));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampsitejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampsitejComboBoxActionPerformed
@@ -398,11 +407,19 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_uploadjButtonMousePressed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+
+       this.setVisible(false);
+        userProcessorcontainer.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel RegisterjButton;
     private javax.swing.JTextField ageTxt;
     private javax.swing.JTextField ambulanceNumberTxt;
+    private javax.swing.JLabel back;
     private javax.swing.JComboBox<String> campjComboBox;
     private javax.swing.JTextField emailTxt1;
     private javax.swing.JComboBox<Object> enterpriseComboBox;

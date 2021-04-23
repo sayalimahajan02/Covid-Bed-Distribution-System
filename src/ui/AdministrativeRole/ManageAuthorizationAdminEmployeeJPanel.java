@@ -48,14 +48,16 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         organizationJTable = new javax.swing.JTable();
-        backJButton = new javax.swing.JButton();
         organizationEmpJComboBox = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         nameJTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         addJButton = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -104,14 +106,6 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 209, 480, 100));
 
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
-
         add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 210, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -136,6 +130,12 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/unauthorized-person.png"))); // NOI18N
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 250, 340, 320));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (6).png"))); // NOI18N
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 140));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateOrganizationComboBox() {
@@ -157,12 +157,6 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
             populateTable(organization);
         }
     }//GEN-LAST:event_organizationJComboBoxActionPerformed
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
 
     private void addJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMousePressed
         // TODO add your handling code here:
@@ -190,12 +184,13 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addJButton;
-    private javax.swing.JButton backJButton;
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationEmpJComboBox;

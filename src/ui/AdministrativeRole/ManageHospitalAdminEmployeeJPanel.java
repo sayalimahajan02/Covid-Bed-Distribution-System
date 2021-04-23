@@ -70,7 +70,6 @@ public class ManageHospitalAdminEmployeeJPanel extends javax.swing.JPanel {
         organizationJTable = new javax.swing.JTable();
         organizationJComboBox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
-        backJButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         nameJTextField = new javax.swing.JTextField();
         organizationEmpJComboBox = new javax.swing.JComboBox();
@@ -78,7 +77,10 @@ public class ManageHospitalAdminEmployeeJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         addJButton = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -113,42 +115,34 @@ public class ManageHospitalAdminEmployeeJPanel extends javax.swing.JPanel {
             organizationJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 480, 92));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 480, 92));
 
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationJComboBoxActionPerformed(evt);
             }
         });
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 160, 194, -1));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 194, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Organization");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 164, -1, -1));
-
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 24, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Name:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 394, -1, -1));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 391, 195, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 195, -1));
 
-        add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 335, 195, -1));
+        add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 195, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Organization:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 339, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MANAGE HOSPITAL ADMIN EMPLOYEE");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 770, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 440, 30));
 
         addJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         addJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -159,17 +153,17 @@ public class ManageHospitalAdminEmployeeJPanel extends javax.swing.JPanel {
                 addJButtonMousePressed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 463, 127, 27));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 127, 27));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (2).png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 284, 250, 250));
-    }// </editor-fold>//GEN-END:initComponents
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 250, 260));
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (7).png"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
@@ -194,12 +188,13 @@ public class ManageHospitalAdminEmployeeJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addJButton;
-    private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationEmpJComboBox;

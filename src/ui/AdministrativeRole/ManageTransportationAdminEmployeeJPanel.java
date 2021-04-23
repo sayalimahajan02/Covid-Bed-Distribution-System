@@ -69,7 +69,6 @@ public class ManageTransportationAdminEmployeeJPanel extends javax.swing.JPanel 
     private void initComponents() {
 
         jLabel6 = new javax.swing.JLabel();
-        backJButton = new javax.swing.JButton();
         organizationJComboBox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -80,32 +79,27 @@ public class ManageTransportationAdminEmployeeJPanel extends javax.swing.JPanel 
         jLabel2 = new javax.swing.JLabel();
         addJButton = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MANAGE TRANSPORTATION ADMIN EMPLOYEE");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 820, 30));
-
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 34, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 460, 30));
 
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationJComboBoxActionPerformed(evt);
             }
         });
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 145, 204, -1));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 204, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Organization");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 149, -1, -1));
+        jLabel1.setText("Organization:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,18 +129,18 @@ public class ManageTransportationAdminEmployeeJPanel extends javax.swing.JPanel 
         });
         jScrollPane1.setViewportView(organizationJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 216, 540, 92));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 540, 92));
 
-        add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 193, -1));
+        add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 193, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Organization");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 193, 20));
+        jLabel3.setText("Organization:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 193, 20));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, 20));
+        jLabel2.setText("Name:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, -1, 20));
 
         addJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         addJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -157,10 +151,16 @@ public class ManageTransportationAdminEmployeeJPanel extends javax.swing.JPanel 
                 addJButtonMousePressed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 110, 30));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 110, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager (1).png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 230, 300));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 230, 300));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (9).png"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
@@ -169,12 +169,6 @@ public class ManageTransportationAdminEmployeeJPanel extends javax.swing.JPanel 
             populateTable(organization);
         }
     }//GEN-LAST:event_organizationJComboBoxActionPerformed
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
 
     private void addJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMousePressed
         // TODO add your handling code here:
@@ -192,11 +186,12 @@ public class ManageTransportationAdminEmployeeJPanel extends javax.swing.JPanel 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addJButton;
-    private javax.swing.JButton backJButton;
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;

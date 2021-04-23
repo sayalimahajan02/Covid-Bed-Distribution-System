@@ -105,11 +105,13 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         approvePatientBtn = new javax.swing.JLabel();
         assignPvtDriverBtn = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         requestStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         patientComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jPanel1.setBackground(new java.awt.Color(247, 247, 247));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 609, -1, -1));
 
@@ -284,7 +286,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btncheckallMousePressed(evt);
             }
         });
-        jPanel1.add(btncheckall, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 160, 30));
+        jPanel1.add(btncheckall, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 160, 30));
 
         assignStaffBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         assignStaffBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -333,15 +335,23 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 510, 850));
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/office-building.png"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 130));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1099, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -504,6 +514,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

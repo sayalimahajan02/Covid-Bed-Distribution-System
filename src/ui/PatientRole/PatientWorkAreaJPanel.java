@@ -56,7 +56,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userProcessorcontainer = userProcessContainer;
         this.account = account;
-        
+         this.setSize(1680, 1050);
         lblpatientstatus.setText(patient.getPatientstatus());
     }
 
@@ -82,7 +82,6 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         hospitaltable = new javax.swing.JTable();
-        btnback = new javax.swing.JButton();
         lblreport = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblpatientstatus = new javax.swing.JLabel();
@@ -126,14 +125,6 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(hospitaltable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 794, 170));
-
-        btnback.setText("<<Back");
-        btnback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbackActionPerformed(evt);
-            }
-        });
-        add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         lblreport.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 153, 153)));
         add(lblreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 170, 190, 72));
@@ -202,10 +193,6 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/patient (5).png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, -20, 260, 470));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnemergencyMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnemergencyMousePressed
         // TODO add your handling code here:
@@ -292,7 +279,6 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnback;
     private javax.swing.JLabel btnemergency;
     private javax.swing.JLabel btnfindbeds;
     private javax.swing.JLabel btnproceed;

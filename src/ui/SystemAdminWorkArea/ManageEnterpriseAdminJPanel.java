@@ -37,7 +37,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-
+         this.setSize(1680, 1050);
         populateTable();
         populateNetworkComboBox();
     }
@@ -94,11 +94,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         nameJTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         passwordJPasswordField = new javax.swing.JPasswordField();
-        backJButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         submitJButton = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -158,14 +158,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel5.setText("Name");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 385, -1, -1));
         add(passwordJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 344, 134, -1));
-
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, -1, -1));
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 22, 795, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -189,6 +181,14 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("MANAGE ENTERPRISE ADMIN");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 540, -1));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
@@ -197,16 +197,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             populateEnterpriseComboBox(network);
         }
     }//GEN-LAST:event_networkJComboBoxActionPerformed
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        sysAdminwjp.populateTree();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
 
     private void submitJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitJButtonMousePressed
         // TODO add your handling code here:
@@ -258,8 +248,20 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                               
     }//GEN-LAST:event_submitJButtonMousePressed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+
+       userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        sysAdminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backMousePressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backJButton;
+    private javax.swing.JLabel back;
     private javax.swing.JComboBox enterpriseJComboBox;
     private javax.swing.JTable enterpriseJTable;
     private javax.swing.JLabel jLabel1;

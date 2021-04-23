@@ -30,7 +30,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-
+         this.setSize(1680, 1050);
         populateNetworkTable();
     }
 
@@ -61,6 +61,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,7 +136,15 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(25, 56, 82));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MANAGE NETWORK");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 380, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 380, -1));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -170,7 +179,20 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNetworkNameActionPerformed
 
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+
+       userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        sysAdminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backMousePressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel btnSubmit;
     private javax.swing.JLabel jLabel1;

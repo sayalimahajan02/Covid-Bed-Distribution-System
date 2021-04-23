@@ -57,7 +57,6 @@ public class ManageAuthorizationAdminOrganizationJPanel extends javax.swing.JPan
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backJButton = new javax.swing.JButton();
         organizationJComboBox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -65,16 +64,11 @@ public class ManageAuthorizationAdminOrganizationJPanel extends javax.swing.JPan
         jLabel2 = new javax.swing.JLabel();
         addJButton = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 32, -1, -1));
 
         add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 351, 203, -1));
 
@@ -130,13 +124,13 @@ public class ManageAuthorizationAdminOrganizationJPanel extends javax.swing.JPan
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (5).png"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 300, 280));
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/administrative (1).png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMousePressed
         // TODO add your handling code here:
@@ -153,10 +147,11 @@ public class ManageAuthorizationAdminOrganizationJPanel extends javax.swing.JPan
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addJButton;
-    private javax.swing.JButton backJButton;
+    private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTable organizationJTable;

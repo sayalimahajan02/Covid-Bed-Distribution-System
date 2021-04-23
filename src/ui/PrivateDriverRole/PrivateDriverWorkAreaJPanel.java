@@ -51,7 +51,7 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
     this.organization=organization;
     this.enterprise=enterprise;
     this.business=business;
-    this.setSize(1680, 1050);
+     this.setSize(1680, 1050);
     populatePatientPickUpDetails();
     }
 

@@ -250,12 +250,13 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 260, 440));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void hospitaljComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaljComboBoxActionPerformed
@@ -366,8 +367,13 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
         
-         this.setVisible(false);
-        userProcessorcontainer.setVisible(true);
+         userProcessorcontainer.remove(this);
+        Component[] componentArray = userProcessorcontainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+        layout.previous(userProcessorcontainer);
+        topPanel.setVisible(true); 
     }//GEN-LAST:event_backMousePressed
 
 

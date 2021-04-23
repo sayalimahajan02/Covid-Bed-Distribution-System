@@ -101,7 +101,6 @@ private JPanel topPanel;
         txtstreet = new javax.swing.JTextField();
         txtcity = new javax.swing.JTextField();
         txtzipcode = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
         passwordfield = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         txtbedcount = new javax.swing.JTextField();
@@ -200,14 +199,6 @@ private JPanel topPanel;
             }
         });
         add(txtzipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 511, 220, -1));
-
-        btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 11, 80, -1));
         add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 307, 220, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -279,12 +270,13 @@ private JPanel topPanel;
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 350, 250, 280));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -314,18 +306,6 @@ private JPanel topPanel;
     private void txtzipcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtzipcodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtzipcodeActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-        topPanel.setVisible(true);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtbedcountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbedcountActionPerformed
         // TODO add your handling code here:
@@ -484,7 +464,6 @@ private JPanel topPanel;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
-    private javax.swing.JButton btnBack;
     private javax.swing.JLabel btnregister;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JLabel jLabel1;

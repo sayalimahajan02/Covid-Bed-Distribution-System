@@ -35,7 +35,6 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
     private ValidationUtility validation;
     private EcoSystem system;
     private static DB4OUtil dB4OUtil;
-    private static JPanel userProcessorcontainer;
     private JPanel topPanel;
 
     /**
@@ -247,12 +246,13 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 240, 310));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -415,8 +415,13 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
-        this.setVisible(false);
-        userProcessContainer.setVisible(true);
+         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+        topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
 
 

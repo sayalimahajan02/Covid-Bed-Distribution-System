@@ -87,7 +87,6 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         btnregister = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -214,20 +213,13 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 280, 410));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
-
-        btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, -1));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -396,22 +388,9 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-        topPanel.setVisible(true);
-    }//GEN-LAST:event_btnBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
-    private javax.swing.JButton btnBack;
     private javax.swing.JLabel btnregister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -7,6 +7,8 @@ package ui.SystemAdminWorkArea;
 
 import Business.EcoSystem;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -49,6 +51,7 @@ JPanel userProcessContainer;
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        backJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -62,7 +65,7 @@ JPanel userProcessContainer;
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 780, 507));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pie-chart (1).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 20, 130, 136));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 136));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,6 +74,14 @@ JPanel userProcessContainer;
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, 40, 50));
+
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
@@ -79,6 +90,17 @@ JPanel userProcessContainer;
         this.setVisible(false);
         userProcessContainer.setVisible(true);
     }//GEN-LAST:event_backMousePressed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        sysAdminwjp.populateTree();
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
 
     private void populatePieChart() {
         pieChart = ChartFactory.createPieChart(
@@ -94,6 +116,7 @@ JPanel userProcessContainer;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
+    private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;

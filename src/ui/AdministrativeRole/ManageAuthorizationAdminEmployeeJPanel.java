@@ -56,6 +56,7 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        backJButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(247, 247, 247));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -132,10 +133,18 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 250, 340, 320));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (6).png"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 140));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 130, 140));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateOrganizationComboBox() {
@@ -171,6 +180,12 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
         populateTable(organization);
     }//GEN-LAST:event_addJButtonMousePressed
 
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
+
     private void populateTable(Organization organization) {
         DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
         model.setRowCount(0);
@@ -185,6 +200,7 @@ public class ManageAuthorizationAdminEmployeeJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addJButton;
     private javax.swing.JLabel back;
+    private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

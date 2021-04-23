@@ -38,15 +38,17 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
     private AmbulanceDriver ambulancedriver;
     private PatientCareStaff patientcarestaff;
     private PrivateDriver privatedriver;
-    
+    private JPanel topPanel;
+        
 
     /**
      * Creates new form PatientRegistrationJPanel
      */
-    public PatientRegistrationJPanel(JPanel container, EcoSystem system, DB4OUtil dB4OUtil) {
+    public PatientRegistrationJPanel(JPanel container,JPanel topPanel, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
         this.dB4OUtil = dB4OUtil;
+        this.topPanel=topPanel;
         this.userProcessContainer = container;
         
         this.setSize(1680, 1050);
@@ -85,6 +87,7 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         btnregister = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -217,6 +220,14 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
+
+        btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -382,11 +393,25 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         RegisterJPanel Registerjpanel = (RegisterJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+        topPanel.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
+    private javax.swing.JButton btnBack;
     private javax.swing.JLabel btnregister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

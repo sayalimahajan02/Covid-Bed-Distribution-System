@@ -24,6 +24,7 @@ public class PrivateDriver {
     private boolean isAuthorized;
     private byte[] licImage;
     private String dlNumber;
+    private String emailId;
     private boolean isAvailable;
 
     public String getUserName() {
@@ -123,6 +124,15 @@ public class PrivateDriver {
     public void setDlNumber(String dlNumber) {
         this.dlNumber = dlNumber;
     }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+    
     
     
 }

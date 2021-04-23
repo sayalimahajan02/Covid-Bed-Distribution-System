@@ -12,6 +12,7 @@ import Business.Enterprise.Enterprise;
 import Business.Hospital.Patient;
 import Business.Hospital.PatientCareStaff;
 import Business.Organization.Organization;
+import Business.SendEmail;
 import Business.Status;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
@@ -23,7 +24,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Yash
  */
 public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
-private static EcoSystem system;
+
+    private static EcoSystem system;
     private static DB4OUtil dB4OUtil;
     private static JPanel userProcessorcontainer;
     private JPanel userProcessContainer;
@@ -33,22 +35,23 @@ private static EcoSystem system;
     private EcoSystem business;
     private Status status;
     private PatientCareStaff patientCareStaffLogin;
+
     /**
      * Creates new form PatientCareStaffWorkAreaJPanel
      */
     public PatientCareStaffWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, PatientCareStaff patientCareStaff) {
         initComponents();
-         this.system = business;
+        this.system = business;
         this.dB4OUtil = dB4OUtil;
         this.userProcessorcontainer = userProcessContainer;
-    this.userProcessContainer=userProcessContainer;
-    this.account=account;
-    this.organization=organization;
-    this.enterprise=enterprise;
-    this.business=business;
-    this.patientCareStaffLogin=patientCareStaff;
-    this.setSize(1680, 1050);
-    populatePatientDetails();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.business = business;
+        this.patientCareStaffLogin = patientCareStaff;
+        this.setSize(1680, 1050);
+        populatePatientDetails();
     }
 
     /**
@@ -95,7 +98,7 @@ private static EcoSystem system;
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Patient and Ambulance Assigned");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 196, 27));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 220, 27));
 
         btnback.setText("<<Back");
         add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 21, -1, -1));
@@ -113,34 +116,44 @@ private static EcoSystem system;
                 btncompleteMousePressed(evt);
             }
         });
-        add(btncomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 130, 28));
+        add(btncomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 130, 28));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse (1).png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 360, 260));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 360, 260));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncompleteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncompleteMousePressed
         // TODO add your handling code here:
-        
-         int selectedRowIndex = patientjTable.getSelectedRow();
+
+        int selectedRowIndex = patientjTable.getSelectedRow();
         if (patientjTable.getSelectedRowCount() != 1) {
             JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
             return;
         }
-           DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
-            int selectedRowInd = patientjTable.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
+        int selectedRowInd = patientjTable.getSelectedRow();
         Integer patientId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
         Patient selectedPatient = system.getPatientDirectory().getPatientByID(patientId);
-   
-         if(selectedPatient.getPatientstatus().equals(status.PatientDrop.getValue())){
-         selectedPatient.setPatientstatus(status.Completed.getValue());
-          JOptionPane.showMessageDialog(null, "Patient has been reached to hospital successfully. Workflow has been completed");
-          patientjTable.setValueAt(Status.Allocated.getValue(), selectedRowInd,7);
-         }
-         else{
-             JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
+
+        String patientBed = "";
+        if (selectedPatient.getHospital() != null) {
+            patientBed = selectedPatient.getHospital().getName() + "," + selectedPatient.getHospital().getStreetaddress() + "," + selectedPatient.getHospital().getCity();
+        }
+        if (selectedPatient.getCampadmin() != null) {
+            patientBed = selectedPatient.getCampadmin().getName() + "," + selectedPatient.getCampadmin().getStreet() + "," + selectedPatient.getCampadmin().getCity();
+        }
+        if (selectedPatient.getPatientstatus().equals(status.PatientDrop.getValue())) {
+            selectedPatient.setPatientstatus(status.Completed.getValue());
+            JOptionPane.showMessageDialog(null, "Patient has been successfully assigned a bed at " + patientBed + ". Workflow has been completed");
+            patientjTable.setValueAt(Status.Allocated.getValue(), selectedRowInd, 7);
+            SendEmail.sendEmailMessage(selectedPatient.getEmail(), "Update on your request from Covid Bed Distribution System",
+                    "Hello " + selectedPatient.getFirstname() + " " + selectedPatient.getLastname() + ","
+                    + "\n \nYou have been successfully allotted a Bed at " + patientBed + ".\n\n Hope you get well soon! Please take care! \n\n\nWarm Regards,\n \nTeam Covid Bed Distribution");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
             return;
-         } 
+        }
     }//GEN-LAST:event_btncompleteMousePressed
 
 
@@ -155,34 +168,33 @@ private static EcoSystem system;
     // End of variables declaration//GEN-END:variables
 
     private void populatePatientDetails() {
-         DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
         model.setRowCount(0);
 
-        for(Patient patient : system.getPatientDirectory().getPatientDirectory()){
-             if(patient.getAmbulancedriver()!=null)
-            if((patient.getAmbulancedriver().getId()!=0 || patient.getPrivatedriver().getId()!=0)
-               && patient.getPatientcarestaff().getPatientcarestaffID()==patientCareStaffLogin.getPatientcarestaffID() 
-              && (patient.getPatientstatus().equals(status.PatientPickup.getValue()) || patient.getPatientstatus().equals(status.PatientDrop.getValue()) 
-                    || patient.getPatientstatus().equals(status.Allocated.getValue()) )){
-                Object[] row=new Object[7];
-                row[0] = patient.getPatientID();
-                row[1]=patient.getLastname()+", "+patient.getFirstname();
-                row[2]=patient.getPhonenumber();
-                if(patient.getAmbulancedriver()!=null  && patient.getAmbulancedriver().getId()!=0)
-                {
-                row[3]=patient.getAmbulancedriver().getAmbulanceNumber();
-                row[4]=patient.getAmbulancedriver().getDriverLastName()+", "+patient.getAmbulancedriver().getDriverFirstName();
-                row[5]=patient.getAmbulancedriver().getPhoneNumber();
-                row[6] = patient.getPatientstatus();
+        for (Patient patient : system.getPatientDirectory().getPatientDirectory()) {
+            if (patient.getAmbulancedriver() != null) {
+                if ((patient.getAmbulancedriver().getId() != 0 || patient.getPrivatedriver().getId() != 0)
+                        && patient.getPatientcarestaff().getPatientcarestaffID() == patientCareStaffLogin.getPatientcarestaffID()
+                        && (patient.getPatientstatus().equals(status.PatientPickup.getValue()) || patient.getPatientstatus().equals(status.PatientDrop.getValue())
+                        || patient.getPatientstatus().equals(status.Allocated.getValue()))) {
+                    Object[] row = new Object[7];
+                    row[0] = patient.getPatientID();
+                    row[1] = patient.getLastname() + ", " + patient.getFirstname();
+                    row[2] = patient.getPhonenumber();
+                    if (patient.getAmbulancedriver() != null && patient.getAmbulancedriver().getId() != 0) {
+                        row[3] = patient.getAmbulancedriver().getAmbulanceNumber();
+                        row[4] = patient.getAmbulancedriver().getDriverLastName() + ", " + patient.getAmbulancedriver().getDriverFirstName();
+                        row[5] = patient.getAmbulancedriver().getPhoneNumber();
+                        row[6] = patient.getPatientstatus();
+                    }
+                    if (patient.getPrivatedriver() != null && patient.getPrivatedriver().getId() != 0) {
+                        row[3] = patient.getPrivatedriver().getPrivateVehicleNumber();
+                        row[4] = patient.getPrivatedriver().getDriverLastName() + ", " + patient.getPrivatedriver().getDriverFirstName();
+                        row[5] = patient.getPrivatedriver().getPhoneNumber();
+                        row[6] = patient.getPatientstatus();
+                    }
+                    model.addRow(row);
                 }
-                if(patient.getPrivatedriver()!=null && patient.getPrivatedriver().getId()!=0)
-                {
-                row[3]=patient.getPrivatedriver().getPrivateVehicleNumber();
-                row[4]=patient.getPrivatedriver().getDriverLastName()+", "+patient.getPrivatedriver().getDriverFirstName();
-                row[5]=patient.getPrivatedriver().getPhoneNumber();
-                row[6] = patient.getPatientstatus();
-                }
-                model.addRow(row);
             }
         }
     }

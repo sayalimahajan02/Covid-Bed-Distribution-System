@@ -14,6 +14,7 @@ import Business.Hospital.Patient;
 import Business.Hospital.PatientCareStaff;
 import Business.Hospital.PatientDirectory;
 import Business.Role.PatientRole;
+import Business.SendEmail;
 import Business.UserAccount.UserAccount;
 import Business.ValidationUtility;
 import Business.Voluntary.CampAdmin;
@@ -88,6 +89,7 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -374,6 +376,7 @@ public class PatientRegistrationJPanel extends javax.swing.JPanel {
          
         dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Information Saved!");
+        SendEmail.sendEmailMessage(txtemailid.getText(),"Welcome to Covid Bed Distribution System", "Hello "+txtfname.getText()+" "+txtlname.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");        
     }//GEN-LAST:event_btnregisterMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

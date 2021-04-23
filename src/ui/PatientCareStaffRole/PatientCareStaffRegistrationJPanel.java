@@ -22,6 +22,7 @@ import ui.RegisterJPanel;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.SendEmail;
 
 /**
  *
@@ -320,7 +321,7 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         char[] passwordCharArray = passwordfield.getPassword();
         String password = String.valueOf(passwordCharArray);
 
-        if (txtfname.getText().isEmpty() || txtfname.getText().isEmpty() || txtusername.getText().isEmpty()
+        if (txtfname.getText().isEmpty() || txtlname.getText().isEmpty() || txtusername.getText().isEmpty()
                 || password.isEmpty() || txtemailid.getText().isEmpty()
                 || txtphone.getText().isEmpty() || combohospital.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
@@ -411,6 +412,7 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
 
         dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Information Saved!");
+        SendEmail.sendEmailMessage(txtemailid.getText(),"Welcome to Covid Bed Distribution System", "Hello "+txtfname.getText()+" "+txtlname.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");        
     }//GEN-LAST:event_btnregisterMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

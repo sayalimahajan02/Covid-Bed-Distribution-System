@@ -11,6 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.CampAdminRole;
+import Business.SendEmail;
 import Business.ValidationUtility;
 import Business.Voluntary.CampAdmin;
 import Business.Voluntary.CampAdminDirectory;
@@ -88,7 +89,7 @@ private JPanel topPanel;
 
         setBackground(new java.awt.Color(247, 247, 247));
 
-        jPanel2.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel2.setBackground(new java.awt.Color(255, 244, 244));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -392,7 +393,7 @@ private JPanel topPanel;
         dir.addCampAdmin(ca);
         JOptionPane.showMessageDialog(null, "Information Saved!");
         dB4OUtil.storeSystem(system);
-
+        SendEmail.sendEmailMessage(emailAddrText.getText(),"Welcome to Covid Bed Distribution System", "Hello "+campName.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution  ");
     }//GEN-LAST:event_submitBtnMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

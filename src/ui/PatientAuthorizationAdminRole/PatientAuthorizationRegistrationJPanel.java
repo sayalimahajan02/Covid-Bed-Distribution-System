@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.SendEmail;
 import java.awt.CardLayout;
 import java.awt.Component;
 import ui.RegisterJPanel;
@@ -103,6 +104,7 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Username :");
@@ -253,6 +255,7 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         UserAccount account = org.getUserAccountDirectory().createUserAccount(UsernameTxt.getText(), password, employee, new PatientAuthorizationAdminRole());
         dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Patient Authorization role has been created successfully. Please login");
+        SendEmail.sendEmailMessage(emailTxt.getText(),"Welcome to Covid Bed Distribution System", "Hello "+firstNameTxt.getText()+" "+lastNameTxt.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");
     }//GEN-LAST:event_registerButtonMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

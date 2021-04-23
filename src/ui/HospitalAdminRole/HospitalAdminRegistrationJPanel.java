@@ -24,6 +24,7 @@ import ui.RegisterJPanel;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.SendEmail;
 
 /**
  *
@@ -115,6 +116,7 @@ private JPanel topPanel;
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -423,11 +425,12 @@ private JPanel topPanel;
 
         dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Information Saved!");
+        SendEmail.sendEmailMessage(txtemailid.getText(),"Welcome to Covid Bed Distribution System", "Hello "+txtfname.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");
     }//GEN-LAST:event_btnregisterMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
- userProcessContainer.remove(this);
+        userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         HospitalAdminWorkAreaJPanel workareajpanel = (HospitalAdminWorkAreaJPanel) component;

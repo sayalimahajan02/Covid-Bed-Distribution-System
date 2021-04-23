@@ -24,6 +24,7 @@ import javax.swing.JFileChooser;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.SendEmail;
 import java.awt.CardLayout;
 import java.awt.Component;
 import ui.RegisterJPanel;
@@ -105,7 +106,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         usernameTxt = new javax.swing.JTextField();
         campjComboBox = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        emailTxt1 = new javax.swing.JTextField();
+        emailTxt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         uploadsuccessLabel = new javax.swing.JLabel();
         passwordTxt = new javax.swing.JPasswordField();
@@ -120,7 +121,10 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        dlNumber = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -195,12 +199,12 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         jLabel9.setText("upload driving license photo (.jpeg or .png)");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, -1, 16));
-        add(emailTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 610, 170, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 710, -1, 16));
+        add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 650, 170, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel8.setText("Driving License Number: ");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 610, -1, -1));
+        jLabel8.setText("Email ID:");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 650, -1, -1));
         add(uploadsuccessLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 180, 19));
         add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 170, -1));
 
@@ -241,7 +245,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                 RegisterjButtonMousePressed(evt);
             }
         });
-        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 690, 100, 30));
+        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 770, 100, 30));
 
         uploadjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         uploadjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -252,7 +256,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                 uploadjButtonMousePressed(evt);
             }
         });
-        add(uploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 80, 30));
+        add(uploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 730, 80, 30));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
@@ -270,6 +274,11 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 40, 40));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setText("Driving License Number: ");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 610, -1, -1));
+        add(dlNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 610, 170, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampsitejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampsitejComboBoxActionPerformed
@@ -365,6 +374,8 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         privateDriver.setLicImage(dlImageArray);
         privateDriver.setUserName(usernameTxt.getText());
         privateDriver.setId(system.getPatientDirectory().generateID());
+        privateDriver.setDlNumber(dlNumber.getText());
+        privateDriver.setEmailId(emailTxt.getText());
         //save to db04
         Employee employee = org.getEmployeeDirectory().createEmployee(privateDriver.getDriverLastName() + ", " + privateDriver.getDriverFirstName());
         //system.getPrivateDriverDirectory().add(privateDriver);
@@ -372,7 +383,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
         UserAccount account = org.getUserAccountDirectory().createUserAccount(usernameTxt.getText(), password, employee, new PrivateDriverRole());
         dB4OUtil.storeSystem(system);
         JOptionPane.showMessageDialog(null, "Information saved successfully");
-
+        SendEmail.sendEmailMessage(emailTxt.getText(),"Welcome to Covid Bed Distribution System", "Hello "+firstNameTxt.getText()+" "+lastNameTxt.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");        
     }//GEN-LAST:event_RegisterjButtonMousePressed
 
     private void uploadjButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadjButtonMousePressed
@@ -431,11 +442,13 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField ambulanceNumberTxt;
     private javax.swing.JLabel back;
     private javax.swing.JComboBox<String> campjComboBox;
-    private javax.swing.JTextField emailTxt1;
+    private javax.swing.JTextField dlNumber;
+    private javax.swing.JTextField emailTxt;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;

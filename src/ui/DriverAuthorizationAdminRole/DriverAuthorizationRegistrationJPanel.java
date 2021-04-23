@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.SendEmail;
 import java.awt.CardLayout;
 import java.awt.Component;
 import ui.RegisterJPanel;
@@ -100,8 +101,8 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         registerButton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -194,14 +195,6 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 40, 40));
-
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
@@ -270,12 +263,12 @@ public class DriverAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         dB4OUtil.storeSystem(system);
 
         JOptionPane.showMessageDialog(null, "Driver Authorization role has been created successfully. Please login");
+        SendEmail.sendEmailMessage(emailTxt.getText(),"Welcome to Covid Bed Distribution System", "Hello "+firstNameTxt.getText()+" "+lastNameTxt.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");
     }//GEN-LAST:event_registerButtonMousePressed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
-        // TODO add your handling code here:
-        
-jPanel.remove(this);
+        // TODO add your handling code here:   
+        jPanel.remove(this);
         Component[] componentArray = jPanel.getComponents();
         Component component = componentArray[componentArray.length - 1];
         RegisterJPanel Registerjpanel = (RegisterJPanel) component;
@@ -284,22 +277,10 @@ jPanel.remove(this);
         topPanel.setVisible(true);
     }//GEN-LAST:event_backMousePressed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        jPanel.remove(this);
-        Component[] componentArray = jPanel.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) jPanel.getLayout();
-        layout.previous(jPanel);
-        topPanel.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField UsernameTxt;
     private javax.swing.JLabel back;
-    private javax.swing.JButton backBtn;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;

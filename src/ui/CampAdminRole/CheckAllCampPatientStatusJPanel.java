@@ -11,6 +11,8 @@ import Business.Status;
 import Business.UserAccount.UserAccount;
 import Business.Voluntary.CampAdmin;
 import Business.Voluntary.HospitalNgoRequests;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -99,8 +101,23 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 130, 140));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CampAdminWorkAreaJPanel workareajpanel = (CampAdminWorkAreaJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

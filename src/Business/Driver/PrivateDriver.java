@@ -25,7 +25,7 @@ public class PrivateDriver {
     private byte[] licImage;
     private String dlNumber;
     private String emailId;
-    private boolean isAvailable;
+    private boolean isAvailable=true;;
 
     public String getUserName() {
         return userName;

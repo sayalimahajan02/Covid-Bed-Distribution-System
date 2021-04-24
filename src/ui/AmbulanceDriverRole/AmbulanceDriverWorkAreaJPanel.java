@@ -197,7 +197,7 @@ public class AmbulanceDriverWorkAreaJPanel extends javax.swing.JPanel {
             selectedPatient.setPatientstatus(status.PatientDrop.getValue());
             model.setValueAt(status.PatientDrop.getValue(), selectedRowIndex, 5);
             JOptionPane.showMessageDialog(null, "Confirmed Patient Drop!!");
-
+            ambulanceDriverLogin.setAvailability(true);
         } else {
             JOptionPane.showMessageDialog(null, "Please select patient with Confirm pickup to drop pickup successfully!!");
             return;

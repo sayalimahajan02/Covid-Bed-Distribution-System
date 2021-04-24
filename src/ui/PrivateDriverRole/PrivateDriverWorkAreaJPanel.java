@@ -185,6 +185,7 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
         Patient selectedPatient = system.getPatientDirectory().getPatientByID(Integer.parseInt((String) patientjTable.getValueAt(selectedRowIndex, 0)));
         if (selectedPatient.getPatientstatus().equals(status.PatientPickup.getValue())) {
             selectedPatient.setPatientstatus(status.PatientDrop.getValue());
+            privateDriverLogin.setIsAvailable(true);
         } else {
             JOptionPane.showMessageDialog(null, "Please select patient with Confirm pickup to drop pickup successfully!!");
             return;

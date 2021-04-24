@@ -27,7 +27,7 @@ public class Hospital {
     private String password;
     private int bedcount;
     private List<Patient> Patient;
-    private int hospitalID;
+    private String hospitalID;
     private int requestcount=0;
 
 
@@ -126,14 +126,7 @@ public class Hospital {
     public void setPatientlist(List<Patient> Patient) {
         this.Patient = Patient;
     }
-    
-    public int getHospitalID() {
-        return hospitalID;
-    }
 
-    public void setHospitalID(int hospitalID) {
-        this.hospitalID = hospitalID;
-    }
 
     public List<Patient> getPatient() {
         return Patient;
@@ -151,12 +144,19 @@ public class Hospital {
         this.requestcount = requestcount;
     }
 
+    public String getHospitalID() {
+        return hospitalID;
+    }
+
+    public void setHospitalID(String hospitalID) {
+        this.hospitalID = hospitalID;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.username);
-        hash = 53 * hash + this.hospitalID;
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.name);
+        hash = 23 * hash + Objects.hashCode(this.username);
         return hash;
     }
 
@@ -172,17 +172,10 @@ public class Hospital {
             return false;
         }
         final Hospital other = (Hospital) obj;
-        if (this.hospitalID != other.hospitalID) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.username, other.username)) {
-            return false;
-        }
         return true;
     }
+
+  
     
     
     

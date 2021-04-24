@@ -401,6 +401,7 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         RegisterJPanel Registerjpanel = (RegisterJPanel) component;

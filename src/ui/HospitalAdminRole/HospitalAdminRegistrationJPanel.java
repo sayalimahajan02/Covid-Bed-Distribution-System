@@ -432,8 +432,8 @@ private JPanel topPanel;
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
+        RegisterJPanel Registerjpanel = (RegisterJPanel) userProcessContainer;
         Component component = componentArray[componentArray.length - 1];
-        HospitalAdminWorkAreaJPanel workareajpanel = (HospitalAdminWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backMousePressed

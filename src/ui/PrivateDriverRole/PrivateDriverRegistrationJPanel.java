@@ -199,13 +199,13 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         jLabel9.setText("upload driving license photo (.jpeg or .png)");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 710, -1, 16));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 700, -1, 16));
         add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 650, 170, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Email ID:");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 650, -1, -1));
-        add(uploadsuccessLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 180, 19));
+        add(uploadsuccessLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 680, 180, 19));
         add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 170, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -245,7 +245,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                 RegisterjButtonMousePressed(evt);
             }
         });
-        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 770, 100, 30));
+        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 710, 100, 30));
 
         uploadjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         uploadjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -256,7 +256,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
                 uploadjButtonMousePressed(evt);
             }
         });
-        add(uploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 730, 80, 30));
+        add(uploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 720, 80, 30));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
@@ -341,6 +341,7 @@ public class PrivateDriverRegistrationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please enter all fields..");
             return;
         }
+        
 //        if(!randomCode.equalsIgnoreCase(verificationCodeTxt.getText())){
 //            JOptionPane.showMessageDialog(null, "Verification Code is incorrect please enter correct code or click on verify to resend new code");  
 //            return;

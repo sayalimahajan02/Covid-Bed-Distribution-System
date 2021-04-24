@@ -57,12 +57,12 @@ JPanel userProcessContainer;
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("PIE CHART");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 124, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 124, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new java.awt.BorderLayout());
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 780, 507));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 780, 507));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pie-chart (1).png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 136));
@@ -96,12 +96,12 @@ JPanel userProcessContainer;
         double Hospital = system.getHospitalDirectory().getHospitalDirectory().size();
         int PatientCareStaff = system.getPatientCareStaffDirectory().getPatientCareStaffDirectory().size();
         int Patient = system.getPatientDirectory().getPatientDirectory().size();
-        //int DriverAuthorizationMember = system.getDriverAuthorizationDirectory().getDriverAuthorizationDirectory().size();
-       // int PatientAuthorizationMember = system.getPatientAuthorizationDirectory().getPatientAuthorizationDirectory().size();
-//        int Camp = system.getCampAdminDirectory().getCampadminList().size();
-//        int NGO = system.getnGODirectory().getNGOList().size();
-//        int AmbulanceDriver = system.getAmbulanceDriverDirectory().getAmbulanceDriverDirectory().size();
-//        int PrivateDriver = system.getPrivateDriverDirectory().getPrivateDriverDirectory().size();
+        int DriverAuthorizationMember = system.getDriverAuthorizationDirectory().getDriverAuthorizationDirectory().size();
+        int PatientAuthorizationMember = system.getPatientAuthorizationDirectory().getPatientAuthorizationDirectory().size();
+        int Camp = system.getCampAdminDirectory().getCampadminList().size();
+        int NGO = system.getnGODirectory().getNGOList().size();
+        int AmbulanceDriver = system.getAmbulanceDriverDirectory().getAmbulanceDriverDirectory().size();
+        int PrivateDriver = system.getPrivateDriverDirectory().getPrivateDriverDirectory().size();
         
         
      
@@ -110,12 +110,12 @@ JPanel userProcessContainer;
         resultList.setValue("Hospital", Hospital);
         resultList.setValue("PatientCare Staff", PatientCareStaff);
         resultList.setValue("Patient", Patient);
-      //  resultList.setValue("Driver Authorization Member", DriverAuthorizationMember);
-       // resultList.setValue("Patient Authorization Member", PatientAuthorizationMember);
-//        resultList.setValue("Camps", Camp);
-//        resultList.setValue("NGO", NGO);
-//        resultList.setValue("Ambulance Driver", AmbulanceDriver);
-//        resultList.setValue("Private Driver", PrivateDriver);
+        resultList.setValue("Driver Authorization Member", DriverAuthorizationMember);
+        resultList.setValue("Patient Authorization Member", PatientAuthorizationMember);
+        resultList.setValue("Camps", Camp);
+        resultList.setValue("NGO", NGO);
+        resultList.setValue("Ambulance Driver", AmbulanceDriver);
+        resultList.setValue("Private Driver", PrivateDriver);
 
         
         

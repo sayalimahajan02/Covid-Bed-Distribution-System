@@ -100,7 +100,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btncheckall = new javax.swing.JLabel();
         btnrequestcamp = new javax.swing.JLabel();
-        showcamps = new javax.swing.JLabel();
         btnacceptpatient1 = new javax.swing.JLabel();
         btnassignambulance = new javax.swing.JLabel();
         btnassignstaff = new javax.swing.JLabel();
@@ -231,12 +230,12 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(txtbedrequirement);
-        txtbedrequirement.setBounds(900, 20, 50, 20);
+        txtbedrequirement.setBounds(890, 40, 50, 20);
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("HELLO HOSPITAL ADMIN!");
         add(jLabel7);
-        jLabel7.setBounds(340, 30, 240, 24);
+        jLabel7.setBounds(390, 30, 240, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (3).png"))); // NOI18N
         add(jLabel1);
@@ -264,19 +263,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnrequestcamp);
-        btnrequestcamp.setBounds(870, 60, 100, 20);
-
-        showcamps.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        showcamps.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        showcamps.setText("Show Camps");
-        showcamps.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        showcamps.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                showcampsMousePressed(evt);
-            }
-        });
-        add(showcamps);
-        showcamps.setBounds(870, 90, 100, 20);
+        btnrequestcamp.setBounds(870, 80, 100, 20);
 
         btnacceptpatient1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnacceptpatient1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -390,15 +377,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Camp Request Sent!");
     }//GEN-LAST:event_btnrequestcampMousePressed
 
-    private void showcampsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showcampsMousePressed
-        // TODO add your handling code here:
-        
-              ShowCampsJPanel showcampspanel = new ShowCampsJPanel(userProcessorcontainer, account, system, hospital, campadmin);
-        userProcessorcontainer.add("ShowCampsJPanel", showcampspanel);
-        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
-        layout.next(userProcessorcontainer);
-    }//GEN-LAST:event_showcampsMousePressed
-
     private void btnacceptpatient1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnacceptpatient1MousePressed
         // TODO add your handling code here:
         
@@ -458,6 +436,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
       
         //patient.setAmbulancedriver(account.getEmployee().getName());
         
+        
     }//GEN-LAST:event_btnassignambulanceMousePressed
 
     private void btnassignstaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnassignstaffMousePressed
@@ -506,7 +485,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JLabel showcamps;
     private javax.swing.JTable tblambulance;
     private javax.swing.JTable tblpatient;
     private javax.swing.JTable tblpcs;

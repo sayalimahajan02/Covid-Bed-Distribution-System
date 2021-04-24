@@ -185,13 +185,13 @@ public void populatePatientDetails(){
                 Image newimg = licimg.getScaledInstance(170,120, Image.SCALE_SMOOTH);
                 ImageIcon Image = new ImageIcon(newimg);
                
-                JOptionPane.showMessageDialog(null,"", "Driving License Image", + JOptionPane.INFORMATION_MESSAGE,   Image);
+                JOptionPane.showMessageDialog(null,"", "Patient Report Image", + JOptionPane.INFORMATION_MESSAGE,   Image);
             } catch (Exception ex) {
                 Logger.getLogger(PatientAuthorizationAdminWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else {
-            JOptionPane.showMessageDialog(null, "Please select one row to see Driving licanse");
+            JOptionPane.showMessageDialog(null, "Please select one row to see Patient Report");
             return;
         }
     }//GEN-LAST:event_viewDlButtonMousePressed
@@ -204,7 +204,7 @@ public void populatePatientDetails(){
         
               Patient selectedPatient=system.getPatientDirectory().getPatientByID((int)pendingPatientjTable.getValueAt(selectedRowIndex, 0));
              selectedPatient.setPatientstatus(status.Approved.getValue());
-             JOptionPane.showMessageDialog(null, "Driver has been Authorized successfully");
+             JOptionPane.showMessageDialog(null, "Patient has been Authorized successfully");
              populatePatientDetails();
         }
         else {

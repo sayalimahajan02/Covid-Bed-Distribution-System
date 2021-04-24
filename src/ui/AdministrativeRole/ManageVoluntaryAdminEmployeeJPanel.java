@@ -167,7 +167,7 @@ public class ManageVoluntaryAdminEmployeeJPanel extends javax.swing.JPanel {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed

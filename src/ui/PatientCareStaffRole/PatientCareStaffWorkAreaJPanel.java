@@ -95,15 +95,15 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(patientjTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 166, 850, 97));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 850, 97));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Patient and Ambulance Assigned");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 220, 27));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 220, 27));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setText("HELLO PATIENT CARE STAFF!");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         btncomplete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btncomplete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -114,13 +114,13 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
                 btncompleteMousePressed(evt);
             }
         });
-        add(btncomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 130, 28));
+        add(btncomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 130, 28));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse (1).png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 360, 260));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 360, 260));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse (2).png"))); // NOI18N
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncompleteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncompleteMousePressed

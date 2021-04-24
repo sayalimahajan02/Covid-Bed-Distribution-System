@@ -123,111 +123,111 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("First Name :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Last Name :");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Phone Number :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Age :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Ambulance Number :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Hospital :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
         hospitaljComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hospitaljComboBoxActionPerformed(evt);
             }
         });
-        add(hospitaljComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 168, -1));
+        add(hospitaljComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 168, -1));
 
         lastNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTxtActionPerformed(evt);
             }
         });
-        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 168, -1));
+        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 168, -1));
 
         ambulanceNumberTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ambulanceNumberTxtActionPerformed(evt);
             }
         });
-        add(ambulanceNumberTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 168, -1));
+        add(ambulanceNumberTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, 168, -1));
 
         ageTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTxtActionPerformed(evt);
             }
         });
-        add(ageTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 168, -1));
+        add(ageTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 168, -1));
 
         firstNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTxtActionPerformed(evt);
             }
         });
-        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 168, -1));
+        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 168, -1));
 
         phoneTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneTxtActionPerformed(evt);
             }
         });
-        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 168, -1));
+        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 560, 168, -1));
 
         userNameTxt.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         userNameTxt.setText("UserName :");
-        add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 70, -1));
+        add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 70, -1));
 
         passwordTxt.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         passwordTxt.setText("Password :");
-        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, -1));
-        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 168, -1));
-        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 168, -1));
+        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
+        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 168, -1));
+        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 168, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setText("Enterprise:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Organization:");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
 
-        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 168, -1));
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 168, -1));
 
         enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 168, -1));
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 168, -1));
 
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 168, -1));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 168, -1));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
         RegisterjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         RegisterjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -238,10 +238,10 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
                 RegisterjButtonMousePressed(evt);
             }
         });
-        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 100, 30));
+        add(RegisterjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 640, 100, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ambulance (2).png"))); // NOI18N
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 260, 440));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, 260, 440));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -254,8 +254,8 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Email ID:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, -1, -1));
-        add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 540, 170, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 590, -1, -1));
+        add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 590, 170, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void hospitaljComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaljComboBoxActionPerformed

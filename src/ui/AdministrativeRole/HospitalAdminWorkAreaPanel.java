@@ -43,14 +43,14 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("HOSPITAL ADMIN WORKAREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 580, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 580, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         enterpriseLabel.setText("Enterprise :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 120, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, 120, 30));
 
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 130, -1));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         manageOrganizationJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -62,7 +62,7 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonMousePressed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 150, 30));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 150, 30));
 
         manageEmployeeJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         manageEmployeeJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -74,7 +74,7 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonMousePressed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 150, 30));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 150, 30));
 
         userJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         userJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -86,13 +86,13 @@ public class HospitalAdminWorkAreaPanel extends javax.swing.JPanel {
                 userJButtonMousePressed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 150, 30));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 150, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (4).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 310, 400));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, 310, 400));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/administrator.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonMousePressed

@@ -63,7 +63,7 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("CAMPS CREATED");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 181, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 181, 30));
 
         tblshowcamps.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,10 +89,10 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblshowcamps);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 685, 140));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 685, 140));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (5).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 260, 250));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 260, 250));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,10 +100,10 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 40, 50));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hotel.png"))); // NOI18N
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

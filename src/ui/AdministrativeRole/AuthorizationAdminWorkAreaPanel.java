@@ -102,10 +102,10 @@ public class AuthorizationAdminWorkAreaPanel extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (2).png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 280, 420));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 81, 520, 481));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 520, 481));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/authorize (1).png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 140));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 140, 140));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonMousePressed

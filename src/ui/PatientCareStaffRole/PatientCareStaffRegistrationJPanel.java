@@ -118,112 +118,112 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("First Name:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, 23));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, -1, 23));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Phone number:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 90, 23));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, 90, 23));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Last Name:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, 23));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, 23));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Email Address:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 500, 90, 23));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 90, 23));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("UserName:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, -1, 23));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, -1, 23));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Password:");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 60, 23));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 60, 23));
 
         txtfname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtfnameActionPerformed(evt);
             }
         });
-        add(txtfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 220, -1));
+        add(txtfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 220, -1));
 
         txtlname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtlnameActionPerformed(evt);
             }
         });
-        add(txtlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 220, -1));
+        add(txtlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 220, -1));
 
         txtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtusernameActionPerformed(evt);
             }
         });
-        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 220, -1));
+        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 220, -1));
 
         txtphone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtphoneActionPerformed(evt);
             }
         });
-        add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 220, -1));
+        add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 220, -1));
 
         txtemailid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtemailidActionPerformed(evt);
             }
         });
-        add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, 220, -1));
+        add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 220, -1));
 
         passwordfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordfieldActionPerformed(evt);
             }
         });
-        add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 220, -1));
+        add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 220, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Hospital :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
 
         combohospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combohospitalActionPerformed(evt);
             }
         });
-        add(combohospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 220, -1));
+        add(combohospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 220, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Network:");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setText("Enterprise:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Organization:");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
 
-        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 220, -1));
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 220, -1));
 
         enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 220, -1));
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 220, -1));
 
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 220, -1));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 220, -1));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
         btnregister.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnregister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -234,10 +234,10 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
                 btnregisterMousePressed(evt);
             }
         });
-        add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, 120, 30));
+        add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 570, 120, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 240, 310));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 240, 310));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -246,10 +246,10 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 40, 40));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed

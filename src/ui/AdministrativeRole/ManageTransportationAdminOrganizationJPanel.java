@@ -70,11 +70,11 @@ public class ManageTransportationAdminOrganizationJPanel extends javax.swing.JPa
         setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 332, 203, 20));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 203, 20));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Organization Type: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, -1, -1));
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,7 +104,7 @@ public class ManageTransportationAdminOrganizationJPanel extends javax.swing.JPa
         });
         jScrollPane1.setViewportView(organizationJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 510, 92));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 510, 92));
 
         addJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         addJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -115,18 +115,18 @@ public class ManageTransportationAdminOrganizationJPanel extends javax.swing.JPa
                 addJButtonMousePressed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 130, 25));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 130, 25));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MANAGE TRANSPORTATION ADMIN ORGANIZATION");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 560, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 560, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/working.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 270, 270));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, 270, 270));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/browser.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 130, 130));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -135,7 +135,7 @@ public class ManageTransportationAdminOrganizationJPanel extends javax.swing.JPa
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMousePressed

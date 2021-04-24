@@ -140,7 +140,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
             ngoReqTable.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(requestStatusComboBox));
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 133, 965, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 965, 90));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setText("HELLO CAMP ADMIN!");
@@ -148,11 +148,11 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("NGO Requests");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
 
         campLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         campLabel.setText("Patient Data ");
-        jPanel1.add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, -1, -1));
+        jPanel1.add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, -1, -1));
 
         patientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,7 +184,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
             patientTable.getColumnModel().getColumn(5).setCellEditor(new DefaultCellEditor(patientComboBox));
         }
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 965, 90));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 965, 90));
 
         privateDriverTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,11 +207,11 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(privateDriverTable);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 965, 90));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 965, 70));
 
         campLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         campLabel1.setText("Private Driver List");
-        jPanel1.add(campLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, -1, -1));
+        jPanel1.add(campLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Beds Available:");
@@ -239,7 +239,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel5.setText("Patient Care Staff Data");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 610, -1, 22));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 560, -1, 22));
 
         patientCareSTaffTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -262,7 +262,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(patientCareSTaffTable);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 640, 965, 90));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 965, 70));
 
         btncheckall.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btncheckall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -273,7 +273,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btncheckallMousePressed(evt);
             }
         });
-        jPanel1.add(btncheckall, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 160, 30));
+        jPanel1.add(btncheckall, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 160, 30));
 
         assignStaffBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         assignStaffBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -284,7 +284,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 assignStaffBtnMousePressed(evt);
             }
         });
-        jPanel1.add(assignStaffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 740, 120, 20));
+        jPanel1.add(assignStaffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 680, 120, 20));
 
         acceptReqBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         acceptReqBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -295,7 +295,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 acceptReqBtnMousePressed(evt);
             }
         });
-        jPanel1.add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 120, 20));
+        jPanel1.add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 120, 20));
 
         approvePatientBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         approvePatientBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -306,7 +306,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 approvePatientBtnMousePressed(evt);
             }
         });
-        jPanel1.add(approvePatientBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 120, 20));
+        jPanel1.add(approvePatientBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 120, 20));
 
         assignPvtDriverBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         assignPvtDriverBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -317,7 +317,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
                 assignPvtDriverBtnMousePressed(evt);
             }
         });
-        jPanel1.add(assignPvtDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 570, 140, 20));
+        jPanel1.add(assignPvtDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 530, 140, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 510, 850));

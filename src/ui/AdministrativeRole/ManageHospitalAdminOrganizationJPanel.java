@@ -103,13 +103,13 @@ public class ManageHospitalAdminOrganizationJPanel extends javax.swing.JPanel {
             organizationJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 480, 89));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 480, 89));
 
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 203, -1));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 203, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Organization Type: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
 
         addJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         addJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -120,18 +120,18 @@ public class ManageHospitalAdminOrganizationJPanel extends javax.swing.JPanel {
                 addJButtonMousePressed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 115, 29));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 115, 29));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MANAGE HOSPITAL ADMIN ORGANIZATION");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 510, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 510, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (4).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 300, 330));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 300, 330));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/engineer.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 130, 130));
 
         back.setBackground(new java.awt.Color(255, 244, 244));
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
@@ -141,7 +141,7 @@ public class ManageHospitalAdminOrganizationJPanel extends javax.swing.JPanel {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMousePressed

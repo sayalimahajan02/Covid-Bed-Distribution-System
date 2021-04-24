@@ -109,63 +109,63 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Username :");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 238, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
 
         jLabel3.setText("Password :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 273, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
         jLabel4.setText("Phone Number :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 384, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, -1, -1));
 
         jLabel5.setText("First Name :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 311, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
 
         jLabel6.setText("Last Name :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 349, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
 
         jLabel7.setText("Email :");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 422, -1, -1));
-        add(UsernameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 232, 220, -1));
-        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 308, 220, -1));
-        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 381, 220, -1));
-        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 346, 220, -1));
-        add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 419, 220, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, -1, -1));
+        add(UsernameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 220, -1));
+        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 220, -1));
+        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 220, -1));
+        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 220, -1));
+        add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 220, -1));
 
         passwordTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordTxtActionPerformed(evt);
             }
         });
-        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 270, 220, -1));
+        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 220, -1));
 
         jLabel15.setText("Network:");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 116, -1, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
 
         jLabel16.setText("Enterprise:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 156, -1, -1));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
 
         enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 152, 220, -1));
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 220, -1));
 
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 112, 220, -1));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 220, -1));
 
         jLabel17.setText("Organization:");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 196, -1, -1));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
-        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 192, 220, -1));
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 220, -1));
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel8.setText("PLEASE FILL THE FORM FOR REGISTRATION");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
 
         registerButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         registerButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -176,10 +176,10 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
                 registerButtonMousePressed(evt);
             }
         });
-        add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 120, 30));
+        add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 510, 120, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/authorized-dealer.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 280, 450));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 180, 280, 450));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -188,10 +188,10 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 40, 40));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/authorization.png"))); // NOI18N
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed

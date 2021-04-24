@@ -63,7 +63,7 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("VIEW ALL ACCEPTED PATIENTS");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 362, 29));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 362, 29));
 
         patientStatTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,13 +92,13 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(patientStatTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 900, 194));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 900, 194));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/information.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 600, 360));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 600, 360));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/patient (6).png"))); // NOI18N
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 130, 140));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 130, 140));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,7 +106,7 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

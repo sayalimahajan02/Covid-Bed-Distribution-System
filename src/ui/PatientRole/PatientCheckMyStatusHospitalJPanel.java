@@ -88,82 +88,82 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Hospital Name:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 100, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Hospital Contact Number:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 138, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Ambulance Vehicle Number:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 214, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Ambulance Driver Name:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 252, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Patient Care Staff Name:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 325, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Ambulance Driver Contact Number:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 290, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("Patient Care Contact Number:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 366, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Request Status:");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 404, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setText("Hospital Address:");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 176, -1, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
         hospitalName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(hospitalName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 97, 282, 20));
+        add(hospitalName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 282, 20));
 
         hospAddress.setBackground(new java.awt.Color(51, 51, 51));
         hospAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(hospAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 173, 282, 20));
+        add(hospAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 282, 20));
 
         hospContactNo.setBackground(new java.awt.Color(51, 51, 51));
         hospContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(hospContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 135, 282, 20));
+        add(hospContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 282, 20));
 
         driverName.setBackground(new java.awt.Color(51, 51, 51));
         driverName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(driverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 249, 282, 20));
+        add(driverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 282, 20));
 
         vehicleNumber.setBackground(new java.awt.Color(51, 51, 51));
         vehicleNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(vehicleNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 211, 282, 20));
+        add(vehicleNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 282, 20));
 
         patientCareStaffName.setBackground(new java.awt.Color(51, 51, 51));
         patientCareStaffName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(patientCareStaffName, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 325, 282, 20));
+        add(patientCareStaffName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 282, 20));
 
         driverContactNumber.setBackground(new java.awt.Color(51, 51, 51));
         driverContactNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(driverContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 287, 282, 20));
+        add(driverContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 282, 20));
 
         patientStatus.setBackground(new java.awt.Color(51, 51, 51));
         patientStatus.setText("B");
         patientStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(patientStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 401, 282, 20));
+        add(patientStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 282, 20));
 
         patientCareStaffContactNo.setBackground(new java.awt.Color(51, 51, 51));
         patientCareStaffContactNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        add(patientCareStaffContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 363, 282, 20));
+        add(patientCareStaffContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, 282, 20));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("REPORT");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 32, 89, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 89, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/report.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 290, 330));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 290, 330));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -171,10 +171,10 @@ public class PatientCheckMyStatusHospitalJPanel extends javax.swing.JPanel {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 40, 50));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/report (1).png"))); // NOI18N
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed

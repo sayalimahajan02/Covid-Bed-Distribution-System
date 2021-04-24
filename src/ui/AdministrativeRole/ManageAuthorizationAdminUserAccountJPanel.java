@@ -122,45 +122,45 @@ public class ManageAuthorizationAdminUserAccountJPanel extends javax.swing.JPane
         });
         jScrollPane1.setViewportView(userJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 498, 103));
-        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 190, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 498, 103));
+        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 510, 190, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Password:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, -1, 20));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, 190, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, -1, 20));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 190, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Username:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 450, -1, 20));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, 20));
 
-        add(roleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 190, -1));
+        add(roleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 190, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Role:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, 20));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, -1, 20));
 
-        add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 190, -1));
+        add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 190, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Employee:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, -1, 20));
 
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationJComboBoxActionPerformed(evt);
             }
         });
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 190, -1));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 190, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Organization:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("AUTHORIZATION ADMIN ORGANIZATION");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 440, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 440, 30));
 
         createUserJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         createUserJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -171,13 +171,13 @@ public class ManageAuthorizationAdminUserAccountJPanel extends javax.swing.JPane
                 createUserJButtonMousePressed(evt);
             }
         });
-        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 100, 20));
+        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 100, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/administrative.png"))); // NOI18N
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 290, 320));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 290, 320));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile.png"))); // NOI18N
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 130, 130));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -186,7 +186,7 @@ public class ManageAuthorizationAdminUserAccountJPanel extends javax.swing.JPane
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed

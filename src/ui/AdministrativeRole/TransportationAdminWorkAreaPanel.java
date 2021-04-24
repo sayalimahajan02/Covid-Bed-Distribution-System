@@ -45,23 +45,22 @@ public class TransportationAdminWorkAreaPanel extends javax.swing.JPanel {
         userJButton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        back = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 130, 20));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 130, 20));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         enterpriseLabel.setText("Enterprise :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 120, 40));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 120, 40));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("TRANSPORTATION ADMIN WORKAREA");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 420, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 420, 30));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         manageOrganizationJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -72,7 +71,7 @@ public class TransportationAdminWorkAreaPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonMousePressed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 159, 26));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 159, 26));
 
         manageEmployeeJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         manageEmployeeJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -83,7 +82,7 @@ public class TransportationAdminWorkAreaPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonMousePressed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 159, 26));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 159, 26));
 
         userJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         userJButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -94,17 +93,13 @@ public class TransportationAdminWorkAreaPanel extends javax.swing.JPanel {
                 userJButtonMousePressed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 159, 27));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 159, 27));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ambulance.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 270, 380));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, 270, 380));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (15).png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 130));
-
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
-        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonMousePressed
@@ -135,7 +130,6 @@ public class TransportationAdminWorkAreaPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel back;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

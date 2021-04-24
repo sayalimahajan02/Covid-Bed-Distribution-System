@@ -66,11 +66,12 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         patientjTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        btnback = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btncomplete = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         patientjTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -94,14 +95,11 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(patientjTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 166, 797, 97));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 166, 850, 97));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Patient and Ambulance Assigned");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 220, 27));
-
-        btnback.setText("<<Back");
-        add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 21, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setText("HELLO PATIENT CARE STAFF!");
@@ -116,10 +114,13 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
                 btncompleteMousePressed(evt);
             }
         });
-        add(btncomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 130, 28));
+        add(btncomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 130, 28));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse (1).png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 360, 260));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 360, 260));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse (2).png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncompleteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncompleteMousePressed
@@ -158,9 +159,9 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnback;
     private javax.swing.JLabel btncomplete;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

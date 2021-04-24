@@ -82,7 +82,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnback = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtrequests = new javax.swing.JTextField();
@@ -105,27 +104,20 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnacceptpatient1 = new javax.swing.JLabel();
         btnassignambulance = new javax.swing.JLabel();
         btnassignstaff = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(null);
-
-        btnback.setText("<<Back");
-        btnback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbackActionPerformed(evt);
-            }
-        });
-        add(btnback);
-        btnback.setBounds(42, 27, 71, 23);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Patient Care Staff Data");
         add(jLabel2);
-        jLabel2.setBounds(420, 490, 138, 22);
+        jLabel2.setBounds(440, 490, 138, 22);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Beds Available:");
         add(jLabel3);
-        jLabel3.setBounds(610, 40, 90, 22);
+        jLabel3.setBounds(660, 40, 90, 22);
 
         txtrequests.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtrequests.addActionListener(new java.awt.event.ActionListener() {
@@ -134,12 +126,12 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(txtrequests);
-        txtrequests.setBounds(730, 76, 44, 20);
+        txtrequests.setBounds(780, 80, 44, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Patient Data");
         add(jLabel4);
-        jLabel4.setBounds(450, 110, 85, 22);
+        jLabel4.setBounds(480, 110, 85, 22);
 
         tblpcs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,12 +155,12 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblpcs);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(130, 520, 723, 100);
+        jScrollPane2.setBounds(170, 520, 723, 100);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Ambulance Data");
         add(jLabel5);
-        jLabel5.setBounds(440, 300, 103, 22);
+        jLabel5.setBounds(470, 300, 103, 22);
 
         tblpatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,7 +184,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane3.setViewportView(tblpatient);
 
         add(jScrollPane3);
-        jScrollPane3.setBounds(46, 140, 880, 100);
+        jScrollPane3.setBounds(100, 140, 880, 100);
 
         tblambulance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -216,12 +208,12 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane4.setViewportView(tblambulance);
 
         add(jScrollPane4);
-        jScrollPane4.setBounds(140, 330, 723, 100);
+        jScrollPane4.setBounds(170, 330, 723, 100);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Patient Requests:");
         add(jLabel6);
-        jLabel6.setBounds(600, 80, 110, 14);
+        jLabel6.setBounds(650, 80, 110, 14);
 
         txtbeds.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtbeds.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +222,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(txtbeds);
-        txtbeds.setBounds(730, 40, 44, 20);
+        txtbeds.setBounds(780, 40, 44, 20);
 
         txtbedrequirement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtbedrequirement.addActionListener(new java.awt.event.ActionListener() {
@@ -239,16 +231,16 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(txtbedrequirement);
-        txtbedrequirement.setBounds(850, 20, 50, 20);
+        txtbedrequirement.setBounds(900, 20, 50, 20);
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("HELLO HOSPITAL ADMIN!");
         add(jLabel7);
-        jLabel7.setBounds(320, 20, 240, 24);
+        jLabel7.setBounds(340, 30, 240, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (3).png"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(560, 60, 230, 630);
+        jLabel1.setBounds(590, 60, 230, 630);
 
         btncheckall.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btncheckall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -260,7 +252,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btncheckall);
-        btncheckall.setBounds(110, 80, 160, 30);
+        btncheckall.setBounds(160, 90, 160, 30);
 
         btnrequestcamp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnrequestcamp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -272,7 +264,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnrequestcamp);
-        btnrequestcamp.setBounds(820, 60, 100, 20);
+        btnrequestcamp.setBounds(870, 60, 100, 20);
 
         showcamps.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         showcamps.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -284,7 +276,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(showcamps);
-        showcamps.setBounds(820, 90, 100, 20);
+        showcamps.setBounds(870, 90, 100, 20);
 
         btnacceptpatient1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnacceptpatient1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -296,7 +288,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnacceptpatient1);
-        btnacceptpatient1.setBounds(430, 250, 120, 20);
+        btnacceptpatient1.setBounds(460, 250, 120, 20);
 
         btnassignambulance.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnassignambulance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -308,7 +300,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnassignambulance);
-        btnassignambulance.setBounds(410, 440, 140, 20);
+        btnassignambulance.setBounds(440, 440, 140, 20);
 
         btnassignstaff.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnassignstaff.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -320,18 +312,12 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnassignstaff);
-        btnassignstaff.setBounds(430, 630, 120, 20);
-    }// </editor-fold>//GEN-END:initComponents
+        btnassignstaff.setBounds(440, 630, 120, 20);
 
-    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
-        // TODO add your handling code here:
-        userProcessorcontainer.remove(this);
-        Component[] componentArray = userProcessorcontainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
-        layout.previous(userProcessorcontainer);
-    }//GEN-LAST:event_btnbackActionPerformed
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (7).png"))); // NOI18N
+        add(jLabel13);
+        jLabel13.setBounds(10, 10, 130, 130);
+    }// </editor-fold>//GEN-END:initComponents
 
     private void btnassignambulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignambulanceActionPerformed
         // TODO add your handling code here:
@@ -507,10 +493,10 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnacceptpatient1;
     private javax.swing.JLabel btnassignambulance;
     private javax.swing.JLabel btnassignstaff;
-    private javax.swing.JButton btnback;
     private javax.swing.JLabel btncheckall;
     private javax.swing.JLabel btnrequestcamp;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

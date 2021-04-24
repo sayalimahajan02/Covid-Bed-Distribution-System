@@ -56,7 +56,7 @@ public class CheckAllCampPatientStatusJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(247, 247, 247));
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N

@@ -52,281 +52,225 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
         registerDetails = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        patientBtn = new javax.swing.JButton();
-        hospitalBtn = new javax.swing.JButton();
-        ambulanceBtn = new javax.swing.JButton();
-        patientCareStaffBtn = new javax.swing.JButton();
-        privateDriverBtn = new javax.swing.JButton();
-        campBtn = new javax.swing.JButton();
-        backBtn = new javax.swing.JButton();
-        ngoBtn = new javax.swing.JButton();
-        driverAuthBtn = new javax.swing.JButton();
-        patientAuthBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        patientBtn = new javax.swing.JLabel();
+        hospitalBtn = new javax.swing.JLabel();
+        patientCareStaffBtn = new javax.swing.JLabel();
+        ngoBtn = new javax.swing.JLabel();
+        campBtn = new javax.swing.JLabel();
+        ambulanceBtn = new javax.swing.JLabel();
+        privateDriverBtn = new javax.swing.JLabel();
+        driverAuthBtn = new javax.swing.JLabel();
+        patientAuthBtn = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
-        registerDetails.setBackground(new java.awt.Color(255, 255, 255));
-        registerDetails.setLayout(null);
+        setBackground(new java.awt.Color(255, 244, 244));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 26)); // NOI18N
-        jLabel1.setText("Please Register");
-        registerDetails.add(jLabel1);
-        jLabel1.setBounds(264, 28, 200, 32);
+        registerDetails.setBackground(new java.awt.Color(255, 244, 244));
+        registerDetails.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        patientBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setText("PLEASE REGISTER HERE");
+        registerDetails.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 330, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setText("Hospital:");
+        registerDetails.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 100, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel3.setText("Voluntary:");
+        registerDetails.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 110, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel4.setText("Transportation:");
+        registerDetails.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 170, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel5.setText("Authorization:");
+        registerDetails.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 150, -1));
+
+        patientBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        patientBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         patientBtn.setText("Patient");
-        patientBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientBtnActionPerformed(evt);
+        patientBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        patientBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                patientBtnMousePressed(evt);
             }
         });
-        registerDetails.add(patientBtn);
-        patientBtn.setBounds(21, 152, 221, 29);
+        registerDetails.add(patientBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 140, 30));
 
-        hospitalBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        hospitalBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        hospitalBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hospitalBtn.setText("Hospital Admin");
-        hospitalBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hospitalBtnActionPerformed(evt);
+        hospitalBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hospitalBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                hospitalBtnMousePressed(evt);
             }
         });
-        registerDetails.add(hospitalBtn);
-        hospitalBtn.setBounds(252, 152, 221, 29);
+        registerDetails.add(hospitalBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 140, 30));
 
-        ambulanceBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        ambulanceBtn.setText("Ambulance Driver");
-        ambulanceBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ambulanceBtnActionPerformed(evt);
-            }
-        });
-        registerDetails.add(ambulanceBtn);
-        ambulanceBtn.setBounds(133, 357, 221, 29);
-
-        patientCareStaffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        patientCareStaffBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        patientCareStaffBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         patientCareStaffBtn.setText("Patient Care Staff");
-        patientCareStaffBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientCareStaffBtnActionPerformed(evt);
+        patientCareStaffBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        patientCareStaffBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                patientCareStaffBtnMousePressed(evt);
             }
         });
-        registerDetails.add(patientCareStaffBtn);
-        patientCareStaffBtn.setBounds(483, 151, 221, 29);
+        registerDetails.add(patientCareStaffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 140, 30));
 
-        privateDriverBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        privateDriverBtn.setText("Private Driver");
-        privateDriverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                privateDriverBtnActionPerformed(evt);
-            }
-        });
-        registerDetails.add(privateDriverBtn);
-        privateDriverBtn.setBounds(372, 357, 221, 29);
-
-        campBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        campBtn.setText("Camp Site Admin");
-        campBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campBtnActionPerformed(evt);
-            }
-        });
-        registerDetails.add(campBtn);
-        campBtn.setBounds(372, 248, 221, 29);
-
-        backBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        registerDetails.add(backBtn);
-        backBtn.setBounds(321, 591, 102, 29);
-
-        ngoBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        ngoBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ngoBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ngoBtn.setText("NGO Admin");
-        ngoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ngoBtnActionPerformed(evt);
+        ngoBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ngoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ngoBtnMousePressed(evt);
             }
         });
-        registerDetails.add(ngoBtn);
-        ngoBtn.setBounds(133, 247, 221, 29);
+        registerDetails.add(ngoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 160, 30));
 
-        driverAuthBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        campBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        campBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        campBtn.setText("Camp Site Admin");
+        campBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        registerDetails.add(campBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 160, 30));
+
+        ambulanceBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ambulanceBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ambulanceBtn.setText("Ambulance Driver");
+        ambulanceBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        registerDetails.add(ambulanceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 160, 30));
+
+        privateDriverBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        privateDriverBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        privateDriverBtn.setText("Private Driver");
+        privateDriverBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        registerDetails.add(privateDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 160, 30));
+
+        driverAuthBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        driverAuthBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         driverAuthBtn.setText("Driver Authorization Admin");
-        driverAuthBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                driverAuthBtnActionPerformed(evt);
+        driverAuthBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        driverAuthBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                driverAuthBtnMousePressed(evt);
             }
         });
-        registerDetails.add(driverAuthBtn);
-        driverAuthBtn.setBounds(59, 475, 265, 29);
+        registerDetails.add(driverAuthBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 230, 30));
 
-        patientAuthBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        patientAuthBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        patientAuthBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         patientAuthBtn.setText("Patient Authorization Admin");
-        patientAuthBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientAuthBtnActionPerformed(evt);
+        patientAuthBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        patientAuthBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                patientAuthBtnMousePressed(evt);
             }
         });
-        registerDetails.add(patientAuthBtn);
-        patientAuthBtn.setBounds(372, 475, 275, 29);
+        registerDetails.add(patientAuthBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 210, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Hospital");
-        registerDetails.add(jLabel2);
-        jLabel2.setBounds(330, 101, 73, 22);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/register.png"))); // NOI18N
+        registerDetails.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 90));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setText("Voluntary");
-        registerDetails.add(jLabel3);
-        jLabel3.setBounds(323, 207, 88, 22);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add.png"))); // NOI18N
+        registerDetails.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 390, 270));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Transportation");
-        registerDetails.add(jLabel4);
-        jLabel4.setBounds(300, 317, 134, 22);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setText("Authorization");
-        registerDetails.add(jLabel5);
-        jLabel5.setBounds(307, 427, 122, 22);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1006, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
-        );
+        add(registerDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 0, 1000, 687));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void patientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientBtnActionPerformed
+    private void patientBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientBtnMousePressed
         // TODO add your handling code here:
-        PatientRegistrationJPanel panel = new PatientRegistrationJPanel(mainContainer,topPanel ,system, dB4OUtil);
+        
+         PatientRegistrationJPanel panel = new PatientRegistrationJPanel(mainContainer,topPanel ,system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
         mainContainer.setVisible(true);
         topPanel.setVisible(false);
+    }//GEN-LAST:event_patientBtnMousePressed
 
-    }//GEN-LAST:event_patientBtnActionPerformed
-
-    private void hospitalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalBtnActionPerformed
+    private void hospitalBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hospitalBtnMousePressed
         // TODO add your handling code here:
+        
         HospitalAdminRegistrationJPanel panel = new HospitalAdminRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
         mainContainer.setVisible(true);
         topPanel.setVisible(false);
-  
-    }//GEN-LAST:event_hospitalBtnActionPerformed
+    }//GEN-LAST:event_hospitalBtnMousePressed
 
-    private void ambulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceBtnActionPerformed
+    private void patientCareStaffBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientCareStaffBtnMousePressed
         // TODO add your handling code here:
-        AmbulanceDriverRegistrationJPanel panel = new AmbulanceDriverRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
-        mainContainer.add("workArea", panel);
-        CardLayout layout = (CardLayout) mainContainer.getLayout();
-        layout.next(mainContainer);
-        mainContainer.setVisible(true);
-        topPanel.setVisible(false);
-
-    }//GEN-LAST:event_ambulanceBtnActionPerformed
-
-    private void patientCareStaffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientCareStaffBtnActionPerformed
-        // TODO add your handling code here:
+        
         PatientCareStaffRegistrationJPanel panel = new PatientCareStaffRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
         mainContainer.setVisible(true);
         topPanel.setVisible(false);
-    }//GEN-LAST:event_patientCareStaffBtnActionPerformed
+    }//GEN-LAST:event_patientCareStaffBtnMousePressed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+    private void ngoBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ngoBtnMousePressed
         // TODO add your handling code here:
-        this.setVisible(false);
-        //mainJFrame.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
-    private void ngoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoBtnActionPerformed
-        // TODO add your handling code here:
+        
          NGORegistrationJPanel panel = new NGORegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
         mainContainer.setVisible(true);
         topPanel.setVisible(false);
+    }//GEN-LAST:event_ngoBtnMousePressed
 
-    }//GEN-LAST:event_ngoBtnActionPerformed
-
-    private void driverAuthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driverAuthBtnActionPerformed
+    private void driverAuthBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driverAuthBtnMousePressed
         // TODO add your handling code here:
+        
          DriverAuthorizationRegistrationJPanel panel = new DriverAuthorizationRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
         mainContainer.setVisible(true);
         topPanel.setVisible(false);
-  
-    }//GEN-LAST:event_driverAuthBtnActionPerformed
+    }//GEN-LAST:event_driverAuthBtnMousePressed
 
-    private void patientAuthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientAuthBtnActionPerformed
+    private void patientAuthBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientAuthBtnMousePressed
         // TODO add your handling code here:
-       PatientAuthorizationRegistrationJPanel panel = new PatientAuthorizationRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
+        
+        PatientAuthorizationRegistrationJPanel panel = new PatientAuthorizationRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
         mainContainer.setVisible(true);
         topPanel.setVisible(false);
-
-    }//GEN-LAST:event_patientAuthBtnActionPerformed
-
-    private void campBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campBtnActionPerformed
-        // TODO add your handling code here:
-         CampAdminRegistrationJPanel panel = new CampAdminRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
-        mainContainer.add("workArea", panel);
-        CardLayout layout = (CardLayout) mainContainer.getLayout();
-        layout.next(mainContainer);
-        mainContainer.setVisible(true);
-        topPanel.setVisible(false);
-
-    }//GEN-LAST:event_campBtnActionPerformed
-
-    private void privateDriverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_privateDriverBtnActionPerformed
-        // TODO add your handling code here:
-         PrivateDriverRegistrationJPanel panel = new PrivateDriverRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
-        mainContainer.add("workArea", panel);
-        CardLayout layout = (CardLayout) mainContainer.getLayout();
-        layout.next(mainContainer);
-        mainContainer.setVisible(true);
-        topPanel.setVisible(false);
-    }//GEN-LAST:event_privateDriverBtnActionPerformed
+    }//GEN-LAST:event_patientAuthBtnMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ambulanceBtn;
-    private javax.swing.JButton backBtn;
-    private javax.swing.JButton campBtn;
-    private javax.swing.JButton driverAuthBtn;
-    private javax.swing.JButton hospitalBtn;
+    private javax.swing.JLabel ambulanceBtn;
+    private javax.swing.JLabel campBtn;
+    private javax.swing.JLabel driverAuthBtn;
+    private javax.swing.JLabel hospitalBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JButton ngoBtn;
-    private javax.swing.JButton patientAuthBtn;
-    private javax.swing.JButton patientBtn;
-    private javax.swing.JButton patientCareStaffBtn;
-    private javax.swing.JButton privateDriverBtn;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel ngoBtn;
+    private javax.swing.JLabel patientAuthBtn;
+    private javax.swing.JLabel patientBtn;
+    private javax.swing.JLabel patientCareStaffBtn;
+    private javax.swing.JLabel privateDriverBtn;
     private javax.swing.JPanel registerDetails;
     // End of variables declaration//GEN-END:variables
 }

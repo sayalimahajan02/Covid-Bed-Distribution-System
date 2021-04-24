@@ -94,10 +94,11 @@ public void populatePrivateDriverDetails(){
         viewDlButton = new javax.swing.JLabel();
         ConfirmButton1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(247, 247, 247));
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         privDriverjTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -124,7 +125,7 @@ public void populatePrivateDriverDetails(){
         });
         jScrollPane1.setViewportView(privDriverjTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 583, 151));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 583, 151));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Click here to see DL of selected Driver :");
@@ -155,12 +156,16 @@ public void populatePrivateDriverDetails(){
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driver (1).png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 250, 260));
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel8.setText("DRIVER PENDING REQUESTS");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, 23));
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driver (2).png"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 130));
+
+        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel8.setText("HELLO AUTHORIZATION ADMIN!");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, 23));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Driver Requests");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewDlButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDlButtonMousePressed
@@ -217,6 +222,7 @@ public void populatePrivateDriverDetails(){
     private javax.swing.JLabel ConfirmButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

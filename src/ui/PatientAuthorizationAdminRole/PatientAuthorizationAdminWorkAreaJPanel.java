@@ -98,12 +98,15 @@ public void populatePatientDetails(){
         ConfirmButton1 = new javax.swing.JLabel();
         viewDlButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel8.setText("PATIENT PENDING REQUESTS");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 62, -1, 23));
+        jLabel8.setText("HELLO AUTHORIZATION ADMIN!");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, 23));
 
         pendingPatientjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,7 +132,7 @@ public void populatePatientDetails(){
         });
         jScrollPane1.setViewportView(pendingPatientjTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 121, 583, 149));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 583, 149));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Click here to see COVID Report of selected Driver :");
@@ -158,7 +161,14 @@ public void populatePatientDetails(){
         add(viewDlButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 120, 26));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/medical-mask (1).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 220, 310));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 220, 310));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin (18).png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Patient Requests");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewDlButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDlButtonMousePressed
@@ -207,7 +217,9 @@ public void populatePatientDetails(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConfirmButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable pendingPatientjTable;

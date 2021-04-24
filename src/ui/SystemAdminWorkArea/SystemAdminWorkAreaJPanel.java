@@ -119,7 +119,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 200, 170));
 
-        btnManageNetwork.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnManageNetwork.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnManageNetwork.setText("Manage Network");
         btnManageNetwork.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -128,7 +128,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 170, 29));
 
-        btnManageEnterprise.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnManageEnterprise.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnManageEnterprise.setText("Manage Enterprise");
         btnManageEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -137,16 +137,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(btnManageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 170, 26));
 
-        btnManageAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnManageAdmin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnManageAdmin.setText("Manage Enterprise Admin");
         btnManageAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnManageAdminMousePressed(evt);
             }
         });
-        jPanel1.add(btnManageAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 170, 27));
+        jPanel1.add(btnManageAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 190, 27));
 
-        btnpie.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnpie.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnpie.setText("Pie Chart");
         btnpie.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -155,7 +155,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(btnpie, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 175, 170, 20));
 
-        btnbar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnbar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnbar.setText("Bar Graph");
         btnbar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -164,9 +164,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(btnbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 215, 170, 20));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel1.setText("Selected Node:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 394, 110, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 394, 130, 20));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/graph-bar (1).png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 30, 30));

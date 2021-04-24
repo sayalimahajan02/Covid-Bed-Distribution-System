@@ -79,10 +79,13 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(1680, 1050));
+        setSize(new java.awt.Dimension(1600, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         topPanel.setBackground(new java.awt.Color(255, 198, 142));
+        topPanel.setPreferredSize(new java.awt.Dimension(1300, 63));
+
+        displayusernamelbl.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
 
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         backButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -104,9 +107,9 @@ public class MainFrame extends javax.swing.JFrame {
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                .addGap(198, 198, 198)
+                .addGap(137, 137, 137)
                 .addComponent(displayusernamelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 732, Short.MAX_VALUE)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,7 +128,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 40));
+        getContentPane().add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 63));
 
         mainContainer.setBackground(new java.awt.Color(255, 198, 142));
         mainContainer.setLayout(new java.awt.CardLayout());
@@ -145,6 +148,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 120, 26));
 
         passwordTxt.setBackground(new java.awt.Color(255, 235, 216));
+        passwordTxt.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        passwordTxt.setForeground(new java.awt.Color(51, 51, 51));
         passwordTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 198, 142), 2, true));
         passwordTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +172,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 35, 110, -1));
 
         usernameTxt.setBackground(new java.awt.Color(255, 235, 216));
+        usernameTxt.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        usernameTxt.setForeground(new java.awt.Color(51, 51, 51));
         usernameTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 198, 142), 2, true));
         usernameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

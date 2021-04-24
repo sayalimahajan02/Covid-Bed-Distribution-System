@@ -327,7 +327,7 @@ public class MainFrame extends javax.swing.JFrame {
              //set logged in user info and workarea
              mainContainer.add("workArea", userAccount.getRole().createWorkArea(mainContainer, userAccount, inOrganization, inEnterprise, system));
 
-            displayusernamelbl.setText("Welcome" + userAccount.getUsername() + " !!!");
+            displayusernamelbl.setText("Welcome " + userAccount.getUsername() + " !!!");
             CardLayout layout = (CardLayout) mainContainer.getLayout();
             layout.next(mainContainer);
             }

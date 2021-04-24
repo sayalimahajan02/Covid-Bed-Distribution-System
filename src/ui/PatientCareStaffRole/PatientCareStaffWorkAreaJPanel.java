@@ -146,11 +146,12 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
         if (selectedPatient.getPatientstatus().equals(status.PatientDrop.getValue())) {
             selectedPatient.setPatientstatus(status.Completed.getValue());
             JOptionPane.showMessageDialog(null, "Patient has been successfully assigned a bed at " + patientBed + ". Workflow has been completed");
-            patientjTable.setValueAt(Status.Allocated.getValue(), selectedRowInd, 7);
+            patientjTable.setValueAt(Status.Allocated.getValue(), selectedRowInd, 6);
             SendEmail.sendEmailMessage(selectedPatient.getEmail(), "Update on your request from Covid Bed Distribution System",
                     "Hello " + selectedPatient.getFirstname() + " " + selectedPatient.getLastname() + ","
                     + "\n \nYou have been successfully allotted a Bed at " + patientBed + ".\n\n Hope you get well soon! Please take care! \n\n\nWarm Regards,\n \nTeam Covid Bed Distribution");
 
+       patientCareStaffLogin.setAvailability(true);
         } else {
             JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
             return;

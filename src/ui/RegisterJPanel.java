@@ -31,14 +31,14 @@ public class RegisterJPanel extends javax.swing.JPanel {
     private static JPanel mainContainer;
     private static JPanel topPanel;
 
-    public RegisterJPanel(JPanel mainContainer,JPanel topPanel,EcoSystem system, DB4OUtil dB4OUtil) {
+    public RegisterJPanel(JPanel mainContainer, JPanel topPanel, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
         this.system = system;
         this.dB4OUtil = dB4OUtil;
-        this.topPanel=topPanel;
+        this.topPanel = topPanel;
         this.mainContainer = mainContainer;
         this.setSize(1680, 1050);
-      topPanel.setVisible(true);
+        topPanel.setVisible(true);
     }
 
     /**
@@ -142,18 +142,33 @@ public class RegisterJPanel extends javax.swing.JPanel {
         campBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         campBtn.setText("Camp Site Admin");
         campBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                campBtnMousePressed(evt);
+            }
+        });
         registerDetails.add(campBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 160, 30));
 
         ambulanceBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ambulanceBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ambulanceBtn.setText("Ambulance Driver");
         ambulanceBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ambulanceBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ambulanceBtnMousePressed(evt);
+            }
+        });
         registerDetails.add(ambulanceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 160, 30));
 
         privateDriverBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         privateDriverBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         privateDriverBtn.setText("Private Driver");
         privateDriverBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        privateDriverBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                privateDriverBtnMousePressed(evt);
+            }
+        });
         registerDetails.add(privateDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 160, 30));
 
         driverAuthBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -189,8 +204,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
     private void patientBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientBtnMousePressed
         // TODO add your handling code here:
-        
-         PatientRegistrationJPanel panel = new PatientRegistrationJPanel(mainContainer,topPanel ,system, dB4OUtil);
+        PatientRegistrationJPanel panel = new PatientRegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
@@ -200,8 +214,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
     private void hospitalBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hospitalBtnMousePressed
         // TODO add your handling code here:
-        
-        HospitalAdminRegistrationJPanel panel = new HospitalAdminRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
+
+        HospitalAdminRegistrationJPanel panel = new HospitalAdminRegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
@@ -211,8 +225,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
     private void patientCareStaffBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientCareStaffBtnMousePressed
         // TODO add your handling code here:
-        
-        PatientCareStaffRegistrationJPanel panel = new PatientCareStaffRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
+        PatientCareStaffRegistrationJPanel panel = new PatientCareStaffRegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
@@ -222,8 +235,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
     private void ngoBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ngoBtnMousePressed
         // TODO add your handling code here:
-        
-         NGORegistrationJPanel panel = new NGORegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
+
+        NGORegistrationJPanel panel = new NGORegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
@@ -233,8 +246,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
     private void driverAuthBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driverAuthBtnMousePressed
         // TODO add your handling code here:
-        
-         DriverAuthorizationRegistrationJPanel panel = new DriverAuthorizationRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
+
+        DriverAuthorizationRegistrationJPanel panel = new DriverAuthorizationRegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
@@ -244,14 +257,45 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
     private void patientAuthBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientAuthBtnMousePressed
         // TODO add your handling code here:
-        
-        PatientAuthorizationRegistrationJPanel panel = new PatientAuthorizationRegistrationJPanel(mainContainer,topPanel, system, dB4OUtil);
+
+        PatientAuthorizationRegistrationJPanel panel = new PatientAuthorizationRegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
         mainContainer.add("workArea", panel);
         CardLayout layout = (CardLayout) mainContainer.getLayout();
         layout.next(mainContainer);
         mainContainer.setVisible(true);
         topPanel.setVisible(false);
     }//GEN-LAST:event_patientAuthBtnMousePressed
+
+    private void campBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campBtnMousePressed
+        // TODO add your handling code here:
+        CampAdminRegistrationJPanel j = new CampAdminRegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
+        mainContainer.add("workArea", j);
+        CardLayout layout = (CardLayout) mainContainer.getLayout();
+        layout.next(mainContainer);
+        mainContainer.setVisible(true);
+        topPanel.setVisible(false);
+    }//GEN-LAST:event_campBtnMousePressed
+
+    private void ambulanceBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ambulanceBtnMousePressed
+        // TODO add your handling code here:
+        AmbulanceDriverRegistrationJPanel panel = new AmbulanceDriverRegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
+        mainContainer.add("workArea", panel);
+        CardLayout layout = (CardLayout) mainContainer.getLayout();
+        layout.next(mainContainer);
+        mainContainer.setVisible(true);
+        topPanel.setVisible(false);
+
+    }//GEN-LAST:event_ambulanceBtnMousePressed
+
+    private void privateDriverBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_privateDriverBtnMousePressed
+        // TODO add your handling code here:
+        PrivateDriverRegistrationJPanel panel = new PrivateDriverRegistrationJPanel(mainContainer, topPanel, system, dB4OUtil);
+        mainContainer.add("workArea", panel);
+        CardLayout layout = (CardLayout) mainContainer.getLayout();
+        layout.next(mainContainer);
+        mainContainer.setVisible(true);
+        topPanel.setVisible(false);
+    }//GEN-LAST:event_privateDriverBtnMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -47,7 +47,7 @@ public class TransportationAdminWorkAreaPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(247, 247, 247));
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

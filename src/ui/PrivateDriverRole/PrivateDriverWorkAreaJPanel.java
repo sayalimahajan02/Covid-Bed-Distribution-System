@@ -88,7 +88,9 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
         pickupButton = new javax.swing.JLabel();
         dropButton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         patientjTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -142,6 +144,9 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/taxi-driver.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 370, 330));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seatbelt.png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pickupButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pickupButtonMousePressed
@@ -191,6 +196,7 @@ public class PrivateDriverWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel dropButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable patientjTable;
     private javax.swing.JLabel pickupButton;

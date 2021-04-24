@@ -95,7 +95,7 @@ public class ManageTransportationAdminUserAccountJPanel extends javax.swing.JPan
         back = new javax.swing.JLabel();
         backjButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(247, 247, 247));
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 190, -1));
 
@@ -185,6 +185,11 @@ public class ManageTransportationAdminUserAccountJPanel extends javax.swing.JPan
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 40, 40));
 
         backjButton1.setText("<< Back");
@@ -231,6 +236,14 @@ public class ManageTransportationAdminUserAccountJPanel extends javax.swing.JPan
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_backjButton1ActionPerformed
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        
+         container.remove(this);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
+    }//GEN-LAST:event_backMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

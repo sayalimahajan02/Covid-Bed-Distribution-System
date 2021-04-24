@@ -110,7 +110,7 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         patientComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jPanel1.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel1.setBackground(new java.awt.Color(255, 244, 244));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 609, -1, -1));
 

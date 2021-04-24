@@ -98,7 +98,6 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         txtusername = new javax.swing.JTextField();
         txtphone = new javax.swing.JTextField();
         txtemailid = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
         passwordfield = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         combohospital = new javax.swing.JComboBox<>();
@@ -112,7 +111,9 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
         btnregister = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -173,14 +174,6 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, 220, -1));
-
-        btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 31, 80, -1));
 
         passwordfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,6 +247,9 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
@@ -275,18 +271,6 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
     private void txtemailidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtemailidActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-         userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-        topPanel.setVisible(true);
-        
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void passwordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordfieldActionPerformed
         // TODO add your handling code here:
@@ -417,7 +401,6 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         // TODO add your handling code here:
-         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         RegisterJPanel Registerjpanel = (RegisterJPanel) component;
@@ -429,12 +412,12 @@ public class PatientCareStaffRegistrationJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
-    private javax.swing.JButton btnBack;
     private javax.swing.JLabel btnregister;
     private javax.swing.JComboBox<String> combohospital;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;

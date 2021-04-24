@@ -79,9 +79,11 @@ public class PatientCheckMyStatusCamplJPanel extends javax.swing.JPanel {
         patientCareStaffContactNo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -169,6 +171,9 @@ public class PatientCheckMyStatusCamplJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 50));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seo-report.png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
@@ -193,6 +198,7 @@ public class PatientCheckMyStatusCamplJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

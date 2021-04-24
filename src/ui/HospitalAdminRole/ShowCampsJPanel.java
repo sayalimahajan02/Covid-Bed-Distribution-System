@@ -56,12 +56,14 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
         tblshowcamps = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("CAMPS CREATED");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 181, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 181, 30));
 
         tblshowcamps.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,10 +89,10 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblshowcamps);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 685, 140));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 685, 140));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (5).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 260, 250));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 260, 250));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,6 +101,9 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
             }
         });
         add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 50));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hotel.png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
@@ -115,6 +120,7 @@ public class ShowCampsJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblshowcamps;

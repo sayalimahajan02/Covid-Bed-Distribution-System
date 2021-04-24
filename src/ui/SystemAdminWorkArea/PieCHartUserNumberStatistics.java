@@ -62,14 +62,14 @@ JPanel userProcessContainer;
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new java.awt.BorderLayout());
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 780, 507));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 780, 507));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pie-chart (1).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 136));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 136));
 
         jLabel3.setBackground(new java.awt.Color(255, 244, 244));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pie-chart (2).png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 470, 250, 220));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 280, 260, 260));
     }// </editor-fold>//GEN-END:initComponents
 
     private void populatePieChart() {

@@ -112,7 +112,6 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         enterpriseComboBox = new javax.swing.JComboBox<>();
         networkComboBox = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
         RegisterjButton = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
@@ -230,14 +229,6 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
         jLabel7.setText("PLEASE FILL THE FORM FOR REGISTRATION");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 80, -1));
-
         RegisterjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         RegisterjButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RegisterjButton.setText("Submit");
@@ -306,17 +297,6 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
             populateEnterpriseComboBox(network);
         }
     }//GEN-LAST:event_networkComboBoxActionPerformed
-
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        userProcessorcontainer.remove(this);
-        Component[] componentArray = userProcessorcontainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
-        CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
-        layout.previous(userProcessorcontainer);
-        topPanel.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
 
     private void RegisterjButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterjButtonMousePressed
         // TODO add your handling code here:
@@ -393,7 +373,6 @@ public class AmbulanceDriverRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField ageTxt;
     private javax.swing.JTextField ambulanceNumberTxt;
     private javax.swing.JLabel back;
-    private javax.swing.JButton backBtn;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JComboBox<Object> enterpriseComboBox;
     private javax.swing.JTextField firstNameTxt;

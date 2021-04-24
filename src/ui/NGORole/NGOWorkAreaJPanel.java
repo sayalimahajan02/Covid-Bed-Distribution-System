@@ -64,16 +64,18 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         acceptReqBtn = new javax.swing.JLabel();
         assignCampBtn = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setText("HELLO NGO!");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 168, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 168, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Hospital Requests");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
 
         campListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,11 +98,11 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(campListTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 870, 99));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 870, 99));
 
         campLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         campLabel.setText("Available Camps ");
-        add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
+        add(campLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, -1, -1));
 
         hospitalReqTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,7 +125,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(hospitalReqTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 877, 98));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 877, 98));
 
         acceptReqBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         acceptReqBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -134,7 +136,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
                 acceptReqBtnMousePressed(evt);
             }
         });
-        add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 132, 23));
+        add(acceptReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 132, 23));
 
         assignCampBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         assignCampBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -145,10 +147,13 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
                 assignCampBtnMousePressed(evt);
             }
         });
-        add(assignCampBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 117, 23));
+        add(assignCampBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 117, 23));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/organization (1).png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 330, 440));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/badge (1).png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void acceptReqBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acceptReqBtnMousePressed
@@ -264,6 +269,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JTable campListTable;
     private javax.swing.JTable hospitalReqTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

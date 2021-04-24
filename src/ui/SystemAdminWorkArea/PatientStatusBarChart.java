@@ -62,18 +62,18 @@ JPanel userProcessContainer;
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new java.awt.BorderLayout());
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 65, 770, 460));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 770, 460));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("BAR CHART");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 25, 151, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 151, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/graph-bar (4).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 151, 137));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 130));
 
         jLabel3.setBackground(new java.awt.Color(255, 244, 244));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profits.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 280, 190, 350));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 170, 190, 350));
     }// </editor-fold>//GEN-END:initComponents
 
     private void populateBarGraph() {

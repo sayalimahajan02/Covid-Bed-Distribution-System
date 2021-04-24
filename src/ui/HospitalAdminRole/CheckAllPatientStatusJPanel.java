@@ -54,7 +54,9 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -80,13 +82,13 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblallpatient);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 879, 192));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 90, 930, 192));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ambulance (1).png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 290, 230));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 290, 230));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/patient (4).png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 180, 150));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 180, 150));
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,7 +96,10 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
                 backMousePressed(evt);
             }
         });
-        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 50));
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 0, 40, 50));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/examination.png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 120));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
@@ -111,6 +116,7 @@ public class CheckAllPatientStatusJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

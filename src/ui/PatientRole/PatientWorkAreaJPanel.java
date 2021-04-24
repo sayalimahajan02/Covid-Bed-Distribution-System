@@ -16,6 +16,7 @@ import Business.Hospital.Patient;
 import Business.Organization.Organization;
 import Business.Status;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.awt.Image;
 import java.io.File;
 import static java.time.Clock.system;
@@ -99,7 +100,10 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         btnfindbeds = new javax.swing.JLabel();
         btnproceed = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 244, 244));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -131,10 +135,9 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(hospitaltable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 794, 170));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 794, 170));
 
         lblreport.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 153, 153)));
-        lblreport.setSize(new java.awt.Dimension(190, 72));
         add(lblreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 170, 190, 72));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -157,7 +160,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 btnemergencyMousePressed(evt);
             }
         });
-        add(btnemergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, 120, 30));
+        add(btnemergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 40, 120, 30));
 
         btnupload.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnupload.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -190,7 +193,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 btnfindbedsMousePressed(evt);
             }
         });
-        add(btnfindbeds, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 110, 20));
+        add(btnfindbeds, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 110, 30));
 
         btnproceed.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnproceed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -201,10 +204,24 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 btnproceedMousePressed(evt);
             }
         });
-        add(btnproceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 120, 30));
+        add(btnproceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 550, 120, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/patient (5).png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, -20, 260, 470));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/medical-mask (2).png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 130));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Check Report Status");
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel5MousePressed(evt);
+            }
+        });
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 140, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnemergencyMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnemergencyMousePressed
@@ -324,6 +341,34 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Report has been successfully uploaded. ", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnsubmitMousePressed
 
+    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+ 
+        
+                                                   
+        // TODO add your handling code here:
+        if (patient.getPatientstatus().equals(Status.New.getValue())
+                || patient.getPatientstatus().equals(Status.InProgress.getValue())
+                || patient.getPatientstatus().equals(Status.Approved.getValue())
+                || patient.getPatientstatus().equals(Status.Allocation.getValue())) {
+            JOptionPane.showMessageDialog(null, "Your request is in progress! Please wait untill the request is Allocated!");
+            return;
+        }
+
+ 
+
+        if (patient.getHospital() != null) {
+            PatientCheckMyStatusHospitalJPanel j = new PatientCheckMyStatusHospitalJPanel(patient, userProcessorcontainer);
+            userProcessorcontainer.add("PatientCheckMyStatusHospitalJPanel", j);
+            CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+            layout.next(userProcessorcontainer);
+        } else if (patient.getCampadmin() != null) {
+            PatientCheckMyStatusCamplJPanel j = new PatientCheckMyStatusCamplJPanel(patient, userProcessorcontainer);
+            userProcessorcontainer.add("PatientCheckMyStatusCamplJPanel", j);
+            CardLayout layout = (CardLayout) userProcessorcontainer.getLayout();
+            layout.next(userProcessorcontainer);
+        }
+    }//GEN-LAST:event_jLabel5MousePressed
+
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();
         model.setRowCount(0);
@@ -354,6 +399,8 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblpatientstatus;
     private javax.swing.JLabel lblreport;

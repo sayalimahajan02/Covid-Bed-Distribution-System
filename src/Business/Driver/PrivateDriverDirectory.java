@@ -30,4 +30,42 @@ public class PrivateDriverDirectory {
         privateDriverDirectory.add(privateDriver);
     }
     
+    public PrivateDriver getUserByFullName(String fullName)
+    {
+        PrivateDriver selectedDriver=new PrivateDriver();
+        for(PrivateDriver pd : this.privateDriverDirectory){
+            if((pd.getDriverLastName()+", "+pd.getDriverFirstName()).equalsIgnoreCase(fullName)){
+                selectedDriver=pd;
+                break;
+            }
+        }
+        return selectedDriver;
+    }
+    public PrivateDriver getUserById(int id)
+    {
+        PrivateDriver selectedDriver=new PrivateDriver();
+        for(PrivateDriver pd : this.privateDriverDirectory){
+            if(pd.getId()==id){
+                selectedDriver=pd;
+                break;
+            }
+        }
+        return selectedDriver;
+    }
+    
+    public int generateId(){
+        return this.privateDriverDirectory.size()+1;
+    }
+    
+       public PrivateDriver getUserByUserName(String uname)
+    {
+        PrivateDriver selectedDriver=new PrivateDriver();
+        for(PrivateDriver ad : this.privateDriverDirectory){
+            if(ad.getUserName().equalsIgnoreCase(uname)){
+                selectedDriver=ad;
+                break;
+            }
+        }
+        return selectedDriver;
+    }
 }

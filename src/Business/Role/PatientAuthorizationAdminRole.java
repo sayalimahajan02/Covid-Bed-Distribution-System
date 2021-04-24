@@ -5,6 +5,8 @@
  */
 package Business.Role;
 
+import Business.Authorization.PatientAuthorizationAdmin;
+import Business.Driver.AmbulanceDriver;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -20,7 +22,7 @@ public class PatientAuthorizationAdminRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new PatientAuthorizationAdminWorkAreaJPanel();
+        return new PatientAuthorizationAdminWorkAreaJPanel(userProcessContainer, account, organization, enterprise, business,(PatientAuthorizationAdmin)business.getPatientAuthorizationDirectory().getUserByUserName(account.getUsername()));
     }
     
 }

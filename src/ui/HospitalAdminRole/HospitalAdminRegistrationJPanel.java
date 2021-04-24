@@ -5,9 +5,26 @@
  */
 package ui.HospitalAdminRole;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Hospital.Hospital;
+import Business.Hospital.HospitalDirectory;
+import Business.Hospital.Patient;
+import Business.Role.HospitalAdminRole;
+import Business.UserAccount.UserAccount;
+import Business.ValidationUtility;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import ui.DriverAuthorizationAdminRole.*;
 import ui.CampAdminRole.*;
 import ui.AmbulanceDriverRole.*;
+import ui.RegisterJPanel;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.SendEmail;
 
 /**
  *
@@ -15,11 +32,50 @@ import ui.AmbulanceDriverRole.*;
  */
 public class HospitalAdminRegistrationJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private Patient patient;
+    private ValidationUtility validation;
+    private EcoSystem system;
+    private DB4OUtil dB4OUtil;
+private JPanel topPanel;
+
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
-    public HospitalAdminRegistrationJPanel() {
+    public HospitalAdminRegistrationJPanel(JPanel container,JPanel topPanel, EcoSystem system, DB4OUtil dB4OUtil) {
         initComponents();
+        this.system = system;
+        this.topPanel=topPanel;
+        this.userProcessContainer = container;
+        this.dB4OUtil = dB4OUtil;
+         this.setSize(1680, 1050);
+         populateNetworkComboBox();
+    }
+
+    private void populateNetworkComboBox() {
+        networkComboBox.removeAllItems();
+        for (Network network : system.getNetworkList()) {
+            networkComboBox.addItem(network);
+        }
+    }
+
+    private void populateEnterpriseComboBox(Network network) {
+        enterpriseComboBox.removeAllItems();
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (Enterprise.EnterpriseType.Hospital.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                enterpriseComboBox.addItem(enterprise);
+            }
+        }
+
+    }
+
+    public void popOrganizationComboBox(Enterprise enterprise) {
+        orgComboBox.removeAllItems();
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (Organization.Type.HospitalAdmin.getValue().equals(organization.getType().getValue())) {
+                orgComboBox.addItem(organization);
+            }
+        }
     }
 
     /**
@@ -31,19 +87,386 @@ public class HospitalAdminRegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtfname = new javax.swing.JTextField();
+        txtusername = new javax.swing.JTextField();
+        txtphone = new javax.swing.JTextField();
+        txtemailid = new javax.swing.JTextField();
+        txtstreet = new javax.swing.JTextField();
+        txtcity = new javax.swing.JTextField();
+        txtzipcode = new javax.swing.JTextField();
+        passwordfield = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        txtbedcount = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        orgComboBox = new javax.swing.JComboBox<>();
+        enterpriseComboBox = new javax.swing.JComboBox<>();
+        networkComboBox = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        btnregister = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 244, 244));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("         Name:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 184, -1, 23));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Phone number:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 23));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("Street:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 23));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("Zipcode:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, 23));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("Email Address:");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 90, 23));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setText("UserName:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, 23));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setText("City:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, 23));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setText("Password:");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 60, 20));
+
+        txtfname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfnameActionPerformed(evt);
+            }
+        });
+        add(txtfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 184, 220, -1));
+
+        txtusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtusernameActionPerformed(evt);
+            }
+        });
+        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 220, -1));
+
+        txtphone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtphoneActionPerformed(evt);
+            }
+        });
+        add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 220, -1));
+
+        txtemailid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemailidActionPerformed(evt);
+            }
+        });
+        add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 220, -1));
+
+        txtstreet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtstreetActionPerformed(evt);
+            }
+        });
+        add(txtstreet, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 220, -1));
+
+        txtcity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcityActionPerformed(evt);
+            }
+        });
+        add(txtcity, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 220, -1));
+
+        txtzipcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtzipcodeActionPerformed(evt);
+            }
+        });
+        add(txtzipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 220, -1));
+        add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 220, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Beds:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 40, -1));
+
+        txtbedcount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbedcountActionPerformed(evt);
+            }
+        });
+        add(txtbedcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 220, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel15.setText("Network:");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 69, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel16.setText("Enterprise:");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 70, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setText("Organization:");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 146, -1, 20));
+
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 145, 220, -1));
+
+        enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseComboBoxActionPerformed(evt);
+            }
+        });
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 105, 220, -1));
+
+        networkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkComboBoxActionPerformed(evt);
+            }
+        });
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 65, 220, -1));
+
+        jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel12.setText("PLEASE FILL THE FORM FOR REGISTRATION");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+
+        btnregister.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnregister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnregister.setText("Submit");
+        btnregister.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnregister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnregisterMousePressed(evt);
+            }
+        });
+        add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 120, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital (4).png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 250, 280));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 40, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfnameActionPerformed
+
+    private void txtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtusernameActionPerformed
+
+    private void txtphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtphoneActionPerformed
+
+    private void txtemailidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailidActionPerformed
+
+    private void txtstreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstreetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtstreetActionPerformed
+
+    private void txtcityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcityActionPerformed
+
+    private void txtzipcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtzipcodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtzipcodeActionPerformed
+
+    private void txtbedcountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbedcountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtbedcountActionPerformed
+
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
+        if (e != null) {
+            popOrganizationComboBox(e);
+        }
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkComboBoxActionPerformed
+
+    private void btnregisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnregisterMousePressed
+        // TODO add your handling code here:
+        
+                Organization org = (Organization) orgComboBox.getSelectedItem();
+        HospitalDirectory dir = system.getHospitalDirectory();
+        Hospital h = new Hospital();
+        char[] passwordCharArray = passwordfield.getPassword();
+        String password = String.valueOf(passwordCharArray);
+
+        if (txtfname.getText().isEmpty() || txtusername.getText().isEmpty()
+                || passwordfield.getText().isEmpty() || txtemailid.getText().isEmpty() || txtstreet.getText().isEmpty()
+                || txtzipcode.getText().isEmpty() || txtcity.getText().isEmpty() || txtphone.getText().isEmpty() || txtbedcount.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
+
+        boolean flagfname = validation.isNameValid(txtfname.getText());
+
+        if (flagfname == false) {
+            JOptionPane.showMessageDialog(null, "Name cannot have integer values!");
+            return;
+        } else {
+            h.setName(txtfname.getText());
+        }      
+
+        boolean flagusername = validation.isUserNameValid(txtusername.getText());
+
+        if (flagusername == false) {
+            JOptionPane.showMessageDialog(null, "Username must be unique!");
+            return;
+        } else {
+            h.setUsername(txtusername.getText());
+        }
+
+        boolean flagpassword = validation.isPasswordValid(passwordfield.getText());
+
+        if (flagpassword == false) {
+            JOptionPane.showMessageDialog(null, "Password must have atleast a digit, a special symbol, uppercase and lowercase!");
+            return;
+        } else {
+            h.setPassword(passwordfield.getText());
+        }
+
+        boolean flagemailid = validation.isEmailAddressValid(txtemailid.getText());
+
+        if (flagemailid == false) {
+            JOptionPane.showMessageDialog(null, "Check email address format!");
+            return;
+        } else {
+            h.setEmail(txtemailid.getText());
+        }
+
+        if (ValidationUtility.isNameValid(txtcity.getText())) {
+            h.setCity(txtcity.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper City!");
+        }
+
+        boolean flagzipcode = validation.isZipCodeValid(txtzipcode.getText());
+
+        if (flagzipcode == false) {
+            JOptionPane.showMessageDialog(null, "Zipcode must have 5 digits only!");
+            return;
+        } else {
+            h.setZipcode(txtzipcode.getText());
+        }
+
+        boolean flagphonenumber = validation.isPhoneNumberValid(txtphone.getText());
+
+        if (flagphonenumber == false) {
+            JOptionPane.showMessageDialog(null, "Zipcode must have 10 digits! Check the format!");
+            return;
+        } else {
+            h.setPhonenumber(txtphone.getText());
+        }
+
+//        for(UserAccount account : system.getUserAccountDirectory().getUserAccountList()) {
+//            if(account.getUsername().equals(txtusername.getText())) {
+//                JOptionPane.showMessageDialog(null, "Username Already exists!");
+//                return;
+//            }
+//        }
+        if (ValidationUtility.isUserNameValid(txtusername.getText())) {
+            if (ValidationUtility.isPasswordValid(password)) {
+                if (org.getUserAccountDirectory().checkIfUsernameIsUnique(txtusername.getText())) {
+                    h.setUsername(txtusername.getText());
+                    org.getUserAccountDirectory()
+                            .createUserAccount(txtusername.getText(), password, 
+                                    org.getEmployeeDirectory().createEmployee(txtfname.getText()), new HospitalAdminRole());
+                } else {
+                    JOptionPane.showMessageDialog(null, "UserName already in use. Please try something else!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Please provide proper Password!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please provide proper User Name!");
+        }
+        h.setStreetaddress(txtstreet.getText());
+        try {
+            h.setBedcount(Integer.parseInt(txtbedcount.getText()));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Please put Integer Value for Bed Availability!");
+        }
+
+        dir.addHospital(h);
+
+        dB4OUtil.storeSystem(system);
+        JOptionPane.showMessageDialog(null, "Information Saved!");
+        SendEmail.sendEmailMessage(txtemailid.getText(),"Welcome to Covid Bed Distribution System", "Hello "+txtfname.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");
+    }//GEN-LAST:event_btnregisterMousePressed
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        RegisterJPanel Registerjpanel = (RegisterJPanel) userProcessContainer;
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
+    private javax.swing.JLabel btnregister;
+    private javax.swing.JComboBox<Object> enterpriseComboBox;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<Object> networkComboBox;
+    private javax.swing.JComboBox<Object> orgComboBox;
+    private javax.swing.JPasswordField passwordfield;
+    private javax.swing.JTextField txtbedcount;
+    private javax.swing.JTextField txtcity;
+    private javax.swing.JTextField txtemailid;
+    private javax.swing.JTextField txtfname;
+    private javax.swing.JTextField txtphone;
+    private javax.swing.JTextField txtstreet;
+    private javax.swing.JTextField txtusername;
+    private javax.swing.JTextField txtzipcode;
     // End of variables declaration//GEN-END:variables
 }

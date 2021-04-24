@@ -17,11 +17,11 @@ public class UserAccountDirectory {
     private ArrayList<UserAccount> userAccountList;
 
     public UserAccountDirectory() {
-        userAccountList = new ArrayList();
+        this.userAccountList = new ArrayList<>();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
-        return userAccountList;
+        return this.userAccountList;
     }
     
     public UserAccount authenticateUser(String username, String password){

@@ -21,24 +21,25 @@ public abstract class Organization {
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
-    private static int counter=0;
-    
-    public enum Type{
-        Admin("Admin Organization"), 
-        Doctor("Doctor Organization"),
-        Lab("Lab Organization"),
-        PrivateDriver("PrivateDriver Organization"),
-        AmbulanceDriver("AmbulanceDriver Organization"),
-        CampAdmin("CampAdmin Organization"),
-        NGOAdmin("NGOAdmin Organization"),
-        HospitalAdmin("HospitalAdmin Organization"),
-        PatientCareStaff("PatientCareStaff Organization"),
-        PatientAuthorization("PatientAuthorization Organization"),
-        DriverAuthorization("DriverAuthorization Organization");
+    private static int counter = 0;
+    private Type type;
+
+    public enum Type {
+        Admin("Admin Organization"),
+        PrivateDriver("Private Driver Organization"),
+        AmbulanceDriver("Ambulance Driver Organization"),
+        CampAdmin("Camp Admin Organization"),
+        NGOAdmin("NGO Admin Organization"),
+        HospitalAdmin("Hospital Admin Organization"),
+        PatientCareStaff("Patient Care Staff Organization"),
+        PatientAuthorization("Patient Authorization Organization"),
+        DriverAuthorization("Driver Authorization Organization");
         private String value;
+
         private Type(String value) {
             this.value = value;
         }
+
         public String getValue() {
             return value;
         }
@@ -54,7 +55,7 @@ public abstract class Organization {
     }
 
     public abstract ArrayList<Role> getSupportedRole();
-    
+
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
     }
@@ -66,7 +67,7 @@ public abstract class Organization {
     public EmployeeDirectory getEmployeeDirectory() {
         return employeeDirectory;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -87,6 +88,14 @@ public abstract class Organization {
     public String toString() {
         return name;
     }
-    
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
     
 }

@@ -6,8 +6,10 @@ import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import com.db4o.config.EmbeddedConfiguration;
+import com.db4o.config.TSerializable;
 import com.db4o.ta.TransparentPersistenceSupport;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
 
 /**
  *
@@ -37,6 +39,7 @@ public class DB4OUtil {
 
             EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
             config.common().add(new TransparentPersistenceSupport());
+            config.common().objectClass(Timestamp.class).translate(new TSerializable());
             //Controls the number of objects in memory
             config.common().activationDepth(Integer.MAX_VALUE);
             //Controls the depth/level of updation of Object

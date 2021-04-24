@@ -5,7 +5,21 @@
  */
 package ui.CampAdminRole;
 
-import ui.AmbulanceDriverRole.*;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.Role.CampAdminRole;
+import Business.SendEmail;
+import Business.ValidationUtility;
+import Business.Voluntary.CampAdmin;
+import Business.Voluntary.CampAdminDirectory;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import ui.RegisterJPanel;
 
 /**
  *
@@ -13,11 +27,21 @@ import ui.AmbulanceDriverRole.*;
  */
 public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
 
+    private EcoSystem system;
+    private JPanel jpanel;
+    private DB4OUtil dB4OUtil;
+private JPanel topPanel;
     /**
-     * Creates new form AmbulanceDriverRegistrationJPanel
+     * Creates new form CampAdminRegistrationJPanel
      */
-    public CampAdminRegistrationJPanel() {
+    public CampAdminRegistrationJPanel(JPanel registerDetails,JPanel topPanel, EcoSystem system,DB4OUtil dB4OUtil) {
         initComponents();
+        this.system = system;
+        this.topPanel=topPanel;
+        this.jpanel = registerDetails;
+        this.dB4OUtil = dB4OUtil;
+        this.setSize(1680, 1050);
+        populateNetworkComboBox();
     }
 
     /**
@@ -29,19 +53,395 @@ public class CampAdminRegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        campName = new javax.swing.JTextField();
+        managerNameText = new javax.swing.JTextField();
+        cityText = new javax.swing.JTextField();
+        zipCode = new javax.swing.JTextField();
+        phoneNmbr = new javax.swing.JTextField();
+        emailAddrText = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        userNameTxt1 = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        jLabel14 = new javax.swing.JLabel();
+        capacityTxt = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        networkComboBox = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        enterpriseComboBox = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        orgComboBox = new javax.swing.JComboBox<>();
+        addressTxt = new javax.swing.JTextField();
+        submitBtn = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(247, 247, 247));
+
+        jPanel2.setBackground(new java.awt.Color(255, 244, 244));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("Camp Name:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, 20));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Manager Name:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Street Address:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("City:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("Zip Code:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setText("Contact Number:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("Email Address:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 680, -1, -1));
+
+        campName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campNameActionPerformed(evt);
+            }
+        });
+        jPanel2.add(campName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 176, -1));
+        jPanel2.add(managerNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 176, -1));
+
+        cityText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityTextActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 176, -1));
+        jPanel2.add(zipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 176, -1));
+        jPanel2.add(phoneNmbr, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 176, -1));
+        jPanel2.add(emailAddrText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 176, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setText("User Name:");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setText("Password:");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, -1, -1));
+
+        userNameTxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameTxt1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(userNameTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 176, -1));
+
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 560, 176, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel14.setText("Capacity:");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, -1, -1));
+
+        capacityTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                capacityTxtActionPerformed(evt);
+            }
+        });
+        jPanel2.add(capacityTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 176, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel15.setText("Network:");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
+
+        networkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkComboBoxActionPerformed(evt);
+            }
+        });
+        jPanel2.add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 77, 176, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel16.setText("Enterprise:");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
+
+        enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseComboBoxActionPerformed(evt);
+            }
+        });
+        jPanel2.add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 173, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setText("Organization:");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
+
+        orgComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgComboBoxActionPerformed(evt);
+            }
+        });
+        jPanel2.add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 173, -1));
+        jPanel2.add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 176, -1));
+
+        submitBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        submitBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        submitBtn.setText("Submit");
+        submitBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        submitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                submitBtnMousePressed(evt);
+            }
+        });
+        jPanel2.add(submitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 620, 111, 29));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/website.png"))); // NOI18N
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 380, 360));
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel2.setText("PLEASE FILL THE FORM FOR REGISTRATION");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registration.png"))); // NOI18N
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        jPanel2.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 40, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void populateNetworkComboBox() {
+        networkComboBox.removeAllItems();
+        for (Network network : system.getNetworkList()) {
+            networkComboBox.addItem(network);
+        }
+    }
+
+    private void populateEnterpriseComboBox(Network network) {
+        enterpriseComboBox.removeAllItems();
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (Enterprise.EnterpriseType.Voluntary.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                enterpriseComboBox.addItem(enterprise);
+            }
+        }
+
+    }
+
+    public void popOrganizationComboBox(Enterprise enterprise) {
+        orgComboBox.removeAllItems();
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (Organization.Type.CampAdmin.getValue().equals(organization.getType().getValue())) {
+                orgComboBox.addItem(organization);
+            }
+        }
+    }
+
+
+    private void campNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campNameActionPerformed
+
+    private void userNameTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameTxt1ActionPerformed
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void capacityTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capacityTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_capacityTxtActionPerformed
+
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkComboBoxActionPerformed
+
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
+        if (e != null) {
+            popOrganizationComboBox(e);
+        }
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void cityTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityTextActionPerformed
+
+    private void orgComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orgComboBoxActionPerformed
+
+    private void submitBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitBtnMousePressed
+        // TODO add your handling code here:
+        
+        Organization org = (Organization) orgComboBox.getSelectedItem();
+        CampAdminDirectory dir = system.getCampAdminDirectory();
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+
+        if (campName.getText().isEmpty() || managerNameText.getText().isEmpty() || cityText.getText().isEmpty()
+                || zipCode.getText().isEmpty() || phoneNmbr.getText().isEmpty() || emailAddrText.getText().isEmpty()
+                || userNameTxt1.getText().isEmpty() || passwordField.getText().isEmpty() || capacityTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please provide all the fields!");
+            return;
+        }
+
+        if (!ValidationUtility.isNameValid(campName.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide proper Name!");
+            return;
+        }
+        if (!ValidationUtility.isNameValid(managerNameText.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide proper Name!");
+            return;
+        }
+
+        if (!ValidationUtility.isNameValid(cityText.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide proper City!");
+            return;
+        }
+
+        if (!ValidationUtility.isZipCodeValid(zipCode.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide proper Zipcode!");
+            return;
+        }
+
+        if (!ValidationUtility.isPhoneNumberValid(phoneNmbr.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide proper Phone Number!");
+            return;
+        }
+
+        if (!ValidationUtility.isEmailAddressValid(emailAddrText.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide proper Email Address!");
+            return;
+        }
+
+        if (!ValidationUtility.isUserNameValid(userNameTxt1.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide proper User Name!");
+            return;
+        }
+        if (!ValidationUtility.isPasswordValid(password)) {
+            JOptionPane.showMessageDialog(null, "Please provide proper Password!");
+            return;
+        }
+        if (!ValidationUtility.isValueInteger(capacityTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Please put Integer Value for Capacity!");
+            return;
+        }
+        if (org.getUserAccountDirectory().checkIfUsernameIsUnique(userNameTxt1.getText())) {
+            org.getUserAccountDirectory()
+                    .createUserAccount(userNameTxt1.getText(), password,
+                            org.getEmployeeDirectory().createEmployee(campName.getText()), new CampAdminRole());
+        } else {
+            JOptionPane.showMessageDialog(null, "UserName already in use. Please try something else!");
+            return;
+        }
+
+        CampAdmin ca = new CampAdmin();
+        ca.setName(campName.getText());
+        ca.setAdminName(managerNameText.getText());
+        ca.setCity(cityText.getText());
+        ca.setZipCode(zipCode.getText());
+        ca.setPhoneNumber(phoneNmbr.getText());
+        ca.setEmailId(emailAddrText.getText());
+        ca.setStreet(addressTxt.getText());
+        ca.setUserName(userNameTxt1.getText());
+        ca.setCapacity(Integer.parseInt(capacityTxt.getText()));
+        dir.addCampAdmin(ca);
+        JOptionPane.showMessageDialog(null, "Information Saved!");
+        dB4OUtil.storeSystem(system);
+        SendEmail.sendEmailMessage(emailAddrText.getText(),"Welcome to Covid Bed Distribution System", "Hello "+campName.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution  ");
+    }//GEN-LAST:event_submitBtnMousePressed
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+
+        jpanel.remove(this);
+        Component[] componentArray = jpanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) jpanel.getLayout();
+        layout.previous(jpanel);
+        topPanel.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addressTxt;
+    private javax.swing.JLabel back;
+    private javax.swing.JTextField campName;
+    private javax.swing.JTextField capacityTxt;
+    private javax.swing.JTextField cityText;
+    private javax.swing.JTextField emailAddrText;
+    private javax.swing.JComboBox<Object> enterpriseComboBox;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField managerNameText;
+    private javax.swing.JComboBox<Object> networkComboBox;
+    private javax.swing.JComboBox<Object> orgComboBox;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JTextField phoneNmbr;
+    private javax.swing.JLabel submitBtn;
+    private javax.swing.JTextField userNameTxt1;
+    private javax.swing.JTextField zipCode;
     // End of variables declaration//GEN-END:variables
 }

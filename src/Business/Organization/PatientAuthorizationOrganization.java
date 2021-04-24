@@ -13,20 +13,17 @@ import java.util.ArrayList;
  *
  * @author Gayatri
  */
-public class PatientAuthorizationOrganization {
-    
-    public class DriverAuthorizationOrganization extends Organization{
+public class PatientAuthorizationOrganization extends Organization {
 
-    public DriverAuthorizationOrganization() {
+    public PatientAuthorizationOrganization() {
         super(Organization.Type.PatientAuthorization.getValue());
     }
-    
+
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
         roles.add(new PatientAuthorizationAdminRole());
         return roles;
     }
-     
-    }
+
 }

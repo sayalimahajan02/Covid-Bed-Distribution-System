@@ -13,13 +13,44 @@ import Business.Hospital.Hospital;
  */
 public class AmbulanceDriver {
     
+    private int id;
     private String driverFirstName;
     private String driverLastName;
+    private String userName;
     private int age;
     private Hospital hospital;
     private String phoneNumber;
     private String ambulanceNumber;
+    private String emailid;
+    private boolean availability = true;
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+
+    private boolean isAvailable;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
+    
     public int getAge() {
         return age;
     }
@@ -68,6 +99,19 @@ public class AmbulanceDriver {
         this.ambulanceNumber = ambulanceNumber;
     }
     
-    
-    
+    public boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
+
+    public String getEmailid() {
+        return emailid;
+    }
+
+    public void setEmailid(String emailid) {
+        this.emailid = emailid;
+    }
 }

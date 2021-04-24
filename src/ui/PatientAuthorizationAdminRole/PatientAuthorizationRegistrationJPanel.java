@@ -5,11 +5,21 @@
  */
 package ui.PatientAuthorizationAdminRole;
 
-import ui.NGORole.*;
-import ui.HospitalAdminRole.*;
-import ui.DriverAuthorizationAdminRole.*;
-import ui.CampAdminRole.*;
-import ui.AmbulanceDriverRole.*;
+import Business.Authorization.PatientAuthorizationAdmin;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Role.PatientAuthorizationAdminRole;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.SendEmail;
+import java.awt.CardLayout;
+import java.awt.Component;
+import ui.RegisterJPanel;
 
 /**
  *
@@ -17,11 +27,49 @@ import ui.AmbulanceDriverRole.*;
  */
 public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
 
+    private EcoSystem system;
+    private JPanel jPanel;
+    private DB4OUtil dB4OUtil;
+    private JPanel topPanel;
+    
+
     /**
      * Creates new form AmbulanceDriverRegistrationJPanel
      */
-    public PatientAuthorizationRegistrationJPanel() {
+    public PatientAuthorizationRegistrationJPanel( JPanel registerDetails, JPanel topPanel, EcoSystem system,DB4OUtil dB4OUtil) {
         initComponents();
+        this.system = system;
+        this.jPanel = registerDetails;
+        this.topPanel=topPanel;
+        this.dB4OUtil = dB4OUtil;
+        this.setSize(1680, 1050);
+        populateNetworkComboBox();
+    }
+
+    private void populateNetworkComboBox() {
+        networkComboBox.removeAllItems();
+        for (Network network : system.getNetworkList()) {
+            networkComboBox.addItem(network);
+        }
+    }
+
+    private void populateEnterpriseComboBox(Network network) {
+        enterpriseComboBox.removeAllItems();
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (Enterprise.EnterpriseType.Authorization.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                enterpriseComboBox.addItem(enterprise);
+            }
+        }
+
+    }
+
+    public void popOrganizationComboBox(Enterprise enterprise) {
+        orgComboBox.removeAllItems();
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (Organization.Type.PatientAuthorization.getValue().equals(organization.getType().getValue())) {
+                orgComboBox.addItem(organization);
+            }
+        }
     }
 
     /**
@@ -33,19 +81,222 @@ public class PatientAuthorizationRegistrationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        UsernameTxt = new javax.swing.JTextField();
+        firstNameTxt = new javax.swing.JTextField();
+        phoneTxt = new javax.swing.JTextField();
+        lastNameTxt = new javax.swing.JTextField();
+        emailTxt = new javax.swing.JTextField();
+        passwordTxt = new javax.swing.JPasswordField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        enterpriseComboBox = new javax.swing.JComboBox<>();
+        networkComboBox = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        orgComboBox = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        registerButton = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 244, 244));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setText("Username :");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 238, -1, -1));
+
+        jLabel3.setText("Password :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 273, -1, -1));
+
+        jLabel4.setText("Phone Number :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 384, -1, -1));
+
+        jLabel5.setText("First Name :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 311, -1, -1));
+
+        jLabel6.setText("Last Name :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 349, -1, -1));
+
+        jLabel7.setText("Email :");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 422, -1, -1));
+        add(UsernameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 232, 220, -1));
+        add(firstNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 308, 220, -1));
+        add(phoneTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 381, 220, -1));
+        add(lastNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 346, 220, -1));
+        add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 419, 220, -1));
+
+        passwordTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordTxtActionPerformed(evt);
+            }
+        });
+        add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 270, 220, -1));
+
+        jLabel15.setText("Network:");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 116, -1, -1));
+
+        jLabel16.setText("Enterprise:");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 156, -1, -1));
+
+        enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseComboBoxActionPerformed(evt);
+            }
+        });
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 152, 220, -1));
+
+        networkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkComboBoxActionPerformed(evt);
+            }
+        });
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 112, 220, -1));
+
+        jLabel17.setText("Organization:");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 196, -1, -1));
+
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 192, 220, -1));
+
+        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel8.setText("PLEASE FILL THE FORM FOR REGISTRATION");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
+
+        registerButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        registerButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registerButton.setText("Register");
+        registerButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registerButtonMousePressed(evt);
+            }
+        });
+        add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 120, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/authorized-dealer.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 280, 450));
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/return-button.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 40, 40));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/authorization.png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
+        // TODO add your handling code here:
+        Enterprise e = (Enterprise) enterpriseComboBox.getSelectedItem();
+        if (e != null) {
+            popOrganizationComboBox(e);
+        }
+    }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void networkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkComboBoxActionPerformed
+
+    private void passwordTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordTxtActionPerformed
+
+    private void registerButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMousePressed
+        // TODO add your handling code here:
+        
+        Organization org = (Organization) orgComboBox.getSelectedItem();
+        char[] passwordCharArray = passwordTxt.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        if (firstNameTxt.getText().isEmpty() || lastNameTxt.getText().isEmpty() || UsernameTxt.getText().isEmpty() || phoneTxt.getText().isEmpty() || emailTxt.getText().isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter all fields..");
+            return;
+        }
+//        if(!randomCode.equalsIgnoreCase(verificationCodeTxt.getText())){
+//            JOptionPane.showMessageDialog(null, "Verification Code is incorrect please enter correct code or click on verify to resend new code");  
+//            return;
+//        }
+        if (!org.getUserAccountDirectory().checkIfUsernameIsUnique(UsernameTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "User with this username already exist! Please try another UserName");
+            return;
+        }
+        if (!system.isPasswordValid(password)) {
+            JOptionPane.showMessageDialog(null, "Password muct be between 3-20 characters. "
+                    + "Lower case, upper case, digit and a special character should occur once.");
+            return;
+        }
+
+        if (!this.system.isEmailAddressValid(emailTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter proper Email");
+            return;
+        }
+        if (!this.system.isPhoneNumberValid(phoneTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Please provide Contact number in format 123-456-7890 OR 123.456.7890 OR 123 456 7890");
+            return;
+        }
+        PatientAuthorizationAdmin admin = new PatientAuthorizationAdmin();
+        admin.setFirstName(firstNameTxt.getText());
+        admin.setLastName(lastNameTxt.getText());
+        admin.setPhoneNumber(phoneTxt.getText());
+        admin.setUserName(UsernameTxt.getText());
+        admin.setEmail(emailTxt.getText());
+        admin.setId(system.getPatientAuthorizationDirectory().generateId());
+        //save to db04
+        Employee employee = org.getEmployeeDirectory().createEmployee(admin.getLastName() + ", " + admin.getFirstName());
+        system.getPatientAuthorizationDirectory().getPatientAuthorizationDirectory().add(admin);
+        UserAccount account = org.getUserAccountDirectory().createUserAccount(UsernameTxt.getText(), password, employee, new PatientAuthorizationAdminRole());
+        dB4OUtil.storeSystem(system);
+        JOptionPane.showMessageDialog(null, "Patient Authorization role has been created successfully. Please login");
+        SendEmail.sendEmailMessage(emailTxt.getText(),"Welcome to Covid Bed Distribution System", "Hello "+firstNameTxt.getText()+" "+lastNameTxt.getText()+","+"\n \nCongratulations!! You have been successfully registered! \n \nProtectThePack! \n\nStay Safe.  \n \nWarm Regards,\n \nTeam Covid Bed Distribution");
+    }//GEN-LAST:event_registerButtonMousePressed
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        // TODO add your handling code here:
+        jPanel.remove(this);
+        Component[] componentArray = jPanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RegisterJPanel Registerjpanel = (RegisterJPanel) component;
+        CardLayout layout = (CardLayout) jPanel.getLayout();
+        layout.previous(jPanel);
+        topPanel.setVisible(true);
+    }//GEN-LAST:event_backMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField UsernameTxt;
+    private javax.swing.JLabel back;
+    private javax.swing.JTextField emailTxt;
+    private javax.swing.JComboBox<Object> enterpriseComboBox;
+    private javax.swing.JTextField firstNameTxt;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField lastNameTxt;
+    private javax.swing.JComboBox<Object> networkComboBox;
+    private javax.swing.JComboBox<Object> orgComboBox;
+    private javax.swing.JPasswordField passwordTxt;
+    private javax.swing.JTextField phoneTxt;
+    private javax.swing.JLabel registerButton;
     // End of variables declaration//GEN-END:variables
 }

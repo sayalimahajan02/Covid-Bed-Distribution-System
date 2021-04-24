@@ -19,11 +19,16 @@ public class CampAdminDirectory {
         return campadminList;
     }
 
+    public CampAdminDirectory() {
+        this.campadminList = new ArrayList<CampAdmin>();
+    }
+
     public void setCampadminList(ArrayList<CampAdmin> campadminList) {
         this.campadminList = campadminList;
     }
 
     public CampAdmin addCampAdmin(CampAdmin campadmin) {
+        campadmin.setId(generateID());
         this.campadminList.add(campadmin);
         return campadmin;
     }
@@ -45,6 +50,19 @@ public class CampAdminDirectory {
         for (CampAdmin campadmin : campadminList) {
             if (campadmin.getUserName().equals(uname)) {
                 return campadmin;
+            }
+        }
+        return null;
+    }
+
+    public String generateID() {
+        return "camp"+campadminList.size() + 1;
+    }
+
+    public CampAdmin findCampByID(String id) {
+        for (CampAdmin ca : campadminList) {
+            if (ca.getId().equalsIgnoreCase(id)) {
+                return ca;
             }
         }
         return null;

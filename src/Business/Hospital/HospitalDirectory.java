@@ -12,14 +12,14 @@ import java.util.ArrayList;
  * @author Yash
  */
 public class HospitalDirectory {
-  
+
     private ArrayList<Hospital> HospitalDirectory;
-    
+
     public HospitalDirectory() {
-        
+
         HospitalDirectory = new ArrayList();
-  
-}
+
+    }
 
     public ArrayList<Hospital> getHospitalDirectory() {
         return HospitalDirectory;
@@ -28,24 +28,46 @@ public class HospitalDirectory {
     public void setHospitalDirectory(ArrayList<Hospital> HospitalDirectory) {
         this.HospitalDirectory = HospitalDirectory;
     }
-    
-    public Hospital addHospital(String name, String email, String phonenumber, String address, String username, int beds){
-        Hospital hospital = new Hospital(name, email, phonenumber, address, username, beds);
-        HospitalDirectory.add(hospital);
+
+    public String generateID() {
+        return "hospital"+HospitalDirectory.size() + 1;
+    }
+
+    public Hospital addHospital(Hospital hospital) {
+
+        hospital.setHospitalID(generateID());
+        this.HospitalDirectory.add(hospital);
         return hospital;
     }
-    
-    public void removeHospital(Hospital hospital){
+
+    public void removeHospital(Hospital hospital) {
         HospitalDirectory.remove(hospital);
     }
-    
-    public Hospital getHospitalByName(String name){ 
-        for(Hospital hospital: HospitalDirectory){
-            if(hospital.getName().equalsIgnoreCase(name)){
+
+    public Hospital getHospitalByName(String name) {
+        for (Hospital hospital : HospitalDirectory) {
+            if (hospital.getName().equalsIgnoreCase(name)) {
                 return hospital;
             }
         }
         return null;
     }
     
+    public Hospital getHospitalByUsername(String name) {
+        for (Hospital hospital : HospitalDirectory) {
+            if (hospital.getUsername().equalsIgnoreCase(name)) {
+                return hospital;
+            }
+        }
+        return null;
+    }
+
+ public Hospital getHospitalByID(String hospitalID) {
+        for (Hospital hospital : HospitalDirectory) {
+            if (hospital.getHospitalID().equals(hospitalID)) {
+                return hospital;
+            }
+        }
+        return null;
+    }
 }

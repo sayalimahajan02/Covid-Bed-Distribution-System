@@ -5,17 +5,53 @@
  */
 package ui.PatientCareStaffRole;
 
+import Business.Authorization.PatientAuthorizationAdmin;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Hospital.Patient;
+import Business.Hospital.PatientCareStaff;
+import Business.Organization.Organization;
+import Business.SendEmail;
+import Business.Status;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Yash
  */
 public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
 
+    private static EcoSystem system;
+    private static DB4OUtil dB4OUtil;
+    private static JPanel userProcessorcontainer;
+    private JPanel userProcessContainer;
+    private UserAccount account;
+    private Organization organization;
+    private Enterprise enterprise;
+    private EcoSystem business;
+    private Status status;
+    private PatientCareStaff patientCareStaffLogin;
+
     /**
      * Creates new form PatientCareStaffWorkAreaJPanel
      */
-    public PatientCareStaffWorkAreaJPanel() {
+    public PatientCareStaffWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, PatientCareStaff patientCareStaff) {
         initComponents();
+        this.system = business;
+        this.dB4OUtil = dB4OUtil;
+        this.userProcessorcontainer = userProcessContainer;
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.business = business;
+        this.patientCareStaffLogin = patientCareStaff;
+        this.setSize(1680, 1050);
+        populatePatientDetails();
     }
 
     /**
@@ -27,19 +63,141 @@ public class PatientCareStaffWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jScrollPane1 = new javax.swing.JScrollPane();
+        patientjTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btncomplete = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 244, 244));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        patientjTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Patient Id", "Patient Name", "Patient Phone Number", "Ambulance Number", "Driver Name", "Driver Phone Number", "Patient Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(patientjTable);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 166, 850, 97));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Patient and Ambulance Assigned");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 220, 27));
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel3.setText("HELLO PATIENT CARE STAFF!");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
+
+        btncomplete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btncomplete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btncomplete.setText("Complete");
+        btncomplete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btncomplete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btncompleteMousePressed(evt);
+            }
+        });
+        add(btncomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 130, 28));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse (1).png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 360, 260));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nurse (2).png"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btncompleteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncompleteMousePressed
+        // TODO add your handling code here:
+
+        int selectedRowIndex = patientjTable.getSelectedRow();
+        if (patientjTable.getSelectedRowCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Please select one patient to confirm pickup!!");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
+        int selectedRowInd = patientjTable.getSelectedRow();
+        Integer patientId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
+        Patient selectedPatient = system.getPatientDirectory().getPatientByID(patientId);
+
+        String patientBed = "";
+        if (selectedPatient.getHospital() != null) {
+            patientBed = selectedPatient.getHospital().getName() + "," + selectedPatient.getHospital().getStreetaddress() + "," + selectedPatient.getHospital().getCity();
+        }
+        if (selectedPatient.getCampadmin() != null) {
+            patientBed = selectedPatient.getCampadmin().getName() + "," + selectedPatient.getCampadmin().getStreet() + "," + selectedPatient.getCampadmin().getCity();
+        }
+        if (selectedPatient.getPatientstatus().equals(status.PatientDrop.getValue())) {
+            selectedPatient.setPatientstatus(status.Completed.getValue());
+            JOptionPane.showMessageDialog(null, "Patient has been successfully assigned a bed at " + patientBed + ". Workflow has been completed");
+            patientjTable.setValueAt(Status.Allocated.getValue(), selectedRowInd, 6);
+            SendEmail.sendEmailMessage(selectedPatient.getEmail(), "Update on your request from Covid Bed Distribution System",
+                    "Hello " + selectedPatient.getFirstname() + " " + selectedPatient.getLastname() + ","
+                    + "\n \nYou have been successfully allotted a Bed at " + patientBed + ".\n\n Hope you get well soon! Please take care! \n\n\nWarm Regards,\n \nTeam Covid Bed Distribution");
+
+       patientCareStaffLogin.setAvailability(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select patient with confirmed pickup!!");
+            return;
+        }
+    }//GEN-LAST:event_btncompleteMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btncomplete;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable patientjTable;
     // End of variables declaration//GEN-END:variables
+
+    private void populatePatientDetails() {
+        DefaultTableModel model = (DefaultTableModel) patientjTable.getModel();
+        model.setRowCount(0);
+
+        for (Patient patient : system.getPatientDirectory().getPatientDirectory()) {
+            if (patient.getAmbulancedriver() != null) {
+                if ((patient.getAmbulancedriver().getId() != 0 || patient.getPrivatedriver().getId() != 0)
+                        && patient.getPatientcarestaff().getPatientcarestaffID() == patientCareStaffLogin.getPatientcarestaffID()
+                        && (patient.getPatientstatus().equals(status.PatientPickup.getValue()) || patient.getPatientstatus().equals(status.PatientDrop.getValue())
+                        || patient.getPatientstatus().equals(status.Allocated.getValue()))) {
+                    Object[] row = new Object[7];
+                    row[0] = patient.getPatientID();
+                    row[1] = patient.getLastname() + ", " + patient.getFirstname();
+                    row[2] = patient.getPhonenumber();
+                    if (patient.getAmbulancedriver() != null && patient.getAmbulancedriver().getId() != 0) {
+                        row[3] = patient.getAmbulancedriver().getAmbulanceNumber();
+                        row[4] = patient.getAmbulancedriver().getDriverLastName() + ", " + patient.getAmbulancedriver().getDriverFirstName();
+                        row[5] = patient.getAmbulancedriver().getPhoneNumber();
+                        row[6] = patient.getPatientstatus();
+                    }
+                    if (patient.getPrivatedriver() != null && patient.getPrivatedriver().getId() != 0) {
+                        row[3] = patient.getPrivatedriver().getPrivateVehicleNumber();
+                        row[4] = patient.getPrivatedriver().getDriverLastName() + ", " + patient.getPrivatedriver().getDriverFirstName();
+                        row[5] = patient.getPrivatedriver().getPhoneNumber();
+                        row[6] = patient.getPatientstatus();
+                    }
+                    model.addRow(row);
+                }
+            }
+        }
+    }
 }

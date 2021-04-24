@@ -71,4 +71,13 @@ public class ValidationUtility {
         Pattern regex = Pattern.compile("^(\\d{3}[- .]?){2}\\d{4}$");
         return regex.matcher(text).matches();
     }
+
+    public static boolean isValueInteger(String text) {
+        try {
+            Integer.parseInt(text);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
 }

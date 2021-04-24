@@ -5,6 +5,11 @@
  */
 package Business.Hospital;
 
+import Business.Driver.AmbulanceDriver;
+import Business.Driver.PrivateDriver;
+import Business.Status;
+import Business.Voluntary.CampAdmin;
+
 /**
  *
  * @author Yash
@@ -20,11 +25,28 @@ public class Patient {
     private String zipcode;
     private String email;
     private String username;
+    private String password;
+    private String path;
+    private Status status;
+    private String patientstatus;
+    private String emergencycontact;
+    private int patientID;
+    private Hospital hospital;
+    private CampAdmin campadmin;
+    private AmbulanceDriver ambulancedriver;
+    private PatientCareStaff patientcarestaff;
+    private PrivateDriver privatedriver;
 
     
-
     
-    public Patient() {
+    
+    public Patient(Hospital hospital, CampAdmin campadmin, AmbulanceDriver ambulancedriver, PatientCareStaff patientcarestaff, PrivateDriver privatedriver) {
+        this.hospital = hospital;
+        this.campadmin = campadmin;
+        this.ambulancedriver = ambulancedriver;
+        this.patientcarestaff = patientcarestaff;
+        this.privatedriver = privatedriver;
+        this.patientstatus=status.New.getValue();
        
     }
     
@@ -91,6 +113,95 @@ public class Patient {
     public void setUsername(String username) {
         this.username = username;
     }
+    
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+    
+    public String getEmergencycontact() {
+        return emergencycontact;
+    }
+
+    public void setEmergencycontact(String emergencycontact) {
+        this.emergencycontact = emergencycontact;
+    }
+    
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+    
+    public CampAdmin getCampadmin() {
+        return campadmin;
+    }
+
+    public void setCampadmin(CampAdmin campadmin) {
+        this.campadmin = campadmin;
+    }
+
+    public AmbulanceDriver getAmbulancedriver() {
+        return ambulancedriver;
+    }
+
+    public void setAmbulancedriver(AmbulanceDriver ambulancedriver) {
+        this.ambulancedriver = ambulancedriver;
+    }
+
+    public PatientCareStaff getPatientcarestaff() {
+        return patientcarestaff;
+    }
+
+    public void setPatientcarestaff(PatientCareStaff patientcarestaff) {
+        this.patientcarestaff = patientcarestaff;
+    }
+    
+    public int getPatientID() {
+        return patientID;
+    }
+
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
+    }
+    
+    public String getPatientstatus() {
+        return patientstatus;
+    }
+
+    public void setPatientstatus(String patientstatus) {
+        this.patientstatus = patientstatus;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public PrivateDriver getPrivatedriver() {
+        return privatedriver;
+    }
+
+    public void setPrivatedriver(PrivateDriver privatedriver) {
+        this.privatedriver = privatedriver;
+    }
+
     
 }
     

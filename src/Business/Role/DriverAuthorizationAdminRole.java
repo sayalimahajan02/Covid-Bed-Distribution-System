@@ -5,6 +5,8 @@
  */
 package Business.Role;
 
+import Business.Authorization.DriverAuthorizationAdmin;
+import Business.Driver.AmbulanceDriver;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -20,7 +22,7 @@ public class DriverAuthorizationAdminRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new DriverAuthorizationAdminWorkAreaJPanel();
+        return new DriverAuthorizationAdminWorkAreaJPanel(userProcessContainer,account,organization,enterprise,business,(DriverAuthorizationAdmin)business.getDriverAuthorizationDirectory().getUserByUserName(account.getUsername()));
     }
     
 }

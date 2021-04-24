@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author raunak
  */
 public class OrganizationDirectory {
-    
+
     private ArrayList<Organization> organizationList;
 
     public OrganizationDirectory() {
@@ -22,15 +22,40 @@ public class OrganizationDirectory {
     public ArrayList<Organization> getOrganizationList() {
         return organizationList;
     }
-    
-    public Organization createOrganization(Type type){
+
+    public Organization createOrganization(Type type) {
         Organization organization = null;
-        if (type.getValue().equals(Type.Doctor.getValue())){
-            //organization = new DoctorOrganization();
+        if (type.getValue().equals(Type.HospitalAdmin.getValue())) {
+            organization = new HospitalAdminOrganization();
+            organization.setType(type);
             organizationList.add(organization);
-        }
-        else if (type.getValue().equals(Type.Lab.getValue())){
-            //organization = new LabOrganization();
+        } else if (type.getValue().equals(Type.PatientCareStaff.getValue())) {
+            organization = new PatientCareStaffOrganization();
+            organization.setType(type);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.NGOAdmin.getValue())) {
+            organization = new NGOOrganization();
+            organization.setType(type);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.CampAdmin.getValue())) {
+            organization = new CampAdminOrganization();
+            organization.setType(type);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.AmbulanceDriver.getValue())) {
+            organization = new AmbulanceDriverOrganization();
+            organization.setType(type);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.PrivateDriver.getValue())) {
+            organization = new PrivateDriverOrganization();
+            organization.setType(type);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.PatientAuthorization.getValue())) {
+            organization = new PatientAuthorizationOrganization();
+            organization.setType(type);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.DriverAuthorization.getValue())) {
+            organization = new DriverAuthorizationOrganization();
+            organization.setType(type);
             organizationList.add(organization);
         }
         return organization;

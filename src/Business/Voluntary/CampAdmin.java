@@ -5,8 +5,10 @@
  */
 package Business.Voluntary;
 
+import Business.Hospital.Hospital;
 import Business.Hospital.Patient;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 public class CampAdmin {
 
     private String name;
+    private String type;
     private String adminName;
     private String userName;
     private String street;
@@ -22,11 +25,17 @@ public class CampAdmin {
     private String zipCode;
     private String emailId;
     private String phoneNumber;
-    private int bedCount;
+    private int capacity;
+    private Hospital hospital;
+    private NGO ngo;
     private ArrayList<Patient> patientlist;
+    private String id;
+    private boolean isCampAvailable = true;
 
     public CampAdmin() {
         this.patientlist = new ArrayList<Patient>();
+        this.hospital =new Hospital();
+        this.ngo= new NGO();
     }
 
     public CampAdmin(String name, String adminName, String userName, String street, String city, String zipCode, String emailId, String phoneNumber, int bedCount) {
@@ -38,7 +47,7 @@ public class CampAdmin {
         this.zipCode = zipCode;
         this.emailId = emailId;
         this.phoneNumber = phoneNumber;
-        this.bedCount = bedCount;
+        this.capacity = bedCount;
         this.patientlist = new ArrayList<Patient>();
     }
 
@@ -51,7 +60,7 @@ public class CampAdmin {
     }
 
     public boolean isBedAvailable() {
-        if (bedCount <= patientlist.size()) {
+        if (capacity <= patientlist.size()) {
             return false;
         } else {
             return true;
@@ -59,7 +68,7 @@ public class CampAdmin {
     }
 
     public int getAvailableBedCount() {
-        return bedCount - patientlist.size();
+        return capacity - patientlist.size();
     }
 
     public String getName() {
@@ -126,12 +135,12 @@ public class CampAdmin {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getBedCount() {
-        return bedCount;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setBedCount(int bedCount) {
-        this.bedCount = bedCount;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public ArrayList<Patient> getPatientlist() {
@@ -142,4 +151,71 @@ public class CampAdmin {
         this.patientlist = patientlist;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public NGO getNgo() {
+        return ngo;
+    }
+
+    public void setNgo(NGO ngo) {
+        this.ngo = ngo;
+    }
+
+     public boolean isIsCampAvailable() {
+        return isCampAvailable;
+    }
+
+    public void setIsCampAvailable(boolean isCampAvailable) {
+        this.isCampAvailable = isCampAvailable;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 11 * hash + Objects.hashCode(this.name);
+        hash = 11 * hash + Objects.hashCode(this.userName);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CampAdmin other = (CampAdmin) obj;
+        return true;
+    }
+
+    
+    
+    
+    
 }

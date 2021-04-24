@@ -7,6 +7,7 @@ package Business.Enterprise;
 
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import java.util.Objects;
 
 /**
  *
@@ -53,4 +54,35 @@ public abstract class Enterprise extends Organization{
         this.enterpriseType=type;
         organizationDirectory=new OrganizationDirectory();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.enterpriseType);
+        hash = 53 * hash + Objects.hashCode(this.organizationDirectory);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Enterprise other = (Enterprise) obj;
+        if (this.enterpriseType != other.enterpriseType) {
+            return false;
+        }
+        if (!Objects.equals(this.organizationDirectory, other.organizationDirectory)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

@@ -7,6 +7,7 @@ package Business.Role;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Hospital.PatientCareStaff;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
@@ -20,7 +21,7 @@ public class PatientCareStaffRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new PatientCareStaffWorkAreaJPanel();
+        return new PatientCareStaffWorkAreaJPanel(userProcessContainer,account,organization,enterprise,business,(PatientCareStaff)business.getPatientCareStaffDirectory().getUserByUserName(account.getUsername()));
     }
     
 }

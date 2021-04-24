@@ -5,8 +5,10 @@
  */
 package Business.Hospital;
 
+import Business.Driver.AmbulanceDriver;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -17,20 +19,20 @@ public class Hospital {
     
     private String name;
     private String phonenumber;
-    private String address;
+    private String streetaddress;
+    private String city;
+    private String zipcode;
     private String email;
     private String username;
+    private String password;
     private int bedcount;
     private List<Patient> Patient;
+    private String hospitalID;
+    private int requestcount=0;
+
 
  
-    public Hospital(String name, String email, String phonenumber, String address, String username, int bedcount) {
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.username = username;
-        this.phonenumber = phonenumber;
-        this.bedcount = bedcount;
+    public Hospital(){
         this.Patient = new ArrayList<Patient>();
     }
 
@@ -52,6 +54,14 @@ public class Hospital {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     public String getPhonenumber() {
         return phonenumber;
     }
@@ -60,14 +70,31 @@ public class Hospital {
         this.phonenumber = phonenumber;
     }
 
-    public String getAddress() {
-        return address;
+
+     public String getStreetaddress() {
+        return streetaddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreetaddress(String streetaddress) {
+        this.streetaddress = streetaddress;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+    
     public String getEmail() {
         return email;
     }
@@ -92,6 +119,15 @@ public class Hospital {
         this.bedcount = bedcount;
     }
 
+    public List<Patient> getPatientlist() {
+        return Patient;
+    }
+
+    public void setPatientlist(List<Patient> Patient) {
+        this.Patient = Patient;
+    }
+
+
     public List<Patient> getPatient() {
         return Patient;
     }
@@ -99,5 +135,48 @@ public class Hospital {
     public void setPatient(List<Patient> Patient) {
         this.Patient = Patient;
     }
+
+    public int getRequestcount() {
+        return requestcount;
+    }
+
+    public void setRequestcount(int requestcount) {
+        this.requestcount = requestcount;
+    }
+
+    public String getHospitalID() {
+        return hospitalID;
+    }
+
+    public void setHospitalID(String hospitalID) {
+        this.hospitalID = hospitalID;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.name);
+        hash = 23 * hash + Objects.hashCode(this.username);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Hospital other = (Hospital) obj;
+        return true;
+    }
+
+  
+    
+    
     
 }

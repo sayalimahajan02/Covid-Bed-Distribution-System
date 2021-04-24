@@ -29,7 +29,7 @@ public class CampAdmin {
     private Hospital hospital;
     private NGO ngo;
     private ArrayList<Patient> patientlist;
-    private int id;
+    private String id;
     private boolean isCampAvailable = true;
 
     public CampAdmin() {
@@ -167,13 +167,13 @@ public class CampAdmin {
         this.hospital = hospital;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
-    }    
+    }
 
     public NGO getNgo() {
         return ngo;
@@ -193,10 +193,9 @@ public class CampAdmin {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.name);
-        hash = 37 * hash + Objects.hashCode(this.userName);
-        hash = 37 * hash + this.id;
+        int hash = 5;
+        hash = 11 * hash + Objects.hashCode(this.name);
+        hash = 11 * hash + Objects.hashCode(this.userName);
         return hash;
     }
 
@@ -212,17 +211,9 @@ public class CampAdmin {
             return false;
         }
         final CampAdmin other = (CampAdmin) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.userName, other.userName)) {
-            return false;
-        }
         return true;
     }
+
     
     
     

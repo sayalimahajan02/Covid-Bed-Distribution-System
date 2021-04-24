@@ -55,13 +55,13 @@ public class CampAdminDirectory {
         return null;
     }
 
-    public int generateID() {
-        return campadminList.size() + 1;
+    public String generateID() {
+        return "camp"+campadminList.size() + 1;
     }
 
-    public CampAdmin findCampByID(int id) {
+    public CampAdmin findCampByID(String id) {
         for (CampAdmin ca : campadminList) {
-            if (ca.getId() == id) {
+            if (ca.getId().equalsIgnoreCase(id)) {
                 return ca;
             }
         }

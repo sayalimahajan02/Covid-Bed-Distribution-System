@@ -16,6 +16,7 @@ import Business.Hospital.Patient;
 import Business.Organization.Organization;
 import Business.Status;
 import Business.UserAccount.UserAccount;
+import Business.Voluntary.CampAdmin;
 import java.awt.CardLayout;
 import java.awt.Image;
 import java.io.File;
@@ -304,18 +305,28 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if (loggedInPatient.getPatientstatus().equalsIgnoreCase(status.Approved.getValue())) {
+      if (loggedInPatient.getPatientstatus().equalsIgnoreCase(status.Approved.getValue())) {
             DefaultTableModel model = (DefaultTableModel) hospitaltable.getModel();
             int selectedRow = hospitaltable.getSelectedRow();
 
-            Integer ID = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
+            String ID = model.getValueAt(selectedRow, 0).toString();
             Hospital hospital = system.getHospitalDirectory().getHospitalByID(ID);
+            CampAdmin ca = system.getCampAdminDirectory().findCampByID(ID);
+            
             loggedInPatient.setPatientstatus(status.Allocation.getValue());
-            loggedInPatient.setHospital(hospital);
-            hospital.setRequestcount(hospital.getRequestcount()+1);
+            
+            if (hospital != null) {
+                loggedInPatient.setHospital(hospital);
+                hospital.setRequestcount(hospital.getRequestcount()+1);
+            }
+            
+            if (ca != null) {
+                loggedInPatient.setCampadmin(ca);
+            }
+            
             JOptionPane.showMessageDialog(null, "Your allocation request has sent successfully.", "Warning", JOptionPane.WARNING_MESSAGE); 
             lblpatientstatus.setText(this.loggedInPatient.getPatientstatus());
-        } else if (patient.getPatientstatus().equalsIgnoreCase(status.New.getValue()) || patient.getPatientstatus().equalsIgnoreCase(status.Pending.getValue())) {
+        }else if (patient.getPatientstatus().equalsIgnoreCase(status.New.getValue()) || patient.getPatientstatus().equalsIgnoreCase(status.Pending.getValue())) {
             JOptionPane.showMessageDialog(null, "You dont have approved request from patient authorization", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         } else {

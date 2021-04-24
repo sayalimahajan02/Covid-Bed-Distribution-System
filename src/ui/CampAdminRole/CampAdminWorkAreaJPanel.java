@@ -45,6 +45,8 @@ public class CampAdminWorkAreaJPanel extends javax.swing.JPanel {
         populatePatientData();
         populateDrivers();
         populatePatientCareStaff();
+        bedsAvailableText.setEnabled(false);
+        patientReqTxt.setEnabled(false);
         bedsAvailableText.setText("" + ca.getAvailableBedCount());
         patientReqTxt.setText("" + system.getPatientDirectory().getPatientsRequestsByCamp(ca));
     }

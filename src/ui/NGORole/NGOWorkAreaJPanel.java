@@ -209,7 +209,7 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) campListTable.getModel();
         int selectedRowInd = campListTable.getSelectedRow();
-        Integer campId = Integer.parseInt(model.getValueAt(selectedRowInd, 0).toString());
+        String campId = model.getValueAt(selectedRowInd, 0).toString();
         CampAdmin ca = system.getCampAdminDirectory().findCampByID(campId);
         if (!ca.isIsCampAvailable()) {
             JOptionPane.showMessageDialog(null, "Camp is already Assigned!");

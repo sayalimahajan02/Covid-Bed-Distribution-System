@@ -29,8 +29,8 @@ public class HospitalDirectory {
         this.HospitalDirectory = HospitalDirectory;
     }
 
-    public int generateID() {
-        return HospitalDirectory.size() + 1;
+    public String generateID() {
+        return "hospital"+HospitalDirectory.size() + 1;
     }
 
     public Hospital addHospital(Hospital hospital) {
@@ -62,9 +62,9 @@ public class HospitalDirectory {
         return null;
     }
 
-    public Hospital getHospitalByID(int hospitalID) {
+ public Hospital getHospitalByID(String hospitalID) {
         for (Hospital hospital : HospitalDirectory) {
-            if (hospital.getHospitalID() == hospitalID) {
+            if (hospital.getHospitalID().equals(hospitalID)) {
                 return hospital;
             }
         }
